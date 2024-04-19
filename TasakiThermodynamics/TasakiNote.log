@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 APR 2024 21:52
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 APR 2024 22:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -575,7 +575,7 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 ] [2]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 96.
- [3] [4] [5] [6] [7] [8] [9] (./TasakiNote.aux) ) 
+ [3] [4] [5] [6] [7] [8] [9] [10] (./TasakiNote.aux) ) 
 Here is how much of TeX's memory you used:
  15714 strings out of 476677
  317107 string characters out of 5808165
@@ -585,4 +585,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,20n,89p,474b,358s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TasakiNote.dvi (9 pages, 42984 bytes).
+Output written on TasakiNote.dvi (10 pages, 44812 bytes).
