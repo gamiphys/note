@@ -686,4 +686,5 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 OUTPUT TasakiNote.dvi
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT TasakiNote.aux
