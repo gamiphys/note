@@ -1,0 +1,233 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+%表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+\begin{document}
+
+\title{清水量子論ゼミ三章\footnote{文字をきれいに書くのが苦手なので\LaTeX を用いることにしたが、タイピングも普通に面倒なのでかなり省略しながら書いていく}}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{閉じた有限自由度系の純粋状態の量子論}
+
+
+\subsection{基本的な考え方}
+量子論を組み立てるうえで、$\{P(a)\}$を具体的に求めることを目標として構成していく。というのも、量子力学において予言できるのは$\{P(a)\}$のみだからだ。\\
+演算子形式の量子論では、「複素ヒルベルト空間」と呼ばれる空間を考え、「状態」や「物理量」を、複素ヒルベルト空間の元や、演算子(ベクトルをほかのベクトルに移す写像\footnote{一般には、関数を他の関数に変換する作用素を演算子という})に対応させる。\\
+そのようにすれば、確率分布$\{P(a)\}$を計算するように定式化できる。
+
+\subsection{複素ヒルベルト空間}
+まず、複素ベクトル空間の公理を確認する。\\
+\textbf{複素ベクトル空間の公理:}
+
+\begin{enumerate}
+    \item \textbf{加法:}
+    \begin{itemize}
+        \item 任意の \( u, v \) について、\( u + v \) も複素ベクトルである。
+        \item \( u + v = v + u \) (可換法則)
+        \item \( (u + v) + w = u + (v + w) \) (結合法則)
+        \item \( u + 0 = u \) (零ベクトルの存在)
+        \item 任意の \( u \) に対して、\( u + (-u) = 0 \) (逆ベクトルの存在)
+    \end{itemize}
+    
+    \item \textbf{スカラー倍:}
+    \begin{itemize}
+        \item 任意の \( \alpha \) と \( u \) について、\( \alpha u \) も複素ベクトルである。
+        \item \( 1u = u \) (単位スカラーの存在)
+        \item \( \alpha(\beta u) = (\alpha \beta) u \) (スカラーの結合法則)
+        \item \( (\alpha + \beta)u = \alpha u + \beta u \) (分配法則)
+        \item \( \alpha(u + v) = \alpha u + \alpha v \) (分配法則)
+    \end{itemize}
+\end{enumerate}
+であった。この複素ベクトル空間に内積を備えた、内積空間を考える。
+\begin{itembox}[l]{複素ヒルベルト空間}
+\textbf{$\vb C$}上の完備な内積空間$\mathcal{H}$を、複素ヒルベルト空間という。\footnote
+{
+内積空間$\mathcal{H}$が完備であるとは、$\mathcal{H}$内のどんなベクトル列$\ket{\psi_1},\ket{\psi_2}\cdots$についても、もしそれが
+\begin{align}
+\lim_{n,m \to \infty} \|\ket{\psi_n}-\ket{\psi_m}\|=0
+\end{align}
+を満たすベクトル列であれば、必ずその収束先
+\begin{align}
+\lim_{n\to \infty} \ket*{\psi_n}=\ket*{\psi}
+\end{align}
+が$\mathcal H$内に存在することである。
+}
+\end{itembox}
+
+\noindent{\textbf{僕が勝手にしていた勘違いとその訂正}}\\
+なぜかヒルベルト空間自体に無限次元が要請されていると思っていたが、そうではない。\\
+
+\noindent{\textbf{複素ヒルベルト空間の元に関する注意}}\\
+一般に、複素ヒルベルト空間は、縦ベクトルの集合に限るわけではなく、同じ内積を与える範囲なら、任意のヒルベルト空間を用いてよい。\\
+\textbf{ex)}
+適当な$\ket{A}$と$\ket{B}$を定めて、
+\begin{align}
+\braket{A}{B}=\delta_{AB}
+\end{align}
+としても(行列で定義しなくても)、行列で行うのと同じような演算:
+\begin{align}
+\braket{\psi_1}{\psi_2}&=\braket{aA+bB}{aA+bB}\\
+&=a^{*}a\braket{A}{A}+a^{*}b\braket{A}{B}+ab^{*}\braket{B}{A}+ab^{*}\braket{B}{B}
+=a^{*}a+b^{*}b
+\end{align}
+ができる。
+\bigskip
+
+\subsection{量子状態}
+\textbf{射線}\\
+$\ket{\psi}$と同じ長さを持ち、平行なケットの集合は
+\begin{align}
+\{e^{i\theta}\ket{\psi}|\theta \in\vb{R}\}
+\end{align}
+となり、射線と呼ぶ。このとき、
+\begin{itembox}[l]{\textbf {要請1:状態ケット}}
+量子系の純粋状態は、ある複素ヒルベルト空間$\mathcal H$の、規格化された射線で表される。
+\end{itembox}
+ここで、一般には異なる量子系は異なるヒルベルト空間で表す必要があるが、たまたま同じ複素ヒルベルト空間を使える場合もある。\\
+大事なことは、状態ケットの前にかかる位相因子$e^{i\theta}$は物理状態に影響しないということである。
+
+\subsection{物理量}
+ベクトルを別のベクトルに移す写像を考える。
+その写像を$\hat{A}$と書き、$\ket{\psi}$が$\hat{A}$で移った先を$\hat{A}\ket{\psi}$とする。
+このとき、$\hat{A}$を、演算子という。
+
+\begin{itembox}[l]{\textbf {要請2:物理量}}
+可観測量は、$\mathcal H$上の自己共役演算子によって表される。\footnote{ただし、任意の自己共役演算子が物理量になるわけではない。}
+\end{itembox}
+自己共役演算子をとってくるモチベーションとしては、測定値(固有値)が実数になってほしいということが挙げられる。\\
+
+\begin{itembox}[l]{\textbf {Thm:不確定性関係}}
+  一般に、演算子$\hat{A},\hat{B}$について、
+    \begin{align}
+       \ev{(\Delta \hat{A})^2}\ev{(\Delta \hat{B})^2}\geq \frac{1}{4}(\ev{[\hat{A},\hat{B}]})^2
+    \end{align}
+   が成立する。ただし、$\Delta \hat{A} = {\hat{A} - \ev{\hat{A}}}$
+    \end{itembox}
+\textbf{Prf.}\\
+シュワルツの定理などを用いる。\\
+
+\begin{itembox}[l]{\textbf {def:交換する物理量の完全集合}}
+    $(\hat{A},\hat{B},\dots,\hat{Z})$がすべて互いに可換であるとし、それぞれの演算子がほかの演算子の関数になってないとする。\\
+     このとき、この組を交換する物理量の完全集合という。
+      \end{itembox}
+以上を用いて、系の自由度を定める。
+\begin{itembox}[l]{\textbf {def:系の自由度}}
+  系の自由度を\\
+  $(系の自由度)=(交換する物理量の完全集合の変数の数)$\\
+  と定義する。
+    \end{itembox}      
+\textbf{例:三次元自由粒子}\\
+このとき、交換する物理量の完全集合の取り方は、
+\begin{align}
+    (\hat{x},\hat{y},\hat{z}),(\hat{p_x},\hat{p_y},\hat{p_z})
+\end{align}
+などととることができ系の自由度は3となる。
+\subsection{確率分布}
+\begin{itembox}[l]{\textbf {要請3:ボルンの確率規則}}
+    状態$\ket*{\psi}$について、物理量$\hat{A}$の測定を行ったとき、測定値が区間$(a-\Delta,a+\Delta]$に属する確率は
+    \begin{align}
+        P(a-\Delta,a+\Delta] = \norm*{\hat{\mathcal{P}}(a-\Delta,a+\Delta]\ket*{\psi}}^2
+    \end{align}
+    により与えられる。ただし、$\hat{\mathcal{P}}(a-\Delta,a+\Delta]=\sum_{a-\Delta<a'<a+\Delta}\hat{\mathcal{P}}(a')$
+    \end{itembox}
+\textbf{離散値の場合}\\
+$\ket*{\psi}=\sum_{a'} c_{a'} \ket*{a'}$のとき、
+\begin{align}
+    P(a)&=\norm*{\hat{\mathcal{P}}(a) (\sum_{a'} c_{a'} \ket*{a'})}^2\\
+    &=\norm*{c_{a}\ket*{a}}^2\\
+    &=|c_a|^2
+\end{align}\\
+\textbf{連続値の場合}\\
+hogehoge\\
+
+以下二つは、時間発展に関する要請であるが、前者は閉じた系の時間発展についてであり、後者は観測に伴う時間発展である。
+\subsection{時間発展(孤立系)}
+\begin{itembox}[l]{\textbf {要請4:シュレディンガー方程式}}
+閉じた系の時間は、
+\begin{align}
+    i\hbar \pdv{t}\ket*{\psi} = \hat{H} \ket*{\psi}
+\end{align}
+に従う。この微分方程式をシュレディンガー方程式という。
+    \end{itembox}
+シュレディンガー方程式が線形なことから、この時間発展は連続的なユニタリ発展であるといえる。\footnote[1]{ノルムが変わらない変換だということ。}\\
+\textbf{例}\\
+始めの状態が
+\begin{align}
+    \ket*{\psi} = \sum_{a'} c_{a'}\ket*{a'}
+\end{align}
+のとき、
+シュレディンガー方程式の解は
+\begin{align}
+    \ket*{\psi(t)}=\sum_a c_a exp(-\frac{iE_a t}{\hbar})\ket*{a}
+\end{align}
+となる。特に、初めの状態がある固有状態となっているとき、時間発展してもその固有状態にとどまり続ける：\\
+\begin{align}
+    \ket*{\psi(t)}=exp(-\frac{iE_a t}{\hbar})\ket*{a}
+\end{align}
+\subsection{時間発展(非ユニタリ)}
+\begin{itembox}[l]{\textbf {要請5:射影仮説}}
+観測直前の状態ケットを$\ket*{\psi}$,観測直後の状態ケットを$\ket*{\psi_{\mathrm{after}}}$とし、測定値aを得たとすると
+\begin{align}
+\ket*{\psi_{\mathrm{after}}}=\frac{1}{\norm*{\hat{\mathcal{P}}(a)\ket*{\psi}}}\hat{\mathcal{P}}(a)\ket*{\psi}
+\end{align}
+となる測定を、理想測定という。
+    \end{itembox}
+このとき、一般測定前に重ね合わせだった状態が、一つの固有状態へと変化するが、この時間発展はユニタリ的でない。
+このような過程を波動関数の収縮という。\\
+
+\textbf{例}\\
+始めの固有状態が
+\begin{align}
+    \ket*{\psi} = \sum_{a'} c_{a'}\ket*{a'}
+\end{align}
+のとき、
+\begin{align}
+    \ket*{\psi_{\mathrm{after}}}
+    &=\frac{1}{\norm*{\hat{\mathcal{P}}(a)\ket*{\psi}}}\hat{\mathcal{P}}(a)\ket*{\psi}\\
+    &=\frac{1}{\norm*{{c_a \ket*{a}}}}c_a \ket*{a}\\
+    &=\frac{c_a}{\norm*{c_a}}\ket*{a}
+\end{align}
+となり、重ね合わせの状態から、一つの固有状態に変化することになる。\\
+しかし、特にもともとある固有状態になっているとき、状態ケットは変化しない。\\
+
+\subsection{時間発展}
+以上を踏まえると、物理系の時間発展は、
+状態の重ね合わさり方が連続的に変化するユニタリ発展と、不連続に波動関数の収縮が起こる非ユニタリ発展に分けることができる。
+
+\subsection{要請まとめ}
+これまでの要請から、二章で説明された量子論の枠組みを説明することができる。
+\begin{itembox}[l]{\textbf{量子論の基本的枠組み(再掲)}}
+    \begin{enumerate}
+      \item すべての物理量が各瞬間に定まった値を持つことが一般にはない。すなわち、各々の物理量は、ひとつの数値をとるような変数ではない。
+      \item 物理量Aの測定とは、観測者が測定値を一つ得る行為である。得られた測定値aの値は、同じ物理的状態について測定しても、一般には測定の度にばらつく。しかし、確率分布$\{P(a)\}$一意に定まる。
+       \item 物理的状態とは、各Aに対してそれを測定したときの確率分布$\{P(a)\}$を与えるものであり、物理量ではない別のもの$\psi$で表す。すなわち$\psi$は
+  \begin{align}
+  \psi : A \mapsto \{P(a)\}
+  \end{align}
+  なる写像である。\\
+  また、物理的状態の違いとは、この写像の違いである。
+  \item 系が時間発展するとは、測定を行った時刻によって、異なる$\{P(a)\}$が得られるということである。(このとき、この時間発展の変化を、$\psi$によるものとしても、$A$によるものとしても、その両方としても良い。)
+    \end{enumerate}  
+\end{itembox}
+要請1,2から、枠組みの中に出てくる状態および物理量をどのように表現するかを得た。
+また、枠組み3で得ようとしている確率分布は要請3から求めることができる。
+さらに枠組み4の時間発展は要請4,5により説明される。
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+%表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+\begin{document}
+
+\title{一次元束縛状態の性質}
+\author{大上由人}
+\date{\today}
+\maketitle
+\section{一次元束縛状態には縮退が存在しない}
+一次元束縛状態には縮退が存在しないことを示す。\\
+同じ固有値に属する、線形独立な二つの固有関数$\psi_1(x)$と$\psi_2(x)$が存在するとする。\\
+このとき、ロンスキー行列式は
+\begin{align}
+    W(x) = \begin{vmatrix}
+        \psi_1(x) & \psi_2(x) \\
+        \psi_1'(x) & \psi_2'(x)
+    \end{vmatrix}
+\end{align}
+である。\\
+このとき、この一回微分を計算すると、
+\begin{align}
+    W'(x) &= \psi_1(x)\psi_2''(x) - \psi_1''(x)\psi_2(x) \\
+    &= \psi_1(x)\frac{2m}{\hbar^2}(V(x) - E)\psi_2(x) - \frac{2m}{\hbar^2}(V(x) - E)\psi_1(x)\psi_2(x) \\
+    &= 0
+\end{align}
+となる。ただし、ここで固有関数が縮退していることを用いていることに注意せよ。\\
+したがって、$W(x)$は一定である。\\
+また、$W(x)$は束縛条件を満たすため、$W(x) = 0$である。\\
+ゆえに、
+\begin{align}
+    \psi_1(x)\psi_2'(x) = \psi_1'(x)\psi_2(x)
+\end{align}
+となる。\\
+この両辺を積分すると、
+\begin{align}
+    \int \frac{\psi_1'(x)}{\psi_1(x)}dx = \int \frac{\psi_2'(x)}{\psi_2(x)}dx
+\end{align}
+となる。\\
+したがって、
+\begin{align}
+    \log|\psi_1(x)| = \log|\psi_2(x)| + C
+\end{align}
+となる。\\
+したがって、
+\begin{align}
+    \psi_1(x) = \pm e^C\psi_2(x)
+\end{align}
+となり、$\psi_1(x)$と$\psi_2(x)$は比例関係にあることがわかる。\\
+したがって、$\psi_1(x)$と$\psi_2(x)$は線形独立であることに矛盾する。\\
+したがって、一次元束縛状態には縮退が存在しないことが示された。
+
+\end{document}
