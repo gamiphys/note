@@ -51,7 +51,7 @@
 \begin{itembox}[l]{\textbf{結果2.3:平衡状態の記述}}
     熱力学的な系の平衡状態は、環境の温度と示量変数の組$(T,X)$だけで完全に指定できる。
 \end{itembox}
-すなわち、環境を$T$で、熱力学系を$X$で表すことで、平衡状態を区別しているのである。
+すなわち、環境を$T$で、熱力学系を$X$で表すことで、平衡状態を区別しているのである。\\
 
 また、以下、熱力学系の状態は、系の形状や、重力による効果を無視して考える。\\
 
@@ -88,6 +88,7 @@
 上の例を見てみると、等温準静操作においては、示量変数の組の動きを完全に逆向きにたどることで、逆向きの等温準静操作を行うことができることがわかる。このとき、系の示量変数の組の動きは、ちょうど時間反転対称性を持つ。\\
 しかし、準静的でない場合については、このような時間反転対称性は成り立たない。というのも、系の示量変数がそもそも定まるかもよくわからないし\footnote{ここ自信ない}、定義できたとしても、非平衡状態なのだから、逆向きの操作を行っても、元の状態に戻るとは限らない。
 
+
 \subsection{kelvinの原理}
 \begin{itembox}[l]{\textbf{kelvinの原理}}
     任意の温度における任意の等温サイクルについて、系は外部に正の仕事を行うことなく、そのサイクルを完了することはできない。すなわち、
@@ -96,7 +97,6 @@
     \end{equation}
     が成り立つ。
 \end{itembox}
-所謂、第二永久機関は存在しないということである。\\
 
 \begin{itembox}[l]{\textbf{prop:等温準静サイクルの仕事}}
     等温準静サイクルにおいて、系が外部に行う仕事は、
@@ -151,16 +151,16 @@ kelvinの原理より、
 \begin{equation}
     W' \leq W
 \end{equation}
-が成り立つ。今、準静的とは限らない等温操作の選び方は任意であったから、最大仕事$W_{\text{max}(T;X_1\rightarrow X_2)}$は、等温準静操作において系が外界にする仕事に等しい。\\
+が成り立つ。今、準静的とは限らない等温操作の選び方は任意であったから、最大仕事$W_{\text{max}}(T;X_1\rightarrow X_2)$は、等温準静操作において系が外界にする仕事に等しい。\\
 
 最大仕事の原理により、準静的操作において系が外界にする仕事を測定することで、最大仕事を求めることができる。\\
 
 \begin{itembox}[l]{\textbf{prop:最大仕事の性質}}
     最大仕事の性質は以下の通りである。
     \begin{enumerate}
-        \item 等温準静操作を逆向きに行うときに系が外界にする仕事は$W_{\text{max}(T;X_2\rightarrow X_1)}=-W_{\text{max}(T;X_1\rightarrow X_2)}$である。
-        \item 最大仕事に結合率が成り立つ。すなわち、$W_{\text{max}(T;X_1\rightarrow X_2)}+W_{\text{max}(T;X_2\rightarrow X_3)} \geq W_{\text{max}(T;X_1\rightarrow X_3)}$である。
-        \item 最大仕事には相加性がある。すなわち、$W_{\text{max}(T;X_1\rightarrow X_2)}+W_{\text{max}(T;Y_1\rightarrow Y_2)} = W_{\text{max}(T;\{X_1,Y_1\}\rightarrow \{X_2,Y_2\})}$である。
+        \item 等温準静操作を逆向きに行うときに系が外界にする仕事は$W_{\text{max}}(T;X_2\rightarrow X_1)=-W_{\text{max}}(T;X_1\rightarrow X_2)$である。
+        \item 最大仕事に結合率が成り立つ。すなわち、$W_{\text{max}}(T;X_1\rightarrow X_2)+W_{\text{max}}(T;X_2\rightarrow X_3) \geq W_{\text{max}}(T;X_1\rightarrow X_3)$である。
+        \item 最大仕事には相加性がある。すなわち、$W_{\text{max}}(T;X_1\rightarrow X_2)+W_{\text{max}}(T;Y_1\rightarrow Y_2) = W_{\text{max}}(T;\{X_1,Y_1\}\rightarrow \{X_2,Y_2\})$である。
         \item 最大仕事には示量性が成り立つ。
     \end{enumerate}
 \end{itembox}
@@ -168,6 +168,31 @@ kelvinの原理より、
 あとで書く。\\
 
 \subsection{Helmholtz自由エネルギー}
+\begin{itembox}[l]{\textbf{def:基準点}}
+    各々の$T$に対して、示量変数の組の適当な値$X_0$を固定し、温度$T$での基準点と呼ぶ。このとき、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X_0$となる。
+\end{itembox}
+例えば、系を$\lambda$倍して$N$を$\lambda N$にすると、基準点は、$X_0(T) =(v(TN),N)$から$\lambda X_0(T) = (\lambda v(TN),\lambda N)$になる。\\
 
+\begin{itembox}[l]{\textbf{def:Helmholtz自由エネルギー}}
+    任意の温度$T$と、$X_0(T)$から、何らかの操作で到達できる任意の$X$に対して、ヘルムホルツ自由エネルギーを、
+    \begin{equation}
+        F(T,X) = W_{\text{max}}(T;X_0\rightarrow X)
+    \end{equation}
+    と定義する。
+
+\end{itembox}
+ここで、最大仕事は、状態の始点と終点および温度を定めることで一意に決まるため、ヘルムホルツ自由エネルギーは、温度と示量変数の組$(T,X)$だけで決まる。(すなわち、ヘルムホルツ自由エネルギーは状態量である。)\\
+
+最大仕事の性質より、ヘルムホルツ自由エネルギーには以下の性質がある。\\
+\begin{itembox}[l]{\textbf{prop:Helmholtz自由エネルギーの性質}}
+    ヘルムホルツ自由エネルギーの性質は以下の通りである。
+    \begin{enumerate}
+        \item ヘルムホルツ自由エネルギーは、相加性および示量性を持つ。
+        \item $F(T,X_1)-F(T,X_2)=W_{\text{max}}(T;X_1\rightarrow X_2)$である。
+    \end{enumerate}
+\end{itembox}
+とくに、二つ目の性質から、熱力学的な系が等温操作により別の状態に移る時、系が外界に為す仕事の最大値は、二つの状態のヘルムホルツ自由エネルギーの差に等しいことがわかる。\\
+
+\subsection{Helmholtz自由エネルギーと圧力}
 
 \end{document}
