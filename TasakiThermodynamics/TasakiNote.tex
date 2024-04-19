@@ -209,9 +209,49 @@ kelvinの原理より、
 \end{equation}
 となる。\\
 こうしてみると、力学における「ポテンシャルエネルギーによる外への仕事」と、熱力学における自由エネルギー変化は、非常によく似ていることがわかる。\footnote{熱力学特有の「温度」を固定した状況を考えているから力学っぽいのかなーなどと思いながら書いている。}\\
+また、ヘルムホルツ自由エネルギーが、「自由に使えるエネルギー」と呼ばれる理由も、まさに外に(自由に)取り出すことのできるエネルギーが、ヘルムホルツ自由エネルギー(の差)であることに由来する。\\
 
 \subsection{Helmholtz自由エネルギーと圧力}
-体積をわずかに変化させる等温操作に注目して、圧力を導入する。
+体積をわずかに変化させる等温操作に注目して、圧力を導入する。\\
+平衡状態$(T,V,N)$に対して、等温準静操作を施し、体積を$\Delta V$だけ変化させる。すなわち、
+\begin{equation}
+    (T,V,N) \xrightarrow{iq} (T,V+\Delta V,N)
+\end{equation}
+を考える。
+この操作の間に系が外界に行う仕事は、最大仕事の原理により、
+\begin{equation}
+    W_{\text{max}}(T;V\rightarrow V+\Delta V) = F(T,V)-F(T,V+\Delta V)
+\end{equation}
+である。\\
+また、この仕事は、力学的な仕事としても書くことができ、
+\begin{equation}
+    W_{\text{max}}(T;V\rightarrow V+\Delta V) = P\delta V
+\end{equation}
+と書くことができる。ここで、$P$は系の圧力である。\\
+したがって、
+\begin{equation}
+    P = -\pdv{F}{V}
+\end{equation}
+となる。ただし、ここで、$P(T,V,N)$が、任意の状態において正の値をとり、$T,V,N$に関して連続的であることを仮定している。\\
+ここで、圧力が示強性を持つことを示す。\\
+今、ヘルムホルツ自由エネルギーと圧力との関係をもう一度書くと、
+\begin{equation}
+    P(T,V,N) = -\pdv{F}{V}
+\end{equation}
+であった。ここで、系のスケールを$\lambda$倍すると、
+\begin{align}
+    P(T,\lambda V,\lambda N) &= -\pdv{F(T,\lambda V,\lambda N)}{\lambda V}\\
+    &= -\frac{\lambda \partial F(T,V,N)}{\lambda \partial V}\\
+    &= -\pdv{F(T,V,N)}{V}\\
+    &= P(T,V,N)
+\end{align}
+となる。したがって、圧力は示強性を持つ。\\
+
+また、$N$と$T$が適当な値で固定されているとき、圧力とヘルムホルツ自由エネルギーの関係を積分することで、ヘルムホルツ自由エネルギーが求まる。すなわち、
+\begin{equation}
+    F(T,V,N) = -\int_{v(T)N}^{V}P(T,V',N)dV'
+\end{equation}
+である。\\
 
 
 \end{document}
