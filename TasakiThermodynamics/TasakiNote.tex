@@ -120,7 +120,54 @@ kelvinの原理より、
 \end{equation}
 が成り立つ。\\
 
+\subsection{最大仕事}
+\begin{itembox}[l]{\textbf{def:最大仕事}}
+    示量変数の組$X$で記述される系において、等温操作
+    \begin{equation}
+        (T,X_1) \xrightarrow{i} (T,X_2)
+    \end{equation}
+    を考える。操作の間に系が外界にする仕事の最大値を$W_{\text{max}(T;X_1\rightarrow X_2)}$と書き、最大仕事という。
+\end{itembox}
 
+\begin{itembox}[l]{\textbf{prop:最大仕事の原理}}
+    最大仕事$W_{\text{max}(T;X_1\rightarrow X_2)}$は、等温準静操作において系が外界にする仕事に等しい。
+\end{itembox}
+\textbf{Prf}\\
+ある等温準静操作を、$(T,X_1) \xrightarrow{iq} (T,X_2)$とする。このとき、系が外界にする仕事を$W$とする。以下、この$W$が$W_{\text{max}(T;X_1\rightarrow X_2)}$に等しいことを示す。\\
+準静的とは限らない任意の等温操作$(T,X_1) \xrightarrow{i} (T,X_2)$を考える。このとき、系が外界にする仕事を$W'$とする。このとき、
+\begin{equation}
+    (T,X_1) \xrightarrow{i} (T,X_2) \xrightarrow{iq} (T,X_1)
+\end{equation}
+という操作を考えると、系が外界にする仕事は、
+\begin{equation}
+    W_{\text{cyc}} = W'-W
+\end{equation}
+である。\\
+ここで、kelvinの原理より、
+\begin{equation}
+    W_{\text{cyc}} \leq 0
+\end{equation}
+であるから、
+\begin{equation}
+    W' \leq W
+\end{equation}
+が成り立つ。今、準静的とは限らない等温操作の選び方は任意であったから、最大仕事$W_{\text{max}(T;X_1\rightarrow X_2)}$は、等温準静操作において系が外界にする仕事に等しい。\\
+
+最大仕事の原理により、準静的操作において系が外界にする仕事を測定することで、最大仕事を求めることができる。\\
+
+\begin{itembox}[l]{\textbf{prop:最大仕事の性質}}
+    最大仕事の性質は以下の通りである。
+    \begin{enumerate}
+        \item 等温準静操作を逆向きに行うときに系が外界にする仕事は$W_{\text{max}(T;X_2\rightarrow X_1)}=-W_{\text{max}(T;X_1\rightarrow X_2)}$である。
+        \item 最大仕事に結合率が成り立つ。すなわち、$W_{\text{max}(T;X_1\rightarrow X_2)}+W_{\text{max}(T;X_2\rightarrow X_3)} \geq W_{\text{max}(T;X_1\rightarrow X_3)}$である。
+        \item 最大仕事には相加性がある。すなわち、$W_{\text{max}(T;X_1\rightarrow X_2)}+W_{\text{max}(T;Y_1\rightarrow Y_2)} = W_{\text{max}(T;\{X_1,Y_1\}\rightarrow \{X_2,Y_2\})}$である。
+        \item 最大仕事には示量性が成り立つ。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+あとで書く。\\
+
+\subsection{Helmholtz自由エネルギー}
 
 
 \end{document}
