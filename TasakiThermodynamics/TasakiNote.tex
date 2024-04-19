@@ -283,7 +283,35 @@ kelvinの原理より、
     が存在する。
 \end{itembox}
 この要請は非常に現実的な要請である。例えば、手のひらをこすり合わせると、摩擦によって温度が上がるといった経験事実が存在する。\\
-
+この要請と、断熱準静操作の性質から、以下のことがわかる。\\
+\begin{itembox}[l]{\textbf{結果4.2:断熱操作の存在}}
+    示量変数の組$X$から$X'$へ何らかの操作で移ることが可能であるとすると、$T,T'$を任意の温度としたとき、二つの断熱操作
+    \begin{align}
+        (T,X) \xrightarrow{a} (T',X')\\
+        (T',X') \xrightarrow{a} (T,X)
+    \end{align}
+    の少なくとも一つが存在する。
+\end{itembox}
+\textbf{Prf}\\
+まず、$(T,X)$に断熱準静操作を行い、
+\begin{equation}
+    (T,X) \xrightarrow{aq} (T'',X')
+\end{equation}
+とする。ここで、$T'\geq T''$とすると、要請4.1より、
+\begin{equation}
+    (T'',X') \xrightarrow{a} (T',X')
+\end{equation}
+という操作が存在する。したがって、
+\begin{equation}
+    (T,X) \xrightarrow{aq} (T'',X') \xrightarrow{a} (T',X')
+\end{equation}
+という操作が存在する。\\
+また、$T''\geq T'$のときは、$(T',X') $からスタートすることで、
+\begin{equation}
+    (T',X') \xrightarrow{a} (T'',X') \xrightarrow{aq} (T,X)
+\end{equation}
+という操作が存在する。\\
+以上より、結果4.2が示された。\\
 
 
 \end{document}
