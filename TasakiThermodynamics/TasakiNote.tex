@@ -323,6 +323,38 @@ Kelvinの原理より、
     熱力学的な系が平衡状態$(T,X)$にある。この系を断熱壁で囲み、示量変数の組を$X$から$X'$に変化させる。操作の後、断熱壁で囲ったまま十分長い時間放置すると、系はある平衡状態$(T',X')$に達する。この操作において系が外界に行う仕事を断熱仕事という。\\
     この断熱仕事を、$W_{\text{ad}}((T,X)\rightarrow (T',X'))$と書く。
 \end{itembox}
+断熱仕事は、最大仕事と同様の性質を示す。\\
+\begin{itembox}[l]{\textbf{prop:断熱仕事の性質}}
+    断熱仕事の性質は以下の通りである。
+    \begin{enumerate}
+        \item 断熱操作を逆向きに行うときに系が外界に行う仕事は、$W_{\text{ad}}((T',X')\rightarrow (T,X)) = -W_{\text{ad}}((T,X)\rightarrow (T',X'))$である。
+        \item 断熱仕事に結合率が成り立つ。すなわち、$W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T'',X'')) \geq W_{\text{ad}}((T,X)\rightarrow (T'',X''))$である。
+        \item 断熱仕事には相加性がある。すなわち、$W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T'',X'')) = W_{\text{ad}}((T,X)\rightarrow (T'',X''))$である。
+        \item 断熱仕事には示量性が成り立つ。
+    \end{enumerate} 
+\end{itembox}
+\textbf{Prf}\\
+あとで書く。\\
+
+\subsection{断熱仕事と内部エネルギー}
+最大仕事から、ヘルムホルツ自由エネルギーを導入することができたように、断熱仕事から内部エネルギーを導入することができる。\footnote{ただし、最大仕事のときは、準静操作を用いて定義していたのに対し、今回は準静的とは限らない断熱操作を用いて定義するので、結果4.2の場合分けが必要になってしまう。}\\
+\begin{itembox}[l]{\textbf{def:基準点}}
+    基準の温度$T^*$と示量変数の組$X^*$を適当うに定め、基準点と呼ぶ。このとき、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X^*$となる。
+\end{itembox}
+結果4.2より、任意の温度$T$に対して、$(T,X)\xrightarrow{a} (T^*,X^*)$か$(T^*,X^*)\xrightarrow{a} (T,X)$のどちらかの断熱操作が存在する。このことを用いて内部エネルギーを定める。\\
+\begin{itembox}[l]{\textbf{def:内部エネルギー}}
+上で述べた操作のうち、一つ目の操作が可能なとき、
+\begin{equation}
+    U(T,X) = W_{\text{ad}}((T,X)\rightarrow (T^*,X^*))
+\end{equation}
+と定義する。もし、二つ目の操作が可能なときは、
+\begin{equation}
+    U(T,X) = -W_{\text{ad}}((T^*,X^*)\rightarrow (T,X))
+\end{equation}
+と定義する。\\
+また、二つの操作がともに可能なときは、二つの定義は一致する。
+\end{itembox}
+ただし、ここで、温度や示量変数を微小変化させるのに必要な仕事は小さいはずなので、内部エネルギーは$T$や$X$について連続であることを要請する。\\
 
 
 
