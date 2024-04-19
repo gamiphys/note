@@ -22,12 +22,25 @@
 \usepackage{tikz} %図を描く
 \usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
 
+% プリアンブルに追加する
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+
 \begin{document}
 
 \title{田崎熱力学ノート}
 \author{大上由人}
 \date{\today}
 \maketitle
+
+\tableofcontents
+
+\newpage
 
 \section{前提など}
 \subsection{はじめに}
