@@ -1,0 +1,422 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+%表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+\begin{document}
+
+\title{堀田量子ノート}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{hogehoge}
+
+\section{二準位系}
+\subsection{確率分布と期待値}
+二準位系の測定を考える。$\vb n$方向のスピンの期待値は、
+\begin{align}
+    \ev{\sigma(\vb n)}= (+1)\times P(\sigma = +1) + (-1)\times P(\sigma = -1)
+\end{align}
+により与えられる。ここで、$P(\sigma = +1)$はスピンが$+1$である確率であり、
+\begin{align}
+    P(\sigma = +1) + P(\sigma = -1) = 1
+\end{align}
+を満たす。これを用いると、期待値を用いてスピンの確率分布を
+\begin{align}
+    P(\sigma = +1) = \frac{1}{2}(1 + \ev{\sigma(\vb n)}), \quad P(\sigma = -1) = \frac{1}{2}(1 - \ev{\sigma(\vb n)})
+\end{align}
+と書くことができる。したがって、スピンの確率分布を求めることと、スピンの期待値を求めることは等価である。\\
+ここで、スピンの期待値に対して要請を行う。
+\begin{itembox}[l]{\textbf{要請}}
+    スピンの期待値は、$\vb n$方向のスピンの期待値$\ev{\sigma(\vb n)}$を用いて
+    \begin{align}
+        \ev{\sigma(\vb n)} = \vb n \cdot \ev{\vb \sigma}
+    \end{align}
+    と書くことができる。
+\end{itembox}
+これの正当性は実験を用いて確かめるしかない。\\
+これを用いると、スピンの確率分布を書き直すことができ、
+\begin{align}
+    P(\sigma = +1) = \frac{1}{2}(1 + \vb n \cdot \ev{\vb \sigma}), \quad P(\sigma = -1) = \frac{1}{2}(1 - \vb n \cdot \ev{\vb \sigma})
+\end{align}
+と書くことができる。\\
+
+\subsection{密度演算子の導入}
+パウリ行列を用いて、
+\begin{align}
+    \hat{\rho} =\frac{1}{2}(\hat I +\ev{\sigma_x}+\sigma_x + \ev{\sigma_y}\sigma_y + \ev{\sigma_z}\sigma_z)
+\end{align}
+という演算子を作る。このとき、これを行列表示すると、
+\begin{align}
+    \hat{\rho} = \begin{pmatrix}
+        \frac{1+\ev{\sigma_z}}{2} & \frac{\ev{\sigma_x}-i\ev{\sigma_y}}{2} \\
+        \frac{\ev{\sigma_x}+i\ev{\sigma_y}}{2} & \frac{1-\ev{\sigma_z}}{2}
+    \end{pmatrix}
+\end{align}
+となる。\\
+これを用いると、
+\begin{align}
+    \trace({\hat{\rho}\hat{\sigma_a}})=\ev{\sigma_a}
+\end{align}
+となる。\\
+\textbf{証明}\\
+後で書く。
+したがって、量子状態について、期待値を知ることとと、密度行列を知ることは等価であり、密度行列は、量子状態のすべての情報を持っている。\\
+
+\subsection{観測確率の公式}
+$\hat{\sigma{\vb n}}$の固有値は$\pm 1$であり、固有値$+1$に対応する固有ベクトルを$\ket{u_+}$、固有値$-1$に対忋する固有ベクトルを$\ket{u_-}$とする。\\
+このとき、完全性の関係は、
+\begin{align}
+    \ket{u_+}\bra{u_+} + \ket{u_-}\bra{u_-} = \hat I
+\end{align}
+となる。\\
+これを、射影演算子を用いて書き換えると、
+\begin{align}
+    \hat I = \ket{u_+}\bra{u_+} + \ket{u_-}\bra{u_-}=\hat{P_+}+\hat{P_-}
+\end{align}
+となる。\\
+また、このとき、$\hat{\sigma{\vb (n)}}$のスペクトル分解は
+\begin{align}
+    \hat{\sigma}(\vb n) = \ket{u_+}\bra{u_+} - \ket{u_-}\bra{u_-}=\hat{P_+}-\hat{P_-}
+\end{align}
+となる。\\
+したがって、射影演算子を、単位行列と、スピン演算子を用いて
+\begin{align}
+    \hat{P_+} = \frac{1}{2}(\hat I + \hat{\sigma}(\vb n)), \quad \hat{P_-} = \frac{1}{2}(\hat I - \hat{\sigma}(\vb n))
+\end{align}
+と書くことができる。\\
+以上の準備により、以下の関係式を示すことができる。
+\begin{itembox}[l]{\textbf{観測確率の公式}}
+    スピンの確率分布は
+    \begin{align}
+        P(\sigma = +1) = \trace(\hat{\rho}\hat{P_+}), \quad P(\sigma = -1) = \trace(\hat{\rho}\hat{P_-})
+    \end{align}
+    に従う。
+\end{itembox}
+\textbf{証明}\\
+後で書く。\\
+
+\subsection{状態ベクトル}
+状態ベクトル$\ket{\psi}$は、スピンの状態を表す。このとき、スピンの期待値は、
+\begin{align}
+    \ev{\sigma(\vb n)} = \bra{\psi}\hat{\sigma}(\vb n)\ket{\psi}
+\end{align}
+と書くことができる。\\
+
+\subsection{物理量としてのエルミート行列}
+
+\subsection{空間回転としてのユニタリ行列}
+
+\section{N準位系}
+\subsection{基準測定の存在}
+\begin{itembox}[l]{\textbf{基準測定}}
+    基準測定とは、以下の二つの性質を満たす測定のことである。
+    \begin{itemize}
+        \item Nこの異なる量子状態を、一回の観測で区別できる。
+        \item 続けて同じ測定を行ったとき、同じ結果が得られる。
+    \end{itemize}
+\end{itembox}
+量子論においては、少なくとも一つこのような測定および状態が存在すると仮定する。\\
+さて、便宜の上、物理量$\lambda$について、
+\begin{align}
+    \sum_{k=1}^{N} \lambda_a(k)= 0\\
+    \sum_{k=1}^{N} \lambda_a(k)\lambda_b(k)= N\delta_{ab}
+\end{align}
+を満たすとする。\\
+\textbf{例}\\
+SG実験においては、$a=x,y,z$、$k=+,-$である。\\
+
+\subsection{物理操作としてのユニタリ行列}
+
+\subsection{一般の物理量の定義}
+N次元エルミート行列$\hat{\Lambda}$のスペクトル分解は
+\begin{align}
+    \hat{\Lambda} = \sum_{k=1}^{N} \Lambda(k) \ket{k}\bra{k}
+\end{align}
+と書くことができる。\\
+ここで、ユニタリ演算子
+\begin{align}
+    \hat U = 
+    \begin{pmatrix}
+    \braket{u_1}{1} & \braket{u_1}{2} & \cdots & \braket{u_1}{N} \\
+    \braket{u_2}{1} & \braket{u_2}{2} & \cdots & \braket{u_2}{N} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    \braket{u_N}{1} & \braket{u_N}{2} & \cdots & \braket{u_N}{N} \\
+    \end{pmatrix}
+\end{align}
+を用いて、
+\begin{align}
+    \ket{k} = \hat{U} \ket{u_k}
+\end{align}
+を作ることができる。すなわち、固有ベクトルを、基準測定の状態に移すことができる。\\
+今、ユニタリ演算子が現実での物理操作に対応していることを踏まえると、
+物理量$\hat{\Lambda}$の測定は以下のように行うことができる。
+\begin{itembox}[l]{\textbf{物理量の測定}}
+    物理量\footnote{おそらく、任意のエルミート行列が物理量に対応するという仮定が置かれている。}
+    $\hat{\Lambda}$の測定は、以下の手順で行うことができる。
+    \begin{itemize}
+        \item $\hat{\Lambda}$に対応するN準位系(固有ベクトルにより定まる)に、ユニタリ演算子$\hat{U}$を作用させる。(物理操作を行う。)
+        \item 基準測定を行う。
+        \item 基準測定により、k番目の結果が観測されたら、固有値$\Lambda_k$が測定されたと定義する。
+    \end{itemize}
+\end{itembox}
+基準測定を用いた一般の物理量の測定の良いところとしては、測定方法が一つ(基準測定)しかなくても、任意の物理量を測定することができるという点が挙げられる。\\
+このとき、物理量$\hat{\Lambda}$の期待値は、
+\begin{align}
+    \ev{\hat{\Lambda}} = \sum_{k=1}^{N} \Lambda(k) p(k)
+\end{align}
+により定義される。確率分布については、基準測定における確率分布を用いていることに注意されたい。\\
+
+\subsection{同時対角化が可能なエルミート行列}
+
+\subsection{量子状態を定める物理量}
+密度行列を定めるうえで、どれほどの物理量が必要かを考える。\\
+\begin{itembox}[l]{\textbf{物理量の数}}
+    N準位系の密度行列を定めるためには、$N^2-1$個の物理量があれば十分である。
+\end{itembox}
+\textbf{証明}\\
+N準位系の密度行列は、エルミート行列であるから、対角成分にはN個の実数が必要であるが、対角成分の和が1になるので、結局N-1個の実数が必要。
+また、非対角成分は、$N^2-N$個の複素数が入るため、$2(N^2-N)$個の実数が必要であるが、エルミート性から、対角に挟んでいる部分の行列要素が等しくなってほしいので、
+結局、$N^2-N$個の実数が必要である。\\
+以上の議論から、$N^2-1$個の実数が必要である。\\
+
+\textbf{例}\\
+SG実験のときの密度行列を再掲すると、
+\begin{align}
+    \hat{\rho} = \frac{1}{2}(\hat I + \ev{\sigma_x}\sigma_x + \ev{\sigma_y}\sigma_y + \ev{\sigma_z}\sigma_z)
+\end{align}
+であった。\\
+すなわち、このとき用いている物理量の数は3個であるが、これは上の議論と一致している。\\
+以上の考察から、
+\begin{align}
+    \hat{\lambda_n}^\dagger = \hat{\lambda_n}\\
+    \trace{\hat{\lambda_n}} = 0\\
+    \trace{\hat{\lambda_n}\hat{\lambda_m}} = N\delta_{nm}
+\end{align}
+を満たすような$N^2-1$個の物理量を考える。ただし、このうち$N-1$個は基準測定で定めたエルミート行列である。\\
+
+\subsection{N準位系のブロッホ表現}
+\begin{itembox}[l]{\textbf{ブロッホ表現}}
+    N準位系の密度行列は、
+    \begin{align}
+        \hat{\rho} = \frac{1}{N}(\hat I + \sum_{n=1}^{N^2-1} \ev{\lambda_n}\hat{\lambda_n})
+    \end{align}
+    と定義される。
+\end{itembox}
+このとき、
+\begin{align}
+    \trace{\hat{\rho}=1}
+\end{align}
+である。\\
+\textbf{証明}\\
+ブロッホ表現の両辺に、トレースを取ると、
+\begin{align}
+    \trace{\hat{\rho}} = \frac{1}{N}(\trace{\hat{I}} + \sum_{n=1}^{N^2-1}\ev{\lambda_n}\trace{\hat{\lambda_n}}) = 1
+\end{align}
+となる。(第二項が、(23)式により0となることに注意せよ。)\\
+さらに、$\hat{\rho}$のエルミート性については自明。固有値については後で考える。\\
+また、
+\begin{align}
+    \ev{\lambda_n} = \trace{\hat{\rho}\hat{\lambda_n}}
+\end{align}
+となる。\\
+\textbf{証明}\\
+ブロッホ表現の両辺に、$\hat{\lambda_m}$をかけてトレースを取ると、
+\begin{align}
+    \trace{\hat{\rho}\hat{\lambda_m}}=\frac{1}{N}(\trace{\lambda_m}+\sum_{n=1}^{N^2-1}\ev{\lambda_n}\trace{\hat{\lambda_n}\hat{\lambda_m}})
+\end{align}
+ここで、第一項は、$\trace{\lambda_m}=0$であるから、0となる。\\
+第二項については、(23)式を用いて、
+\begin{align}
+    \trace{\hat{\lambda_n}\hat{\lambda_m}} = N\delta_{nm}
+\end{align}
+であるから、
+\begin{align}
+    \trace{\hat{\rho}\hat{\lambda_m}} = \ev{\lambda_m}
+\end{align}
+となる。\\
+この$\hat{\rho}$を、$\ev{\lambda_n}$から決めることを、量子状態トモグラフィーという。\\
+
+\subsection{基準測定におけるボルン則}
+\begin{itembox}[l]{\textbf{ボルン則(基準測定)}}
+    N準位系の基準測定において、k番目の結果が観測される確率は、
+    \begin{align}
+        p(k) = \trace{\hat{\rho}\hat{P_k}}
+    \end{align}
+    で与えられる。
+\end{itembox}
+\textbf{証明}\\
+基準測定において、k番目の結果が観測される確率は、
+\begin{align}
+    p(k) = \frac{1}{N}(1+\sum_{a=1}^{N-1}\lambda_a \ev{\lambda_a})
+\end{align}
+であった。これより、
+\begin{align}
+    p(k) = \trace{\hat{\rho}\frac{1}{N}(\hat I + \sum_{a=1}^{N-1}\ev{\lambda_a}\hat{\lambda_a})} = \trace{\hat{\rho}\hat{P_k}}
+\end{align}
+となる。\\
+また、完全性の条件から、
+\begin{align}
+    \sum_{k=1}^{N} \ket{k}\bra{k} = \hat I
+\end{align}
+であることと、スペクトル分解の式から、
+\begin{align}
+    \sum_{k=1}^{N} \lambda_a(k) \ket{k}\bra{k} = \hat{\lambda_a}
+\end{align}
+であることを用いると、これらの式を連立することにより、
+\begin{align}
+    \ket{k}\bra{k} = \frac{1}{N}(\hat I + \sum_{a=1}^{N-1}\lambda_a(k)\hat{\lambda_a})
+\end{align}
+が得られる。\\
+したがって、これを(34)式に代入して
+\begin{align}
+    p(k) =\trace{\hat{\rho}\ket{k}\bra{k}} = \bra{k}\hat{\rho}\ket{k}
+\end{align}
+となる。よって、$\hat{P}_k = \ket{k}\bra{k}$を用いて、
+\begin{align}
+    p(k) = \trace{\hat{\rho}\hat{P_k}}
+\end{align}
+となる。\\
+
+\subsection{一般の物理量の場合のボルン則}
+\begin{itembox}[l]{\textbf{ボルン則(基準測定)}}
+    N準位系の測定において、$Lambda(k)$が観測される確率は、
+    \begin{align}
+        p(k) = \bra{u_k}\hat{\rho}\ket{u_k}
+    \end{align}
+    で与えられる。
+\end{itembox}
+\textbf{証明}\\
+物理量$\Lambda$の測定を行う。このとき、$\hat{\Lambda}$のスペクトル分解は、
+\begin{align}
+    \hat{\Lambda} = \sum_{k=1}^{N} \Lambda(k) \ket{u_k}\bra{u_k}
+\end{align}
+である。\\
+このとき、ユニタリ演算子を用いて、
+\begin{align}
+    \ket{k} = \hat{U}\ket{u_k}
+\end{align}
+と書くことができる。\\
+このとき、密度演算子は、
+\begin{align}
+    \hat{\rho'} = \hat{U}\hat{\rho}\hat{U}^\dagger
+\end{align}
+となる。\\
+このとき、基準測定により、k番目の結果が観測される確率は
+\begin{align}
+    p(k) = \trace{\hat{\rho'}\hat{P_k}}=\bra{k}\hat{\rho'}\ket{k}
+\end{align}
+である。\\
+したがって、
+\begin{align}
+    p(k) = \bra{k}\hat{U}^\dagger\hat{\rho}\hat{U}\ket{k} = \bra{u_k}\hat{\rho}\ket{u_k}
+\end{align}
+となり、ボルン則が証明される。\\
+
+\subsection{$\hat{\rho}$の非負性}
+
+\subsection{縮退}
+縮退がある場合についてもボルン則は成り立つ。\\
+というのも、射影演算子を、縮退度の分だけ和をとることで
+\begin{align}
+    \hat{P_k} = \sum_{j=1}^{d_k} \ket{u_{kj}}\bra{u_{kj}}
+\end{align}
+と書いてしまえば、他は何も変わらないからである。\\
+このとき、物理量$\Lambda$の期待値は、
+\begin{align}
+    \ev{\Lambda} &= \sum_{k=1}^{N} \Lambda(k) p(k)\\
+    &=\sum_{k=1}^{N}\lambda(k) \trace{\hat{\rho} \hat{P(\lambda)}}\\
+    &=\sum_{k=1}^{N}\trace{\hat{\rho}\lambda(k)\hat{P(\lambda)}}\\
+    &=\trace{\hat{\rho}\hat{\Lambda}}
+\end{align}
+で与えられる。\\
+
+\subsection{純粋状態と混合状態}
+\begin{itembox}[l]{\textbf{純粋状態}}
+    純粋状態とは、密度行列が、
+    \begin{align}
+        \hat{\rho} = \ket{\psi}\bra{\psi}
+    \end{align}
+    と書ける状態のことである。すなわち、純粋状態において、密度演算子の固有値のうち、一つだけが1で、他は0である。
+\end{itembox}
+\begin{itembox}[l]{\textbf{混合状態}}
+    混合状態とは、密度行列が、
+    \begin{align}
+        \hat{\rho} = \sum_{k=1}^{N} p(k) \ket{\psi_k}\bra{\psi_k}
+    \end{align}
+    と書ける状態のことである。すなわち、混合状態において、密度演算子の固有値は、$p(k)$である。
+\end{itembox}
+\textbf{$\hat{\rho}$の性質}\\
+\begin{align}
+\trace{\hat{\rho}}^2 \leq 1である。\\
+\end{align}
+\textbf{証明}\\
+後で書く。\\
+
+\section{テンソル}
+
+\section{物理量の相関と量子もつれ}
+\subsection{スピン相関と確率分布}
+A系とB系の合成系を考える。このとき、それぞれの系におけるスピンの期待値は、
+\begin{align}
+    \ev{\sigma_A} =1\times P(1,1)+1\times P(1,-1)+(-1)\times P(-1,1)+(-1)\times P(-1,-1)\\
+    \ev{\sigma_B '} =1\times P(1,1)+(-1)\times P(1,-1)+1\times P(-1,1)+(-1)\times P(-1,-1)\\
+\end{align}
+で与えられる。ただし、$P(s,s')$は、$(\sigma_A,\sigma_B ')=(s,s')$となる確率。\\
+
+\section{量子操作及び時間発展}
+\subsection{物理操作の数学的表現}
+\begin{itembox}[l]{\textbf{量子通信路}}
+    量子状態を、$\hat{\rho}から\hat{\rho'}$に変換する操作を、量子通信路といい、
+    \begin{align}
+        \hat{\rho'} = \Gamma(\hat{\rho})
+    \end{align}
+    と書く。
+\end{itembox}
+$\Gamma$の制限について考えていいく。まず、確率混合のもとでの$\Gamma$の性質を考える。\\
+今、量子状態が、
+\begin{align}
+    \hat{\rho} = p\hat{\rho_1} + (1-p)\hat{\rho_2}
+\end{align}
+と混合されているとする。このとき、$\Gamma$を作用させたあとの物理量Oの期待値は、
+\begin{align}
+    \ev{O} = \trace{\Gamma(\hat{\rho})\hat{O}}
+\end{align}
+で与えられる。\\
+また、確率混合をする前に、$\Gamma$を作用させたあとの物理量Oの期待値は、各$\hat{\rho}_1,\hat{\rho}_2$について、
+\begin{align}
+    \ev{O}_1 = \trace{\Gamma(\hat{\rho}_1)\hat{O}}\\
+    \ev{O}_2 = \trace{\Gamma(\hat{\rho}_2)\hat{O}}
+\end{align}
+で与えられる。\\
+したがって、
+\begin{align}
+    \ev{O} = p\ev{O}_1 + (1-p)\ev{O}_2
+\end{align}
+が成り立つと考えられる。すなわち、
+\begin{align}
+    \Gamma(p\hat{\rho}_1 + (1-p)\hat{\rho}_2) = p\Gamma(\hat{\rho}_1) + (1-p)\Gamma(\hat{\rho}_2)
+\end{align}
+が成り立つと考えられる。この$\Gamma$の性質をアフィン性という。\\
+\end{document}

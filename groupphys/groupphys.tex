@@ -1,0 +1,439 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+\begin{document}
+
+\title{群と物理}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{群}
+\subsection{群の定義}
+\begin{itembox}[l]{群の定義}
+    集合$G$とその上の二項演算$\cdot$が以下の条件を満たすとき、$(G,\cdot)$を群という。
+    \begin{enumerate}
+        \item 積は結合的である。
+        \item 単位元$e$が存在する。
+        \item 逆元が存在する。
+    \end{enumerate}
+\end{itembox}
+\textbf{ex}\\
+正六角形の合同変換群について考える。\\
+合同変換群を$G$とすると、$G=\{e,\theta,\theta^2,\theta^3,\theta^4,\theta^5,\sigma_1,\sigma_2,\sigma_3,\sigma_4,\sigma_5,\sigma_6\}$である。ただし、$\theta$は時計回りに$60^\circ$回転、$\sigma_i$は$i$番目の頂点を中心に反転である。\\
+
+このとき、積表は次のようになる。\\
+
+
+
+\subsection{共役元}
+\begin{itembox}[l]{\textbf{def:共役元}}
+    $a,b \in G$に対して、$b = g^{-1}ag$を満たす$g \in G$が存在するとき、$a$と$b$は共役であるという。\\
+    また、元$a$に対して、$a$と共役な元全体の集合
+    \begin{equation}
+        C(a) = \{g^{-1}ag | g \in G\}
+    \end{equation}
+    を$a$の共役類という。
+\end{itembox}
+このとき、$C(a)$は$G$の部分群である。\\
+共役関係は推移的に成り立つ。すなわち、$a$と$b$が共役で、$b$と$c$が共役ならば、$a$と$c$も共役である。というのも、
+\begin{equation}
+    b = g^{-1}ag, \quad c = h^{-1}bh
+\end{equation}
+とすると、
+\begin{equation}
+    c = h^{-1}bh = h^{-1}g^{-1}agh = (gh)^{-1}a(gh)
+\end{equation}
+となるからである。\\
+\begin{itembox}[l]{\textbf{thm}}
+群Gは、互いに交わらない共役類の和集合である。
+\end{itembox}
+\textbf{Prf}\\
+上で考えた推移律を用いる。\\
+まず、群$G$の元$a$を選ぶ。そうすると、適当な$g \in G$に対して、$b = g^{-1}ag$を定められる。これと共役なものは推移律を用いて導くことができる。\\
+次に、$a$と共役なものを取り切ったら、$a$と共役でない元$b$を選び、同じことを繰り返す。\\
+以上の操作を繰り返すことで、$G$の全ての元を共役類に分解することができる。\\
+
+\textbf{ex}\\
+正六角形の合同変換群について考える。\\%後で書く
+このとき、積表を見比べてみると、共役類は次のようになる。\\
+$\{e\}$, $\{\theta,\theta^5\}$, $\{\theta^2,\theta^4\}$, $\{\sigma_1,\sigma_4\}$, $\{\sigma_2,\sigma_5\}$, $\{\sigma_3,\sigma_6\}$\\
+また、上の例にもあるように、可換群の元は、自身単独で共役類をなす。というのも、$gag^{-1} = a$が成り立つからである。\\
+
+\begin{itembox}[l]{\textbf{def:正規部分群(不変部分群)}}
+    $G$を群、$H$を$G$の部分群とする。このとき、$H$が$G$の共役変換に対して不変であるとは、$gHg^{-1} = H$を満たすことである。このとき、$H$を$G$の正規部分群という。
+
+\end{itembox}
+すなわち、$H$は共役変換に対して不変である。\\
+ただし、任意の元について、$ghg^{-1}=h$が成り立つわけではない。\\
+
+\begin{itembox}[l]{\textbf{def:中心化群}}
+    $G$を群、$H$を$G$の部分群とする。このとき、$H$の中心化群$Z(H)$を次のように定義する。
+    \begin{equation}
+        Z(H) = \{g \in G | ghg^{-1} = h \quad \text{for all} \quad h \in H\}
+    \end{equation}
+    すなわち、$Z(H)$は$H$の共役変換に対して不変な元全体の集合である。$Z(H)$は$G$の部分群である。
+    また、$Z(H)$は$H$の中心とも呼ばれる。
+\end{itembox}
+これは、正規部分群よりも厳しい条件であるが、何に使えるのかはよくわからない。\\
+
+\begin{itembox}[l]{\textbf{def:右側剰余類/左側剰余類}}
+    $a \in G$に対して、$G$の部分群$H$に対して、
+    \begin{equation}
+        aH = \{ah | h \in H\}, \quad Ha = \{ha | h \in H\}
+    \end{equation}
+    をそれぞれ$a$の右側剰余類、左側剰余類という。ただし、不変部分群の場合は、右側剰余類と左側剰余類は一致する。というのも、
+    \begin{equation}
+        aH = Ha
+    \end{equation}
+    が成り立つからである。
+
+\end{itembox}
+\begin{itembox}[l]{\textbf{prop}}
+異なる剰余類は互いに交わらない。
+\end{itembox}
+\textbf{Prf}\\
+二つの異なる剰余類$Hg_1$と$Hg_2$が交わるとする。すなわち、$Hg_1 \cap Hg_2 \neq \emptyset$とする。このとき、$h_1g_1 = h_2g_2$となる$h_1,h_2 \in H$が存在する。このとき、
+\begin{equation}
+    g_1 = h_1^{-1}h_2g_2
+\end{equation}
+となるが、$h_1^{-1}h_2 \in H$であるから、$g_1 \in Hg_2$となる。よって、$Hg_1 \subset Hg_2$である。同様にして、$Hg_2 \subset Hg_1$であるから、$Hg_1 = Hg_2$である。よって、異なる剰余類は互いに交わらない。\\
+以上の事実から、群$G$は、互いに交わらない剰余類の和集合である。\\
+剰余類分解の一般の方法は、次のようになる。\\
+まず、Hに属さない元$g_1$を選び、$Hg_1$を考える。次に、$H$にも$Hg_1$にも属さない元$g_2$を選び、$Hg_2$を考える。このようにして、$G$の全ての元を剰余類に分解することができる。\\
+\textbf{ex}\\
+正六角形の合同変換群について考える。\\
+
+ここで、剰余類の集合の積を考える。\\
+\begin{itembox}[l]{\textbf{def:剰余類の積}}
+    $G$を群、$H$を$G$の部分群、$a,b \in G$に対して、$Hg_1$と$Hg_2$の積を次のように定義する。\\
+    \begin{equation}
+        Hg_1 \cdot Hg_2 = Hg_1g_2
+    \end{equation}
+    ただし、$g_1,g_2 \in G$である。この積はwell-definedである。すなわち、$Hg_1 = Hg_1'$、$Hg_2 = Hg_2'$のとき、$Hg_1g_2 = Hg_1'g_2'$が成り立つ。\\
+    また、この積は結合的である。すなわち、
+    \begin{equation}
+        (Hg_1 \cdot Hg_2) \cdot Hg_3 = Hg_1 \cdot (Hg_2 \cdot Hg_3)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+上の演算により、剰余類は群をなす。\\
+
+\begin{itembox}[l]{\textbf{def:商群}}
+    $G$を群、$H$を$G$の部分群とする。このとき、$H$の左側剰余類全体を集めた集合を$G/H$と書く。$G/H$は$G$の部分群$H$による商群である。
+
+\end{itembox}
+\textbf{ex}\\
+正六角形の合同変換群について考える。\\
+
+\begin{itembox}[l]{\textbf{thm:準同型定理}}
+    $G$を群、$H$を$G$の部分群、$\phi:G \to H$を$G$から$H$への準同型写像とする。また、$\phi$の核を次のように定義する。
+    \begin{equation}
+        N=\text{ker}(\phi) = \{g \in G | \phi(g) = e\}
+    \end{equation}
+    このとき、剰余類群$G/H$と$\phi(G)$は同型である。すなわち、$G/H \simeq \phi(G)$である。
+\end{itembox}
+\textbf{Prf}\\
+まず、$\psi:G/N \to \phi(G)$を次のように定義する。
+\begin{equation}
+    \psi(gN) = \phi(g)
+\end{equation}
+このとき、$\psi$が準同型かつ全単射であることを示す。\\
+まず、$\psi$が準同型であることを示す。$g_1,g_2 \in G$に対して、
+\begin{equation}
+    \psi(g_1N g_2N) = \psi(g_1g_2N) = \phi(g_1g_2) = \phi(g_1)\phi(g_2) = \psi(g_1N)\psi(g_2N)
+\end{equation}
+となるからである。\\
+次に、$\psi$が全単射であることを示す。$\psi$が全射であることは、
+\begin{equation}
+    \forall g \in G, \quad \phi(g) = \psi(gN)
+\end{equation}
+となるからである。また、$\psi$が単射であることは、
+\begin{equation}
+    \psi(g_1N) = \psi(g_2N) \Rightarrow \phi(g_1) = \phi(g_2) 
+\end{equation}
+ここで、
+\begin{equation}
+    \phi(g_1 ^{-1}g_2) = \phi(g_1)^{-1}\phi(g_2) = \phi(g_1)^{-1}\phi(g_1) = e
+\end{equation}
+となるから、$g_1 ^{-1}g_2 \in N$である。よって、$g_1N = g_2N$である。\\
+以上より、$\psi$は準同型かつ全単射であるから、$G/N \simeq \phi(G)$である。\\
+\textbf{ex}\\
+正六角形の合同変換群について考える。\\
+対称群と、それに準同型な位数2の巡回群について考える。\\
+$E=\{e,\theta,\theta^2,\theta^3,\theta^4,\theta^5\}$とし、$C=\{\sigma_1,\sigma_2,\sigma_3,\sigma_4,\sigma_5,\sigma_6\}$とする。\\
+また、$D=\{e,c\}$とする。ここで、写像$\phi:G \to D$を次のように定義する。
+\begin{equation}
+    \phi(g) = \begin{cases}
+        e & (g \in E)\\
+        c & (g \in C)
+    \end{cases}
+\end{equation}
+このとき、$\phi$は準同型である。また、$\text{ker}(\phi) = E$であるから、$G/E \simeq D$である。\\
+
+\section{群の表現}
+ベクトル空間内で、群の操作を表現することを考える。\\
+\begin{itembox}[l]{\textbf{def:群の表現}}
+    群$G$から一般線形群$GL(n,\mathbb{C})$への群準同型写像$D$を、群$G$の$n$次表現という。$D$は次のように表される。
+    \begin{equation}
+        D:G \to GL(n,\mathbb{C})
+    \end{equation}
+\end{itembox}
+\begin{itembox}[l]{\textbf{def:表現行列}}
+    群$G$の$n$次表現$D$に対して、$D(g)$の成分を次のように表す。
+    \begin{equation}
+        D(g) = \begin{pmatrix}
+            D_{11}(g) & D_{12}(g) & \cdots & D_{1n}(g)\\
+            D_{21}(g) & D_{22}(g) & \cdots & D_{2n}(g)\\
+            \vdots & \vdots & \ddots & \vdots\\
+            D_{n1}(g) & D_{n2}(g) & \cdots & D_{nn}(g)
+        \end{pmatrix}
+    \end{equation}
+    このとき、$D_{ij}(g)$を表現行列という。
+\end{itembox}
+\begin{itembox}[l]{\textbf{def:同値}}
+    二つの表現$D_1$と$D_2$が同値であるとは、次のような行列$S$が存在することである。
+    \begin{equation}
+        D_2(g) = S^{-1}D_1(g)S
+    \end{equation}
+\end{itembox}
+以下、同値変換により、表現行列を性質の良い形にすることを考える。\\
+\begin{itembox}[l]{\textbf{def:可約表現}}
+    表現$D$が可約であるとは、次のような行列$S$が存在することである。
+    \begin{equation}
+        S^{-1}D(g)S = \begin{pmatrix}
+            D_1(g) & 0 & \cdots & 0\\
+            0 & D_2(g) & \cdots & 0\\
+            \vdots & \vdots & \ddots & \vdots\\
+            0 & 0 & \cdots & D_n(g)
+        \end{pmatrix}
+    \end{equation}
+    とくに、$D_1,D_2,\cdots,D_n$がこれ以上小さな部分行列に分解できないとき、$D$は完全可約であるという。
+\end{itembox}
+\begin{itembox}[l]{\textbf{def:既約表現}}
+    表現$D$が既約であるとは、$D$が可約でないことである。すなわち、これ以上小さな部分行列に分解できないとき、$D$は既約であるという。
+\end{itembox}
+たとえば、完全可約な表現の$D_1,D_2,\cdots,D_n$は、既約表現である。\\
+\textbf{ex}\\
+正三角形の合同変換群について考える。\\%後で書く
+
+\begin{itembox}[l]{\textbf{def:不変部分空間}}
+    群$G$の表現$D$に対して、$V$が$D$の不変部分空間であるとは、
+    \begin{equation}
+        D(g)v \subset V \quad \text{for all} \quad g \in G, v \in V
+    \end{equation}
+    が成り立つことである。
+\end{itembox}
+これを用いて、既約表現を以下のようにも定義できる。\\
+\begin{itembox}[l]{\textbf{def:既約表現(別の定義)}}
+    群$G$の表現$D$が既約であるとは、$D$の不変部分空間が$0$か$V$であることである。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{thm:シューアの補題1}}
+    群$G$の既約表現を${D_1},{D_2}$とし、それぞれの表現空間を${V_1},{V_2}$とする。このとき、${V_1}$と${V_2}$の間の線形写像$A$が、
+    \begin{equation}
+        AD_1(g) = D_2(g)A
+    \end{equation}
+    を満たすならば、$A$は零写像であるか、$V_1$から$V_2$への同型写像である。
+\end{itembox}
+\textbf{Prf}\\
+$A$の核$N=\{x \in V_1 | Ax = 0\}$に属する元$x$について、
+\begin{equation}
+    AD_1(g)x = D_2(g)Ax = 0
+\end{equation}
+となるから、$D_1(g)x \in N$である。したがって、$N$は$D_1(g)$に対して不変である。\\
+$D_1(g)$が既約であることから、$N=\{0\}$または$N=V_1$である。\\
+$N=V_1$のとき、$ker(A)=V_1$であるから、任意の$x \in V_1$に対して、$Ax=0$である。よって、$A$は零写像である。\\
+$N=\{0\}$のとき、$ker(A)=\{0\}$であるから、$A\neq 0$である。\\
+また、$A$は単射である。というのも、$Ax_1=Ax_2$とすると、$A(x_1-x_2)=0$であるから、$x_1-x_2=0$である。よって、$x_1=x_2$である。\\
+さらに、$A$は全射である。というのも、任意の、$x \in V_1$に対して、
+\begin{equation}
+    D_2(g)Ax = AD_1(g)x\in V_2
+\end{equation}
+であるから、$AV_1$は$V_2$の不変部分空間である。$D_2(g)$が既約であることから、$AV_1=V_2$である。\\
+以上より、$A$は零写像であるか、$V_1$から$V_2$への同型写像である。(証明終)\\
+ただし、このとき、$A$が同型写像なのだから、$A$は逆写像$A^{-1}$を持ち、$D_1(g)=A^{-1}D_2(g)A$であるので、$D_1$と$D_2$は同値である。\\
+
+\begin{itembox}[l]{\textbf{thm:シューアの補題2}}
+    有限群$G$の表現$D$が既約であるための必要十分条件は、すべての$g \in G$に対して、$D(g)$と可換な行列$A$が、$A=a I$に限られることである。ただし、$I$は単位行列である。
+\end{itembox}
+\textbf{Prf}\\
+(必要条件)\\
+$\lambda$を$D(g)$の固有値とし、$B=A-\lambda I$とする。このとき、$\det B=0$である。\\
+仮定より、すべての$g \in G$に対して、BD(g)=D(g)Bであるから、シューアの補題の補題より、$B$は零行列である。よって、$A=\lambda I$である。\\
+(十分条件)\\
+眠いので後で書く。\\
+
+\subsection{表現の直交性}
+表現の直交性について考える。\\
+演算子$A^{ab}_{jl}$を、
+\begin{equation}
+    A^{ab}_{jl} = \sum _{g \in G} D_a (g^{-1}) \ket*{a,j}\bra{b,l}D_b(g)
+\end{equation}
+と定義する。\\
+このとき、
+\begin{align}
+    D_a(g_1)A^{ab}_{jl}&= \sum _{g \in G} D_a (g_1)D_a (g^{-1}) \ket*{a,j}\bra{b,l}D_b(g)\\
+    &= \sum _{g \in G} D_a (g_1g^{-1}) \ket*{a,j}\bra{b,l}D_b(g)\\
+    &= \sum _{g' \in G} D_a (g'^{-1}) \ket*{a,j}\bra{b,l}D_b(g'g_1)\\
+    &= A^{ab}_{jl}D_b(g_1)
+\end{align}
+となる。\\
+このとき、$a\neq b $のとき、シューアの補題1より、$A^{ab}_{jl}$は零行列か、$V_a$から$V_b$への同型写像である。\footnote{何故かわからないが、テキストでは後者を除いている。逆行列が存在しないのだろうか}\\
+また、$a=b$のとき、$A^{ab}_{jl}\propto I$である。\\
+以上をまとめると、比例係数を$C_{jl}^a$とすると、
+\begin{equation}
+    A^{ab}_{jl} = C_{jl}^a \delta_{ab}I
+\end{equation}
+となる。\\
+以下、この比例係数を求める。\\
+30式の両辺トレースをとって、
+\begin{equation}
+    Tr(A^{ab}_{jl}) = \delta_{ab}C_{jl}^a n_a
+\end{equation}
+となる。ただし、$n_a$は$V_a$の次元である。\\
+また、$A^{ab}_{jl}$のトレースをとって、
+\begin{align}
+    Tr(A^{ab}_{jl})&=Tr\left(\sum _{g \in G} D_a (g^{-1}) \ket*{a,j}\bra{b,l}D_b(g)\right)\\
+    &=\sum _{g \in G} \bra{b,l}D_b(g)D_a(g^{-1})\ket*{a,j}\\
+    &=\sum _{g \in G} \bra{b,l}D_b(g)D_a(g)^{-1}\ket*{a,j}\\
+\end{align}
+となる。ここで、31式より、$A^{ab}_{jl}$は$delta_{ab}$に比例することを用いて、
+\begin{equation}
+    Tr(A^{ab}_{jl}) = \delta_{ab}\sum_{g \in G} \bra{a,l}D_a(g)D_a(g)^{-1}\ket*{a,j} = \delta_{ab}delta_{jl}N
+\end{equation}
+となる。ここで、$N$は$G$の元の個数である。\\
+以上より、
+\begin{equation}
+    C_{jl}^a = \frac{N}{n_a}\delta_{jl}
+\end{equation}
+となる。\\
+以上より、
+\begin{equation}
+    A^{ab}_{jl} =\sum _{g \in G} D_a (g^{-1}) \ket*{a,j}\bra{b,l}D_b(g) = \frac{N}{n_a}\delta_{jl}\delta_{ab}I
+\end{equation}
+となる。左から$\bra{k}$をかけて、右から$\ket{m}$をかけて、行列要素を求めると、
+\begin{equation}
+    \sum _{g \in G} (D_a (g^{-1}))_{kj}(D_b(g))_{lm} = \frac{N}{n_a}\delta_{jl}\delta_{ab}\delta_{km}
+\end{equation}
+となる。\\
+
+\begin{itembox}[l]{\textbf{thm:ユニタリ既約表現の完全性}}
+    群Gのユニタリ既約表現の行列要素は、正則表現のベクトル空間において正規直交完全系をなす、$G$の任意の元$g$の任意の関数はそれを用いて展開できる。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{prop}}
+    以上をもとに、ユニタリ既約表現の行列要素は、次の関係式を満たす。
+    \begin{equation}
+    N=\sum_{a} n_a^2 
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+後で書く。\\
+\textbf{ex}\\
+三次対称群について考える。\\
+
+\subsection{指標}
+\begin{itembox}[l]{\textbf{def:指標}}
+    群$G$の表現$D$の指標$\chi$を次のように定義する。
+    \begin{equation}
+        \chi_D(g) = \text{Tr}(D(g))
+    \end{equation}
+\end{itembox}
+\begin{itembox}[l]{\textbf{prop:指標は相似変換に対して不変}}
+    表現$D$と$S^{-1}DS$が相似であるとき、指標$\chi$は不変である。
+\end{itembox}
+\textbf{Prf}\\
+$\chi_{S^{-1}DS}(g) = \text{Tr}(S^{-1}DS(g)) = \text{Tr}(D(g))$であるからである。(ただし、トレースの巡回性を用いた。)\\
+\begin{itembox}[l]{\textbf{prop:指標の直交性}}
+    群$G$のユニタリ既約表現の指標$\chi_a$と$\chi_b$は、次の関係式を満たす。
+    \begin{equation}
+        \frac{1}{N}\sum_{g \in G} \chi_a(g)^*\chi_b(g) = \delta_{ab}
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+指標の定義より、
+\begin{align}
+    \frac{1}{N}\sum_{g \in G} \chi_a(g)^*\chi_b(g) 
+    &= \frac{1}{N}\sum_{g \in G} \text{Tr}(D_a(g))^*\text{Tr}(D_b(g))\\
+    &= \frac{1}{n_a}\sum_{g \in G} \delta_{ab}\delta_{ij} \sum_i \sum_j\\
+    &=\delta_{ab}
+\end{align}
+となる。\\
+\begin{itembox}[l]{\textbf{prop}}
+    同じ共役類に属する群元に対して、指標は等しい。
+
+\end{itembox}
+\textbf{Prf}\\
+$a$と$g^{-1}ag$が同じ共役類に属するとする。このとき、
+\begin{equation}
+    \chi_a(g^{-1}ag) = \text{Tr}(D_a(g^{-1}ag)) = \text{Tr}(D_a(g)^{-1}D_a(a)D_a(g)) = \text{Tr}(D_a(a)) = \chi_a(a)
+\end{equation}
+となるからである。\\
+
+\begin{itembox}[l]{\textbf{prop}}
+    各共役類に対して一定となるような関数は、指標を用いて展開することができる。その形は、
+    \begin{equation}
+        f(g) = \sum_{a,j}\frac{C_{jj}^a}{n_a}\chi_a(g)
+    \end{equation}
+    となる。\\
+
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    f(g) &= \sum_{a,j,k} c_{jk}^a D_a(g)_{jk}\\
+\end{align}
+とする。このとき、$D_a(g)_{jk}$は、ユニタリ既約表現の行列要素である。\\
+$f$が各共役類に対して一定であるとすると、
+\begin{align}
+    f(g) &= \frac{1}{N} \sum_{g' \in G} f(g'^{-1}gg')\\
+    &= \frac{1}{N} \sum_{g' \in G} \sum_{a,j,k} c_{jk}^a D_a(g'^{-1}gg')_{jk}\\
+\end{align}
+となる。\\%ここから書くのが面倒になった。
+なんやかんやで、
+\begin{equation}
+    f(g) = \sum_{a,j}\frac{C_{jj}^a}{n_a}\chi_a(g)
+\end{equation}
+となる。\\
+さて、この式を観察すると、$f(g)$は、指標$\chi_a(g)$を用いて展開できているわけだが、基底のラベルとなっているのは、$a$である。この$a$がどこから現れたかというと、$D_a(g)_{jk}$がユニタリ既約表現の行列要素であることからでている。\\
+すなわち、ユニタリ既約表現と同じラベルにより、$f(g)$を展開することができる。\\
+以上のことから、以下のことがわかる。\\
+\begin{itembox}[l]{\textbf{prop}}
+    同値でない既約表現の数は、群の共役類の数に等しい。
+\end{itembox}
+また、以上の命題から、次のことがわかる。\\
+\begin{itembox}[l]{\textbf{prop}}
+    可換な有限群の既約表現は、一次元表現である。
+\end{itembox}
+\textbf{Prf}\\
+可換群の場合、共役類は、一つの元のみからなる。よって、上の命題から、既約表現の数は群の位数に等しい。\\
+また、$N=\sum_{a} n_a^2$であるから、$n_a=1$である。よって、既約表現は一次元表現である。\\
+
+
+
+    
+
+
+\end{document}
