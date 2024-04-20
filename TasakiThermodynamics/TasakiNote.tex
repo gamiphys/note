@@ -172,7 +172,7 @@ Kelvinの原理より、
     最大仕事の性質は以下の通りである。
     \begin{enumerate}
         \item 等温準静操作を逆向きに行うときに系が外界にする仕事は$W_{\text{max}}(T;X_2\rightarrow X_1)=-W_{\text{max}}(T;X_1\rightarrow X_2)$である。
-        \item 最大仕事に結合率が成り立つ。すなわち、$W_{\text{max}}(T;X_1\rightarrow X_2)+W_{\text{max}}(T;X_2\rightarrow X_3) \geq W_{\text{max}}(T;X_1\rightarrow X_3)$である。
+        \item 最大仕事に結合率が成り立つ。すなわち、$W_{\text{max}}(T;X_1\rightarrow X_2)+W_{\text{max}}(T;X_2\rightarrow X_3) = W_{\text{max}}(T;X_1\rightarrow X_3)$である。
         \item 最大仕事には相加性がある。すなわち、$W_{\text{max}}(T;X_1\rightarrow X_2)+W_{\text{max}}(T;Y_1\rightarrow Y_2) = W_{\text{max}}(T;\{X_1,Y_1\}\rightarrow \{X_2,Y_2\})$である。
         \item 最大仕事には示量性が成り立つ。
     \end{enumerate}
@@ -341,7 +341,7 @@ Kelvinの原理より、
     断熱仕事の性質は以下の通りである。
     \begin{enumerate}
         \item 断熱操作を逆向きに行うときに系が外界に行う仕事は、$W_{\text{ad}}((T',X')\rightarrow (T,X)) = -W_{\text{ad}}((T,X)\rightarrow (T',X'))$である。
-        \item 断熱仕事に結合率が成り立つ。すなわち、$W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T'',X'')) \geq W_{\text{ad}}((T,X)\rightarrow (T'',X''))$である。
+        \item 断熱仕事に結合率が成り立つ。すなわち、$W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T'',X'')) = W_{\text{ad}}((T,X)\rightarrow (T'',X''))$である。
         \item 断熱仕事には相加性がある。すなわち、$W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T'',X'')) = W_{\text{ad}}((T,X)\rightarrow (T'',X''))$である。
         \item 断熱仕事には示量性が成り立つ。
     \end{enumerate} 
@@ -430,8 +430,16 @@ Kelvinの原理より、
 \end{itembox}
 
 \begin{itembox}[l]{\textbf{def:最大吸熱量}}
-    
-
+    等温操作による最大吸熱量を、最大仕事を用いて以下のように定義する。
+    \begin{equation}
+        Q_{\text{max}}(T;X\rightarrow X') =   W_{\text{max}}(T;X\rightarrow X') + U(T,X') - U(T,X) 
+    \end{equation}
+    また、ヘルムホルツ自由エネルギーを用いて書き換えると、
+    \begin{equation}
+        Q_{\text{max}}(T;X\rightarrow X') = F(T,X) - F(T,X')+U(T,X') - U(T,X)
+    \end{equation}
+    である。
 \end{itembox}
+以上の定義からわかるように、最大吸熱量を求めるためには、さまざまな等温操作や断熱操作をによる仕事を測定すればよい。\\
 
 \end{document}
