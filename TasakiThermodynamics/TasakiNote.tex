@@ -368,7 +368,35 @@ Kelvinの原理より、
 また、二つの操作がともに可能なときは、二つの定義は一致する。
 \end{itembox}
 ただし、ここで、温度や示量変数を微小変化させるのに必要な仕事は小さいはずなので、内部エネルギーは$T$や$X$について連続であることを要請する。\\
+内部エネルギーが断熱仕事で定義されていることから、以下の性質が分かる。\\
+\begin{itembox}[l]{\textbf{prop:内部エネルギーの性質}}
+    内部エネルギーの性質は以下の通りである。
+    \begin{enumerate}
+        \item 内部エネルギーは、相加性および示量性を持つ。
+        \item $U(T,X)-U(T',X') = W_{\text{ad}}((T,X)\rightarrow (T',X'))$である。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+あとで書く。\\
 
+\begin{itembox}[l]{\textbf{prop:エネルギーは温度の増加関数}}
+    任意の熱力学的な系において、示量変数の組$X$を固定したとき、エネルギー$U(T,X)$は温度$T$の増加関数である。
+
+\end{itembox}
+\textbf{Prf}\\
+温度を上げる操作について、系が外界にする仕事は負である。\footnote{それはそうという感じではあるが、どこかしらの要請からかっちり言えないんかな}すなわち、
+\begin{equation}
+    W_{\text{ad}}((T,X)\rightarrow (T',X')) \leq 0
+\end{equation}
+である。一方、内部エネルギーの性質2より、
+\begin{equation}
+    U(T,X) - U(T',X') = W_{\text{ad}}((T,X)\rightarrow (T',X'))
+\end{equation}
+であるから、
+\begin{equation}
+    U(T,X) \leq U(T',X')
+\end{equation}
+が成り立つ。したがって、エネルギーは温度の増加関数である。\\
 
 
 \end{document}
