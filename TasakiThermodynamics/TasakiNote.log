@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  20 APR 2024 23:35
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  20 APR 2024 23:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -684,13 +684,13 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 2.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 2.
-)
+ [1
+
+])
 \tf@toc=\write5
 \openout5 = `TasakiNote.toc'.
 
- [1
-
-]
+ [2]
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 47.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
@@ -705,10 +705,10 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 53.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 53.
- [2] [3]
+ [3] [4]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 110.
- [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+ [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
 Overfull \hbox (14.36142pt too wide) detected at line 498
 [][][][] \OT1/cmr/m/n/10 = []
  []
@@ -718,17 +718,17 @@ Overfull \hbox (10.27274pt too wide) detected at line 502
 [][][][] \OMS/cmsy/m/n/10 ^^@ [] \OT1/cmr/m/n/10 = [] \OMS/cmsy/m/n/10 ^^@ []
  []
 
-[15] [16] [17] [18] [19] (./TasakiNote.aux)
+[16] [17] [18] [19] [20] (./TasakiNote.aux)
 Package rerunfilecheck Info: File `TasakiNote.out' has not changed.
-(rerunfilecheck)             Checksum: 6EB826581719A03778E3B5B7592818EB;2378.
+(rerunfilecheck)             Checksum: 80A2B2377DE585432724320F37BF20B7;2536.
  ) 
 Here is how much of TeX's memory you used:
- 22467 strings out of 476677
- 423523 string characters out of 5808165
+ 22471 strings out of 476677
+ 423570 string characters out of 5808165
  1860484 words of memory out of 5000000
- 42517 multiletter control sequences out of 15000+600000
- 532279 words of font info for 126 fonts, out of 8000000 for 9000
+ 42520 multiletter control sequences out of 15000+600000
+ 532614 words of font info for 127 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,20n,89p,474b,490s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on TasakiNote.dvi (19 pages, 112028 bytes).
+Output written on TasakiNote.dvi (20 pages, 117152 bytes).
