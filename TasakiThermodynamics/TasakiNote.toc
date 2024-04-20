@@ -16,3 +16,4 @@
 \contentsline {subsection}{\numberline {4.4}断熱仕事と内部エネルギー}{11}{subsection.4.4}%
 \contentsline {section}{\numberline {5}熱とCarnotの定理}{13}{section.5}%
 \contentsline {subsection}{\numberline {5.1}熱}{13}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Carnotの定理}{14}{subsection.5.2}%
