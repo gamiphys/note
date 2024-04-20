@@ -591,4 +591,58 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
 \end{equation}
 である。これはKelvinの原理に反する。したがって、この操作は不可逆である。\\
 
+\begin{itembox}[l]{\textbf{prop:エントロピー原理}}
+    示量変数の組$X$で記述される任意の熱力学的な系を考える、$X,X'$を互いに何らかの操作で移りあうことのできる状態とし、$T$,$T'$を任意の温度とする。このとき、
+    \begin{equation}
+        S(T,X) \leq S(T',X')
+    \end{equation}
+    であることは、
+    \begin{equation}
+        (T,X) \xrightarrow{a} (T',X')
+    \end{equation}
+    なる断熱操作が可能であることの必要十分条件である。
+\end{itembox}
+これはまさに、エントロピーによる操作限界の表現である。\\
+\textbf{Prf}\\
+($\Rightarrow$)を示す。$S(T,X) \leq S(T',X')$であるとする。\\
+系を断熱壁で囲い、状態$(T,X)$から出発して、$X$を$X'$に変化させる断熱準静操作$(T,X)\xrightarrow{aq}(T'',X')$を考える。このとき、
+\begin{equation}
+    S(T,X) = S(T'',X')
+\end{equation}
+であるから、仮定より、
+\begin{equation}
+    S(T'',X') \leq S(T',X')
+\end{equation}
+である。また、エントロピーは温度の増加関数であるから、
+\begin{equation}
+    T'' \leq T'
+\end{equation}
+である。したがって、断熱操作$(T'',X')\xrightarrow{a}(T',X')$が可能である。ゆえに、
+\begin{equation}
+    (T,X) \xrightarrow{aq} (T'',X') \xrightarrow{a} (T',X')
+\end{equation}
+なる断熱操作が可能である。\\
+($\Leftarrow$)を示す。$(T,X)\xrightarrow{a}(T',X')$なる断熱操作が可能であるとする。\\
+系を断熱壁で囲い、状態$(T',X')$から出発して、$X'$を$X$に変化させる断熱準静操作$(T',X')\xrightarrow{aq}(T'',X)$を得る。このとき、仮定より、
+\begin{equation}
+    (T,X) \xrightarrow{a} (T',X') \xrightarrow{aq} (T'',X)
+\end{equation}
+により、$(T,X)\xrightarrow{a}(T'',X)$なる断熱操作が可能である。このとき、Planckの原理より、
+\begin{equation}
+    T \leq T''
+\end{equation}
+である。ここで、エントロピーは温度の増加関数であるから、
+\begin{equation}
+    S(T,X) \leq S(T'',X)
+\end{equation}
+である。また、$(T',X')\xrightarrow{aq}(T'',X)$は断熱操作なので、
+\begin{equation}
+    S(T',X') = S(T'',X)
+\end{equation}
+である。したがって、
+\begin{equation}
+    S(T,X) \leq S(T',X')
+\end{equation}
+である。以上より、エントロピー原理が示された。\\
+
 \end{document}
