@@ -580,6 +580,15 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
     は不可逆である。
 \end{itembox}
 \textbf{Prf}\\
+背理法を用いて示す。もし、この操作が可逆であるとすると、温度$T'$での等温サイクルを、
+\begin{equation}
+    (T',X) \xrightarrow{a} (T,X) \xrightarrow{i'} (T',X)
+\end{equation}
+とすることができる。ここで、$i'$は、系を温度$T'$の環境に接触させる操作である。このとき、二つ目の操作において、系は仕事をしないので\footnote{等積操作がいつでもできるかは知らん}、サイクル全体の仕事は、
+\begin{equation}
+    W = W_{\text{cyc}} = U(T',X) - U(T,X) \geq 0
+\end{equation}
+である。これはKelvinの原理に反する。したがって、この操作は不可逆である。\\
 
 
 
