@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1713621028 "sample.dvi" "sample.pdf" "sample" 1713621029 0
-  "sample.dvi" 1713621028 1132 86f1e70d1c4096d8d64175d78a459216 "latex"
+["dvipdf"] 1713621254 "sample.dvi" "sample.pdf" "sample" 1713621254 0
+  "sample.dvi" 1713621254 1120 707db39ff1348bf31d0c0bcd926309f9 "latex"
   (generated)
   "sample.pdf"
   (rewritten before read)
-["latex"] 1713621026 "sample.tex" "sample.dvi" "sample" 1713621029 0
+["latex"] 1713621252 "sample.tex" "sample.dvi" "sample" 1713621254 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1681536317 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -177,9 +177,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "sample.aux" 1713621028 520 9c1a709c014649c32e70d4a7a33299d3 "latex"
-  "sample.out" 1713621028 0 d41d8cd98f00b204e9800998ecf8427e "latex"
-  "sample.tex" 1713621024 949 956724718608a75cf8dc3d1f49070bbf ""
+  "sample.aux" 1713621254 520 9c1a709c014649c32e70d4a7a33299d3 "latex"
+  "sample.out" 1713621254 0 d41d8cd98f00b204e9800998ecf8427e "latex"
+  "sample.tex" 1713621251 937 744aa84848f4b363e89b49f86075f5bf ""
   (generated)
   "sample.aux"
   "sample.dvi"
