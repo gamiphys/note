@@ -487,6 +487,73 @@ Kelvinの原理より、
 
 \section{エントロピー}
 \subsection{エントロピーの導入}
+Carnotの定理をもとに、断熱準静操作における不変量を探る。Carnotの定理を変形することで、
+\begin{equation}
+    \frac{Q_{\text{max}}(T;X_1\rightarrow X_2)}{T} = \frac{Q_{\text{max}}(T';X_1'\rightarrow X_2')}{T'}
+\end{equation}
+となる。これを、ヘルムホルツ自由エネルギーと内部エネルギーを用いて書き直すと、
+\begin{equation}
+    \frac{F(T,X_1)-F(T,X_2)+U(T,X_2)-U(T,X_1)}{T} = \frac{F(T',X_1')-F(T',X_2')+U(T',X_2')-U(T',X_1')}{T'}
+\end{equation}
+となる。ここで、同じ状態にかかわる量をまとめて書いてみると、
+\begin{equation}
+    \frac{U(T,X_2)-F(T,X_2)}{T} - \frac{U(T,X_1)-F(T,X_1)}{T} = \frac{U(T',X_2')-F(T',X_2')}{T'} - \frac{U(T',X_1')-F(T',X_1')}{T'}
+\end{equation}
+となる。ここで、$U-F$の量を新たな関数$S$で定義すると、
+\begin{equation}
+    S(T,X) = \frac{U(T,X)-F(T,X)}{T}
+\end{equation}
+となる。この関数$S$をエントロピーと呼ぶ。\\
+これを用いると、
+\begin{equation}
+    S(T,X_2)-S(T,X_1) = S(T',X_2')-S(T',X_1')
+\end{equation}
+となる。この関係式は、断熱準静操作において、エントロピーの差が不変であることを示している。\\
+エントロピー自体が断熱準静操作で不変となるように基準点を調整したい。
+ここの議論よくわかんないので一旦飛ばす。\\
 
+また、エントロピーは示量性および相加性を持つ。\\
+以下、エントロピーに対する性質をまとめる。\\
+\begin{itembox}[l]{\textbf{prop:断熱準静操作とエントロピー}}
+    $(T,X) \xleftrightarrow{aq} (T',X')$のとき、エントロピーの差は不変である。すなわち、
+    \begin{equation}
+        S(T,X) = S(T',X')
+    \end{equation}
+    である。
+\end{itembox}
 
+\begin{itembox}[l]{\textbf{prop:エントロピーと断熱準静操作}}
+    $X$,$X'$を互いに何らかの操作で移りあうことのできる状態ととし、$T$,$T'$を任意の温度とする。このとき、
+    \begin{equation}
+        S(T,X) = S(T',X')
+    \end{equation}
+    ならば、断熱準静操作
+    \begin{equation}
+        (T,X) \xleftrightarrow{aq} (T',X')
+    \end{equation}
+    が存在する。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{prop:エントロピーの温度依存性}}
+エントロピーは温度$T$の増加関数である。つまり、任意の$T<T'$と任意の$X$に対して、
+\begin{equation}
+    S(T,X) \leq S(T',X)
+\end{equation}
+が成り立つ。
+またえ、エントロピー$S(T,X)$とエネルギー$U(T,X)$が、ある$T,X$において共に$T$について微分可能ならば、
+\begin{equation}
+    \pdv{U(T,X)}{T} = T\pdv{S(T,X)}{T}
+\end{equation}
+が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+三つ目の性質から示す。$T$と$T'$を、$T < T'$をみたす任意の温度とする。このとき、何らかの操作で結ばれている$X_1$,$X_2$,$X_3$に対して、
+\begin{equation}
+    (T,X_2) \xleftrightarrow{aq} (T',X_1)
+\end{equation}
+および、
+\begin{equation}
+    (T,X_1) \xleftrightarrow{aq} (T',X_3)
+\end{equation}
+が可能とする。
 \end{document}
