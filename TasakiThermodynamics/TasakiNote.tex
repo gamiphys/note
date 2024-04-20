@@ -440,6 +440,26 @@ Kelvinの原理より、
     \end{equation}
     である。
 \end{itembox}
-以上の定義からわかるように、最大吸熱量を求めるためには、さまざまな等温操作や断熱操作をによる仕事を測定すればよい。\\
+以上の定義からわかるように、最大吸熱量を求めるためには、さまざまな等温操作や断熱操作をによる仕事を測定すればよい。
+\footnote{
+    このとき$F$については準静等温過程から求めればよい。$U$については少し工夫が必要である。今、熱力学系に対する操作を二通り考える。
+    \begin{enumerate}
+        \item $(T,X)\xrightarrow{aq}(T',X')\xrightarrow{a}(T,X') \quad (T'<T)$
+        \item $(T,X')\xrightarrow{a}(T',X')\xrightarrow{aq}(T,X) \quad (T'>T)$
+    \end{enumerate}
+    一つ目の過程における内部エネルギーと仕事の関係は、
+    \begin{equation}
+        U(T,X) - U(T',X') +U(T',X') - U(T,X') = W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T,X'))
+    \end{equation}
+    である。また、二つ目の過程における内部エネルギーと仕事の関係は、
+    \begin{equation}
+        U(T,X') - U(T',X') +U(T',X') - U(T,X) = W_{\text{ad}}((T,X')\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T,X))
+    \end{equation}
+    である。したがって、
+    \begin{equation}
+        U(T,X) - U(T,X') = \pm(W_{\text{ad}}((T,X)\rightarrow (T',X'))+W_{\text{ad}}((T',X')\rightarrow (T,X))) =\pm W_{\text{ad}}((T,X)\rightarrow (T,X'))
+    \end{equation}
+    となり、たしかに測定可能である。
+}
 
 \end{document}

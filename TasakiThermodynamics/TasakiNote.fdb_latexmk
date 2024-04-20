@@ -1,14 +1,14 @@
 # Fdb version 4
-["dvipdf"] 1713583473 "TasakiNote.dvi" "TasakiNote.pdf" "TasakiNote" 1713583474 0
-  "TasakiNote.dvi" 1713583473 80852 068b9aa8929785186aee6b2e304a674d "latex"
+["dvipdf"] 1713586209 "TasakiNote.dvi" "TasakiNote.pdf" "TasakiNote" 1713586210 0
+  "TasakiNote.dvi" 1713586209 84000 b212b8b50bef00ba6644d7ff228af165 "latex"
   (generated)
   "TasakiNote.pdf"
   (rewritten before read)
-["latex"] 1713583471 "TasakiNote.tex" "TasakiNote.dvi" "TasakiNote" 1713583474 0
-  "TasakiNote.aux" 1713583473 2782 d3b4bf7c06f0c6a0cfc52960487ca4a5 "latex"
-  "TasakiNote.out" 1713583473 1934 64abc3c7f4502f333ccb4e969e055eff "latex"
-  "TasakiNote.tex" 1713583471 25924 556a23c6caedbc403c3590b1aadd32f9 ""
-  "TasakiNote.toc" 1713583473 1523 549d8cfb8c710ea02d174403976f0e60 "latex"
+["latex"] 1713586207 "TasakiNote.tex" "TasakiNote.dvi" "TasakiNote" 1713586210 0
+  "TasakiNote.aux" 1713586209 2782 d3b4bf7c06f0c6a0cfc52960487ca4a5 "latex"
+  "TasakiNote.out" 1713586209 1934 64abc3c7f4502f333ccb4e969e055eff "latex"
+  "TasakiNote.tex" 1713586207 27149 13caebe10fc7e792375f2f3f2631dc81 ""
+  "TasakiNote.toc" 1713586209 1523 549d8cfb8c710ea02d174403976f0e60 "latex"
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
