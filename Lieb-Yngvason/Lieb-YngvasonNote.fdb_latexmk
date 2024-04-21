@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1713677989 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713677990 0
-  "Lieb-YngvasonNote.dvi" 1713677989 20444 8d04ec6fd77dfa370219c40717fc1c21 "latex"
+["dvipdf"] 1713684287 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713684288 0
+  "Lieb-YngvasonNote.dvi" 1713684287 28040 846c4d2efc8d90ee72d60f11b21610b2 "latex"
   (generated)
   "Lieb-YngvasonNote.pdf"
   (rewritten before read)
-["latex"] 1713677988 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713677990 0
-  "Lieb-YngvasonNote.aux" 1713677989 865 360ca371517ff241f742301fde5b0ea0 "latex"
-  "Lieb-YngvasonNote.out" 1713677989 255 fde3890880ef206af5582466e1dac8ce "latex"
-  "Lieb-YngvasonNote.tex" 1713677987 7796 e0fbf44f972c3bc1878263944974ac50 ""
+["latex"] 1713684286 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713684288 0
+  "Lieb-YngvasonNote.aux" 1713684287 865 334d260b3c93f5e6a4e535bbd92277d6 "latex"
+  "Lieb-YngvasonNote.out" 1713684287 255 fde3890880ef206af5582466e1dac8ce "latex"
+  "Lieb-YngvasonNote.tex" 1713684281 11547 722c1808fdafa1c9e600911382ec8375 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -124,6 +124,7 @@
   "c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex" 1681541060 29239 22e8c7516012992a49873eff0d868fed ""
   "c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def" 1681541060 6950 8524a062d82b7afdc4a88a57cb377784 ""
   "c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty" 1681543074 7008 f92eaa0a3872ed622bbf538217cd2ab7 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty" 1681536312 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1681536317 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd" 1681536317 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd" 1681536317 961 d02606146ba5601b5645f987c92e6193 ""

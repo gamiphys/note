@@ -2,6 +2,7 @@
 
 % 数式
 \usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
 \usepackage{bm}
 \usepackage{mathtools}
 
@@ -156,6 +157,62 @@
     (A6: 安定性) 0に近づく$\epsilon$の列およびいくつかの状態$Z_0,Z_1$に対して、$(X,\epsilon Z_0) \prec (Y,\epsilon Z_1)$ならば、$X \prec Y$ 
 \end{itembox}
 A6はぱっと見よくわからないが、要するに、外部系の微小な摂動が、状態の順序関係に影響を与えないことを述べている。\\
+これらに加えて、比較仮説(CH)を導入する。これは、論文の公判で示されることとなる。\\
+\begin{itembox}[l]{\textbf{Def:比較仮説}}
+    状態空間に対してCHが成り立つとは、その空間内の任意の二つの状態$X$と$Y$が比較可能であることをいう。すなわち、
+    \begin{equation}
+        X \prec Y or Y \prec X \quad \forall X,Y \in \Gamma
+    \end{equation}
+    が成立することをいう。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:キャンセル法則}}
+    $X,Y,Z$が系の状態のとき、
+    \begin{equation}
+        (X,Z) \prec (Y,Z) \Rightarrow X \prec Y
+    \end{equation}
+    が成立する。
+
+\end{itembox}
+\textbf{Prf}\\
+$\epsilon =\frac{1}{n}$とする。このとき、
+\begin{align}
+    (X,\epsilon Z) &\overset{A}{\sim} ((1-\epsilon)X,\epsilon X,Z)\\
+    &\prec ((1-\epsilon)X,\epsilon Y,Z)\\
+    &\overset{A}{\sim} ((1-2\epsilon)X,\epsilon X,\epsilon Y,Z)\\
+    &\prec ((1-2\epsilon)Y,2\epsilon Y,Z)
+    \end{align}
+これを$n=\frac{1}{\epsilon}$回繰り返すと、$X$の係数は0に、$Y$の係数は1に収束する。\\
+以上より、$X \prec Y$が示された。\qedsymbol\\
+この定理は、公理A3とは逆の方向の主張をしており、A3の制約がある中で、逆の主張がどの範囲まで成り立つかを示している。($X,Y$に対して同じ系を合成している。)
+
+キャンセル法則のもとで、我々が定義した「断熱到達可能性」と、「断熱過程」が結びつくことを示す。\\
+まず、断熱過程とは何であったかというと、「系が熱的に遮断された閉じた絵空間に閉じ込めらえれ、系への熱の流出入を防ぐ過程」のことであった。
+したがって、系と外部との相互作用は、力学的または電磁気学的な仕事に限られる。\\
+ここで、新たな記号$\prec ^*$を導入する。これは、$X$から$Y$への状態変化が、状態が$M$から$M'$に変化する外部装置が存在し、さらに、終状態において、何らかの方法でその装置を初期状態$M$に戻すことができるとき、$X$から$Y$への断熱到達可能であるということを表す。\\
+すなわち、
+\begin{equation}
+    (X,M,h) \rightarrow (Y,M,h')
+\end{equation}
+が成立するとき、$X \prec ^* Y$と書く。\\
+これは、「断熱過程」の定義と一致する。外部装置が熱の流出入を許していないことに注意されたい。\\
+
+一方「断熱到達可能性」の定義では、外部装置にそのような制限はない。すなわち、外部装置は必要に応じて熱を生成したり、除去したりすることができる。\\
+ただ、外部デバイスに対するそれ以外の制約は断熱過程の場合と同じである。すなわち、デバイスの状態を$D$で表すことにすると、
+\begin{equation}
+    (X,D,h) \rightarrow (Y,D,h')
+\end{equation}
+が成立するとき、$X \prec Y$である。\\
+
+以上の議論を見ると、断熱過程は、断熱到達可能性の特殊な場合であることがわかる。すなわち、
+\begin{equation}
+    X \prec Y \Rightarrow X \prec ^* Y
+\end{equation}
+が成立する。\\
+また、後者において、外部装置を力学的な部分と熱的な部分に分けると、$D = (M,Z)$と書ける。ここで、$M$は力学的な部分、$Z$は熱的な部分である。\\
+このとき、キャンセル法則を用いて、$(X,Z) \prec^* (Y,Z)$が成立するとき、$X \prec^* Y$であることがわかる。\\
+%あとでここに断熱操作とエントロピー原理の関係を書く。
 
 
 \end{document}
