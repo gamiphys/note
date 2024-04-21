@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  21 APR 2024 20:28
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  21 APR 2024 21:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -700,12 +700,7 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 43.
  [1
 
-] [2] [3] [4] [5] [6] [7]
-Underfull \hbox (badness 10000) detected at line 319
-[]$[]$[]
- []
-
-[8] [9] (./Lieb-YngvasonNote.aux)
+] [2] [3] [4] [5] [6] [7] [8] [9] (./Lieb-YngvasonNote.aux)
 Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
 (rerunfilecheck)             Checksum: BBC6480A9B484F342AECE1EAEE32D804;389.
  ) 
@@ -718,4 +713,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,10n,89p,481b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (9 pages, 46124 bytes).
+Output written on Lieb-YngvasonNote.dvi (9 pages, 47532 bytes).
