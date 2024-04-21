@@ -1,0 +1,89 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+\begin{document}
+
+\title{Lieb-Yngvasonノート}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{状態と状態空間}
+\begin{itembox}[l]{\textbf{Def:状態と状態空間}}
+状態は、状態空間$\Gamma$の点であり、$X,Y,Z$などと表す。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:状態空間の合成}}
+    状態空間$\Gamma_1$と$\Gamma_2$の合成は、状態空間の直積$\Gamma_1 \times \Gamma_2$である。\\
+\end{itembox}
+また、物理的直観から明らかなように、複数の状態空間を合成するとき、その合成の順序は問題にならない。すなわち、
+\begin{equation}
+    (\Gamma_1 \times \Gamma_2) \times \Gamma_3 = \Gamma_1 \times (\Gamma_2 \times \Gamma_3)
+\end{equation}
+である。
+
+\begin{itembox}[l]{\textbf{Def:スケーリングコピー}}
+    $t>0$に対して、状態空間$\Gamma(t)$の構成要素を、$tX$とする。\\
+    このとき、$\Gamma(t)$は、$\Gamma$のスケーリングコピーである。また、状態空間が$\mathbb{R}^n$の部分集合であるときは、$tX$は、ベクトルのスカラー倍としての表現となる。
+    このとき、$\Gamma(t)=t\Gamma$と書く。
+\end{itembox}
+このとき、スケーリングコピーに関する以下の性質は、明らかである。
+\begin{itemize}
+    \item $\Gamma(1)=\Gamma$
+    \item $1X=X$
+    \item $(\Gamma(t))(s)=\Gamma(ts)$
+    \item $s(tX)=(st)X$
+    \item $(\Gamma_1 \times \Gamma_2)(t)=\Gamma_1(t) \times \Gamma_2(t)$
+    \item $t(X,Y)=(tX,tY)$
+\end{itemize}
+
+\begin{itembox}[l]{\textbf{Def:多重スケーリングコピー}}
+    状態空間が$\Gamma_1,\Gamma_2,\cdots,\Gamma_n$の直積であるとき、$t_1,t_2,\cdots,t_n>0$に対して、
+    \begin{equation}
+        \Gamma_1(t_1) \times \Gamma_2(t_2) \times \cdots \times \Gamma_n(t_n)
+    \end{equation}
+    なる直積を形成できる。とくに、$\Gamma_1=\Gamma_2=\cdots=\Gamma_n=\Gamma$のとき、
+    \begin{equation}
+        \Gamma(t_1,t_2,\cdots,t_n)=\Gamma(t_1) \times \Gamma(t_2) \times \cdots \times \Gamma(t_n)
+    \end{equation}
+    と書く。これを多重スケーリングコピーという。
+\end{itembox}
+
+\textbf{ex:状態空間}\\
+(a)水素が1molのとき、状態空間$\Gamma_a$は、エネルギーと体積で表され、$\mathbb{{R}}^2$の部分集合である。\\
+(b)水素が0.5molのとき、状態空間$\Gamma_b$は、エネルギーと体積で表され、$\mathbb{{R}}^2$の部分集合であり、$\Gamma_b=\frac{1}{2}\Gamma_a=\{(\frac{1}{2}U,\frac{1}{2}V)|U,V \in \Gamma_a\}$である。\\
+(c)水素が1mol、酸素が0.5mol(混合されていない)のとき、状態空間$\Gamma_c=\Gamma_a \times (酸素0.5molの状態空間)$であり、複合系である。\\
+(d)水1molのとき、状態空間$\Gamma_d$
+(e)水素1molと酸素0.5mol(混合)のとき、$\Gamma_e\neq \Gamma_d$であり、$\Gamma_e\neq \Gamma_c$である。\\
+
+\section{順序関係}
+\end{document}
