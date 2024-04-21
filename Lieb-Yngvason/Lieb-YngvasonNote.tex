@@ -356,9 +356,39 @@ Lemma2.1により、カノニカルエントロピーは、well-definedであり
     は同値である。\\
     特に、もし、$a_1=a_1',a_0=a_0'$であるならば、(1)の$\prec$は$\overset{A}{\sim}$に置き換えることができる。
 \end{itembox}
+これは、例えば、温度の高い系と低い系を接触させたときに、エントロピーが増加することを示している。\\
 \textbf{Prf}\\
 ここでは、$a_0,a_1,a_0',a_1'$が全て正であり、$a_0+a_1=a_0'+a_1'=1$であるとする。また、$a_1=\lambda,a_1'=\lambda'$とする。\\
 (1)$\Rightarrow$(2)\\
+背理法により示す。すなわち、$\lambda > \lambda'$とする。今、
+\begin{equation}
+    ((1-\lambda)X_0,\lambda X_1) \prec ((1-\lambda')X_0',\lambda'X_1')
+\end{equation}
+ここで、
+\begin{align}
+    ((1-\lambda)X_0,\lambda X_1) &\overset{A}{\sim} ((1-\lambda)X_0,\lambda'X_1,(\lambda-\lambda')X_1)\\
+    ((1-\lambda')X_0,\lambda'X_1') &\overset{A}{\sim} ((1-\lambda)X_0,(\lambda - \lambda')X_0,\lambda'X_1)
+\end{align}
+であるから、
+\begin{equation}
+    ((1-\lambda)X_0,\lambda'X_1,(\lambda-\lambda')X_1) \prec ((1-\lambda)X_0,(\lambda - \lambda')X_0,\lambda'X_1)
+\end{equation}
+である。ここで、キャンセル法則を用いると、
+\begin{equation}
+    (\lambda - \lambda')X_1 \prec (\lambda - \lambda')X_0
+\end{equation}
+$\lambda -\lambda '>0$と、スケーリング不変性より、
+\begin{equation}
+    X_1 \prec X_0
+\end{equation}
+であるが、これは、$X_0 \prec \prec X_1$に矛盾する。\\
+(2)$\Rightarrow$(1)\\
+\begin{align}
+    ((1-\lambda)X_0,\lambda X_1) &\overset{A}{\sim} ((1-\lambda')X_0,(\lambda'-\lambda)X_0,\lambda X_1)\\
+    &\prec ((1-\lambda')X_0,(\lambda'-\lambda)X_1,\lambda X_1)\\
+    &\overset{A}{\sim} ((1-\lambda')X_0,\lambda'X_1)
+\end{align}
+であるから、(1)が示された。\\
 
 
 
