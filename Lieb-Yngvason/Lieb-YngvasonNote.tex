@@ -214,5 +214,55 @@ $\epsilon =\frac{1}{n}$とする。このとき、
 このとき、キャンセル法則を用いて、$(X,Z) \prec^* (Y,Z)$が成立するとき、$X \prec^* Y$であることがわかる。\\
 %あとでここに断熱操作とエントロピー原理の関係を書く。
 
+\section{単純系のエントロピーの構成}
+今、状謡空間$\Gamma$のスケールコピーを構成する。すなわち、
+\begin{equation}
+    Y =(t_1 Y_1,t_2 Y_2,\cdots,t_n Y_n) \quad (t_i>0), \quad Y_i \in \Gamma
+\end{equation}
+とする。\\
+このとき、以下の命題が成り立つ。
+\begin{itembox}[l]{\textbf{Prop:比較可能性}}
+    $Y$ｇは上のように書けるとき、同じように構成される$Y'$は、
+    \begin{equation}
+        Y' =(t_1' Y_1',t_2' Y_2',\cdots,t_m' Y_m') \quad t_j'>0, \quad Y_j' \in \Gamma
+    \end{equation}
+    であるとする。また、
+    \begin{equation}
+        \sum_{i=1}^n t_i = \sum_{j=1}^m t_j'
+    \end{equation}
+    であるとする。このとき、$Y$と$Y'$は比較可能である。
+\end{itembox}
+\textbf{Prf}\\
+特に、$n=m=2$の場合を考える。このとき、
+\begin{equation}
+    t_1-t_1' = t_2'-t_2
+\end{equation}
+である。$t_1-t_1' =0$のとき、
+\begin{align}
+    Y &= (t_1 Y_1,t_2 Y_2)\\
+    Y' &= (t_1 Y_1',t_2 Y_2')
+\end{align}
+であるから、$Y$と$Y'$はともに$\Gamma _{t_1} \times \Gamma _{t_2}$の点であり、比較可能である。\\
+また、$t_1-t_1' >0$のとき、A5より、
+\begin{align}
+    Y=(t_1 Y_1,t_2 Y_2) &\overset{A}{\sim} (t_1' Y_1,(t_1-t_1')Y_1,t_2 Y_2)\\
+    Y'=(t_1' Y_1',t_2 Y_2') &\overset{A}{\sim} (t_1' Y_1',(t_2'-t_2)Y_2',t_2 Y_2')=(t_1' Y_1',(t_1-t_1')Y_2',t_2 Y_2')
+\end{align}
+であるから、$Y$と$Y'$はともに、$\Gamma _{t_1} \times \Gamma _{t_1-t_1'} \times \Gamma _{t_2}$の点であり、比較可能である。\\
+以上より、一般の場合についても、$Y$と$Y'$は比較可能である。\qedsymbol\\
+この定理のもと、単純系の多重スケーリングコピーにおいてエントロピー原理を導出することができる。\\
+\begin{itembox}[l]{\textbf{Thm:エントロピー(単純系)}}
+    以下の(1),(2)は同値である。\\
+    (1) 関係$\prec$が、$\Gamma$の多重スケーリングコピーにおいて、順序の公理A1-A6及び比較仮説(CH)を満たす。\\
+    (2) ある関数$S_{\Gamma}:\Gamma \rightarrow \mathbb{R}$が存在して、以下の性質を満たす。\\
+    もし、$(t_1+ \cdots +t_n)=t_1'+ \cdots +t_m'$であるとき、
+    \begin{equation}
+        (t_1 Y_1, \cdots ,t_n Y_n) \prec (t_1' Y_1', \cdots ,t_m' Y_m') \Leftrightarrow S_{\Gamma}(Y_1)+ \cdots +S_{\Gamma}(Y_n) \leq S_{\Gamma}(Y_1')+ \cdots +S_{\Gamma}(Y_m')
+    \end{equation}
+    が成立する。\\
+    また、この関数は、アフィン変換を除いて、$\Gamma$に対して一意に定まる。
+
+\end{itembox}
+
 
 \end{document}
