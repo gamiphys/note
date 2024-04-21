@@ -306,18 +306,63 @@ $X_0 \prec X$であるとき、A2より、明らかに$X \in \mathcal{S}_0$で�
 \end{equation}
 であるから、$X \in \mathcal{S}_{\lambda}$である。\\
 (2)\\
-背理法により示す。もし、$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}=\infty$であるとすると、
+背理法により示す。$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}=\infty$であるとする。このとき、$X\in \mathcal{S}_{\lambda}$について、
+\begin{equation}
+    ((1-\lambda)X_0,\lambda X_1) \prec X
+\end{equation}
+である。これを変形して、
+\begin{equation}
+    (X_0,\lambda X_1) \prec (\lambda X_0,X)
+\end{equation}
+スケーリング不変性より、
+\begin{equation}
+    (X_1,\frac{1}{\lambda}X_0) \prec (X_0,\frac{1}{\lambda}X)
+\end{equation}  
+ここで、$\lambda \rightarrow \infty$として、キャンセル法則を用いることにより、
+\begin{equation}
+    X_1 \prec X_0
+\end{equation}
+がいえる。これは、$X_0 \prec \prec X_1$に矛盾する。\\
+以上より、(2)が示された。\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:カノニカルエントロピー/基準点}}
+    状態空間$\Gamma$上のある$X_0,X_1$に対して、$X_0 \prec \prec X_1$であるとする。このとき、
+    \begin{equation}
+        S_{\Gamma}(X) = \sup\{\lambda|((1-\lambda)X_0,\lambda X_1) \prec X\}
+    \end{equation}
+    で定義される関数$S_{\Gamma}$を、基準点$X_0 \prec \prec X_1$に関するカノニカルエントロピーという。\\
+    また、カノニカルエントロピーは、
+    \begin{equation}
+        S_{\Gamma}(X) = \sup\{\lambda|X \in \mathcal{S}_{\lambda}\}
+    \end{equation}
+    とも書ける。
+\end{itembox}
+基準点を設ける意味は、もし、系のすべてが断熱的に等価であるならば、状態空間にわたってエントロピーが一定となるからである。\\
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=50mm]{fig2.png}
+    \end{center}
+    \caption{カノニカルエントロピー}
+    \label{fig:one}
+\end{figure}
+Lemma2.1により、カノニカルエントロピーは、well-definedであり、$S_{\Gamma}(X)<\infty$である。\\
 
 \begin{itembox}[l]{\textbf{Lem2.2:$\prec$と$\leq$の関係}}
     いま、$X_0 \prec \prec X_1$であるとし、$a_0,a_1,a_0',a_1' \in \mathbb{R}$に対して、$a_0+a_1=a_0'+a_1'$であるとする。このとき、\\
     (1)$((a_0X_0,a_1X_1) \prec (a_0'X_0',a_1'X_1'))$\\
-    (2)$ a_1 \leq a_1' $(ゆえに、$a_0 \leq a_0'$)
+    (2)$ a_1 \leq a_1' $(ゆえに、$a_0 \leq a_0'$)\\
     は同値である。\\
     特に、もし、$a_1=a_1',a_0=a_0'$であるならば、(1)の$\prec$は$\overset{A}{\sim}$に置き換えることができる。
 \end{itembox}
 \textbf{Prf}\\
+ここでは、$a_0,a_1,a_0',a_1'$が全て正であり、$a_0+a_1=a_0'+a_1'=1$であるとする。また、$a_1=\lambda,a_1'=\lambda'$とする。\\
+(1)$\Rightarrow$(2)\\
 
-\qedsymbol\\
+
+
+
 
 \begin{itembox}[l]{\textbf{Lem2.3:エントロピーの特徴づけ}}
 $S_{\Gamma}$が、$\Gamma$上のカノニカルエントロピーであるとし、参照点を$X_0 \prec \prec X_1$とする。もし、$X\in \Gamma$であるならば、

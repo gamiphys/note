@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1713701163 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713701164 0
-  "Lieb-YngvasonNote.dvi" 1713701163 47532 d29995f904ec079077b3fb9fc98f5256 "latex"
+["dvipdf"] 1713708848 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713708849 0
+  "Lieb-YngvasonNote.dvi" 1713708848 51808 4a701b5bef7a19bc73c78a9c1c751197 "latex"
   (generated)
   "Lieb-YngvasonNote.pdf"
   (rewritten before read)
-["latex"] 1713701161 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713701164 0
-  "Lieb-YngvasonNote.aux" 1713701163 1001 2a18ddb66ab6d353a28dca4073d85ddf "latex"
-  "Lieb-YngvasonNote.out" 1713701163 389 bbc6480a9b484f342aece1eaee32d804 "latex"
-  "Lieb-YngvasonNote.tex" 1713701161 18226 b088b79338ced1400b812a41efef6c0e ""
+["latex"] 1713708845 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713708849 0
+  "Lieb-YngvasonNote.aux" 1713708848 1220 5d1273358f5b9e71bbdecee311f54314 "latex"
+  "Lieb-YngvasonNote.out" 1713708848 389 bbc6480a9b484f342aece1eaee32d804 "latex"
+  "Lieb-YngvasonNote.tex" 1713708845 20203 248b7234738be3780eaafcce2a2bd1eb ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -43,6 +43,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -193,6 +194,7 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
+  "fig2.png" 1713695188 115929 2b34bcd9be675e33f5ae60a84b9482a4 ""
   (generated)
   "Lieb-YngvasonNote.aux"
   "Lieb-YngvasonNote.dvi"
