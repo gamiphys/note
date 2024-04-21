@@ -105,8 +105,8 @@
 \begin{itemize}
     \item ガスの膨張または圧縮。これには、重りを持ち上げたり下げたりすることがあってもなくても含まれます。
     \item こすったりかき混ぜたりすること。
-    \item 電気加熱。（ここでは「熱」という概念は必要ありません。）
-    \item ある障壁が取り除かれた後に孤立した複合システム内で発生する自然なプロセス。これには、混合や化学的、核反応が含まれます。
+    \item 電気加熱。（ここでは「熱」という概念は必要ない。）
+    \item ある障壁が取り除かれた後に孤立した複合システム内で発生する自然なプロセス。これには、混合や化学的、核反応が含まれる。
     \item ハンマーでシステムを破壊して分割し、再組み立てすること。
     \item このような変化の組み合わせ
 \end{itemize}
@@ -263,6 +263,60 @@ $\epsilon =\frac{1}{n}$とする。このとき、
     また、この関数は、アフィン変換を除いて、$\Gamma$に対して一意に定まる。
 
 \end{itembox}
+いくらかの補題を証明しておく。\\
+\begin{itembox}[l]{\textbf{Lem2.1}}
+$X_0,X_1$が状態空間$\Gamma$の点で、$X_0 \prec \prec X_1$であるとする。このとき、実数$\lambda$に対して、
+\begin{equation}
+    \mathcal{S}_{\lambda} = \{X\in \Gamma|((1-\lambda)X_0,\lambda X_1) \prec X \}
+\end{equation}
+と定義する。このとき、以下の二つの主張が成立する。\\
+(1) 任意の$X \in \Gamma$に対して、$X \in \mathcal{S}_{\lambda}$となるような$\lambda$が存在する。\\
+(2) 任意の$X \in \Gamma$に対して、$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}<\infty$である。
 
+\end{itembox}
+\textbf{Prf}\\
+(1) \\
+$X_0 \prec X$であるとき、A2より、明らかに$X \in \mathcal{S}_0$である。\\
+一般の$X$について示す。ここで、$\alpha \geq 0$に対して、
+\begin{equation}
+    (1+\alpha)X_0 \prec (\alpha X_1,X)
+\end{equation}
+が成り立つことを示す。もしこれが成り立たないとすると、CHより、
+\begin{equation}
+    (\alpha X_1,X) \prec (1+\alpha)X_0
+\end{equation}
+が成立する。このとき、
+\begin{align}
+    (X_1,\frac{1}{\alpha}X) &\prec \frac{\alpha+1}{\alpha}(\frac{1}{1+\alpha}X_0+\frac{\alpha}{1+\alpha}X_0)\\
+    \frac{\alpha}{\alpha+1}(X_1,\frac{1}{\alpha}X) &\prec (\frac{1}{1+\alpha}X_0+\frac{\alpha}{1+\alpha}X_0)\\
+    &\overset{A}{\sim} (\frac{1}{1+\alpha}X_0,\frac{\alpha}{1+\alpha}X_0)\\
+\end{align}
+であるから、
+\begin{align}
+    (X_1,\frac{1}{\alpha}X) &\prec (X_0,\frac{1}{\alpha}X_0)
+\end{align}
+がいえる。これと、A6(安定性)より、$X_1 \prec X_0$である。これは、$X_0 \prec \prec X_1$に矛盾する。\\
+以上より、(30)式が示された。ここで、$\alpha = -\lambda$とすると、
+\begin{equation}
+    (1-\lambda)X_0 \prec (-\lambda X_1,X)
+\end{equation}
+これの両辺に$\lambda X_1$を加えると、
+\begin{equation}
+    (1-\lambda)X_0 + \lambda X_1 \prec X
+\end{equation}
+であるから、$X \in \mathcal{S}_{\lambda}$である。\\
+(2)\\
+背理法により示す。もし、$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}=\infty$であるとすると、
+
+\begin{itembox}[l]{\textbf{Lem:$\prec$と$\leq$の関係}}
+    (1)$((a_0X_0,a_1X_1) \prec (a_0'X_0',a_1'X_1'))$\\
+    (2)$ a_1 \leq a_1' $(ゆえに、$a_0 \leq a_0'$)
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Lem:エントロピーの特徴づけ}}
+
+
+\end{itembox}
 
 \end{document}
