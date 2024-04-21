@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1713695954 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713695955 0
-  "Lieb-YngvasonNote.dvi" 1713695954 43260 f160d20b5941a859fadc0bf6279c938d "latex"
+["dvipdf"] 1713698909 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1713698910 0
+  "Lieb-YngvasonNote.dvi" 1713698909 46124 3d11d533919e7b55b085004b836bfeae "latex"
   (generated)
   "Lieb-YngvasonNote.pdf"
   (rewritten before read)
-["latex"] 1713695952 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713695955 0
-  "Lieb-YngvasonNote.aux" 1713695954 1001 14226f6a1f8a0674c1fa2d47acfff79d "latex"
-  "Lieb-YngvasonNote.out" 1713695954 389 bbc6480a9b484f342aece1eaee32d804 "latex"
-  "Lieb-YngvasonNote.tex" 1713695952 16664 f2d1955b964eaca110da2c01aec812c0 ""
+["latex"] 1713698907 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1713698910 0
+  "Lieb-YngvasonNote.aux" 1713698909 1001 2a18ddb66ab6d353a28dca4073d85ddf "latex"
+  "Lieb-YngvasonNote.out" 1713698909 389 bbc6480a9b484f342aece1eaee32d804 "latex"
+  "Lieb-YngvasonNote.tex" 1713698903 17493 ed6a375eac4a649c07ae36c9f556c37e ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""

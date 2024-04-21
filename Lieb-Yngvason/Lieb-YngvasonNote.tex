@@ -308,15 +308,35 @@ $X_0 \prec X$であるとき、A2より、明らかに$X \in \mathcal{S}_0$で�
 (2)\\
 背理法により示す。もし、$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}=\infty$であるとすると、
 
-\begin{itembox}[l]{\textbf{Lem:$\prec$と$\leq$の関係}}
+\begin{itembox}[l]{\textbf{Lem2.2:$\prec$と$\leq$の関係}}
     (1)$((a_0X_0,a_1X_1) \prec (a_0'X_0',a_1'X_1'))$\\
     (2)$ a_1 \leq a_1' $(ゆえに、$a_0 \leq a_0'$)
 \end{itembox}
 \textbf{Prf}\\
 
-\begin{itembox}[l]{\textbf{Lem:エントロピーの特徴づけ}}
-
+\begin{itembox}[l]{\textbf{Lem2.3:エントロピーの特徴づけ}}
 
 \end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピーの一意性}}
+もし、$S_{\Gamma}^*$が、任意の$\lambda \in \mathbb{R}$と、$X,Y,X',Y' \in \Gamma $に対して、
+\begin{align}
+    ((1-\lambda)X,\lambda Y) &\prec ((1-\lambda)X',\lambda Y') \\
+    \Leftrightarrow (1-\lambda)S_{\Gamma}^*(X)+\lambda S_{\Gamma}^*(Y) &\leq (1-\lambda)S_{\Gamma}^*(X')+\lambda S_{\Gamma}^*(Y')
+\end{align}
+であるならば、
+\begin{equation}
+    S_{\Gamma}^*(X)=aS_{\Gamma} (X)+b
+\end{equation}
+で表される。ただし、
+\begin{align}
+    a = S_{\Gamma}^*(X_1)-S_{\Gamma}^*(X_0)>0\\
+    b = S_{\Gamma}^*(X_0)
+\end{align}
+である。\\
+ここで、$S_{\Gamma}$は、$Gamma$上のカノニカルエントロピーで、参照点は$X_0 \prec \prec X_1$である。
+\end{itembox}
+\textbf{Prf}\\
 
 \end{document}
