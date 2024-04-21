@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  21 APR 2024 13:24
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  21 APR 2024 14:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -689,9 +689,9 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 42.
  [1
 
-] [2] (./Lieb-YngvasonNote.aux)
+] [2] [3] [4] (./Lieb-YngvasonNote.aux)
 Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
-(rerunfilecheck)             Checksum: ED6CE09B6DF9E587174612CDF90AAC5E;163.
+(rerunfilecheck)             Checksum: FDE3890880EF206AF5582466E1DAC8CE;255.
  ) 
 Here is how much of TeX's memory you used:
  22454 strings out of 476677
@@ -700,6 +700,6 @@ Here is how much of TeX's memory you used:
  42507 multiletter control sequences out of 15000+600000
  531566 words of font info for 121 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,7n,89p,481b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,7n,89p,481b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (2 pages, 9872 bytes).
+Output written on Lieb-YngvasonNote.dvi (4 pages, 20444 bytes).

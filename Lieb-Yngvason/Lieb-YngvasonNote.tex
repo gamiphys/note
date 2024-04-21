@@ -82,8 +82,80 @@
 (a)水素が1molのとき、状態空間$\Gamma_a$は、エネルギーと体積で表され、$\mathbb{{R}}^2$の部分集合である。\\
 (b)水素が0.5molのとき、状態空間$\Gamma_b$は、エネルギーと体積で表され、$\mathbb{{R}}^2$の部分集合であり、$\Gamma_b=\frac{1}{2}\Gamma_a=\{(\frac{1}{2}U,\frac{1}{2}V)|U,V \in \Gamma_a\}$である。\\
 (c)水素が1mol、酸素が0.5mol(混合されていない)のとき、状態空間$\Gamma_c=\Gamma_a \times (酸素0.5molの状態空間)$であり、複合系である。\\
-(d)水1molのとき、状態空間$\Gamma_d$
+(d)水1molのとき、状態空間$\Gamma_d$\\
 (e)水素1molと酸素0.5mol(混合)のとき、$\Gamma_e\neq \Gamma_d$であり、$\Gamma_e\neq \Gamma_c$である。\\
 
 \section{順序関係}
+\begin{itembox}[l]{\textbf{Def:断熱到達可能性}}
+    $X$から$Y$への状態変化が、外部装置とおもりとの相互作用によて可能であり、その過程で装置が初期状態に戻るとき、$X$から$Y$への断熱到達可能であるといい、
+    \begin{equation}
+        X \prec Y
+    \end{equation}
+    と書く。
+    また、特に、$X$から$Y$への断熱到達可能であり、かつ、$Y$から$X$への断熱到達可能でないとき、
+    \begin{equation}
+        X \prec \prec Y
+    \end{equation}
+    と書く。
+\end{itembox}
+ただし、これは、いわゆる「断熱過程」を定義しているわけではない。\\
+
+\textbf{ex:断熱到達可能性}\\
+\begin{itemize}
+    \item ガスの膨張または圧縮。これには、重りを持ち上げたり下げたりすることがあってもなくても含まれます。
+    \item こすったりかき混ぜたりすること。
+    \item 電気加熱。（ここでは「熱」という概念は必要ありません。）
+    \item ある障壁が取り除かれた後に孤立した複合システム内で発生する自然なプロセス。これには、混合や化学的、核反応が含まれます。
+    \item ハンマーでシステムを破壊して分割し、再組み立てすること。
+    \item このような変化の組み合わせ
+\end{itemize}
+これらは、すべて断熱到達可能である。(操作後に、外部装置が初期状態に戻ることが重要である。)\\
+
+\begin{itembox}[l]{\textbf{Def:比較可能}}
+    $X$と$Y$が比較可能であるとは、$X \prec Y$または$Y \prec X$であることをいう。
+    また、両方の関係が成立するとき、$X$と$Y$は断熱的に等価であるといい、
+    \begin{equation}
+        X \overset{A}{\sim} Y
+    \end{equation}
+    と書く。
+
+\end{itembox}
+例えば、前の章で挙げた$(a)~(e)$の例はみな比較可能であり、また、(c)のすべての点が、(d)の多くの点と関係$\prec$で結ばれている。\\
+
+以上の関係をもとに、後に示すエントロピー原理を書きなおす。
+\begin{itembox}[l]{\textbf{エントロピー原理}}
+    任意の状態$X$に対して、
+    \begin{equation}
+        X \prec Y \Leftrightarrow S(X) \leq S(Y)
+    \end{equation}
+    が成立する。
+\end{itembox}
+また、エントロピーの相加性や、示量性は以下のように書き直される。
+\begin{itembox}[l]{\textbf{エントロピーの相加性}}
+    $X$と$Y$が異なる系の状態であって、$(X,Y)$がそれらの合成系の状態であるとき、
+    \begin{equation}
+        S(X,Y)=S(X)+S(Y)
+    \end{equation}
+    が成立する。\\
+    また、すべての$t>0$およびスケーリングコピー$tX$に対して、
+    \begin{equation}
+        S(tX)=tS(X)
+    \end{equation}
+    が成立する。
+\end{itembox}
+以下、これらの性質の意義について述べる。(あとで書く)
+
+\section{順序関係の公理}
+\begin{itembox}[l]{\textbf{Axiom:順序関係の公理}}
+    状態空間$\Gamma$上の順序関係$\prec$は、以下の公理を満たす。\\
+    (A1: 反射律) $ X \overset{A}{\sim} X$\\
+    (A2: 推移律) $X \prec Y$かつ$Y \prec Z$ならば、$X \prec Z$\\
+    (A3: 一貫性) $X \prec X'$かつ$Y \prec Y'$ならば、$(X,Y) \prec (X',Y')$\\
+    (A4: スケーリング不変性) $X \prec Y$ならば、$tX \prec tY$\\
+    (A5: 分割と結合) $0<t<1$に対して、$X \overset{A}{\sim} (tX,(1-t)X)$\\
+    (A6: 安定性) 0に近づく$\epsilon$の列およびいくつかの状態$Z_0,Z_1$に対して、$(X,\epsilon Z_0) \prec (Y,\epsilon Z_1)$ならば、$X \prec Y$ 
+\end{itembox}
+A6はぱっと見よくわからないが、要するに、外部系の微小な摂動が、状態の順序関係に影響を与えないことを述べている。\\
+
+
 \end{document}
