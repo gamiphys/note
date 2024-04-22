@@ -406,6 +406,40 @@ $S_{\Gamma}$が、$\Gamma$上のカノニカルエントロピーであるとし
 
 \end{itembox}
 \textbf{Prf}\\
+((53)$\Rightarrow$(54))\\
+$\lambda = S_{\Gamma}(X)$とする。このとき、supの定義より、0に収束する列$\epsilon_n$の列が存在して、
+\begin{equation}
+    ((1-(\lambda-\epsilon_n))X_0,(\lambda-\epsilon_n)X_1) \prec X
+\end{equation}
+である。任意のnについて、
+\begin{align}
+    ((1-\lambda)X_0,\lambda X_1,\epsilon_n X_0) &\overset{A}{\sim} ((1-(\lambda+\epsilon_n))X_0,(\lambda-\epsilon_n)X_1,\epsilon_n X_1)\\
+    &\prec (X,\epsilon_n X_1)
+\end{align}
+である。安定性を用いて、
+\begin{equation}
+    ((1-\lambda)X_0,\lambda X_1) \prec X
+\end{equation}
+である。\\
+また、$\lambda$はsupなので、
+\begin{equation}
+    X \prec ((1-(\lambda+\epsilon))X_0,(\lambda+\epsilon)X_1)
+\end{equation}
+である。変形して、
+\begin{equation}
+    X+\epsilon X_0 \prec ((1-\lambda)X_0,\lambda X_1)
+\end{equation}
+である。ここで、安定性を用いて、
+\begin{equation}
+    X \prec ((1-\lambda)X_0,\lambda X_1)
+\end{equation}
+以上より、
+\begin{equation}
+    X \overset{A}{\sim} ((1-\lambda)X_0,\lambda X_1)
+\end{equation}
+である。 \\
+
+((54)$\Rightarrow$(53))\\
 
 
 \begin{itembox}[l]{\textbf{Thm:エントロピーの一意性}}
