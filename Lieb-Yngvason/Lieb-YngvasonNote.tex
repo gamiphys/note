@@ -39,14 +39,13 @@
 \maketitle
 \tableofcontents
 \newpage
-
 \section{状態と状態空間}
 \begin{itembox}[l]{\textbf{Def:状態と状態空間}}
 状態は、状態空間$\Gamma$の点であり、$X,Y,Z$などと表す。
 \end{itembox}
 
 \begin{itembox}[l]{\textbf{Def:状態空間の合成}}
-    状態空間$\Gamma_1$と$\Gamma_2$の合成は、状態空間の直積$\Gamma_1 \times \Gamma_2$である。\\
+    状態空間$\Gamma_1$と$\Gamma_2$の合成は、状態空間の直積$\Gamma_1 \times \Gamma_2$である。
 \end{itembox}
 また、物理的直観から明らかなように、複数の状態空間を合成するとき、その合成の順序は問題にならない。すなわち、
 \begin{equation}
@@ -441,6 +440,26 @@ $\lambda = S_{\Gamma}(X)$とする。このとき、supの定義より、0に収
 
 ((54)$\Rightarrow$(53))\\
 
+\textbf{Prf(Thm2.2)}\\
+((1)$\Rightarrow$(2))\\
+$\lambda_i = S_{\Gamma}(Y_i)$とする。このとき、Lem2.3より、
+\begin{align}
+    Y_i \overset{A}{\sim} (1-S_{\Gamma}(Y_i))X_0,S_{\Gamma}(Y_i)X_1
+    Y_i' \overset{A}{\sim} (1-S_{\Gamma}(Y_i'))X_0,S_{\Gamma}(Y_i')X_1
+\end{align}
+である。これより、
+\begin{align}
+    (t_1 Y_1,t_2 Y_2,\cdots,t_n Y_n) &\overset{A}{\sim} (\sum_{i=1}^n t_i(1-S_{\Gamma}(Y_i))X_0,\sum_{i=1}^n t_i S_{\Gamma}(Y_i)X_1)\\
+    (t_1' Y_1',t_2' Y_2',\cdots,t_n' Y_n') &\overset{A}{\sim} (\sum_{i=1}^n t_i'(1-S_{\Gamma}(Y_i'))X_0,\sum_{i=1}^n t_i' S_{\Gamma}(Y_i')X_1)
+\end{align}
+である。ここで、右辺について、Lem2.2より、
+\begin{equation}
+    \sum_{i=1}^n t_i S_{\Gamma}(Y_i) \leq \sum_{i=1}^n t_i' S_{\Gamma}(Y_i')
+\end{equation}
+である。\\
+((2)$\Rightarrow$(1))\\
+略。(要するに、普段扱っているエントロピーが自然な仮説$A_1-A_6$およびCHを満たすか確かめる作業である。)\\
+以上より、示された。\qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Thm:エントロピーの一意性}}
 もし、$S_{\Gamma}^*$が、任意の$\lambda \in \mathbb{R}$と、$X,Y,X',Y' \in \Gamma $に対して、
@@ -462,7 +481,5 @@ $\lambda = S_{\Gamma}(X)$とする。このとき、supの定義より、0に収
 \end{itembox}
 \textbf{Prf}\\
 
-
-\qedsymbol\\
 
 \end{document}

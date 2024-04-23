@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  22 APR 2024 15:02
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  23 APR 2024 11:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -694,29 +694,29 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 44.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 44.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 45.
+(Font)              scaled to size 6.47278pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 45.
+(Font)              scaled to size 4.62341pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 45.
+(Font)              scaled to size 6.47278pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 45.
+(Font)              scaled to size 4.62341pt on input line 44.
  [2] [3] [4] [5] [6] [7] [8]
 File: fig2.png Graphic file (type bmp)
 <fig2.png>
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 349.
+(Font)              scaled to size 8.32214pt on input line 348.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 349.
- [9] [10] [11] [12] (./Lieb-YngvasonNote.aux)
+(Font)              scaled to size 8.32214pt on input line 348.
+ [9] [10] [11] [12] [13] (./Lieb-YngvasonNote.aux)
 Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
 (rerunfilecheck)             Checksum: BBC6480A9B484F342AECE1EAEE32D804;389.
  ) 
@@ -727,6 +727,6 @@ Here is how much of TeX's memory you used:
  42590 multiletter control sequences out of 15000+600000
  532457 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,10n,89p,481b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,89p,481b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (12 pages, 58212 bytes).
+Output written on Lieb-YngvasonNote.dvi (13 pages, 60980 bytes).
