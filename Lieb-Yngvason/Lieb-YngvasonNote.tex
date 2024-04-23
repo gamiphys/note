@@ -464,8 +464,8 @@ $\lambda_i = S_{\Gamma}(Y_i)$とする。このとき、Lem2.3より、
 \begin{itembox}[l]{\textbf{Thm:エントロピーの一意性}}
 もし、$S_{\Gamma}^*$が、任意の$\lambda \in \mathbb{R}$と、$X,Y,X',Y' \in \Gamma $に対して、
 \begin{align}
-    ((1-\lambda)X,\lambda Y) &\prec ((1-\lambda)X',\lambda Y') \\
-    \Leftrightarrow (1-\lambda)S_{\Gamma}^*(X)+\lambda S_{\Gamma}^*(Y) &\leq (1-\lambda)S_{\Gamma}^*(X')+\lambda S_{\Gamma}^*(Y')
+    ((1-\lambda)X,\lambda Y) &\prec ((1-\lambda')X',\lambda' Y') \\
+    \Leftrightarrow (1-\lambda)S_{\Gamma}^*(X)+\lambda S_{\Gamma}^*(Y) &\leq (1-\lambda')S_{\Gamma}^*(X')+\lambda' S_{\Gamma}^*(Y')
 \end{align}
 であるならば、
 \begin{equation}
@@ -480,6 +480,19 @@ $\lambda_i = S_{\Gamma}(Y_i)$とする。このとき、Lem2.3より、
 ここで、$S_{\Gamma}$は、$\Gamma$上のカノニカルエントロピーで、参照点は$X_0 \prec \prec X_1$である。
 \end{itembox}
 \textbf{Prf}\\
-
+Lem2.3より、
+\begin{equation}
+    X \overset{A}{\sim} ((1-\lambda)X,\lambda X) \overset{A}{\sim} ((1-\lambda')X_0,\lambda' X_1)
+\end{equation}
+である。$S_{\Gamma}^*$に関する仮定(Thm2.2)より、
+\begin{equation}
+    S_{\Gamma}^*(X) = (1-\lambda')S_{\Gamma}^*(X_0)+\lambda' S_{\Gamma}^*(X_1)=(S_{\Gamma}^*(X_1)-S_{\Gamma}^*(X_0))\lambda'+S_{\Gamma}^*(X_0)
+\end{equation}
+ここで、$X \overset{A}{\sim} ((1-\lambda')X_0,\lambda' X_1)$であるから、Lem2.3より、$\lambda ' = S_{\Gamma}(X)$である。\\
+以上より、
+\begin{equation}
+    S_{\Gamma}^*(X) = aS_{\Gamma}(X)+b
+\end{equation}
+である。\qedsymbol\\
 
 \end{document}
