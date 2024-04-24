@@ -1025,6 +1025,10 @@ INPUT extractbb -B cropbox -O fig2.png
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT Lieb-YngvasonNote.aux
 INPUT ./Lieb-YngvasonNote.out
 INPUT ./Lieb-YngvasonNote.out
