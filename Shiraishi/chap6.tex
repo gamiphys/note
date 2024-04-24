@@ -1,0 +1,93 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+\begin{document}
+
+\title{title}
+\author{大上由人}
+\date{\today}
+\maketitle
+\section*{6章}
+\subsection[6.1]{熱力学第二法則}
+\subsubsection[6.1.1]{導出}
+\begin{itembox}[l]{\textbf{Thm:熱力学第二法則}}
+    任意のIFTを満たす系において、エントロピー生成のアンサンブル平均は非負である:
+    \begin{equation}
+        \ev{\hat{\sigma}} \geq 0
+    \end{equation}
+
+\end{itembox}
+\textbf{Prf}\\
+Jensenの不等式を用いると、
+\begin{align}
+    1 &= \ev{\hat{\sigma}}\\
+    &= \int d\Gamma P(\Gamma) exp(-\sigma(\Gamma))\\
+    &\geq exp(-\int d\Gamma P(\Gamma)\sigma(\Gamma))\\
+    &= exp(-\ev{\sigma})
+\end{align}
+であるから、両辺logをとると
+\begin{equation}
+    \ev{\sigma} \geq 0
+\end{equation}
+が成り立つ。\qedsymbol
+
+また、Jarezynski等式をを用いると、非平衡系における最大仕事の原理が得られる。
+\begin{itembox}[l]{\textbf{Prop:最大仕事の原理(非平衡)}}
+    非平衡系において、
+    \begin{equation}
+        \ev{W} \leq -\Delta F
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+Jarezynski等式より、
+\begin{equation}
+    exp(-\beta \Delta F) = \ev{exp(\beta W)}
+\end{equation}
+であるから、右辺にJensenの不等式を適用すると
+\begin{align}
+    exp(-\beta \Delta F) &= \ev{exp(\beta W)}\\
+    &\geq exp(\beta \ev{W})
+\end{align}
+となり、両辺logをとると
+\begin{equation}
+    \ev{W} \leq -\Delta F
+\end{equation}
+が成り立つ。\qedsymbol
+
+ただし、このとき注意しなければならない点は、平衡熱力学とは異なり、仕事が断熱仕事で定義されている点である。(平衡熱力学においては、等温操作について考えていた。)\\
+したがって、任意の経路において、上の不等式は等号を満たすことはない。これは、ゆらぎの定理において、確率的にエントロピー生成が負になることと関連している。\\
+
+
+
+\end{document}

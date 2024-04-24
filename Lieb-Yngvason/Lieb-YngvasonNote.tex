@@ -275,6 +275,7 @@ $X_0,X_1$が状態空間$\Gamma$の点で、$X_0 \prec \prec X_1$であるとす
 (2) 任意の$X \in \Gamma$に対して、$sup\{\lambda|X \in \mathcal{S}_{\lambda}\}<\infty$である。
 
 \end{itembox}
+この補題は、カノニカルエントロピーがwell-definedであることおよび、有限であることを示している。\\
 \textbf{Prf}\\
 (1) \\
 $X_0 \prec X$であるとき、A2より、明らかに$X \in \mathcal{S}_0$である。\\
@@ -495,4 +496,45 @@ Lem2.3より、
 \end{equation}
 である。\qedsymbol\\
 
-\end{document}
+カノニカルエントロピーの定義をみてみると、エントロピーは、二重スケール積$\Gamma(1-\lambda)\times \Gamma(\lambda)$上の関係$\prec$と、基準点$X_0 \prec \prec X_1$のみに依存している。\\
+さらに、エントロピー原理の定式化を見てみると、エントロピーは、すべての複数スケールコピー上での関係を特徴づける。すなわち、CHがすべての複数スケールコピーにおいて成立することを示している。\\
+以上を踏まえると、Thm2.3は以下のように書き換えることができる。\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピーの一意性(2)}}
+    $\prec$と$\prec ^*$を、$\Gamma$上のスケールコピーにおける関係とし、公理A1-A6を満たし、さらに、固定された各$\lambda \in [0,1]$について、$\Gamma(1-\lambda)\times \Gamma(\lambda)$についてCHも満たすとする。\\
+    もし、$\prec$と$\prec ^*$が[0,1]の各$\lambda\in [0,1]$について、$\Gamma(1-\lambda)\times \Gamma(\lambda)$上で一致しているならば、$\prec$と$\prec ^*$は$\Gamma$のすべての複数スケールコピー上で一致し、CHはすべての複数スケールコピーにおいて成立する。
+\end{itembox}
+
+\section{普遍的なエントロピーの構成}
+\begin{itembox}[l]{\textbf{Def:エントロピー定数}}
+    Thm2.3における$a,b$を、エントロピー定数という。
+\end{itembox}
+我々の目標は、これらのエントロピーをまとめて、さまざまな系の任意の多重スケーリングコピー積に対して正しく振舞うことを示すことである。\\
+また、この普遍的エントロピーは、系ごとに乗法定数が一意に定まる。\\
+ここでの問題は、キャリブレーションである。すなわち、各基本エントロピーの前にある乗法定数を、(2.4)が守られるように選択する必要がある。\\
+このsectionでは、以下の定理を証明する。これは、Thm2.2の一般化である。\\
+
+\begin{itembox}[l]{\textbf{Thm:Consistent entropy scales}}
+以下の要件を満たす系からなる族(SF)を考える。\\
+\begin{itemize}
+    \item[(1)] SFの任意の二つの系の状態空間は互いに素な集合である。すなわち、SF内のすべての状態はちょうど一つの状態空間に属する。\\
+    \item[(2)] SF内の任意の多重スケーリング積もまたSFに属する。\\
+    \item[(3)] SF内の任意の系がCHを満たす。\\
+\end{itemize}
+それぞれの状態空間$\Gamma$に対して、$S_{\Gamma}$を$\Gamma$上ある確定されたエントロピー関数とする。このとき、$\Gamma$のすべての状態に対して定義される関数
+\begin{equation}
+    S(X) = a_{\Gamma}S_{\Gamma}(X)+b_{\Gamma} \quad X \in \Gamma
+\end{equation}
+が、以下の性質を持つ。\\
+\begin{itemize}
+    \item[(a)] もし、$X$と$Y$が同じ状態空間に属するならば、$X \prec Y \Leftrightarrow S(X) \leq S(Y)$である。\\
+    \item[(b)] $S$は相加性と示量性を持つ。すなわち、
+    \begin{align}
+        S(X,Y) &= S(X)+S(Y)\\
+        S(tX) &= tS(X)
+    \end{align}
+    である。\\
+\end{itemize}
+\end{itembox}
+
+    \end{document}

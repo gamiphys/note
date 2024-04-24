@@ -1,10 +1,10 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  24 APR 2024 01:24
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  24 APR 2024 11:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Lieb-YngvasonNote.tex
-(./Lieb-YngvasonNote.tex
+**chap6.tex
+(./chap6.tex
 pLaTeX2e <2023-02-14u04>+1 (based on LaTeX2e <2022-11-01> patch level 1)
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2023/02/23 jsclasses (okumura, texjporg)
@@ -620,8 +620,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./Lieb-YngvasonNote.aux)
-\openout1 = `Lieb-YngvasonNote.aux'.
+) (./chap6.aux)
+\openout1 = `chap6.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
@@ -646,9 +646,9 @@ LaTeX Font Info:    ... okay on input line 34.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 Package hyperref Info: Link coloring OFF on input line 34.
- (./Lieb-YngvasonNote.out) (./Lieb-YngvasonNote.out)
+ (./chap6.out) (./chap6.out)
 \@outlinefile=\write4
-\openout4 = `Lieb-YngvasonNote.out'.
+\openout4 = `chap6.out'.
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 15.9785pt on input line 40.
@@ -674,10 +674,6 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 40.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 40.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 40.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 40.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 40.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
@@ -686,13 +682,12 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 40.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 40.
- (./Lieb-YngvasonNote.toc)
-\tf@toc=\write5
-\openout5 = `Lieb-YngvasonNote.toc'.
-
- [1
-
-]
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 41.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 42.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 42.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
 (Font)              Font shape `JT2/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
@@ -702,31 +697,26 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 44.
+(Font)              scaled to size 6.47278pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 44.
+(Font)              scaled to size 4.62341pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 44.
+(Font)              scaled to size 6.47278pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 44.
- [2] [3] [4] [5] [6] [7] [8] [9]
-File: fig2.png Graphic file (type bmp)
-<fig2.png>
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 349.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 349.
- [10] [11] [12] [13] [14] [15] (./Lieb-YngvasonNote.aux)
-Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
-(rerunfilecheck)             Checksum: 0650183410B7DB7013AA84D6C074D33D;523.
+(Font)              scaled to size 4.62341pt on input line 45.
+ [1
+
+] [2] (./chap6.aux)
+Package rerunfilecheck Info: File `chap6.out' has not changed.
+(rerunfilecheck)             Checksum: 727594C32CCF6D4F7523F772E1FED9A2;63.
  ) 
 Here is how much of TeX's memory you used:
- 22550 strings out of 476677
- 424939 string characters out of 5808165
- 1859484 words of memory out of 5000000
- 42590 multiletter control sequences out of 15000+600000
- 532457 words of font info for 125 fonts, out of 8000000 for 9000
+ 22526 strings out of 476677
+ 424416 string characters out of 5808165
+ 1857484 words of memory out of 5000000
+ 42575 multiletter control sequences out of 15000+600000
+ 531952 words of font info for 123 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,10n,89p,481b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,89p,469b,456s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (15 pages, 70660 bytes).
+Output written on chap6.dvi (2 pages, 7184 bytes).
