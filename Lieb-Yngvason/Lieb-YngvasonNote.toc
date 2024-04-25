@@ -3,3 +3,4 @@
 \contentsline {section}{\numberline {3}順序関係の公理}{5}{section.3}%
 \contentsline {section}{\numberline {4}単純系のエントロピーの構成}{7}{section.4}%
 \contentsline {section}{\numberline {5}普遍的なエントロピーの構成}{14}{section.5}%
+\contentsline {section}{\numberline {6}エントロピーの凸性}{17}{section.6}%

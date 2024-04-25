@@ -1,14 +1,14 @@
 # Fdb version 4
-["dvipdf"] 1714035640 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1714035643 0
-  "Lieb-YngvasonNote.dvi" 1714035640 74060 523ee963bd85cadba0f539b482fade4d "latex"
+["dvipdf"] 1714057782 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1714057783 0
+  "Lieb-YngvasonNote.dvi" 1714057782 92184 02c76d89d5d179efc6421d93a24e46ec "latex"
   (generated)
   "Lieb-YngvasonNote.pdf"
   (rewritten before read)
-["latex"] 1714035635 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1714035643 0
-  "Lieb-YngvasonNote.aux" 1714035640 1359 446051b94c71bd565d7cbf7f24cbd974 "latex"
-  "Lieb-YngvasonNote.out" 1714035640 523 0650183410b7db7013aa84d6c074d33d "latex"
-  "Lieb-YngvasonNote.tex" 1714035634 29560 5de4e69f583029ae0eb1798c4c203ab4 ""
-  "Lieb-YngvasonNote.toc" 1714035640 413 a53f434402c9ca161ab4836c0ca76243 "latex"
+["latex"] 1714057779 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1714057783 0
+  "Lieb-YngvasonNote.aux" 1714057782 1652 0de2d3fe5e2d23e88287af02060ab0ca "latex"
+  "Lieb-YngvasonNote.out" 1714057782 629 2b9c6b11b272431aeacebaff29a72d15 "latex"
+  "Lieb-YngvasonNote.tex" 1714057779 35809 e89b9b0b6382c024f38239018402613e ""
+  "Lieb-YngvasonNote.toc" 1714057782 497 8440279e948b5924d3f671bd1aff492f "latex"
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -198,6 +198,7 @@
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
   "fig2.png" 1713695188 115929 2b34bcd9be675e33f5ae60a84b9482a4 ""
+  "fig3.png" 1714053429 29963 a80703377075af5055d231d5c4103e64 ""
   (generated)
   "Lieb-YngvasonNote.aux"
   "Lieb-YngvasonNote.dvi"

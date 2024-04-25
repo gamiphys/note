@@ -185,7 +185,7 @@ $\epsilon =\frac{1}{n}$とする。このとき、
     &\prec ((1-2\epsilon)Y,2\epsilon Y,Z)
     \end{align}
 これを$n=\frac{1}{\epsilon}$回繰り返すと、$X$の係数は0に、$Y$の係数は1に収束する。\\
-以上より、$X \prec Y$が示された。\qedsymbol\\
+以上より、$X \prec Y$が示された。\hfill\qedsymbol\\
 この定理は、公理A3とは逆の方向の主張をしており、A3の制約がある中で、逆の主張がどの範囲まで成り立つかを示している。($X,Y$に対して同じ系を合成している。)
 
 キャンセル法則のもとで、我々が定義した「断熱到達可能性」と、「断熱過程」が結びつくことを示す。\\
@@ -250,7 +250,7 @@ $\epsilon =\frac{1}{n}$とする。このとき、
     Y'=(t_1' Y_1',t_2 Y_2') &\overset{A}{\sim} (t_1' Y_1',(t_2'-t_2)Y_2',t_2 Y_2')=(t_1' Y_1',(t_1-t_1')Y_2',t_2 Y_2')
 \end{align}
 であるから、$Y$と$Y'$はともに、$\Gamma _{t_1} \times \Gamma _{t_1-t_1'} \times \Gamma _{t_2}$の点であり、比較可能である。\\
-以上より、一般の場合についても、$Y$と$Y'$は比較可能である。\qedsymbol\\
+以上より、一般の場合についても、$Y$と$Y'$は比較可能である。\hfill\qedsymbol\\
 この定理のもと、単純系の多重スケーリングコピーにおいてエントロピー原理を導出することができる。\\
 \begin{itembox}[l]{\textbf{Thm:エントロピー(単純系)}}
     以下の(1),(2)は同値である。\\
@@ -325,7 +325,7 @@ $X_0 \prec X$であるとき、A2より、明らかに$X \in \mathcal{S}_0$で�
     X_1 \prec X_0
 \end{equation}
 がいえる。これは、$X_0 \prec \prec X_1$に矛盾する。\\
-以上より、(2)が示された。\qedsymbol\\
+以上より、(2)が示された。\hfill\qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Def:カノニカルエントロピー/基準点}}
     状態空間$\Gamma$上のある$X_0,X_1$に対して、$X_0 \prec \prec X_1$であるとする。このとき、
@@ -390,7 +390,7 @@ $\lambda -\lambda '>0$と、スケーリング不変性より、
     &\prec ((1-\lambda')X_0,(\lambda'-\lambda)X_1,\lambda X_1)\\
     &\overset{A}{\sim} ((1-\lambda')X_0,\lambda'X_1)
 \end{align}
-であるから、(1)が示された。 \qedsymbol\\
+であるから、(1)が示された。 \hfill\qedsymbol\\
 
 
 \begin{itembox}[l]{\textbf{Lem2.3:エントロピーの特徴づけ}}
@@ -460,7 +460,7 @@ $\lambda_i = S_{\Gamma}(Y_i)$とする。このとき、Lem2.3より、
 である。\\
 ((2)$\Rightarrow$(1))\\
 略。(要するに、普段扱っているエントロピーが自然な仮説$A_1-A_6$およびCHを満たすか確かめる作業である。)\\
-以上より、示された。\qedsymbol\\
+以上より、示された。\hfill\qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Thm:エントロピーの一意性}}
 もし、$S_{\Gamma}^*$が、任意の$\lambda \in \mathbb{R}$と、$X,Y,X',Y' \in \Gamma $に対して、
@@ -494,7 +494,7 @@ Lem2.3より、
 \begin{equation}
     S_{\Gamma}^*(X) = aS_{\Gamma}(X)+b
 \end{equation}
-である。\qedsymbol\\
+である。\hfill\qedsymbol\\
 
 カノニカルエントロピーの定義をみてみると、エントロピーは、二重スケール積$\Gamma(1-\lambda)\times \Gamma(\lambda)$上の関係$\prec$と、基準点$X_0 \prec \prec X_1$のみに依存している。\\
 さらに、エントロピー原理の定式化を見てみると、エントロピーは、すべての複数スケールコピー上での関係を特徴づける。すなわち、CHがすべての複数スケールコピーにおいて成立することを示している。\\
@@ -559,15 +559,162 @@ $X \in \Gamma$に対して、$\Gamma \times \Gamma_0$とその空間上の、基
 \end{equation}
 である。この(83)式を整理することで、エントロピーの加法性を示すことができる。\\
 \textbf{加法性}\\
-
+\begin{align}
+    (X_1,\lambda_1 Z_0) &\overset{A}{\sim} (X_{\Gamma_1},\lambda_1 Z_1)\\
+    (X_2,\lambda_2 Z_0) &\overset{A}{\sim} (X_{\Gamma_2},\lambda_2 Z_1)\\
+    (X,\lambda Z_0) &\overset{A}{\sim} (X_{\Gamma},\lambda Z_1)
+\end{align}
+である。上二つの式から、
+\begin{align}
+    ((X_1,\lambda_1 Z_0),(X_2,\lambda_2 Z_0)) &\overset{A}{\sim} ((X_{\Gamma_1},\lambda_1 Z_1),(X_{\Gamma_2},\lambda_2 Z_1))\\
+    &\overset{A}{\sim} (X_{\Gamma_1},X_{\Gamma_2},(\lambda_1+\lambda_2)Z_1)
+\end{align}
+である。これと(86)式を比較して、
+\begin{equation}
+    S(X_1)+S(X_2) = S(X_1,X_2)
+\end{equation}
+である。\\
 \textbf{示量性}\\
+\begin{align}
+    (X,\lambda Z_0) &\overset{A}{\sim} (X_{\Gamma},\lambda Z_1)\\
+    (tX,\lambda' Z_0) &\overset{A}{\sim} (X_{t\Gamma},\lambda' Z_1)=(tX_{\Gamma},\lambda' Z_1)\\
+    (tX,\lambda' Z_0) &\overset{A}{\sim} (X_{\Gamma},\frac{\lambda'}{t} Z_1)
+\end{align}
+であるから、
+\begin{equation}
+    \lambda = \frac{\lambda'}{t}
+\end{equation}
+であるから、$S(tX)=tS(X)$である。\\
+また、これがエントロピーとしての資格を持つことは、以下のように示すことができる。\\
+\textbf{エントロピー増大則}\\
+\begin{equation}
+    X \prec Y \Leftarrow S(X) \leq S(Y)
+\end{equation}
+を示す。キャンセル法則を用いることにより、
+\begin{equation}
+    X \prec Y \Leftarrow (X,Z_0) \prec (Y,Z_0)
+\end{equation}
+である。また、Thm2.2により、
+\begin{equation}
+    (X,Z_0) \prec (Y,Z_0) \Leftrightarrow S(X,Z_0) \leq S(Y,Z_0) \Leftrightarrow S(X) \leq S(Y)
+\end{equation}
+であるから、エントロピー増大則が示された。\hfill\qedsymbol\\
 
-また、これがエントロピーとしての資格を持つことは、以下のように示すことができる。
-\textbf{エントロピー増大則}
+\section{エントロピーの凸性}
+\begin{itembox}[l]{\textbf{Def:凸な状態空間}}
+    状態空間$\Gamma$が凸であるとは、任意の$X,Y \in \Gamma$について、
+    \begin{equation}
+        (tX+(1-t)Y) \in \Gamma \quad (0 \leq t \leq 1)
+    \end{equation}
+    が成立することである。
+\end{itembox}
 
-以上より、示された。\qedsymbol\\
+さて、以上の定義のもと、断熱到達可能性に、以下の公理を追加する。\\
+\begin{itembox}[l]{\textbf{順序関係の公理A7}}
+    状態空間$\Gamma$が凸であるとし、$X,Y \in \Gamma$であるとする。このとき、
+    \begin{equation}
+        (tX,(1-t)Y) \prec tX+(1-t)Y
+    \end{equation}
+    が成立する。
+\end{itembox}
+この要請の物理的要請は、独立した二つの系を合成したとき、例えばエネルギーや体積が加算されることを意味する。
+
+\begin{itembox}[l]{\textbf{Def:forward sector}}
+    状態空間$\Gamma,\Gamma'$と、$X \in \Gamma,Y \in \Gamma'$に対して、
+    \begin{equation}
+        A_X = \{Y \in \Gamma'|X \prec Y\}
+    \end{equation}
+    を、$X$のforward sectorという。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Thm:forward sectorの凸性}}
+    $\Gamma,\Gamma'$を状態空間とし、$\Gamma '$が凸であるとする。このとき、$X \in \Gamma$に対して、$A_X$は$\Gamma'$の凸集合である。
+\end{itembox}
+\textbf{Prf}\\
+$X \prec Y_1,Y_2$であるとし、$0 < t < 1$とする。このとき、
+\begin{align}
+    X \prec tY_1+(1-t)Y_2
+\end{align}
+を示せばよい。A5より、
+\begin{equation}
+    X \prec (tX,(1-t)X)
+\end{equation}
+である。また、$X \prec Y_1,Y_2$であるから、
+\begin{align}
+    (tX,(1-t)X) \prec (tY_1,(1-t)Y_2)
+\end{align}
+である。これと、A7より、
+\begin{equation}
+    X \prec tY_1+(1-t)Y_2
+\end{equation}
+である。以上より、示された。\hfill\qedsymbol\\
+とくに、同じ状態空間内でのA7と上の定理を図示すると、以下のようになる。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{fig3.png}
+    \end{center}
+    \caption{caption}
+    \label{fig:one}
+\end{figure}
+すなわち、断熱到達可能なYとZが存在するとき、YとZの間には、さらに断熱到達可能な点が存在するということである。\\
+
+\begin{itembox}[l]{\textbf{Thm:$\mathcal{S}_{\lambda}$の凸性}}
+    状態空間$\Gamma$が凸であるとき、以下の二つが成立する。
+    \begin{itemize}
+        \item[(1)] $\mathcal{S}_{\lambda}$は、$\Gamma$の凸集合である。
+        \item[(2)] もし、$X \in \mathcal{S}_{\lambda}$であり、$0 \leq t \leq 1$であるならば、$tX + (1-t)Y \in \mathcal{S}_{t\lambda \times (1-t)\lambda}$である。
+    \end{itemize}
+\end{itembox}
+\textbf{Recall}\\
+$\mathcal{S}_{\lambda}= \{X \in \Gamma|((1-\lambda)X_0,\lambda X_1) \prec X\}$である。\\
+\textbf{Prf}\\
+(1)\\
+$X,Y \in \mathcal{S}_{\lambda}$であるとする。このとき、
+\begin{align}
+    tX+(1-t)Y \in \mathcal{S}_{\lambda}
+\end{align}
+を示せばよい。ここで、$X,Y \in \mathcal{S}_{\lambda}$であるから、
+\begin{align}
+    ((1-\lambda)X_0,\lambda X_1) &\prec X\\
+    ((1-\lambda)X_0,\lambda X_1) &\prec Y
+\end{align}
+である。したがって、
+\begin{align}
+    t((1-\lambda)X_0,\lambda X_1) &\prec tX\\
+    (1-t)((1-\lambda)X_0,\lambda X_1) &\prec (1-t)Y
+\end{align}
+である。したがって、
+\begin{align}
+    t((1-\lambda)X_0,\lambda X_1)+(1-t)((1-\lambda)X_0,\lambda X_1) &\prec tX+(1-t)Y\\
+    ((1-\lambda)X_0,\lambda X_1) &\prec tX+(1-t)Y
+\end{align}
+である。以上より、(1)が示された。\\
+(2)\\
+後で書く。\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピーの凸性}}
+    状態空間$\Gamma$が凸であるとする。このとき、エントロピー関数$S_{\Gamma}$は、
+    \begin{equation}
+        S_{\Gamma}(tX+(1-t)Y) \geq tS_{\Gamma}(X)+(1-t)S_{\Gamma}(Y)
+    \end{equation}
+    である。すなわち、$S_{\Gamma}$は、上に凸である。
+\end{itembox}
+\textbf{Prf}\\
+$X \in \mathcal{S}_{\lambda_1},Y \in \mathcal{S}_{\lambda_2}$であるとする。このとき、Thm2.7より、
+\begin{align}
+    tX+(1-t)Y \in \mathcal{S}_{t\lambda_1+(1-t)\lambda_2}
+\end{align}
+である。このとき、エントロピーの定義から、
+\begin{align}
+    S_{\Gamma}(tX+(1-t)Y) &\geq t\lambda_1+(1-t)\lambda_2\\
+\end{align}
+である。したがって、右辺の$\lambda_1,\lambda_2$についてsupを取ることにより、
+\begin{align}
+    S_{\Gamma}(tX+(1-t)Y) &\geq tS_{\Gamma}(X)+(1-t)S_{\Gamma}(Y)
+\end{align}
+である。以上より、示された。\hfill\qedsymbol\\
 
 
 
 
-    \end{document}
+
+\end{document}
