@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  26 APR 2024 00:09
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  26 APR 2024 00:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -749,7 +749,7 @@ File: fig3.png Graphic file (type bmp)
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
-(rerunfilecheck)             Checksum: 2B9C6B11B272431AEACEBAFF29A72D15;629.
+(rerunfilecheck)             Checksum: CCF86BA8C6C03DB8DDED9E7B33B796C0;777.
  ) 
 Here is how much of TeX's memory you used:
  22564 strings out of 476677
@@ -760,4 +760,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,10n,89p,481b,506s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (20 pages, 92184 bytes).
+Output written on Lieb-YngvasonNote.dvi (20 pages, 94484 bytes).
