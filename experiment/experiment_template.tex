@@ -1,0 +1,65 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+%その他
+% \usepackage{circuitikz} %電気回路をtex中で書く
+% \usepackage{caption} %番号なしキャプションを書く
+% \usepackage{cancel} %式中に斜線を入れる
+% \usepackage{tensor} %テンソルの添え字を書く
+% \usepackage{tikz} %図を書く
+% \usepackage{ascmac} %四角い枠の中に文章を書く
+% \usepackage{float} %figureで[hbp]オプションを使う
+% \usepackage{hyperref}  \usepackage{pxjahyper} %ハイパーリンクをつかう
+% \usepackage{tablefootnote} %表中に注釈をいれる
+% \usepackage[thicklines]{cancel} %数式中の取り消し線
+% \usepackage[version=4]{mhchem} %化学式の入力
+
+\begin{document}
+
+\title{title}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{目的}
+
+\section{原理}
+
+\section{実験}
+
+\section{結果}
+
+\section{考察}
+
+\section{結論}
+
+\end{document}
