@@ -1,0 +1,48 @@
+\documentclass[dvipdfmx]{beamer}
+\usepackage{graphicx} % 画像挿入用
+\usepackage{lipsum} % ダミーテキスト挿入用
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{bm}
+\usepackage{mathtools}
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% タイトル情報
+\title{title}
+\author{大上由人}
+\date{\today}
+
+\begin{document}
+
+% タイトルスライド
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% 目次スライド
+\begin{frame}{目次}
+    \tableofcontents
+\end{frame}
+
+% セクション1
+\section{hoge}
+
+\begin{frame}{hoge}
+    hogehoge
+\end{frame}
+
+\end{document}
