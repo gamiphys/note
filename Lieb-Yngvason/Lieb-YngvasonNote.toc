@@ -2,6 +2,6 @@
 \contentsline {section}{\numberline {2}順序関係}{3}{section.2}%
 \contentsline {section}{\numberline {3}順序関係の公理}{5}{section.3}%
 \contentsline {section}{\numberline {4}単純系のエントロピーの構成}{7}{section.4}%
-\contentsline {section}{\numberline {5}普遍的なエントロピーの構成}{14}{section.5}%
-\contentsline {section}{\numberline {6}エントロピーの凸性}{17}{section.6}%
-\contentsline {section}{\numberline {7}不可逆過程とカラテオドリの原理}{20}{section.7}%
+\contentsline {section}{\numberline {5}普遍的なエントロピーの構成}{15}{section.5}%
+\contentsline {section}{\numberline {6}エントロピーの凸性}{18}{section.6}%
+\contentsline {section}{\numberline {7}不可逆過程とカラテオドリの原理}{22}{section.7}%
