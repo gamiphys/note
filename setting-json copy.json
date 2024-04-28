@@ -1,0 +1,21 @@
+{"latex-workshop.latex.tools": [{
+    "name": "latexmk(.latexmkrc)",
+    "command": "latexmk",
+    "args": [
+        "-cd",
+        "%DOCFILE%"
+    ]
+}],
+"latex-workshop.latex.recipes": [{
+    "name": "latexmk(.latexmkrc)",
+    "tools": [
+      "latexmk(.latexmkrc)"
+    ] 
+}
+],
+"files.autoSaveDelay": 10,
+"python.defaultInterpreterPath": "C:\\Users\\gamiy\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+"git.autofetch": true,
+"git.openRepositoryInParentFolders": "never",
+"git.confirmSync": false,
+}
