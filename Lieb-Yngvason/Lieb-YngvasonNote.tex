@@ -759,7 +759,150 @@ $X \in \mathcal{S}_{\lambda_1},Y \in \mathcal{S}_{\lambda_2}$であるとする�
 \textbf{Prf}\\
 一旦省略\\
 
+\section{単純系}
+単純系の取り扱いについて考える。
+\begin{itembox}[l]{\textbf{Def:単純系/複合系}}
+ある系が単純系であるとは、系の状態が、一つのエネルギー座標とその他の仕事座標(体積など)によって特徴づけられるときである。\\
+一方、複合系とは、系の状態が、複数のエネルギー座標によって特徴づけられるときである。
+\end{itembox}
 
+以下(単純系に限らず)考えるすべての系は、単純系のスケーリング積によって構成される。\\
+単純系と単純系でないものの例を挙げると以下のようになる。\\
+\textbf{単純系}\\
+\begin{itemize}
+    \item[(1)] 1molの水が入ったピストン付き容器(仕事座標は体積)
+    \item[(2)] ピストン付き容器に入った0.5molの酸素と磁場中の0.5molの酸素(仕事座標は体積と磁場)
+    \item[(3)] 水素7mokと酸素1molの混合物(仕事座標は体積)
+\end{itemize}
+\textbf{単純系でない系}\\
+\begin{itemize}
+    \item[(1)] 1molの水が入ったピストン付き容器を二つ並べたもの(このとき、それぞれの容器ごとにエネルギー座標を持つ)
+    \item[(2)] 後で思いついたら残りを書く
+\end{itemize}
+
+\subsection{単純系の座標}
+単純系の座標は、エネルギー座標と仕事座標によって記述される。\\
+エネルギー座標は物理的にも数学的にも大事である。物理的側面としては、内部エネルギーは、熱力学第一法則を満たすことである。\\
+\begin{itembox}[l]{\textbf{熱力学第一法則}}
+    熱力学第一法則とは、系の状態がある状態から別の状態に断熱的に移る際に、外界が行った仕事の量が、移行の行われ方に依らないことである。\\
+    特に、我々が定義している断熱操作においては、重りの高さの変化量が仕事に相当する。
+
+\end{itembox}
+
+\subsection{単純系についての仮定}
+単純系についての公理を以下に示す。また、以下では公理A1-A7を用いるが、CHは用いない。新たに設定する系に関する公理からCHを導くことができる。\\
+
+\begin{itembox}[l]{\textbf{S1:不可逆性}}
+    単純系$\Gamma$において、任意の$X \in \Gamma$に対して、$X \prec \prec Y$となる$Y \in \Gamma$が存在する。\\
+    言い換えると、任意のforward sector$A_X$は、断熱的に等価な点以上のものからなる。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{S2:リプシッツ接平面}}
+    単純系$\Gamma$において、任意の$X \in \Gamma$に対して、$X$のforward sector$A_X$は、ある一つの支持超平面$\Pi_X$を点$X$においてもつ。\\
+    また、接平面$\Pi_X$は、の傾きは各仕事座標に対して有限かつリプシッツ連続である。
+\end{itembox}
+S2の意味するところは、$X$における接平面が、
+\begin{equation}
+    U-U_0 +\sum_{i=1}^n P_i(X)(V_i-V_i^0) = 0
+\end{equation}
+で表されることである。このとき、傾きが有限となる。\\
+また、$\Pi_X$が、$X$における$A_X$の支持超平面であることは、係数$g_i$を用いて、
+\begin{equation}
+    U-U_0 +\sum_{i=1}^n g_i(V_i-V_i^0) 
+\end{equation}
+により、$A_X$を表すことができるということである。\\
+また、リプシッツ連続性とは、読むのが面倒なので、とりあえず微分可能より緩いものということにして、問題が生じたら書くことにする。\\
+
+\begin{itembox}[l]{\textbf{S3:境界の連結性}}
+    単純系$\Gamma$において、任意の$X \in \Gamma$に対して、$X$のforward sector$A_X$の境界$\partial A_X$は、$X$において弧状連結である。
+\end{itembox}
+これがないと、CHが成り立たないような反例を作れてしまう。\\
+物理的な動機付けとしては、境界上の状態$X,Y$は断熱的に到達可能なのだから、それらは弧状連結であるべきである。\\
+
+\begin{itembox}[l]{\textbf{Def:断熱曲線}}
+    閉集合$\{\partial A_X\}$からなる集合族のことを、断熱曲線という。
+\end{itembox}
+このとき、後の定理により、同じ断熱曲線上の点は、断熱的に等価であることが示される。
+
+\subsection{forward sectorの幾何}
+\begin{itembox}[l]{\textbf{prop:共線上の点(1)}}
+$X,Y,Z$を直線上の点とし、$Y$が中間にあるとする、すなわち、
+\begin{equation}
+    Y=tX+(1-t)Z \quad (0<t<1)
+\end{equation}
+このとき、
+\begin{equation}
+    X \prec Z \Rightarrow X \prec Y
+\end{equation}
+である。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    X \prec ((1-t)X,tX) \prec ((1-t)Z,tX) \prec Y
+\end{align}
+である。以上より、示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Lem:共線上の点(2)}}
+$X,Y,Z$を直線上の点とし、$Y$が中間にあるとする、すなわち、
+\begin{equation}
+    Y=tX+(1-t)Z \quad (0<t<1)
+\end{equation}
+このとき、
+\begin{equation}
+    Y \prec Z \Rightarrow X \prec Y
+\end{equation}
+である。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    (tX,(1-t)Z) \prec Y \overset{A}{\sim} (tY,(1-t)Y)\prec (tY,(1-t)Z)
+\end{align}
+であるから、キャンセル法則を用いて、
+\begin{align}
+    X \prec Y
+\end{align}
+である。以上より、示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm:Forward sectorの閉集合性}}
+forward sector$A_X$は、閉集合である。すなわち、
+\begin{equation}
+    Closure(A_X)\cap \Gamma = A_X
+\end{equation}
+である。
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Thm:Forward sectorは空でない内部を持つ}}
+forward sector$A_X$は、空でない内部を持つ。すなわち、
+\begin{equation}
+    Int(A_X) \neq \emptyset
+\end{equation}
+である。
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Lem:Forward sectorにおけるエネルギーの範囲}}
+    $X=(U_0,V_0) \in \Gamma$に対して、$A_X$は、$\Pi_X$の、エネルギーが正の側である。このとき、
+    \begin{equation}
+        A_X \cap \{(U_0,V_0):U \in \mathbb{R}\}=\{(U,V_0):U \geq U_0\}\cap \Gamma
+    \end{equation}
+    である。
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Thm:Forward sectors point the same way}}
+    $\Gamma$が単純系の状態空間であり、ある一つの状態$X$における$A_X$が、接平面$\Pi_X$の正エネルギー側にあるとき、$\Gamma$上の任意の状態についても、そのforward sectorは、同じ方向を向いている。
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Thm:Planckの原理}}
+    もし、単純系の二つの状態$X,Y$が同じ仕事座標を持つならば、
+    \begin{equation}
+        X \prec Y \Leftrightarrow U_X \leq U_Y
+    \end{equation}
+    である。
+\end{itembox}
+この主張はカラテオドリの原理よりも強いものである。というのも、与えられて状態より任意の近い、エネルギーが小さい状態に対して遷移できないことを示しているからである。\\
 
 
 \end{document}

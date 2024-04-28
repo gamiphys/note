@@ -5,3 +5,7 @@
 \contentsline {section}{\numberline {5}普遍的なエントロピーの構成}{15}{section.5}%
 \contentsline {section}{\numberline {6}エントロピーの凸性}{18}{section.6}%
 \contentsline {section}{\numberline {7}不可逆過程とカラテオドリの原理}{22}{section.7}%
+\contentsline {section}{\numberline {8}単純系}{22}{section.8}%
+\contentsline {subsection}{\numberline {8.1}単純系の座標}{23}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}単純系についての仮定}{23}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}forward sectorの幾何}{24}{subsection.8.3}%
