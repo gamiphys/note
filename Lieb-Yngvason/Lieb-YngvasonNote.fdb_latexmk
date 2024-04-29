@@ -1,14 +1,14 @@
 # Fdb version 4
-["dvipdf"] 1714276206 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1714276209 0
-  "Lieb-YngvasonNote.dvi" 1714276206 124236 c9961c22194647b5115a2e1fe4e33b1b "latex"
+["dvipdf"] 1714370783 "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote.pdf" "Lieb-YngvasonNote" 1714370784 0
+  "Lieb-YngvasonNote.dvi" 1714370782 164904 1bea878058c621ffd44fca8700696ac9 "latex"
   (generated)
   "Lieb-YngvasonNote.pdf"
   (rewritten before read)
-["latex"] 1714276200 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1714276209 0
-  "Lieb-YngvasonNote.aux" 1714276206 2311 d725b0336668541c4c03a0b5bf2d25d4 "latex"
-  "Lieb-YngvasonNote.out" 1714276206 1220 a7e604c1fe1fb079a503bb9de0dc3771 "latex"
-  "Lieb-YngvasonNote.tex" 1714276198 45635 7d306a4d9bc596b205e23e2b70941a9e ""
-  "Lieb-YngvasonNote.toc" 1714276206 937 6ca0cacbdb3621730296192945ce9475 "latex"
+["latex"] 1714370779 "Lieb-YngvasonNote.tex" "Lieb-YngvasonNote.dvi" "Lieb-YngvasonNote" 1714370784 0
+  "Lieb-YngvasonNote.aux" 1714370782 3577 e364b426c30a4973c89e82c8af88e740 "latex"
+  "Lieb-YngvasonNote.out" 1714370782 1934 0eef11e850467ad653fcbef6cefdffd7 "latex"
+  "Lieb-YngvasonNote.tex" 1714370778 58865 ea33de429bab05b44c9cb008151deb4c ""
+  "Lieb-YngvasonNote.toc" 1714370782 1545 531567fb1eb7c80a35d783886da9d289 "latex"
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -199,6 +199,8 @@
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
   "fig2.png" 1713695188 115929 2b34bcd9be675e33f5ae60a84b9482a4 ""
   "fig3.png" 1714053429 29963 a80703377075af5055d231d5c4103e64 ""
+  "fig5.png" 1714356452 22455 661fbb91e8af4c289281777eda448ec2 ""
+  "fig6a.png" 1714370520 11456 1cc4f0d4c3df49932e419ef3e61bd890 ""
   (generated)
   "Lieb-YngvasonNote.aux"
   "Lieb-YngvasonNote.dvi"

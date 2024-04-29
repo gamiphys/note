@@ -1017,6 +1017,8 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 OUTPUT Lieb-YngvasonNote.toc
 OUTPUT Lieb-YngvasonNote.dvi
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
@@ -1033,8 +1035,15 @@ INPUT ./fig3.png
 INPUT ./fig3.png
 INPUT fig3.png
 INPUT extractbb -B cropbox -O fig3.png
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT ./fig5.png
+INPUT ./fig5.png
+INPUT fig5.png
+INPUT extractbb -B cropbox -O fig5.png
+INPUT ./fig6a.png
+INPUT ./fig6a.png
+INPUT fig6a.png
+INPUT extractbb -B cropbox -O fig6a.png
 INPUT Lieb-YngvasonNote.aux
 INPUT ./Lieb-YngvasonNote.out
 INPUT ./Lieb-YngvasonNote.out

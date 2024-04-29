@@ -40,6 +40,7 @@
 \tableofcontents
 \newpage
 \section{状態と状態空間}
+\subsection{状態と状態空間}
 \begin{itembox}[l]{\textbf{Def:状態と状態空間}}
 熱力学的状態は、状態空間$\Gamma$の点であり、$X,Y,Z$などと表す。
 \end{itembox}
@@ -58,6 +59,7 @@
 \end{equation}
 である。
 
+\subsection{スケーリングコピー}
 \begin{itembox}[l]{\textbf{Def:スケーリングコピー}}
     $t>0$に対して、状態空間$\Gamma(t)$の構成要素を、$tX$とする。\\
     このとき、$\Gamma(t)$は、$\Gamma$のスケーリングコピーである。また、状態空間が$\mathbb{R}^n$の部分集合であるときは、$tX$は、ベクトルのスカラー倍としての表現となる。
@@ -93,6 +95,7 @@
 (e)水素1molと酸素0.5mol(混合)のとき、$\Gamma_e\neq \Gamma_d$であり、$\Gamma_e\neq \Gamma_c$である。\\
 
 \section{順序関係}
+\subsection{断熱到達可能性}
 状態空間の元に対して、順序関係を定める。
 \begin{itembox}[l]{\textbf{Def:断熱到達可能性}}
     $X$から$Y$への状態変化が、外部装置\footnote{これは力学的仕事のみとは限らない。キャンセル法則の後を参照せよ。}とおもりとの相互作用によて可能であり、その過程で装置が初期状態に戻るとき\footnote{ただし、おもりは元の高さに戻らなくてよい。}、$X$から$Y$への断熱到達可能であるといい、
@@ -130,6 +133,7 @@
 \end{itembox}
 例えば、前の章で挙げた$(a)~(e)$の例はみな比較可能であり、また、(c)のすべての点が、(d)の多くの点と関係$\prec$で結ばれている。\\
 
+\subsection{エントロピー原理}
 以上の関係をもとに、後に示すエントロピー原理を書きなおす。
 \begin{itembox}[l]{\textbf{エントロピー原理}}
     任意の状態$X$に対して、
@@ -153,7 +157,7 @@
 \end{itembox}
 我々の目標は、これらを満たすエントロピーを公理から導き、なおかつそれが一意であることを示すことである。\\
 
-\section{順序関係の公理}
+\subsection{順序関係の公理}
 \begin{itembox}[l]{\textbf{Axiom:順序関係の公理}}
     状態空間$\Gamma$上の順序関係$\prec$は、以下の公理を満たす。\\
     (A1: 反射律) $ X \overset{A}{\sim} X$\\
@@ -235,7 +239,8 @@ $\epsilon =\frac{1}{n}$とする。このとき、
 \end{align}
 となる。\\
 
-\section{単純系のエントロピーの構成}
+\section{エントロピーの構成}
+\subsection{単純系}
 今、状謡空間$\Gamma$のスケールコピーを構成する。すなわち、
 \begin{equation}
     Y =(t_1 Y_1,t_2 Y_2,\cdots,t_n Y_n) \quad (t_i>0), \quad Y_i \in \Gamma
@@ -525,7 +530,7 @@ Lem2.3より、
     もし、$\prec$と$\prec ^*$が[0,1]の各$\lambda\in [0,1]$について、$\Gamma(1-\lambda)\times \Gamma(\lambda)$上で一致しているならば、$\prec$と$\prec ^*$は$\Gamma$のすべての複数スケールコピー上で一致し、CHはすべての複数スケールコピーにおいて成立する。
 \end{itembox}
 
-\section{普遍的なエントロピーの構成}
+\subsection{混合のない複合系}
 \begin{itembox}[l]{\textbf{Def:エントロピー定数}}
     Thm2.3における$a,b$を、エントロピー定数という。
 \end{itembox}
@@ -633,7 +638,7 @@ $X \in \Gamma$に対して、$\Gamma \times \Gamma_0$とその空間上の、基
 \end{equation}
 とも書くことができる。\\
 
-\section{エントロピーの凸性}
+\subsection{エントロピーの凸性}
 \begin{itembox}[l]{\textbf{Def:凸な状態空間}}
     状態空間$\Gamma$が凸であるとは、任意の$X,Y \in \Gamma$について、
     \begin{equation}
@@ -746,7 +751,7 @@ $X \in \mathcal{S}_{\lambda_1},Y \in \mathcal{S}_{\lambda_2}$であるとする�
 \end{align}
 である。以上より、示された。\hfill\qedsymbol\\
 
-\section{不可逆過程とカラテオドリの原理}
+\subsection{不可逆過程とカラテオドリの原理}
 \begin{itembox}[l]{\textbf{Thm:カラテオドリの原理と不可逆過程}}
     状態空間$\Gamma$が凸であり、$\mathbb{R}^n$の部分空間であるとする。このとき、以下の二つの主張を考える。
     \begin{itemize}
@@ -784,7 +789,7 @@ $X \in \mathcal{S}_{\lambda_1},Y \in \mathcal{S}_{\lambda_2}$であるとする�
 単純系の座標は、エネルギー座標と仕事座標によって記述される。\\
 エネルギー座標は物理的にも数学的にも大事である。物理的側面としては、内部エネルギーは、熱力学第一法則を満たすことである。\\
 \begin{itembox}[l]{\textbf{熱力学第一法則}}
-    熱力学第一法則とは、系の状態がある状態から別の状態に断熱的に移る際に、外界が行った仕事の量が、移行の行われ方に依らないことである。\\
+    熱力学第一法則とは、系の状態がある状態から別の状態に断熱的に移る際に、外界が行った仕事の量が、遷移の行われ方に依らないことである。\\
     特に、我々が定義している断熱操作においては、重りの高さの変化量が仕事に相当する。
 
 \end{itembox}
@@ -808,11 +813,13 @@ S2の意味するところは、$X$における接平面が、
 で表されることである。このとき、傾きが有限となる。\\
 また、$\Pi_X$が、$X$における$A_X$の支持超平面であることは、係数$g_i$を用いて、
 \begin{equation}
-    U-U_0 +\sum_{i=1}^n g_i(V_i-V_i^0) 
+    U-U_0 +\sum_{i=1}^n g_i(V_i-V_i^0) の符号が、任意の(U,V)\in A_X に対して一定 \Leftrightarrow g_i = P_i(X)
 \end{equation}
-により、$A_X$を表すことができるということである。\\
+となるということである。物理的なイメージとしては、断熱曲線よりも上側がforward sectorだと考えられるのだから、\footnote{この符号の決め方は諸説あるが}遷移可能な$(U,V)$は、接平面の方程式の右辺が正となる形で表されることに対応する。\\
 また、リプシッツ連続性とは、読むのが面倒なので、とりあえず微分可能より緩いものということにして、問題が生じたら書くことにする。\\
 
+Thm3.1,3.2において、我々は、$A_X$が閉集合であり、空でない内部$\text{Interior}(A_X)$を持つことを示す。ここで、Interior$(X)$の点は$X$から有限の時間で達成されるのに対し、$\partial A_X$上の点に達するには系単独では無限に長い時間がかかる。
+(準静的断熱操作、断熱曲線上を動くということを考えればよい。)しかし、キャンセル法則を用いることで、微小な外部熱系を用いて、有限の時間で到達することが可能である。
 \begin{itembox}[l]{\textbf{S3:境界の連結性}}
     単純系$\Gamma$において、任意の$X \in \Gamma$に対して、$X$のforward sector$A_X$の境界$\partial A_X$は、$X$において弧状連結である。
 \end{itembox}
@@ -866,18 +873,14 @@ $X,Y,Z$を直線上の点とし、$Y$が中間にあるとする、すなわち�
 \begin{itembox}[l]{\textbf{Thm:Forward sectorの閉集合性}}
 forward sector$A_X$は、閉集合である。すなわち、
 \begin{equation}
-    Closure(A_X)\cap \Gamma = A_X
+   \mathrm{Closure}(A_X) \cap \Gamma = A_X
 \end{equation}
 である。
 \end{itembox}
 \textbf{Prf}\\
 
 \begin{itembox}[l]{\textbf{Thm:Forward sectorは空でない内部を持つ}}
-forward sector$A_X$は、空でない内部を持つ。すなわち、
-\begin{equation}
-    Int(A_X) \neq \emptyset
-\end{equation}
-である。
+任意の$X$に対して、forward sector$A_X$は、空でない内部を持つ。
 \end{itembox}
 \textbf{Prf}\\
 
@@ -904,5 +907,229 @@ forward sector$A_X$は、空でない内部を持つ。すなわち、
 \end{itembox}
 この主張はカラテオドリの原理よりも強いものである。というのも、与えられて状態より任意の近い、エネルギーが小さい状態に対して遷移できないことを示しているからである。\\
 
+\begin{itembox}[l]{\textbf{Thm:$u_X$の定義と性質}}
+    状態空間$\Gamma$上の状態$X=(U_0,V_0)$を固定する。このとき、\\
+    (1)$Y\in \partial A_X$とする。このとき、$A_X$は$Y$において接平面を持ち、それは$\Pi_Y$である。\\
+    (2)$\rho_X \subset \mathbb{R}^n $は連結な開集合である。\\
+    (3)任意の$V \in \rho_X$にるいて、対応する一つの数$u_X(V)$が存在し、$(u_X(V),V) \in \partial A_X$である。すなわち、
+    \begin{equation}
+        \partial A_X =\{(u_X(V),V):V \in \rho_X\}
+    \end{equation}
+    である。$u_X(V)$は、
+    \begin{equation}
+        u_X(V) =\text{inf}\{u:(u,V) \in A_X \}
+    \end{equation}
+    により与えられる。$u_X$は$\rho_X$に対して連続であり、局所的に凸である。すなわち、$u_X$は、$\rho_X$の任意の凸な部分集合に対して凸である。\\
+    さらに、
+    \begin{equation}
+        A_X \supset \{(U,V):U \geq u_X(V),\quad V\in \rho_X\} \bigcap \Gamma
+    \end{equation}
+    である。\\
+    (4)$u_X$は$\rho_X$における微分可能かつ局所リプシッツ連続であり、以下の微分方程式を満たす:
+    \begin{equation}
+        \pdv{U_X}{V_j}(V) =-P_j (u_X(V),V) \quad j=1,2,\cdots n
+    \end{equation}
+    (5)$u_X$は上の微分方程式を満たす、$\rho_X$上の唯一の連続関数であり、$u_X(V^0) =U^0$をみたす。
+\end{itembox}
+ここで、上の微分方程式が解をもつことは、S2からいうことができるらしい。\\
+\textbf{Prf}\\
 
+
+\begin{itembox}[l]{\textbf{Thm:境界の可逆性}}
+もし、$Y \in \partial X$ならば、$X \in \partial Y$であり、$A_Y = A_X$である。\\
+\end{itembox}
+\textbf{Prf}\\
+$Y =(U^1,V^1)\in \partial A_X$であるとする。境界$\partial A_Y$は、
+\begin{align}
+    \pdv{u_Y}{V}(V) = -P(u_Y(V),V) \quad  u_Y(V^1) =U^1
+\end{align}
+を解くことによって得られた$u_Y$によって記述される。しかし、$u_X$も同じ初期条件の同じ形の微分方程式の解によって書かれる。
+この微分方程式の解はThm3.5(5)より一意であるから、
+
+\begin{itembox}[l]{\textbf{Thm:Forward sectors are nested}}
+    $A_X,A_Y$を単純系$\Gamma$のforward sectorであるとすると、以下の三つのうち一つが成立する。
+    (a) $A_X=A_Y$ すなわち、$X \overset{a}{\sim} Y$\\
+    (b) $A_X \subset \text{Interior}(A_Y)$ すなわち、$Y \prec \prec X$\\
+    (c) $A_Y \subset \text{Interior}(A_X)$ すなわち、$X \prec \prec Y$\\
+    特に、$\partial A_X, \partial A_Y$はそれぞれ同一か、互いに素である。
+
+\end{itembox}
+\textbf{Prf}\\
+以下の3パターンを確かめればよい。\\
+(1)$Y \in A_X$\\
+(2)$X \in A_Y$\\
+(3)$X \notin A_Y$かつ$Y \notin A_X$\\
+\\
+(1)このとき、$Y \in \partial A_X$または$Y \in \text{Interior}(A_X)$である。前者についてはThm3.6により$A_X=A_Y$となる。\\
+後者について、これは、$\partial A_Y \subset \text{Interior}(A_X)$といえる。というのも、まず、transivityを用いると、(1)は$A_Y \subset A_X$と等価なことがわかる。\\
+そして、もし$\partial A_Y \subset \text{Interior}(A_X)$でないとすると、$\partial A_X \cap \partial A_Y$がある状態$Z$を含み、Thm3.6を用いることで、$\partial A_Y =\partial A_Z =\partial A_X $となるからである。\\
+(2)(1)と同様。\\
+(3)これが不可能であることを示す。\\
+$Z$をInterior$(A_X)$の元とし、$Y$から$Z$に伸びるまっすぐな区間$L$を考える。このとき、$\Gamma$の凸性から、$L$は$\Gamma$内に収まっている。\\
+もし、$Y \notin A_X$であるとすると、$L$の一部が$A_X$の外に存在することになる。よって、$L$と$\partial A_X$は、ある点$W$で交差する。このとき、Thm3.6により、$A_X=A_W$である。
+ゆえに、($X \prec Z$なので)$W \prec Z$である。さらに、Lem3.1を用いることにより、$Y \prec Z$である。\\
+今、$Z$が任意だったことを踏まえると、これはInterior($A_X$) $\subset A_Y$を意味する。同様に、Interior($A_Y$) $\subset A_X$もいえる。
+$A_X$も$A_Y$も閉なので(Thm3.1)、$A_X =A_Y$となる。 \hfill \qedsymbol\\
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{fig5.png}
+    \end{center}
+    \caption{nestの仕方}
+    \label{fig:three}
+\end{figure}
+図3は、nestの仕方を表している図である。このことから、単純系についてのCHが成り立っていることがわかる。\\
+
+\begin{itembox}[l]{\textbf{Thm:$\prec$の包含は存在しない}}
+$\prec^{(1)},\prec^{(2)}$を、単純系$\Gamma$の多重スケーリング積における二つの順序関係であるとする。
+このとき、任意の$X,Y \in \Gamma$について、
+\begin{equation}
+    X \prec^{(1)} \Rightarrow \prec^{(2)}
+\end{equation}
+であるならば、$\prec^{(1)} =\prec^{(2)}$である。
+\end{itembox}
+\textbf{Prf}\\
+
+\section{熱平衡}
+単純系の同士の熱的接触について考える。まず、我々は単一単純系のスケールコピーを考えてから、異なる系の積をとる。
+このとき肝心なこととしては、熱平衡にある二つの単純系は、一つの新たな単純系とみなせることである。\\
+
+\subsection{熱接触についての仮定}
+熱平衡に関する公理を5つ導入する。\\
+一つ目の公理は、二つの系を、全系に対して断熱的に、熱平衡状態へと遷移させることができるという意味である。\\
+\begin{itembox}[l]{\textbf{T1:熱接触}}
+    二つの単純系の状態空間$\Gamma_1,\Gamma_2$が与えられたとき、新たな、熱平衡状態を持つ単純系$\Delta_{12}$が存在する。この系$\Delta_{12}$を、thermal joinという。\\
+    $\Delta_{12}$の仕事座標は、$(V_1,V_2)$であり、その範囲はそれらの和の範囲である。また、エネルギー座標についても同様である。記号で表すと、
+    \begin{equation}
+        \Delta_{12} = \{(U,V_1,V_2):U=U_1+U_2 \quad (U_1,V_1) \in \Gamma_1,(U_2,V_2) \in \Gamma_2\}
+    \end{equation}
+    である。\\
+    ここで、$\Gamma_1 \times \Gamma_2$から$\Delta_{12}$へ向かう断熱操作が存在すると仮定する。すなわち、
+    \begin{equation}
+        \Gamma_1 \times \Gamma_2 \ni ((U_1,V_1),(U_2,V_2)) \prec ((U_1+U_2,V_1,V_2)) \in \Delta_{12}
+    \end{equation}
+    である。この操作を、熱平衡化という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{T2:熱的分離}}
+任意の$(U,V_1,V_2) \in \Delta_{12}$について、少なくとも一組の状態$(U_1,V_1)\in \Gamma_1,(U_2,V_2) \in \Gamma_2\quad U=U_1+U_2$が存在し、
+\begin{equation}
+    \Delta_{12} \ni (U,V_1,V_2) \overset{A}{\sim}((U_1,V_1),(U_2,V_2))\in \Gamma_1 \times \Gamma_2
+\end{equation}
+を満たす。特に、以下も成立する。
+\begin{equation}
+    (U,(1-\lambda)V,\lambda V) \overset{A}{\sim}(((1-\lambda)U,(1-\lambda)V),(\lambda U,\lambda V)) \in \Gamma^{(1-\lambda)} \times \Gamma^{\lambda}
+\end{equation}
+\end{itembox}
+以下、状態が等しいことを表す記号をもう一つ導入する。\\
+\begin{itembox}[l]{\textbf{Def:熱平衡}}
+$X=(U_1,V_1) \quad Y =(U_2,V_2)$に対して、
+もし、$((U_1,V_1),(U_2,V_2)) \overset{A}{\sim} (U_1+U_2,V_1,V_2)$であるならば、$((U_1,V_1),(U_2,V_2))$は熱平衡にあるといい、
+\begin{equation}
+    X \overset{T}{\sim} Y
+\end{equation}
+と書く。
+\end{itembox}
+このとき、
+\begin{equation}
+    X \overset{T}{\sim} Y \Leftrightarrow Y \overset{T}{\sim} X
+\end{equation}
+および、
+\begin{equation}
+    X \overset{T}{\sim} X
+\end{equation}
+は自明である。\\
+S3では、実はこの$\overset{T}{\sim}$が同値関係であることをいう。\\
+
+\begin{itembox}[l]{\textbf{S3:熱力学第0法則}}
+    \begin{equation}
+        X \overset{T}{\sim} Y \quad Y \overset{T}{\sim} Z \Rightarrow X \overset{T}{\sim} Z
+    \end{equation}
+\end{itembox}
+また、$\overset{T}{\sim}$による同値類を、等温線という。\\
+
+\begin{itembox}[l]{\textbf{Thm:熱平衡のスケール不変性}}
+    $X,Y$が、二つの単純系の二つの状態であるとし、$\lambda,\mu$が正の定数であるとする。このとき、
+    \begin{equation}
+        X \overset{T}{\sim} Y \Rightarrow \lambda X \overset{T}{\sim} \mu Y
+    \end{equation}
+    である。
+\end{itembox}
+\textbf{Prf}\\
+T2により、
+\begin{align}
+    (X,\lambda X) =((U_X,V_X),(\lambda U_X,\lambda V_X)) \overset{A}{\sim} ((1+\lambda)U_X,V_X,\lambda V_X) 
+\end{align}
+である。これは、熱平衡の定義から、$X \overset{T}{\sim} \lambda X$であることを意味する。同様に、$Y \overset{T}{\sim} \mu Y$である。よって、T3を用いることにより、
+\begin{align}
+    \lambda X \overset{T}{\sim} X \overset{T}{\sim} Y \overset{T}{\sim} \mu Y
+\end{align}
+である。以上より、示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm:forward sectorの向き}}
+すべての単純系のforward sectorは、同じ方向を向いている。
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピー最大原理}}
+    $S$が単純系の状態空間におけるエントロピー関数であるとき、$S$は$U$について上に凸な関数である。\\
+    もし、$S_1,S_2$が$\Gamma_1,\Gamma_2$の一貫したエントロピー関数であって、$(U_i,V_i)\in \Gamma_i$であるとき、
+    \begin{equation}
+        (U_1,V_1) \overset{T}{\sim} (U_2,V_2) 
+    \end{equation}
+    となるための必要十分条件は、エントロピーの和が$((U_1,V_1),(U_2,V_2))$において最大となることである。すなわち、
+    \begin{equation}
+        \underset{\text{max}}{S_1(W,V_1)+S_2((U_1+U_2-W),V_2)} =S_1(U_1,V_1)+S_2(U_2,V_2)
+    \end{equation}
+    である。
+
+\end{itembox}
+\textbf{Prf}\\
+T1より、
+\begin{align}
+    (((1-\lambda)U,(1-\lambda)V),(\lambda U',\lambda V)) \prec ((1-\lambda)U+\lambda U',(1-\lambda)V,\lambda V)
+\end{align}
+である。ここで、$U'' = (1-\lambda)U+\lambda U'$とすると、右辺について、
+\begin{align}
+    (U'',(1-\lambda)V,\lambda V) =((1-\lambda)U''+\lambda U'',(1-\lambda)V,\lambda V) \overset{A}{\sim} ((1-\lambda)U'',(1-\lambda)V),(\lambda U'',\lambda V) \overset{A}{\sim} (U'',V)
+\end{align}
+以上より、$    (((1-\lambda)U,(1-\lambda)V),(\lambda U',\lambda V)) \prec (U'',V)$である。\\
+エントロピー原理と、エントロピーの加法性から、
+\begin{align}
+    (1-\lambda)S(U,V)+\lambda S(U',V) \leq S((1-\lambda)U+\lambda U',V)
+\end{align}
+である。以上より、定理の前半が示された。\\
+後半を示す。$(U_1,V_1),(U_2,V_2)$を二つの単純系の状態とする。このとき、T1を用いることにより、
+\begin{align}
+    ((W,V_1),(U_1+U_2-W,V_2)) \prec (U_1+U_2,V_1,V_2)
+\end{align}
+である。熱平衡の定義より、
+\begin{align}
+(U_1+U_2,V_1,V_2) \overset{A}{\sim} ((U_1,V_1),(U_2,V_2)) \Leftrightarrow (U_1,V_1) \overset{T}{\sim} (U_2,V_2)
+\end{align}
+である。以上より、
+\begin{align}
+    S_1(W,V_1)+S_2((U_1+U_2-W),V_2) \leq S_1(U_1,V_1)+S_2(U_2,V_2)
+\end{align}
+である。以上より、示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{T4:Transversality}}
+    $\Gamma$が単純系の状態空間で、$X \in \Gamma$とする。このとき、
+    \begin{equation}
+    \exists X_0 \overset{T}{\sim} X_1 \quad s.t.\quad  X_0 \prec \prec X \prec \prec X_1
+    \end{equation}
+    である。
+\end{itembox}
+すなわち、任意の断熱曲線上の点について、その両側の点を通るような等温曲線が存在するということである。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{fig6a.png}
+    \end{center}
+    \caption{T4のイメージ}
+    \label{fig:four}
+\end{figure}
+
+\begin{itembox}[l]{\textbf{T5:普遍的な温度範囲}}
+    $\Gamma_1,\Gamma_2$が単純系の状態空間で、
+\end{itembox}
 \end{document}
