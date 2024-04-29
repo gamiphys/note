@@ -522,8 +522,7 @@ Lem2.3より、
 である。\hfill\qedsymbol\\
 
 カノニカルエントロピーの定義をみてみると、エントロピーは、二重スケール積$\Gamma(1-\lambda)\times \Gamma(\lambda)$上の関係$\prec$と、基準点$X_0 \prec \prec X_1$のみに依存している。\\
-さらに、エントロピー原理の定式化を見てみると、エントロピーは、すべての複数スケールコピー上での関係を特徴づける。すなわち、CHがすべての複数スケールコピーにおいて成立することを示している。\\
-以上を踏まえると、Thm2.3は以下のように書き換えることができる。\\
+さらに、Thm2.2の(2)$ \Rightarrow $(1)に注目すると、エントロピーは、すべての多重スケーリングコピーにおいて、順序関係を定め、CHを満たす。\\
 
 \begin{itembox}[l]{\textbf{Thm:エントロピーの一意性(2)}}
     $\prec$と$\prec ^*$を、$\Gamma$上のスケールコピーにおける関係とし、公理A1-A6を満たし、さらに、固定された各$\lambda \in [0,1]$について、$\Gamma(1-\lambda)\times \Gamma(\lambda)$についてCHも満たすとする。\\
@@ -634,7 +633,7 @@ $X \in \Gamma$に対して、$\Gamma \times \Gamma_0$とその空間上の、基
 \textbf{注意}\\
 エントロピー関数は、
 \begin{equation}
-    S(X) =sup\{\lambda|(X_{\Gamma},\lambda Z_1)\prec (X,\lambda Z_0)\}
+    S(X) =\text{sup}\{\lambda|(X_{\Gamma},\lambda Z_1)\prec (X,\lambda Z_0)\}
 \end{equation}
 とも書くことができる。\\
 
@@ -878,11 +877,30 @@ forward sector$A_X$は、閉集合である。すなわち、
 である。
 \end{itembox}
 \textbf{Prf}\\
+$Y \in \Gamma$が、$\partial A_X$に属するとして、これが$A_X$に属することを示す。\\
+$W$を$A$の内部に属する点とし、$Y$を$A$の境界に属する点とする。このとき、$W$から$Y$に向かって、$A$の内部に属する点$Y_n$を取ることができる。また、この延長線上に、$Z \notin [W,Y)(\in \Gamma)$が存在する。このとき、
+\begin{equation}
+    \frac{n}{n+1}Y_n + \frac{1}{n+1}Z=Y 
+\end{equation}
+である。また、
+\begin{equation}
+    (Y_n,\frac{1}{n}Z) =\frac{n+1}{n}(\frac{n}{n+1}Y_n,\frac{1}{n+1}Z) \prec \frac{n+1}{n}Y
+\end{equation}
+である。いま、$X\prec Y_n$より、$(X,\frac{1}{n}Z) \prec (Y_n,\frac{1}{n}Z)$である。したがって、
+\begin{equation}
+    (X,\frac{1}{n}Z) \prec (Y,\frac{1}{n}Y)
+\end{equation}
+である。十分大きなnについて、キャンセル法則を用いることにより、
+\begin{equation}
+    X \prec Y
+\end{equation}
+であるから、$Y \in A_X$である。以上より、示された。\hfill\qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Thm:Forward sectorは空でない内部を持つ}}
 任意の$X$に対して、forward sector$A_X$は、空でない内部を持つ。
 \end{itembox}
 \textbf{Prf}\\
+まず、
 
 \begin{itembox}[l]{\textbf{Lem:Forward sectorにおけるエネルギーの範囲}}
     $X=(U_0,V_0) \in \Gamma$に対して、$A_X$は、$\Pi_X$の、エネルギーが正の側である。このとき、
@@ -1130,6 +1148,74 @@ T1より、
 \end{figure}
 
 \begin{itembox}[l]{\textbf{T5:普遍的な温度範囲}}
-    $\Gamma_1,\Gamma_2$が単純系の状態空間で、
+    $\Gamma_1,\Gamma_2$が単純系の状態空間であるとする。このとき、$X \in \Gamma_1$と$V \in \rho (\Gamma_2)$について、$Y \in \Gamma_2$が存在して、
+    \begin{equation}
+        \rho(Y) =V \quad \text{and} \quad X \overset{T}{\sim} Y
+    \end{equation}
+    である。
 \end{itembox}
+
+\subsection{複合系の比較原理}
+
+\subsection{Transversalityの役割}
+
+\section{温度とその性質}
+温度を導入する。\\
+\subsection{エントロピーの微分可能性と温度の存在}
+エントロピー関数$S$は、単純系の状態空間$\Gamma$で記述され、上に凸であった。それゆえ、任意の$X \in \Gamma$に対して、$S$の$U$についての左右の微分が存在する。\\
+\begin{align}
+    \frac{1}{T_+} =\lim_{\epsilon \to 0} \frac{S(U+\epsilon,V)-S(U,V)}{\epsilon}\\
+    \frac{1}{T_-} =\lim_{\epsilon \to 0} \frac{S(U,V)-S(U-\epsilon,V)}{\epsilon}
+\end{align}
+このとき、$T_+,T_-$は、Planckの原理により、有限かつ常に正である。\footnote{有限な理由はtangent planeに関する公理からだと思われる。}\\
+これらの関数はそれぞれ、右温度、左温度と呼ばれる。凸性により、
+\begin{equation}
+    T_-(U_1,V) \leq T_+(U_1,V) \leq T_-(U_2,V) \leq T_+(U_2,V)
+\end{equation}
+が任意の$U_1<U_2$に対して成立する。\\
+
+\begin{itembox}[l]{\textbf{Lem:断熱曲線上における温度の連続性}}
+
+
+\end{itembox}
+\textbf{Prf}\\
+後で書く。\hfill\qedsymbol\\
+
+ここで、熱平衡と温度の関係を考える。\\
+エントロピー最大原理により、$X_1=(U_1,V_1),X_2=(U_2,V_2)$に対して、
+\begin{equation}
+    X_1 \overset{T}{\sim} X_2 \Leftrightarrow S(X_1) +S(X_2) =\underset{W}{\text{max}}\{S(U_1+U_2-W,V_1)+S(W,V_2)\}
+\end{equation}
+である。ここで、$S$は上に凸であるから、任意の状態空間$\Gamma$上の点$X$に対して、右側温度と左側温度が存在する。ここで、
+\begin{equation}
+    T(X) = [T_-,T_+]
+\end{equation}
+
+により、温度の区間を定義する。このとき、エントロピー最大原理の意味するところは、
+\begin{equation}
+    X_1 \overset{T}{\sim} X_2 \Leftrightarrow T(X_1)\cap T(X_2) \neq \emptyset
+\end{equation}
+である。\\
+とくに、左右の微係数が等しいとき、
+\begin{equation}
+    X_1 \overset{T}{\sim} X_2 \Leftrightarrow T(X_1)=T(X_2)
+\end{equation}
+である。\\
+以下の定理で、最後の式が成り立つことが示される。\\
+
+\begin{itembox}[l]{\textbf{Thm:温度の一意性}}
+
+\end{itembox}
+\subsection{等温曲線と断熱曲線の幾何}
+等温曲線が、途中で途切れることがないことを示す。\\  
+
+\subsection{熱平衡とエントロピーの一意性}
+\begin{itembox}[l]{\textbf{Thm:断熱曲線と等温曲線によるエントロピーの一意性}}
+    $\prec,\prec^{*}$を、単純系の多重スケーリングコピー上の関係とし、これまで述べた公理を満たすとする。このとき、$\overset{T}{\sim},\overset{T^{*}}{\sim}$を、それぞれ$\prec,\prec^{*}$によって定義される熱平衡関係とする。\\
+    このとき、もし、$\prec,\prec^{*}$が$\Gamma$で一致し、$\overset{T}{\sim},\overset{T^{*}}{\sim}$も一致するならば、$\prec,\prec^{*}$は任意の状態空間で一致する。\\
+    言い換えると、任意の多重スケーリングコピー上の関係は、断熱曲線及び等温曲線によって定まり、エントロピーは、アフィン変換を除いて一意である。
+\end{itembox}
+\textbf{Prf}\\
+
+
 \end{document}
