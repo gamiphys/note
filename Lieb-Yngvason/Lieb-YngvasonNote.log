@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  29 APR 2024 23:02
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  1 MAY 2024 00:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -623,69 +623,69 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 ) (./Lieb-YngvasonNote.aux)
 \openout1 = `Lieb-YngvasonNote.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-Package hyperref Info: Link coloring OFF on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+Package hyperref Info: Link coloring OFF on input line 37.
  (./Lieb-YngvasonNote.out) (./Lieb-YngvasonNote.out)
 \@outlinefile=\write4
 \openout4 = `Lieb-YngvasonNote.out'.
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 40.
+(Font)              scaled to size 15.9785pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 40.
+(Font)              scaled to size 15.9785pt on input line 43.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 40.
+(Font)              scaled to size 11.09619pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 40.
+(Font)              scaled to size 11.09619pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 40.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 40.
+(Font)              scaled to size 5.5481pt on input line 43.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 40.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 40.
+(Font)              scaled to size 11.09619pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 40.
+(Font)              scaled to size 7.39746pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 40.
+(Font)              scaled to size 5.5481pt on input line 43.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 40.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 40.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 40.
+(Font)              scaled to size 13.31541pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 40.
+(Font)              scaled to size 13.31541pt on input line 43.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 40.
+(Font)              scaled to size 13.31541pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 40.
+(Font)              scaled to size 13.31541pt on input line 43.
  (./Lieb-YngvasonNote.toc
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 2.
@@ -703,46 +703,46 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 
  [2]
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 43.
+(Font)              scaled to size 11.09619pt on input line 46.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 44.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
+(Font)              scaled to size 9.24683pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 44.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 44.
+(Font)              scaled to size 9.24683pt on input line 47.
  [3]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 101.
+(Font)              scaled to size 6.47278pt on input line 104.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 101.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 101.
+(Font)              scaled to size 6.47278pt on input line 104.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 101.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 101.
+(Font)              scaled to size 6.47278pt on input line 104.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 101.
+(Font)              scaled to size 5.5481pt on input line 104.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 101.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 101.
+(Font)              scaled to size 5.5481pt on input line 104.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 101.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 104.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 101.
+(Font)              scaled to size 5.5481pt on input line 104.
  [4] [5] [6] [7] [8] [9] [10] [11]
 File: fig2.png Graphic file (type bmp)
 <fig2.png>
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 374.
+(Font)              scaled to size 8.32214pt on input line 377.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 374.
+(Font)              scaled to size 8.32214pt on input line 377.
  [12] [13] [14] [15] [16] [17] [18]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 636.
+(Font)              scaled to size 4.62341pt on input line 639.
  [19]
 File: fig3.png Graphic file (type bmp)
 <fig3.png>
@@ -750,7 +750,7 @@ File: fig3.png Graphic file (type bmp)
 File: fig5.png Graphic file (type bmp)
 <fig5.png>
  [29] [30] [31] [32]
-Overfull \hbox (34.36954pt too wide) detected at line 1113
+Overfull \hbox (34.36954pt too wide) detected at line 1116
 []
  []
 
@@ -758,12 +758,12 @@ Overfull \hbox (34.36954pt too wide) detected at line 1113
 File: fig6a.png Graphic file (type bmp)
 <fig6a.png>
  [34]
-Underfull \hbox (badness 10000) detected at line 1180
+Underfull \hbox (badness 10000) detected at line 1183
 []$[]$[]
  []
 
 [35]
-Underfull \hbox (badness 10000) detected at line 1208
+Underfull \hbox (badness 10000) detected at line 1211
 []$[]$[]
  []
 
@@ -780,4 +780,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,10n,89p,481b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (36 pages, 180468 bytes).
+Output written on Lieb-YngvasonNote.dvi (36 pages, 180592 bytes).
