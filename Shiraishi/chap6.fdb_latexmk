@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1713925160 "chap6.dvi" "chap6.pdf" "chap6" 1713925161 0
-  "chap6.dvi" 1713925160 8812 c34ad0664ed624a8c81258e2f3c736d2 "latex"
+["dvipdf"] 1714530650 "chap6.dvi" "chap6.pdf" "chap6" 1714530651 0
+  "chap6.dvi" 1714530650 52752 648f3cfc6d0af96edc61523d73547cdc "latex"
   (generated)
   "chap6.pdf"
   (rewritten before read)
-["latex"] 1713925158 "chap6.tex" "chap6.dvi" "chap6" 1713925161 0
+["latex"] 1714530648 "chap6.tex" "chap6.dvi" "chap6" 1714530651 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -39,7 +39,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -123,6 +122,7 @@
   "c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty" 1681543074 7008 f92eaa0a3872ed622bbf538217cd2ab7 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty" 1681536312 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1681536317 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
+  "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1681536317 13829 94730e64147574077f8ecfea9bb69af4 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd" 1681536317 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd" 1681536317 961 d02606146ba5601b5645f987c92e6193 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1681536324 2222 78b930a5a6e3dc2ac69b78c2057b94d7 ""
@@ -190,9 +190,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "chap6.aux" 1713925160 874 0b148c351001f3d24b5828d7ab875dc9 "latex"
-  "chap6.out" 1713925160 63 727594c32ccf6d4f7523f772e1fed9a2 "latex"
-  "chap6.tex" 1713925158 3391 43fe2699f48d16b917880895427d7005 ""
+  "chap6.aux" 1714530650 1349 a16a6c2d3173113a4e49f940ac257912 "latex"
+  "chap6.out" 1714530650 676 4cde463f7cfce4dcbb16449261d3aecc "latex"
+  "chap6.tex" 1714530647 18727 65081c1455d250704f2ded28c937039f ""
   (generated)
   "chap6.aux"
   "chap6.dvi"
