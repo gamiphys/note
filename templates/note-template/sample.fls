@@ -1,4 +1,4 @@
-PWD c:/Users/gamiy/note/note-template
+PWD c:/Users/gamiy/note/templates/note-template
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt
@@ -160,6 +160,18 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/mathtools/mhsetup.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsmath.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty

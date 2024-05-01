@@ -1,10 +1,10 @@
 \documentclass[a4paper,11pt]{jsarticle}
 
-
 % 数式
 \usepackage{amsmath,amsfonts}
 \usepackage{bm}
 \usepackage{mathtools}
+\usepackage{amssymb}
 
 % 表
 \usepackage[utf8]{inputenc}
@@ -31,13 +31,14 @@
   pdfborder={0 0 0},
   bookmarkstype=toc]{hyperref}
 
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
 
 \begin{document}
 
-\title{タイトル}
+\title{title}
 \author{大上由人}
 \date{\today}
 \maketitle
-
 
 \end{document}

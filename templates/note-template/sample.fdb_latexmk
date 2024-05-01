@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1713621254 "sample.dvi" "sample.pdf" "sample" 1713621254 0
-  "sample.dvi" 1713621254 1120 707db39ff1348bf31d0c0bcd926309f9 "latex"
+["dvipdf"] 1714490692 "sample.dvi" "sample.pdf" "sample" 1714490693 0
+  "sample.dvi" 1714490691 1108 1814f42a2b1ceca0855682f86e92c843 "latex"
   (generated)
   "sample.pdf"
   (rewritten before read)
-["latex"] 1713621252 "sample.tex" "sample.dvi" "sample" 1713621254 0
+["latex"] 1714490688 "sample.tex" "sample.dvi" "sample" 1714490693 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1681536317 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -110,6 +110,7 @@
   "c:/texlive/2023/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def" 1681541060 6950 8524a062d82b7afdc4a88a57cb377784 ""
   "c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty" 1681543074 7008 f92eaa0a3872ed622bbf538217cd2ab7 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1681536317 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
+  "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1681536317 13829 94730e64147574077f8ecfea9bb69af4 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd" 1681536317 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd" 1681536317 961 d02606146ba5601b5645f987c92e6193 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1681536324 2222 78b930a5a6e3dc2ac69b78c2057b94d7 ""
@@ -177,9 +178,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "sample.aux" 1713621254 520 9c1a709c014649c32e70d4a7a33299d3 "latex"
-  "sample.out" 1713621254 0 d41d8cd98f00b204e9800998ecf8427e "latex"
-  "sample.tex" 1713621251 937 744aa84848f4b363e89b49f86075f5bf ""
+  "sample.aux" 1714490691 520 9c1a709c014649c32e70d4a7a33299d3 "latex"
+  "sample.out" 1714490691 0 d41d8cd98f00b204e9800998ecf8427e "latex"
+  "sample.tex" 1714490686 1022 73f7f409b55683797798111a9db0de3a ""
   (generated)
   "sample.aux"
   "sample.dvi"
