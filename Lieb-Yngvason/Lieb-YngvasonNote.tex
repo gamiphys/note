@@ -615,7 +615,11 @@ $X \in \Gamma$に対して、$\Gamma \times \Gamma_0$とその空間上の、基
 また、これがエントロピーとしての資格を持つことは、以下のように示すことができる。\\
 \textbf{エントロピー増大則}\\
 \begin{equation}
-    X \prec Y \Leftarrow S(X) \leq S(Y)
+    X \prec Y \Leftrightarrow S(X) \leq S(Y)
+\end{equation}
+を示す。キャンセル法則を用いることにより、
+\begin{equation}
+    X \prec Y \Leftrightarrow (X,Z_0) \prec (Y,Z_0)
 \end{equation}
 を示す。キャンセル法則を用いることにより、
 \begin{equation}
@@ -631,7 +635,9 @@ $X \in \Gamma$に対して、$\Gamma \times \Gamma_0$とその空間上の、基
     状態空間$\Gamma$上のエントロピー関数$S_{\Gamma}$が一貫したエントロピーであるとは、$\Gamma$上のエントロピー関数の適切な線形結合が、任意の多重スケーリング積のエントロピー関数として働くことである。\\
     すなわち、すべての多重スケーリングコピーにおいて$a_{\Gamma}$を1にとることができるということである。
 \end{itembox}
-要するに、エントロピーの目盛りを合わせることができるということである。\\
+要するに、エントロピーの目盛りを合わせることができるということである。例えば、上の証明で構成したエントロピーは、任意の状態についてエントロピーの係数を1にとることができている。\\
+
+以上のエントロピーの議論により、我々は、適当な状態空間(これは複数の単純系のスケールコピーでもよい)上の状態について、エントロピーを定義することができ、また、そのエントロピーのは、単純系で定義したものと同じ尺度ではかることができるということがわかった。\\
 
 \textbf{注意}\\
 エントロピー関数は、
@@ -1112,7 +1118,8 @@ T1より、
 \end{align}
 である。ここで、$U'' = (1-\lambda)U+\lambda U'$とすると、右辺について、
 \begin{align}
-    (U'',(1-\lambda)V,\lambda V) =((1-\lambda)U''+\lambda U'',(1-\lambda)V,\lambda V) \overset{A}{\sim} ((1-\lambda)U'',(1-\lambda)V),(\lambda U'',\lambda V) \overset{A}{\sim} (U'',V)
+    (U'',(1-\lambda)V,\lambda V) &=((1-\lambda)U''+\lambda U'',(1-\lambda)V,\lambda V)\\
+    & \overset{A}{\sim} ((1-\lambda)U'',(1-\lambda)V),(\lambda U'',\lambda V) \overset{A}{\sim} (U'',V)
 \end{align}
 以上より、$    (((1-\lambda)U,(1-\lambda)V),(\lambda U',\lambda V)) \prec (U'',V)$である。\\
 エントロピー原理と、エントロピーの加法性から、

@@ -8,7 +8,7 @@
 \contentsline {section}{\numberline {3}エントロピーの構成}{8}{section.3}%
 \contentsline {subsection}{\numberline {3.1}単純系}{8}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}混合のない複合系}{16}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}エントロピーの凸性}{19}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}エントロピーの凸性}{20}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}不可逆過程とカラテオドリの原理}{23}{subsection.3.4}%
 \contentsline {section}{\numberline {4}単純系}{23}{section.4}%
 \contentsline {subsection}{\numberline {4.1}単純系の座標}{24}{subsection.4.1}%

@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  1 MAY 2024 00:23
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  3 MAY 2024 22:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -742,28 +742,23 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 377.
  [12] [13] [14] [15] [16] [17] [18]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 639.
- [19]
+(Font)              scaled to size 4.62341pt on input line 645.
+ [19] [20]
 File: fig3.png Graphic file (type bmp)
 <fig3.png>
- [20] [21] [22] [23] [24] [25] [26] [27] [28]
+ [21] [22] [23] [24] [25] [26] [27] [28]
 File: fig5.png Graphic file (type bmp)
 <fig5.png>
- [29] [30] [31] [32]
-Overfull \hbox (34.36954pt too wide) detected at line 1116
-[]
- []
-
-[33]
+ [29] [30] [31] [32] [33]
 File: fig6a.png Graphic file (type bmp)
 <fig6a.png>
  [34]
-Underfull \hbox (badness 10000) detected at line 1183
+Underfull \hbox (badness 10000) detected at line 1190
 []$[]$[]
  []
 
 [35]
-Underfull \hbox (badness 10000) detected at line 1211
+Underfull \hbox (badness 10000) detected at line 1218
 []$[]$[]
  []
 
@@ -780,4 +775,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,10n,89p,481b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (36 pages, 180592 bytes).
+Output written on Lieb-YngvasonNote.dvi (36 pages, 181644 bytes).
