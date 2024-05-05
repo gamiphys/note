@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  3 MAY 2024 22:47
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  4 MAY 2024 20:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -753,16 +753,16 @@ File: fig5.png Graphic file (type bmp)
 File: fig6a.png Graphic file (type bmp)
 <fig6a.png>
  [34]
-Underfull \hbox (badness 10000) detected at line 1190
+Underfull \hbox (badness 10000) detected at line 1206
 []$[]$[]
  []
 
 [35]
-Underfull \hbox (badness 10000) detected at line 1218
+Underfull \hbox (badness 10000) detected at line 1234
 []$[]$[]
  []
 
-[36] (./Lieb-YngvasonNote.aux)
+[36] [37] (./Lieb-YngvasonNote.aux)
 Package rerunfilecheck Info: File `Lieb-YngvasonNote.out' has not changed.
 (rerunfilecheck)             Checksum: E444333784CA411D7A1C205253DFFB98;2772.
  ) 
@@ -773,6 +773,6 @@ Here is how much of TeX's memory you used:
  42619 multiletter control sequences out of 15000+600000
  533898 words of font info for 132 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,10n,89p,481b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,10n,89p,481b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Lieb-YngvasonNote.dvi (36 pages, 181644 bytes).
+Output written on Lieb-YngvasonNote.dvi (37 pages, 185004 bytes).

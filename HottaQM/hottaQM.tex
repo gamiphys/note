@@ -81,11 +81,12 @@
 \end{align}
 となる。\\
 \textbf{証明}\\
-後で書く。
+後で書く。\\%TODOあとで書いてね。\\
+
 したがって、量子状態について、期待値を知ることとと、密度行列を知ることは等価であり、密度行列は、量子状態のすべての情報を持っている。\\
 
 \subsection{観測確率の公式}
-$\hat{\sigma{\vb n}}$の固有値は$\pm 1$であり、固有値$+1$に対応する固有ベクトルを$\ket{u_+}$、固有値$-1$に対忋する固有ベクトルを$\ket{u_-}$とする。\\
+$\hat{\sigma}(\vb n)$の固有値は$\pm 1$であり、固有値$+1$に対応する固有ベクトルを$\ket{u_+}$、固有値$-1$に対忋する固有ベクトルを$\ket{u_-}$とする。\\
 このとき、完全性の関係は、
 \begin{align}
     \ket{u_+}\bra{u_+} + \ket{u_-}\bra{u_-} = \hat I
@@ -93,17 +94,17 @@ $\hat{\sigma{\vb n}}$の固有値は$\pm 1$であり、固有値$+1$に対応す
 となる。\\
 これを、射影演算子を用いて書き換えると、
 \begin{align}
-    \hat I = \ket{u_+}\bra{u_+} + \ket{u_-}\bra{u_-}=\hat{P_+}+\hat{P_-}
+    \hat I = \ket{u_+}\bra{u_+} + \ket{u_-}\bra{u_-}=\hat{P}_+ + \hat{P}_-
 \end{align}
 となる。\\
-また、このとき、$\hat{\sigma{\vb (n)}}$のスペクトル分解は
+また、このとき、$\hat{\sigma}(\vb n)$のスペクトル分解は
 \begin{align}
-    \hat{\sigma}(\vb n) = \ket{u_+}\bra{u_+} - \ket{u_-}\bra{u_-}=\hat{P_+}-\hat{P_-}
+    \hat{\sigma}(\vb n) = \ket{u_+}\bra{u_+} - \ket{u_-}\bra{u_-}=\hat{P}_+ - \hat{P}_-
 \end{align}
 となる。\\
 したがって、射影演算子を、単位行列と、スピン演算子を用いて
 \begin{align}
-    \hat{P_+} = \frac{1}{2}(\hat I + \hat{\sigma}(\vb n)), \quad \hat{P_-} = \frac{1}{2}(\hat I - \hat{\sigma}(\vb n))
+    \hat{P}_+ = \frac{1}{2}(\hat I + \hat{\sigma}(\vb n)), \quad \hat{P}_- = \frac{1}{2}(\hat I - \hat{\sigma}(\vb n))
 \end{align}
 と書くことができる。\\
 以上の準備により、以下の関係式を示すことができる。
@@ -115,7 +116,7 @@ $\hat{\sigma{\vb n}}$の固有値は$\pm 1$であり、固有値$+1$に対応す
     に従う。
 \end{itembox}
 \textbf{証明}\\
-後で書く。\\
+後で書く。\\%%TODOあとで書いてね。\\
 
 \subsection{状態ベクトル}
 状態ベクトル$\ket{\psi}$は、スピンの状態を表す。このとき、スピンの期待値は、
@@ -127,6 +128,28 @@ $\hat{\sigma{\vb n}}$の固有値は$\pm 1$であり、固有値$+1$に対応す
 \subsection{物理量としてのエルミート行列}
 
 \subsection{空間回転としてのユニタリ行列}
+物理的に実現可能な純粋状態$\ket{\psi}$は、にユニタリ行列$\hat{U}$を作用させることで、別の純粋状態に移すことができることを、二準位スピン系の空間回転を通して見る。\\
+
+\subsection{量子状態の線形重ね合わせ}
+
+\subsection{確率混合}
+純粋状態でない、ブロッホ球の内部の量子状態を考える。任意の密度演算子のスペクトル分解は、
+\begin{align}
+    \hat{\rho} = p_+\ket{\psi_+}\bra{\psi_+} + p_-\ket{\psi_-}\bra{\psi_-}
+\end{align}
+ここで、固有値$p_+,p_-$は、$p_+ + p_- = 1$を満たす。\\
+このような、一つの状態ベクトルによって表されない状態を、混合状態という。\\
+
+\begin{itembox}[l]{\textbf{Def:確率混合(二準位系)}}
+    確率混合とは、確率$p_+,p_-$で、純粋状態$\ket{\psi_+}\bra{\psi_+},\ket{\psi_-}\bra{\psi_-}$をを用意して、密素演算子$\hat{\rho}=p_+\ket{\psi_+}\bra{\psi_+} + p_-\ket{\psi_-}\bra{\psi_-}$を作ることである。
+\end{itembox}
+
+このとき、
+\begin{align}
+    \ev{\sigma_x} ^2+ \ev{\sigma_y}^2 + \ev{\sigma_z}^2 =1-4p_+p_-
+\end{align}
+であることを確かめることができる。すなわち、純粋状態においては状態はブロッホ球の表面にあり、混合状態においては、ブロッホ球の内部にあることがわかる。\\
+
 
 \section{N準位系}
 \subsection{基準測定の存在}
@@ -301,7 +324,7 @@ SG実験のときの密度行列を再掲すると、
 
 \subsection{一般の物理量の場合のボルン則}
 \begin{itembox}[l]{\textbf{ボルン則(基準測定)}}
-    N準位系の測定において、$Lambda(k)$が観測される確率は、
+    N準位系の測定において、$\Lambda(k)$が観測される確率は、
     \begin{align}
         p(k) = \bra{u_k}\hat{\rho}\ket{u_k}
     \end{align}
@@ -323,7 +346,7 @@ SG実験のときの密度行列を再掲すると、
     \hat{\rho'} = \hat{U}\hat{\rho}\hat{U}^\dagger
 \end{align}
 となる。\\
-このとき、基準測定により、k番目の結果が観測される確率は
+このとき、基準測定により、k番目の結果が観測される確率は、
 \begin{align}
     p(k) = \trace{\hat{\rho'}\hat{P_k}}=\bra{k}\hat{\rho'}\ket{k}
 \end{align}
@@ -418,5 +441,18 @@ $\Gamma$の制限について考えていいく。まず、確率混合のもと
 \begin{align}
     \Gamma(p\hat{\rho}_1 + (1-p)\hat{\rho}_2) = p\Gamma(\hat{\rho}_1) + (1-p)\Gamma(\hat{\rho}_2)
 \end{align}
-が成り立つと考えられる。この$\Gamma$の性質をアフィン性という。\\
+が成り立つと考えられる。すなわち、混合させてから、$\Gamma$を作用させるのと、$\Gamma$を作用させてから混合させるのは同じである。この性質をアフィン性という。\\
+また、$\Gamma$がアフィン性をもつとき、任意の複素数$c_1,c_2$と任意の$N$次正方行列$\hat{M_1},\hat{M_2}$に対して、
+\begin{align}
+    \Gamma(c_1\hat{M_1}+c_2\hat{M_2}) = c_1\Gamma(\hat{M_1})+c_2\Gamma(\hat{M_2})
+\end{align}
+が成り立つ。\\
+\textbf{Prf}\\
+%TODOあとで書く。\\
+
+また、$\Gamma$が物理操作ならば、$\Gamma$は完全正値性を持つ。
+\begin{itembox}[l]{\textbf{Def:完全正値性}}
+    
+\end{itembox}
+
 \end{document}

@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1712194809 "hottaQM.dvi" "hottaQM.pdf" "hottaQM" 1712194811 0
-  "hottaQM.dvi" 1712194808 39816 1c0dcd110d79d7cc6d5c2cf01de99e42 "latex"
+["dvipdf"] 1714824608 "hottaQM.dvi" "hottaQM.pdf" "hottaQM" 1714824609 0
+  "hottaQM.dvi" 1714824607 45088 f3b73b241231684484da9267be0f1700 "latex"
   (generated)
   "hottaQM.pdf"
   (rewritten before read)
-["latex"] 1712194805 "hottaQM.tex" "hottaQM.dvi" "hottaQM" 1712194811 0
+["latex"] 1714824606 "hottaQM.tex" "hottaQM.dvi" "hottaQM" 1714824609 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -161,8 +161,8 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "hottaQM.aux" 1712194808 3015 93305ddce431852bf32d30d27c08afd3 "latex"
-  "hottaQM.tex" 1712194802 17737 12212cdbdf575956f31da66d40387597 ""
+  "hottaQM.aux" 1714824607 3251 3f5011379d11bf782885d1a399923913 "latex"
+  "hottaQM.tex" 1714824604 19831 94a5aa76a0c0deab3f872726f0ea0151 ""
   (generated)
   "hottaQM.aux"
   "hottaQM.dvi"

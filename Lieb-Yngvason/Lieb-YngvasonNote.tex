@@ -781,13 +781,13 @@ $X \in \mathcal{S}_{\lambda_1},Y \in \mathcal{S}_{\lambda_2}$であるとする�
 
 以下(単純系に限らず)考えるすべての系は、単純系のスケーリング積によって構成される。\\
 単純系と単純系でないものの例を挙げると以下のようになる。\\
-\textbf{単純系}\\
+\textbf{単純系}
 \begin{itemize}
     \item[(1)] 1molの水が入ったピストン付き容器(仕事座標は体積)
     \item[(2)] ピストン付き容器に入った0.5molの酸素と磁場中の0.5molの酸素(仕事座標は体積と磁場)
     \item[(3)] 水素7mokと酸素1molの混合物(仕事座標は体積)
 \end{itemize}
-\textbf{単純系でない系}\\
+\textbf{単純系でない系}
 \begin{itemize}
     \item[(1)] 1molの水が入ったピストン付き容器を二つ並べたもの(このとき、それぞれの容器ごとにエネルギー座標を持つ)
     \item[(2)] 後で思いついたら残りを書く
@@ -934,11 +934,19 @@ $W$を$A$の内部に属する点とし、$Y$を$A$の境界に属する点と�
 \end{itembox}
 この主張はカラテオドリの原理よりも強いものである。というのも、与えられて状態より任意の近い、エネルギーが小さい状態に対して遷移できないことを示しているからである。\\
 
+\begin{itembox}[l]{\textbf{Def:断熱曲線の射影}}
+    $\partial A_X$の$\mathbb{R}^n$への射影を、$\rho_X$とする。すなわち、
+    \begin{equation}
+        \rho_X =\{V\in \mathbb{R}^n:(U,V) \in \partial A_X\}
+    \end{equation}
+    である。
+\end{itembox}
+このとき、S3より$\partial A_X$は弧状連結であるから、$\rho_X$も連結である。\\
 \begin{itembox}[l]{\textbf{Thm:$u_X$の定義と性質}}
     状態空間$\Gamma$上の状態$X=(U_0,V_0)$を固定する。このとき、\\
     (1)$Y\in \partial A_X$とする。このとき、$A_X$は$Y$において接平面を持ち、それは$\Pi_Y$である。\\
     (2)$\rho_X \subset \mathbb{R}^n $は連結な開集合である。\\
-    (3)任意の$V \in \rho_X$にるいて、対応する一つの数$u_X(V)$が存在し、$(u_X(V),V) \in \partial A_X$である。すなわち、
+    (3)任意の$V \in \rho_X$について、対応する一つの数$u_X(V)$が存在し、$(u_X(V),V) \in \partial A_X$である。すなわち、
     \begin{equation}
         \partial A_X =\{(u_X(V),V):V \in \rho_X\}
     \end{equation}
@@ -963,8 +971,9 @@ $W$を$A$の内部に属する点とし、$Y$を$A$の境界に属する点と�
 
 
 \begin{itembox}[l]{\textbf{Thm:境界の可逆性}}
-もし、$Y \in \partial X$ならば、$X \in \partial Y$であり、$A_Y = A_X$である。\\
+もし、$Y \in \partial X$ならば、$X \in \partial Y$であり、$A_Y = A_X$である。
 \end{itembox}
+すなわち、同じ断熱曲線上にある点は、同じforward sectorを持つ。\\
 \textbf{Prf}\\
 $Y =(U^1,V^1)\in \partial A_X$であるとする。境界$\partial A_Y$は、
 \begin{align}
@@ -973,7 +982,7 @@ $Y =(U^1,V^1)\in \partial A_X$であるとする。境界$\partial A_Y$は、
 を解くことによって得られた$u_Y$によって記述される。しかし、$u_X$も同じ初期条件の同じ形の微分方程式の解によって書かれる。
 この微分方程式の解はThm3.5(5)より一意であるから、
 
-\begin{itembox}[l]{\textbf{Thm:Forward sectors are nested}}
+\begin{itembox}[l]{\textbf{Thm:Forward sectors は入れ子になる}}
     $A_X,A_Y$を単純系$\Gamma$のforward sectorであるとすると、以下の三つのうち一つが成立する。
     (a) $A_X=A_Y$ すなわち、$X \overset{a}{\sim} Y$\\
     (b) $A_X \subset \text{Interior}(A_Y)$ すなわち、$Y \prec \prec X$\\
@@ -1166,6 +1175,13 @@ T1より、
 \end{itembox}
 
 \subsection{複合系の比較原理}
+\begin{itembox}[l]{\textbf{Thm:単純系の多重スケーリングコピーにおける比較可能性}}
+    $a_1,a_2,\cdots,a_n$が正の実数であるとし、$a_1+\cdots +a_n=a_1'+\cdots+a_m'$であるとする。\\
+    このとき、$a_1 \Gamma \times a_2 \Gamma \times \cdots \times a_n \Gamma$と$a_1' \Gamma \times a_2' \Gamma \times \cdots \times a_m' \Gamma$の任意の点は比較可能である。
+\end{itembox}
+\textbf{Prf}\\
+%TODO:あとで書く
+\hfill\qedsymbol\\
 
 \subsection{Transversalityの役割}
 
