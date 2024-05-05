@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  1 MAY 2024 14:44
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  5 MAY 2024 18:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -706,11 +706,11 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 83.
+(Font)              scaled to size 6.47278pt on input line 82.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 83.
+(Font)              scaled to size 4.62341pt on input line 82.
  [2]
-Overfull \hbox (4.87617pt too wide) detected at line 143
+Overfull \hbox (5.9283pt too wide) detected at line 143
 []
  []
 
@@ -720,7 +720,7 @@ Overfull \hbox (2.4405pt too wide) detected at line 172
  []
 
 
-Overfull \hbox (21.19055pt too wide) detected at line 182
+Overfull \hbox (29.24612pt too wide) detected at line 182
 []
  []
 
@@ -729,27 +729,17 @@ Overfull \hbox (33.0917pt too wide) detected at line 196
 []
  []
 
-[5]
-Overfull \hbox (2.45396pt too wide) detected at line 221
-[]
- []
-
-
-Overfull \hbox (2.45396pt too wide) detected at line 232
-[]
- []
-
-[6] [7] [8] [9] (./chap6.aux)
+[5] [6] [7] [8] [9] [10] (./chap6.aux)
 Package rerunfilecheck Info: File `chap6.out' has not changed.
 (rerunfilecheck)             Checksum: 4CDE463F7CFCE4DCBB16449261D3AECC;676.
  ) 
 Here is how much of TeX's memory you used:
- 22945 strings out of 476677
- 428873 string characters out of 5808165
+ 22947 strings out of 476677
+ 428883 string characters out of 5808165
  1871484 words of memory out of 5000000
- 42992 multiletter control sequences out of 15000+600000
+ 42994 multiletter control sequences out of 15000+600000
  531865 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,15n,89p,469b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,15n,89p,469b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap6.dvi (9 pages, 52752 bytes).
+Output written on chap6.dvi (10 pages, 62360 bytes).
