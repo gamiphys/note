@@ -44,6 +44,7 @@
 
 \section{古典的エントロピー及びダイバージェンス}
 \subsection{古典的状態及び系}
+必要な量を定義する。\\
 \begin{itembox}[l]{\textbf{Def:状態を表す確率分布}}
     古典的系における状態は確率分布
     \begin{equation}
@@ -94,7 +95,7 @@
     \end{equation}
 \end{itembox}
 \textbf{Prf}\\
-%TODO後で書く
+略(確率の規格化を利用する。)\hfill \qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Def:二重確率遷移行列}}
     確率遷移行列$T$が、
@@ -181,7 +182,8 @@
     が成り立つ。
 \end{itembox}
 \textbf{Prf}\\
-%後で示す。
+後に一般に示す。\\
+
 注意されたいこととして、KLダイバージェンスの単調性の逆はいえない。すなわち、単調性を満たすが、$p' = Tp$および$q' = Tq$を満たすような$T$が存在しない場合がある。\\
 
 次に、二重確率遷移行列について考える。このとき、KLダイバージェンスの単調性と、
@@ -212,9 +214,10 @@
     
 \end{itembox}
 \textbf{Prf}\\
-%TODO後で示す。\\
+略(過去のゼミ資料を参考せよ)\hfill \qedsymbol\\
 
 \subsection{Rényiエントロピー及びダイバージェンス}
+シャノンエントロピーを包含する概念として、Rényiエントロピーがある。\\
 \begin{itembox}[l]{\textbf{Def:Rényiエントロピー}}
     確率分布$p \in \mathcal{P}_d$のRényiエントロピーは、$0 \leq \alpha \leq \infty$、$p \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -222,6 +225,7 @@
     \end{equation}
     で定義される。
 \end{itembox}
+また、ダイバージェンスについても、Rényiダイバージェンスがある。\\
 \begin{itembox}[l]{\textbf{Def:Rényiダイバージェンス}}
     二つの確率分布$p, q \in \mathcal{P}_d$のRényiダイバージェンスは、$0 \leq \alpha \leq \infty$、$p \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -229,6 +233,64 @@
     \end{equation}
     で定義される。ただし、$\text{supp}(p) \subset \text{supp}(q)$でないときは、$S_{\alpha}(p||q) = \infty$とする。
 \end{itembox}
+これらの量が、たしかにシャノンエントロピーとKLダイバージェンスを包含していることを示す。\\
+\begin{itembox}[l]{\textbf{Prop:Rényiエントロピーとシャノンエントロピーの関係}}
+    Rényi-1エントロピーは、シャノンエントロピーに一致する。すなわち、
+    \begin{equation}
+        S_1(p) = S_{\alpha}(p)|_{\alpha = 1}
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    S_{\alpha}(p)|_{\alpha = 1} &= -lim_{\alpha \to 1}\frac{1}{1-\alpha}\log(\sum_{i=1}^{d}p_i^{\alpha})\\
+    &= -\frac{d}{d\alpha}\log(\sum_{i=1}^{d}p_i^{\alpha})|_{\alpha = 1}\\
+    &= -\frac{\sum_{i=1}^{d}p_i\log p_i}{\sum_{i=1}^{d}p_i}\\
+    &= -\sum_{i=1}^{d}p_i\log p_i\\
+    &= S_1(p)
+\end{align}
+であることからわかる。\hfill \qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Prop:Rényiダイバージェンスとダイバージェンスの関係}}
+    Rényi-1ダイバージェンスは、KLダイバージェンスに一致する。すなわち、
+    \begin{equation}
+        S_{\alpha}(p||q)|_{\alpha = 1} = S_1(p||q)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    S_{\alpha}(p||q)|_{\alpha = 1} &= lim_{\alpha \to 1}\frac{1}{\alpha - 1}\log(\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha})\\
+    &= \frac{d}{d\alpha}\log(\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha})|_{\alpha = 1}\\
+    &= \frac{\sum_{i=1}^{d}q_i(p_i/q_i)^{\alpha}\log (p_i/q_i)}{\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha}}|_{\alpha = 1}\\%TODOここの計算後で確認する。
+    &= \sum_{i=1}^{d}p_i\log\frac{p_i}{q_i}\\
+    &= S_1(p||q)
+\end{align}
+であることからわかる。\hfill \qedsymbol\\
+
+また、$\alpha =0,\infty$の場合は重要らしいので、以下で確認する。
+\begin{itembox}[l]{\textbf{Prop:Rényiエントロピー/ダイバージェンスの極限}}
+    Rényi-0エントロピーは、
+    \begin{equation}
+        S_0(p) = \log (\text{rank}(p))
+    \end{equation}
+    で定義される。また、Rényi-$\infty$エントロピーは、
+    \begin{equation}
+        S_{\infty}(p) = -(\log \max_{i}p_i)
+    \end{equation}
+    で定義される。また、Rényi-0ダイバージェンスは、
+    \begin{equation}
+        S_0(p||q) = -\log (\sum_{i:p_i > 0}q_i)
+    \end{equation}
+    で定義される。また、Rényi-$\infty$ダイバージェンスは、
+    \begin{equation}
+        S_{\infty}(p||q) = \log (\max_{i}\frac{p_i}{q_i})
+    \end{equation}
+    で定義される。
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で示す。\alpha=0については自明\\
+
 \begin{itembox}[l]{\textbf{Prop:RényiエントロピーとKLダイバージェンスの関係}}
     任意の$p, q \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -237,6 +299,7 @@
     が成り立つ。
 \end{itembox}
 
+以下、Rényiダイバージェンスについての性質を示す。\\
 \begin{itembox}[l]{\textbf{Prop:Rényiダイバージェンスの非負性}}
     任意の$p, q \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -297,14 +360,64 @@ Jensenの不等式より、
 \end{equation}
 が成り立つ。これは、KLダイバージェンスの単調性を示している。\\
 
-\textbf{Prf(Rényiダイバージェンスの非負性)}\\
+\textbf{Prf:(Rényiダイバージェンスの非負性)}\\
 $f_{\alpha}(x) = x^{\alpha}$とすると、$1<\alpha \leq \infty$に対して、$f_{\alpha}(x)$は下に凸な関数である。\\
 Jensenの不等式より
 \begin{equation}
     \sum_{i=1}^{d}q_i f(\frac{p_i}{q_i}) \geq f(\sum_{i=1}^{d}q_i \frac{p_i}{q_i}) = f(1) = 0
 \end{equation}
-である。%TODOここから先は後で書く。\\
+である。両辺対数をとることにより、
+\begin{equation}
+    \log(\sum_{i=1}^{d}q_i \frac{p_i}{q_i}) \geq 0
+\end{equation}
+である。これを両辺$\frac{1}{\alpha - 1}$かけることにより、
+\begin{equation}
+    \frac{1}{\alpha - 1}\log(\sum_{i=1}^{d}q_i \frac{p_i}{q_i}) \geq 0
+\end{equation}
+である。したがって、
+\begin{equation}
+    S_{\alpha}(p||q) \geq 0
+\end{equation}
+である。また、$0 < \alpha <1$のときは、上のJensenの不等式で不等号が逆になり、$\frac{1}{\alpha-1}$をかけるときにもう一度符号が逆になることに注意して、同様に示すことができる。\\
+$\alpha =0,1,\infty$の場合は、それぞれの定義から自明である。\\  
+\hfill \qedsymbol\\
 
+\textbf{Prf:(Rényiダイバージェンスの単調性)}\\
+$1<\alpha <\infty$のとき、Lemで、$f(x) = x^{\alpha}$として示した不等式を用いると、
+\begin{equation}
+    \sum_{i=1}^{d}q_i'\frac{p_i'^{\alpha}}{q_i'^{\alpha}} \leq \sum_{i=1}^{d}q_i\frac{p_i^{\alpha}}{q_i^{\alpha}}
+\end{equation}
+である。これの両辺対数をとることにより、
+\begin{equation}
+    \log(\sum_{i=1}^{d}p_i'^{\alpha}q_i^{1-\alpha}) \leq \log(\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha})
+\end{equation}
+である。したがって、
+\begin{equation}
+    \frac{1}{\alpha - 1}\log(\sum_{i=1}^{d}p_i'^{\alpha}q_i^{1-\alpha}) \leq \frac{1}{\alpha - 1}\log(\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha})
+\end{equation}
+である。したがって、
+\begin{equation}
+    S_{\alpha}(p||q) \geq S_{\alpha}(p'||q')
+\end{equation}
+である。\\
+$0<\alpha <1$のときは、同様に示すことができる。\\
+$\alpha =0,1,\infty$の場合は、それぞれの定義から自明である。\\
+\hfill \qedsymbol\\
+
+\textbf{Prf:(Rényiダイバージェンスの単調性(2))}\\
+$\alpha \leq \alpha'$に対して、$f(x) =x^{\frac{\alpha-1}{\alpha'-1}}$とすると、この関数は、$1<\alpha <\alpha'<\infty$に対して下に凸な関数であり、$0<\alpha<\alpha'<1$および$0<\alpha<1<\alpha'$に対して上に凸な関数である。\\
+したがって、Jensenの不等式より、
+\begin{align}
+    S_{\alpha}(p||q) &= \frac{1}{\alpha - 1}\log(\sum_{i=1} p_i\left(\frac{p_i}{q_i}\right)^{\alpha-1})\\
+    &= \frac{1}{\alpha - 1}\log(\sum_{i=1} p_i\left(\frac{p_i}{q_i}\right)^{(alpha'-1)(\frac{\alpha-1}{\alpha'-1})})\\
+    &\leq \frac{1}{\alpha' - 1}\log(\sum_{i=1} p_i\left(\frac{p_i}{q_i}\right)^{\alpha'-1})\\
+    &= S_{\alpha'}(p||q)
+\end{align}
+である。\\
+また、$\alpha=0,1,\infty$の場合は、それぞれの定義から自明である。\\
+\hfill \qedsymbol\\
+
+さらに、f-ダイバージェンスという概念がある。\\
 \begin{itembox}[l]{\textbf{Def:f-ダイバージェンス}}
     $f(0, \infty) \to \mathbb{R}$を下に凸な関数とし、$x=1$で$f(x)$が狭義凸かつ$f(1)=0$であるとする。このとき、$p, q \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -312,6 +425,9 @@ Jensenの不等式より
     \end{equation}
     で定義される。
 \end{itembox}
+
+KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェンスである。また、Rényiダイバージェンスは、$f(x) = x^{\alpha}$としてlogをとって$\frac{1}{\alpha - 1}$をかけたものである。\\
+
 \begin{itembox}[l]{\textbf{Prop:f-ダイバージェンスの非負性}}
     任意の$p, q \in \mathcal{P}_d$に対して、
     \begin{equation}
@@ -324,7 +440,11 @@ Jensenの不等式より
     が成り立つ。
 \end{itembox}
 \textbf{Prf}\\
-%TODO後で書く。\\
+Jensenの不等式より、
+\begin{equation}
+    \sum_{i=1}^{d}q_i f\left(\frac{p_i}{q_i}\right) \geq f\left(\sum_{i=1}^{d}q_i \frac{p_i}{q_i}\right) = f(1) = 0
+\end{equation}
+である。ことからわかる。\hfill \qedsymbol\\
 
 \begin{itembox}[l]{\textbf{Prop:f-ダイバージェンスの単調性}}
     任意の$p' = Tp, q' = Tq \in \mathcal{P}_d$に対して、
@@ -334,10 +454,9 @@ Jensenの不等式より
     が成り立つ。
 \end{itembox}
 \textbf{Prf}\\
-%TODO後で書く。\\
+よくよく見ると、これはLemで示した不等式と同じである。\hfill \qedsymbol\\
 
 
-KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェンスである。しかし、Rényiダイバージェンスは、f-ダイバージェンスの形では表されない。\\
 \subsection{フィッシャー情報量}
 %TODO地の文を書く。
 以下、我々は、なめらかにパラメータ化された確率分布$p(\theta)$について考える。ただし、$\theta$の取りうる領域は、$\mathbb{R}^m$の開部分集合である。\\
@@ -350,6 +469,107 @@ KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェ
 \end{itembox}
 フィッシャー情報量は、f-ダイバージェンスの極限として得られる。%TODO後で書く。\\
 
+\begin{itembox}[l]{\textbf{Prop:フィッシャー情報量の単調性}}
+    任意の確率遷移行列$T$に対して、
+    \begin{equation}
+        J_{p(\theta)} \geq J_{Tp(\theta)}
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+$p' = Tp$とし、$c=(c^1,...,c^m)\in \mathbb{R}^m$として、$\partial = \sum_k c^k \partial_k$とする。このとき、
+\begin{align}
+    c^{\top}J_{p(\theta)}c &= \sum_{i} p_i \left(\frac{\partial p_i}{p_i}\right)^2\\
+    c^{\top}J_{p'(\theta)}c &= \sum_{i} p_i' \left(\frac{\partial p_i'}{p_i'}\right)^2\\
+\end{align}
+である。%TODOよくわかんない。\\
+したがって、Lemmaで$f=x^2$として示した不等式より、
+\begin{equation}
+    c^{\top}J_{p(\theta)}c \geq c^{\top}J_{p'(\theta)}c
+\end{equation}
+である。したがって、
+\begin{equation}
+    J_{p(\theta)} \geq J_{Tp(\theta)}
+\end{equation}
+である。\hfill \qedsymbol\\
+フィッシャー情報量の操作的な意味付けとして、Cramér-Raoの不等式がある。\\
+\begin{itembox}[l]{\textbf{Thm:Cramér-Raoの不等式}}
+    あるパラメータ$\theta$に対する不偏推定量 $\theta_{est}$に対して、不偏条件$\sum_{i=1}^{d}p_i(\theta)\theta_{est}(i) = \theta$が成り立つとする。このとき、正確さは共分散行列
+    \begin{equation}
+        Cov_{\theta}^{kl}(\theta_{est})=\sum_{i=1} p_i(\theta)(\theta_{est}^k(i)-\theta^k)(\theta_{est}^l(i)-\theta^l) 
+    \end{equation}
+    により表現される。このとき、
+    \begin{equation}
+        \text{Cov}_{\theta}^{kl}(\theta_{est}) \geq (J_{p(\theta)})^{-1}_{kl}
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+すなわち、フィッシャー情報量は、$\theta$の不偏推定量が、フィッシャー情報量によって制限されることを示している。\\
+
+例として、指数型分布族とよばれる確率分布の集合族を考える。簡単のために、パラメータを$\theta$のみとし、
+\begin{equation}
+    p_i(\theta) = h_i\exp(\theta T_i - A(\theta))
+\end{equation}
+であるとする。ただし、$A(\theta)$は、$\theta$のなめらかな関数である。このとき、簡単な計算により、
+\begin{equation}
+    \sum_{i=1} T_i p_i(\theta) = A'(\theta) \quad \sum_{i=1} T_i^2 p_i(\theta) = A''(\theta)+A'(\theta)^2
+\end{equation}
+である。したがって%あとで計算確認
+\begin{equation}
+    J_{p(\theta)} = A''(\theta)
+\end{equation}
+である。\\
+熱力学の文脈では、$p_i(\theta)$をギブス分布、$T_i$をエネルギーとして、$-\theta$を逆温度として解釈することができる。そして、$\theta ^{-1}A(\theta)$は、自由エネルギーである。すなわち、
+\begin{equation}
+    p_i(\theta) = \frac{1}{Z(\theta)}\exp(-\theta E_i)
+\end{equation}
+である。\\
+また、(\ref{umbiased})は、$T_i$が、$A'(\theta)$の不偏推定量であることを示している。
+それに対応するフィッシャー情報量は、$J_{p(\theta)} = A''(\theta)^{-1}$である。というのも、$\dv{\theta'}=(A''(\theta))^{-1}\dv{\theta}$であるからである。\\
+
+
+また、情報幾何の文脈では、フィッシャー情報量は、確率分布空間の計量として考えられる。以下では、monotone計量という概念を導入する。\\
+\begin{itembox}[l]{\textbf{Def:Monotone計量}}
+    $G_p: \mathbb{R}^d \times \mathbb{R}^d \to \mathbb{R}$が、フルランクの$p \in \mathcal{P}_d$に対して、以下を満たすとき、$G_p$はMonotone計量であるという。
+    \begin{itemize}
+        \item $G_p$は双線形である。
+        \item $G_p(a,a)\geq 0$であり、$G_p(a,a) = 0 \Leftrightarrow a = 0$である。
+        \item $p \mapsto G_p(a,a)$は任意の$a$に対して連続である。
+        \item 任意の$T,a,p$に対して、$G_{p}(a,a) \geq G_{Tp}(Ta,Ta)$が成り立つ。
+    \end{itemize}
+\end{itembox}
+このとき、特にフィッシャー情報計量は、
+\begin{equation}
+    \label{umbiased}
+    G_p^F (a,b) = \sum_{i=1}^{d}\frac{a_i b_i}{p_i}
+\end{equation}
+で定義される。ただし、$a=(a_1,...,a_d), b=(b_1,...,b_d)$である。\\
+この計量は、フィッシャー情報量行列と、
+\begin{equation}
+    J_{p(\theta),kl} = G_{p(\theta)}^F (\partial_k p(\theta), \partial_l p(\theta))
+\end{equation}
+との関係がある。\\
+
+\begin{itembox}[l]{\textbf{Prop:フィッシャー情報量計量の単調性}}
+    任意の確率遷移行列$T$に対して、
+    \begin{equation}
+        G_p^F (a,a) \geq G_{Tp}^F (Ta,Ta)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。\\
+
+逆に、任意のmonotone計量は、フィッシャー情報量計量を用いて、以下のように表現できる。\\
+\begin{itembox}[l]{\textbf{Thm:Chentsovの定理}}
+    任意のmonotone計量$G_p$は、フィッシャー情報量計量を用いて、
+    \begin{equation}
+        G_p(a,b) = kG_p^F (a,b)+k'(\sum_{i=1}^{d}a_i)(\sum_{i=1}^{d}b_i)
+    \end{equation}
+    と表現できる。ただし、$k,k' \geq 0$である。
+\end{itembox}
+\textbf{Prf}\\
+略\\
 
 
 \end{document}
