@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  9 MAY 2024 14:38
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  9 MAY 2024 23:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -708,17 +708,32 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 74.
  [1
 
-] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] (./Majorization.aux)
+] [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
+File: image1.png Graphic file (type bmp)
+<image1.png>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 594.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 594.
+ [15] [16] [17]
+File: image2.png Graphic file (type bmp)
+<image2.png>
+ [18]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 725.
+File: image3.png Graphic file (type bmp)
+<image3.png>
+ [19] [20] (./Majorization.aux)
 Package rerunfilecheck Info: File `Majorization.out' has not changed.
-(rerunfilecheck)             Checksum: BFC00796A1CD2571489E614491437589;813.
+(rerunfilecheck)             Checksum: A9E4CCCC5F1251C82DC9ED2BEF1A55BE;1315.
  ) 
 Here is how much of TeX's memory you used:
- 22949 strings out of 476677
- 429040 string characters out of 5808165
- 1858484 words of memory out of 5000000
- 42995 multiletter control sequences out of 15000+600000
- 532200 words of font info for 125 fonts, out of 8000000 for 9000
+ 22981 strings out of 476677
+ 429501 string characters out of 5808165
+ 1861484 words of memory out of 5000000
+ 43018 multiletter control sequences out of 15000+600000
+ 532895 words of font info for 129 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,12n,89p,476b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Majorization.dvi (15 pages, 78784 bytes).
+Output written on Majorization.dvi (20 pages, 105060 bytes).

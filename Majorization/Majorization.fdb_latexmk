@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1715233142 "Majorization.dvi" "Majorization.pdf" "Majorization" 1715233144 0
-  "Majorization.dvi" 1715233142 78784 0a25ceb335b69bf8418c1273c284589a "latex"
+["dvipdf"] 1715264378 "Majorization.dvi" "Majorization.pdf" "Majorization" 1715264381 0
+  "Majorization.dvi" 1715264377 105060 ae31e9b485769b6162fd44b265eb5f30 "latex"
   (generated)
   "Majorization.pdf"
   (rewritten before read)
-["latex"] 1715233138 "Majorization.tex" "Majorization.dvi" "Majorization" 1715233144 0
-  "Majorization.aux" 1715233142 1355 c2ceb290cfcc414040a6e5a86573869d "latex"
-  "Majorization.out" 1715233142 813 bfc00796a1cd2571489e614491437589 "latex"
-  "Majorization.tex" 1715233136 25685 16b64729555d11bc05007920f9ccb9ca ""
+["latex"] 1715264370 "Majorization.tex" "Majorization.dvi" "Majorization" 1715264381 0
+  "Majorization.aux" 1715264377 2345 422f92eac9883b3a3db099279f4693aa "latex"
+  "Majorization.out" 1715264377 1315 a9e4cccc5f1251c82dc9ed2bef1a55be "latex"
+  "Majorization.tex" 1715264369 34566 d26bec9d9b1a3501573ee46753e14424 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -43,6 +43,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -194,6 +195,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
+  "image1.png" 1715243380 44589 c7258ce5d38d77167d790c88ab94039e ""
+  "image2.png" 1715255112 73362 049196e88c51da98df1e161770428394 ""
+  "image3.png" 1715264115 46457 301f7cc9997ef62899a93b5aa88abea1 ""
   (generated)
   "Majorization.aux"
   "Majorization.dvi"

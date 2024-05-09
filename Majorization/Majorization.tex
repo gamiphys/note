@@ -174,6 +174,10 @@
 \end{align}
 ここで、$\sum_i \Delta p_i = 0$を用いている。\\
 %TODO後で示す。\\
+\begin{itembox}[l]{\textbf{Def:monotone}}
+    monotoneとは、free operationに対して、増減しない量のことである。
+
+\end{itembox}
 \begin{itembox}[l]{\textbf{Prop:KLダイバージェンスの単調性}}
     KLダイバージェンスは、$p' = Tp$および$q' = Tq$に対して、
     \begin{equation}
@@ -570,6 +574,185 @@ $p' = Tp$とし、$c=(c^1,...,c^m)\in \mathbb{R}^m$として、$\partial = \sum_
 \end{itembox}
 \textbf{Prf}\\
 略\\
+
+\section{Classical Majorization}
+状態の遷移可能性は、majorizationによって、必要十分に特徴づけられる。\\
+\subsection{Majorization}
+\begin{itembox}[l]{\textbf{Def:Majorization}}
+    $p,p' \in \mathcal{P}_d$に対して、$p$が$p'$をmajorizeすることを、$p' \prec p$と書き、
+    \begin{equation}
+        \forall k \in \{1,...,d\} \quad \sum_{i=1}^{k}{p'}_i^{\downarrow} \leq \sum_{i=1}^{k}p_i^{\downarrow}
+    \end{equation}
+    が成り立つとき、$p$が$p'$をmajorizeするという。ただし、$p^{\downarrow}$は、$p$の要素を降順に並べたものである。
+\end{itembox}
+Majorizationは、$p$と$p'$の確率分布を比較したときに、ばらつきの大きさを比較する量である。\\
+Majorizationを図に表すと、以下のローレンツ曲線で表現される。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image1.png}
+    \end{center}
+    \caption{Majorizationの図示}
+    \label{fig:one}
+\end{figure}
+図でいうところの、下に来ている曲線が、よりばらつきが小さい確率分布であり、とくに一様分布のときは直線になることがわかる。すなわち、
+\begin{equation}
+    u \prec p \quad \forall p \in \mathcal{P}_d
+\end{equation}
+である。\\
+注意すべきこととして、この$\prec$は全順序ではない。すなわち、ある確率分布の組$p,p'$に対して、$p \prec p'$か$p' \prec p$のどちらも成り立たない場合がある。このとき、ローレンツ曲線は交わる。\\
+
+\begin{itembox}[l]{\textbf{Thm:Majorizationの特徴づけ}}
+    $p,p' \in \mathcal{P}_d$に対して、以下は同値である。
+    \begin{enumerate}
+        \item $p' \prec p$
+        \item $\forall t\in \mathbb{R} \quad \sum_{i=1}^{d}|p_i'-t| \leq \sum_{i=1}^{d}|p_i-t|$
+        \item 任意の下に凸な関数$f$に対して、
+        \begin{equation}
+            \sum_{i=1}^{d}f(p_i') \leq \sum_{i=1}^{d}f(p_i)
+        \end{equation}
+        \item $p' = Tp$となる二重確率遷移行列$T$が存在する。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+この証明は後で行う。\\
+
+\textbf{3についての補足}
+%後で書く。\\
+
+また、一様分布は、二重確率遷移行列のもとで不変である。熱力学の文脈では、uは高温極限をとった時のGibbs分布に対応している。このとき、二重確率遷移行列は、そのようなGibbs分布を保つものである。\\
+
+\begin{itembox}[l]{\textbf{Thm:Birkhoffの定理}}
+    以下の二つは同値である。
+    \begin{enumerate}
+        \item $T$は二重確率遷移行列である。
+        \item $T$は、置換行列の凸結合で表現できる。すなわち、
+        \begin{equation}
+            T = \sum_{k} r_k P_k
+        \end{equation}
+        である。ただし、$r_k \geq 0$であり、$\sum_k r_k = 1$である。また、$P_k$は、置換行列である。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+教科書で証明されていないので一旦飛ばす。\\
+
+\begin{itembox}[l]{\textbf{Prop:二重確率遷移行列の性質}}
+    \begin{equation}
+        「Tが二重確率遷移行列である」 \Leftrightarrow Tp \prec p \quad \forall p \in \mathbb{R}^d
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+%後で書く。\\
+
+\begin{itembox}[l]{\textbf{Def:Schur凸性}}
+    $F: \mathbb{R}^d \to \mathbb{R}$がSchur凸であるとは、
+    \begin{equation}
+        \forall p,p' \in \mathcal{P}_d \quad p' \prec p \Rightarrow F(p') \leq F(p)
+    \end{equation}
+    が成り立つことである。言い換えると、Schur凸な関数は、majorizationに関して単調である。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:}}
+    $F: \mathbb{R}^d \to \mathbb{R}$がSchur凸かつ微分可能なことと、Fが転置に対して不変なこと、すなわち、
+    \begin{equation}
+        F(p) = F(Pp) \quad \forall p ,P
+    \end{equation}
+    が成り立つことは同値であり、また、
+    \begin{equation}
+        \forall p \in \mathcal{P}_d \quad (p_ip_j)\left(\pdv{F}{p_i}-\pdv{F}{p_j}\right)\geq 0
+    \end{equation}
+    も同値である。
+\end{itembox}
+\textbf{Prf}\\
+%後で書く。\\
+
+\subsection{d-MajorizationとThermo-Majorization}
+先ほどまでは、一つの分布についての遷移について考えていたが、次は、二つの分布の組の遷移を考える。\\
+このとき、$p^*=(p_1^*,...,p_d^*)^{\top},q^*=(q_1^*,...,q_d^*)^{\top}$を、$p=(p_1,...,p_d)^{\top},q=(q_1,...,q_d)^{\top}$を
+$\frac{p_1^*}{q_1^*} \geq \frac{p_2^*}{q_2^*} \geq ... \geq \frac{p_d^*}{q_d^*}$が成り立つように並べ替えたものとして定義する。この新しく定義した$p^*,q^*$に対して
+横軸を$\sum_{i=1}^{k}q_i^*$、縦軸を$\sum_{i=1}^{k}p_i^*$としたローレンツ曲線を考える。図は以下のようになる。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image2.png}
+    \end{center}
+    \caption{d-Majorizationの図示}
+    \label{fig:two}
+\end{figure}
+
+\begin{itembox}[l]{\textbf{Def:d-Majorization}}
+    $p,q,p',q' \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        (p',q') \prec (p,q) \Leftrightarrow 「(p,q) \text{のローレンツ曲線が}(p',q') \text{のローレンツ曲線の上に来る」}
+    \end{equation}
+    が成り立つとき、$(p,q)$は$(p',q')$をd-majorizeするという。
+\end{itembox}
+d-majorizationは、以下のような言いかえが可能である。\\
+\begin{itembox}[l]{\textbf{Thm:Bkackwellの定理}}
+    $p,q,p',q' \in \mathcal{P}_d$かつ$q,q'$がフルランクであるとき、以下は同値である。
+    \begin{enumerate}
+        \item $(p',q') \prec (p,q)$
+        \item 
+        \begin{equation}
+            \forall t \in \mathbb{R} \quad \sum_{i=1}^{d}|p_i'-tq_i'| \leq \sum_{i=1}^{d}|p_i-tq_i|
+        \end{equation}
+        \item 任意の下に凸な関数$f$に対して、
+        \begin{equation}
+            \sum_{i=1}^{d} q_i'f(\frac{p_i'}{q_i'}) \leq \sum_{i=1}^{d} q_i f(\frac{p_i}{q_i})
+        \end{equation}
+        \item ある二重確率遷移行列$T$が存在して、
+        \begin{equation}
+            p' = Tp \quad q' = Tq
+        \end{equation}
+        が成り立つ。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+後で証明を行う。\\
+
+%TODO地の文を書く。
+
+\begin{itembox}[l]{\textbf{Def:Thermo-Majorization}}
+    $p,q,p' \in \mathcal{P}_d$に対して、pがqについてp'をthermo-majorizeするとは、
+    \begin{equation}
+        (p',q) \prec (p,q)
+    \end{equation}
+    が成り立つことである。
+\end{itembox}
+$(q,q)$のローレンツ曲線は、直線であるため、$q$は任意の$p$についてthermo-majorizeされる。すなわち、
+\begin{equation}
+    \forall p \quad (q,q) \prec (p,q)
+\end{equation}
+である。したがって、thermo-majorizationは、確率分布$p$が$q$にどれだけ近いかを表す。\\
+とくに、熱力学の文脈では$q$はあるハミルトニアン$H$のGibbs分布であり、$q=p^G$とかける。\footnote{任意のフルランクな$q$はあるハミルトニアンのGibbs分布であるらしい。}
+このとき、$q=Tq$であるとは、$T$は、Gibbs分布を変えない遷移行列であるということである。このような遷移行列を、Gibbs-preserving mapという。\\
+リソース理論の枠組みでは、GPMは、free operationとして扱われ、Gibbs分布は、free stateとして扱われる。\\
+
+\begin{itembox}[l]{\textbf{Thm:遷移可能条件}}
+    $p,q,p',q' \in \mathcal{P}_d$とし、$q,q'$がフルランクであるとする。このとき、以下の二つが成り立つ。
+    \begin{enumerate}
+        \item
+        \begin{equation}
+            (p',q') \prec (p,q) \Leftrightarrow S_0(p||q) \geq S_0(p'||q') \quad S_{\infty}(p||q) \leq S_{\infty}(p'||q')
+        \end{equation}
+        \item
+        \begin{equation}
+            S_{\infty}(p'||q') \leq S_{0}(p||q) \Leftrightarrow (p',q') \prec (p,q)
+        \end{equation}
+    \end{enumerate}
+
+\end{itembox}
+\textbf{Prf}\\
+以下の図より明らかである。%TODO後で見る。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image3.png}
+    \end{center}
+    \caption{遷移可能条件の図示}
+    \label{fig:three}
+\end{figure}
+上の定理から明らかなように、Rényi divergence の観点からは，状態遷移と d-majorization に関する必要条件と十分条件は一致しない。\\
+
+
+
 
 
 \end{document}
