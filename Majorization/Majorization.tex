@@ -1,0 +1,355 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{Majorization}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{古典的エントロピー及びダイバージェンス}
+\subsection{古典的状態及び系}
+\begin{itembox}[l]{\textbf{Def:状態を表す確率分布}}
+    古典的系における状態は確率分布
+    \begin{equation}
+        p = (p_1, p_2, \cdots, p_d)^{\top}
+    \end{equation}
+    で表される。ここで、$p_i \geq 0$かつ$\sum_{i=1}^{d}p_i = 1$である。
+    また、d次元の確率分布全体の集合を、$\mathcal{P}_d$と表す。\\
+    また、その集合に属する一様分布を、
+    \begin{equation}
+        u = \left(\frac{1}{d}, \frac{1}{d}, \cdots, \frac{1}{d}\right)^{\top}
+    \end{equation}
+    と表す。\\
+    また、異なる確率分布の積を、
+    \begin{equation}
+        p \otimes q \in \mathcal{P}_{dd'} \quad p \in \mathcal{P}_d, q \in \mathcal{P}_{d'}
+    \end{equation}
+    と表し、とくに、同じ確率分布の累乗を、
+    \begin{equation}
+        p^{\otimes n} \in \mathcal{P}_{d^n} \quad p \in \mathcal{P}_d
+    \end{equation}
+    と表す。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:Supp}}
+    確率分布$p ={p_i}_i \in \mathcal{P}_d$に対して、pの台を、
+    \begin{equation}
+        \text{spp}(p) = \{i \in [d] | p_i > 0\} \subset \{1, 2, \cdots, d\}
+    \end{equation}
+    と表す。また、
+    \begin{equation}
+        \text{rank}(p) = |\text{spp}(p)|
+    \end{equation}
+    を、pのランクという。とくに、$\text{rank}(p) = d$のとき、pはフルランクであるという。
+\end{itembox}
+要するに、確率が0でないようなインデックスの集合を台と呼び、その要素数をランクと呼ぶ。\\
+
+\begin{itembox}[l]{\textbf{Def:確率遷移行列}}
+    古典的な確率分布の時間発展は、確率遷移行列$T$を用いて以下のように表される。
+    \begin{equation}
+        p_i ' = \sum_{j=1} T_{ij}p_j 
+    \end{equation}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:確率遷移行列の性質}}
+    確率遷移行列$T$は以下の性質を持つ。
+    \begin{equation}
+        \sum_{i=1}^{d}T_{ij} = 1
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く
+
+\begin{itembox}[l]{\textbf{Def:二重確率遷移行列}}
+    確率遷移行列$T$が、
+    \begin{equation}
+        \sum_{j=1} T_{ij} = 1
+    \end{equation}
+    をみたすとき、二重確率遷移行列という。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Prop:二重確率遷移行列の特徴づけ}}
+    以下の二つは同値である。
+    \begin{enumerate}
+        \item Tは二重確率遷移行列である。
+        \item 一様分布uはTに対して不変である。すなわち、$u=Tu$である。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    p_i ' &= \sum_{j=1} T_{ij}u_j\\
+    &= \frac{1}{d}\sum_{j=1}^{d}T_{ij}\\
+    &= \frac{1}{d}\cdot d\\
+    &= 1
+\end{align}
+であることからわかる。\\
+
+\begin{itembox}[l]{\textbf{Def:トレース距離}}
+    二つの確率分布$p, q$のトレース距離は、
+    \begin{equation}
+        D(p, q) = \frac{1}{2}\sum_{i=1}^{d}|p_i - q_i|
+    \end{equation}
+    で定義される。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Prop:トレース距離の性質}}
+    トレース距離は、$T$に対して非増加である。すなわち、
+    \begin{equation}
+        D(p,q) \geq D(Tp, Tq)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+後により一般の証明をするため、ここでは省略する。\\
+
+\subsection{シャノンエントロピー及びKLダイバージェンス}
+\begin{itembox}[l]{\textbf{Def:シャノンエントロピー}}
+    確率分布$p \in \mathcal{P}_d$のシャノンエントロピーは、
+    \begin{equation}
+        S_1(p) = -\sum_{i=1}^{d}p_i\log p_i
+    \end{equation}
+    で定義される。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Def:KLダイバージェンス}}
+    二つの確率分布$p, q \in \mathcal{P}_d$のKLダイバージェンスは、
+    \begin{equation}
+        S_1(p||q) = \sum_{i=1}^{d}p_i\log\frac{p_i}{q_i}
+    \end{equation}
+    で定義される。ただし、$\text{supp}(p) \subset \text{supp}(q)$でないときは、$S_1(p||q) = \infty$とする。
+\end{itembox}
+このとき、エントロピーとKLダイバージェンスの関係がわかる。
+\begin{itembox}[l]{\textbf{Prop:エントロピーとKLダイバージェンスの関係}}
+    任意の$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_1(p) = ln(d) - S_1(p||u)
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    S_1(p||u) &= \sum_{i=1}^{d}p_i\log\frac{p_i}{\frac{1}{d}}\\
+    &= \sum_{i=1}^{d}p_i\log dp_i\\
+    &= \sum_{i=1}^{d}p_i\log d + \sum_{i=1}^{d}p_i\log p_i\\
+    &= \log d - S_1(p)
+\end{align}
+であることからわかる。\hfill \qedsymbol\\
+これより、$S_1(p) \leq \log d$であることがわかる。\\
+このとき、KLダイバージェンスのテイラー展開は以下のようになる。
+\begin{align}
+    S_1(p||p-\Delta p) &= \frac{1}{2}\sum_i \frac{(\Delta p_i)^2}{p_i} + O(\Delta p^3)\\
+\end{align}
+ここで、$\sum_i \Delta p_i = 0$を用いている。\\
+%TODO後で示す。\\
+\begin{itembox}[l]{\textbf{Prop:KLダイバージェンスの単調性}}
+    KLダイバージェンスは、$p' = Tp$および$q' = Tq$に対して、
+    \begin{equation}
+        S_1(p||q) \geq S_1(p'||q')
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+%後で示す。
+注意されたいこととして、KLダイバージェンスの単調性の逆はいえない。すなわち、単調性を満たすが、$p' = Tp$および$q' = Tq$を満たすような$T$が存在しない場合がある。\\
+
+次に、二重確率遷移行列について考える。このとき、KLダイバージェンスの単調性と、
+\begin{equation}
+    S_1(p) \leq S_1(Tp)
+\end{equation}
+が成り立つ。\\
+すなわち、二重確率遷移行列による時間発展は、エントロピーを増加させる。\\
+
+\begin{itembox}[l]{\textbf{Def:相互情報量}}
+    二つの確率分布$p, q \in \mathcal{P}_d$の相互情報量は、
+    \begin{equation}
+        I_1 (p_{AB})_{A:B} = S_1 (p_A) + S_1 (p_B) - S_1 (p_{AB}) = S_1(p_{AB}||p_A \otimes p_B) \geq 0
+    \end{equation}
+    で定義される。
+\end{itembox}
+この量は、AとBの相関を表す量である。\\
+\begin{itembox}[l]{\textbf{Prop:相互情報量の性質}}
+    任意の$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        I_1(p_{AB})_{A:B} =0 \Leftrightarrow p_{AB} = p_A \otimes p_B
+    \end{equation}
+    が成り立つ。また、KLダイバージェンスの単調性から、
+    \begin{equation}
+        I_1(p_{AB})_{A:B} \geq I_1(T_A \otimes T_B p_{AB})_{A:B}
+    \end{equation}
+    が成り立つ。ただし、$T_A \otimes T_B$は、各A,Bに独立に作用する確率遷移行列である。\\
+    
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で示す。\\
+
+\subsection{Rényiエントロピー及びダイバージェンス}
+\begin{itembox}[l]{\textbf{Def:Rényiエントロピー}}
+    確率分布$p \in \mathcal{P}_d$のRényiエントロピーは、$0 \leq \alpha \leq \infty$、$p \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_{\alpha}(p) = \frac{1}{1-\alpha}\log(\sum_{i=1}^{d}p_i^{\alpha})
+    \end{equation}
+    で定義される。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Def:Rényiダイバージェンス}}
+    二つの確率分布$p, q \in \mathcal{P}_d$のRényiダイバージェンスは、$0 \leq \alpha \leq \infty$、$p \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_{\alpha}(p||q) = \frac{1}{\alpha - 1}\log(\sum_{i=1}^{d}p_i^{\alpha}q_i^{1-\alpha})
+    \end{equation}
+    で定義される。ただし、$\text{supp}(p) \subset \text{supp}(q)$でないときは、$S_{\alpha}(p||q) = \infty$とする。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Prop:RényiエントロピーとKLダイバージェンスの関係}}
+    任意の$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_{\alpha}(p) = \frac{1}{1-\alpha}\log d - S_{\alpha}(p||u)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:Rényiダイバージェンスの非負性}}
+    任意の$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_{\alpha}(p||q) \geq 0
+    \end{equation}
+    が成り立つ。また、$0 < \alpha \leq  \infty$に対して、
+    \begin{equation}
+        S_{\alpha}(p||q) =0 \Leftrightarrow p = q
+    \end{equation}
+    であり、また、$\alpha =0$のとき、
+    \begin{equation}
+        S_{0}(p||q) = 0 \Leftrightarrow \text{supp}(p) \subset \text{supp}(q)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:Rényiダイバージェンスの単調性}}
+    任意の$p' = Tp, q' = Tq \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        S_{\alpha}(p||q) \geq S_{\alpha}(p'||q')
+    \end{equation}
+    が成り立つ。また、二重確率遷移行列に対して、
+    \begin{equation}
+        S_{\alpha}(p) \leq S_{\alpha}(Tp)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:Rényiダイバージェンスの単調性(2)}}
+    $\alpha \leq \alpha' $に対して、
+    \begin{equation}
+        S_{\alpha}(p||q) \leq S_{\alpha'}(p||q)
+    \end{equation}
+    が成り立ち、また、
+    \begin{equation}
+        S_{\alpha}(p) \geq S_{\alpha'}(p)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Lem:}}
+    fを下に凸な関数であるとし、$p,q,p',q' \in \mathbb{R}^d$がすべて正であるとする。
+    もし、$p' = Tp, q' = Tq$であるとき、
+    \begin{equation}
+        \sum_{i=1}^{d} q_i'f\left(\frac{p_i'}{q_i'}\right) \leq \sum_{i=1}^{d} q_i f\left(\frac{p_i}{q_i}\right)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+Jensenの不等式より、
+\begin{equation}
+    \sum_{j=1}^{d}q_j'f\left(\frac{p_j'}{q_j'}\right) \leq \sum_{j=1}^{d}\sum_{i=1}^{d}\frac{T_{ji}q_i}{q_j'}f\left(\frac{p_i}{q_i}\right)=\sum_{i=1}^{d}q_i f\left(\frac{p_i}{q_i}\right)
+\end{equation}
+である。\hfill \qedsymbol\\
+ここで、$p,q \in \mathcal{P}_d$として、$f(x)=xlogx$とすると、
+\begin{equation}
+    S_1 (p||q) \geq S_1 (p'||q')
+\end{equation}
+が成り立つ。これは、KLダイバージェンスの単調性を示している。\\
+
+\textbf{Prf(Rényiダイバージェンスの非負性)}\\
+$f_{\alpha}(x) = x^{\alpha}$とすると、$1<\alpha \leq \infty$に対して、$f_{\alpha}(x)$は下に凸な関数である。\\
+Jensenの不等式より
+\begin{equation}
+    \sum_{i=1}^{d}q_i f(\frac{p_i}{q_i}) \geq f(\sum_{i=1}^{d}q_i \frac{p_i}{q_i}) = f(1) = 0
+\end{equation}
+である。%TODOここから先は後で書く。\\
+
+\begin{itembox}[l]{\textbf{Def:f-ダイバージェンス}}
+    $f(0, \infty) \to \mathbb{R}$を下に凸な関数とし、$x=1$で$f(x)$が狭義凸かつ$f(1)=0$であるとする。このとき、$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        D_f(p||q) = \sum_{i=1}^{d}q_i f\left(\frac{p_i}{q_i}\right)
+    \end{equation}
+    で定義される。
+\end{itembox}
+\begin{itembox}[l]{\textbf{Prop:f-ダイバージェンスの非負性}}
+    任意の$p, q \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        D_f(p||q) \geq 0
+    \end{equation}
+    が成り立つ。また、
+    \begin{equation}
+        D_f(p||q) = 0 \Leftrightarrow p = q
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。\\
+
+\begin{itembox}[l]{\textbf{Prop:f-ダイバージェンスの単調性}}
+    任意の$p' = Tp, q' = Tq \in \mathcal{P}_d$に対して、
+    \begin{equation}
+        D_f(p||q) \geq D_f(p'||q')
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。\\
+
+
+KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェンスである。しかし、Rényiダイバージェンスは、f-ダイバージェンスの形では表されない。\\
+\subsection{フィッシャー情報量}
+%TODO地の文を書く。
+以下、我々は、なめらかにパラメータ化された確率分布$p(\theta)$について考える。ただし、$\theta$の取りうる領域は、$\mathbb{R}^m$の開部分集合である。\\
+\begin{itembox}[l]{\textbf{Def:フィッシャー情報量}}
+    $p(\theta) \in \mathcal{P}_d$がフルランクであるとし、$\theta \in \mathbb{R}^m$をパラメータとする。このとき、フィッシャー情報量は$m \times m$行列で、
+    \begin{equation}
+        J_{p(\theta),kl} = \sum_{i=1}^{d}p_i(\theta)\partial_k[ \log p_i(\theta)]\partial_l[ \log p_i(\theta)] = \sum_{i=1}^{d}\frac{\partial_k p_i(\theta)\partial_l p_i(\theta)}{p_i(\theta)}
+    \end{equation}
+    で定義される。
+\end{itembox}
+フィッシャー情報量は、f-ダイバージェンスの極限として得られる。%TODO後で書く。\\
+
+
+
+\end{document}
