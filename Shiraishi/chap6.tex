@@ -101,7 +101,7 @@ $\pdv{\Delta \Pi_X} =T\pdv{\Delta P_X}$であることを用いると、
 \begin{equation}
     \hat{\sigma} = \epsilon \int_{0}^{\tau} \dd t \hat{J}(t) \sin(\omega t)
 \end{equation}
-ただし、$\delta \hat{s}$の項は、後で無視するので消去した。\\
+ただし、$\Delta \hat{s}$の項は、後で無視するので消去した。\\
 ($\because$)\\
 bath1について、
 \begin{align}
@@ -112,7 +112,7 @@ bath1について、
 \end{align}
 となる。両辺積分することで、
 \begin{align}
-    S_1(\tau) - S_1(0) &= -\int_{0}^{\tau}  \pdv{S_1}{X} \hat{-J}(t)\dd t\\
+    S_1(\tau) - S_1(0) &= -\int_{0}^{\tau}  \pdv{S_1}{X} (-\hat{J}(t))\dd t\\
     &= -\int_{0}^{\tau}  \Pi_X ^1 \hat{J}(t) \dd t
 \end{align}
 bath2についても同様にして、
@@ -257,8 +257,8 @@ $\hat{\mathcal{J}}$を$J$を用いて表すことで、
 \end{itembox}
 このとき、
 \begin{align}
-    J_X &= L_{XX}\Pi_X + L_{XY}\Pi_Y\\
-    J_Y &= L_{YX}\Pi_X + L_{YY}\Pi_Y
+    J_X &= L_{XX}\Delta\Pi_X + L_{XY}\Delta\Pi_Y\\
+    J_Y &= L_{YX}\Delta\Pi_X + L_{YY}\Delta\Pi_Y
 \end{align}
 と書ける。\\
 \begin{itembox}[l]{\textbf{Thm:Onsagerの相反定理}}
