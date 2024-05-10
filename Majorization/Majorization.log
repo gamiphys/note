@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  9 MAY 2024 23:19
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  10 MAY 2024 20:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -723,17 +723,43 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 725.
 File: image3.png Graphic file (type bmp)
 <image3.png>
- [19] [20] (./Majorization.aux)
+ [19]
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 773.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 773.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 773.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 773.
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 773.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 773.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 773.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 773.
+ [20] [21] [22]
+File: image4.png Graphic file (type bmp)
+<image4.png>
+ [23] [24]
+File: image5.png Graphic file (type bmp)
+<image5.png>
+ [25]
+File: image6.png Graphic file (type bmp)
+<image6.png>
+ [26] [27] (./Majorization.aux)
 Package rerunfilecheck Info: File `Majorization.out' has not changed.
-(rerunfilecheck)             Checksum: A9E4CCCC5F1251C82DC9ED2BEF1A55BE;1315.
+(rerunfilecheck)             Checksum: 76782704162DB90EAA5F3EC7037022A7;2183.
  ) 
 Here is how much of TeX's memory you used:
- 22981 strings out of 476677
- 429501 string characters out of 5808165
+ 23010 strings out of 476677
+ 429950 string characters out of 5808165
  1861484 words of memory out of 5000000
- 43018 multiletter control sequences out of 15000+600000
- 532895 words of font info for 129 fonts, out of 8000000 for 9000
+ 43040 multiletter control sequences out of 15000+600000
+ 533593 words of font info for 131 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,12n,89p,476b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Majorization.dvi (20 pages, 105060 bytes).
+Output written on Majorization.dvi (27 pages, 132040 bytes).

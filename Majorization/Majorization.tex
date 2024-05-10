@@ -751,8 +751,215 @@ $(q,q)$のローレンツ曲線は、直線であるため、$q$は任意の$p$�
 \end{figure}
 上の定理から明らかなように、Rényi divergence の観点からは，状態遷移と d-majorization に関する必要条件と十分条件は一致しない。\\
 
+%\subsection{Catalytic Majorization}
+%状態変化の際に、触媒と呼ばれる量が関与する場合を考える。このとき、状態変化の前後で触媒の状態が変化しないことに注意したい。\\
 
+\subsection{連続変数の場合}
+Majorizationおよびd-majorizationの連続変数の場合を考える。\\
+簡単のため、$x\in[0,1]$とする。
+%必要であれば地の文を追加する。
 
+\begin{itembox}[l]{\textbf{Def:連続変数におけるMajorization}}
+    $p,p' \in L^1([0,1])$に対して、$p$が$p'$をmajorizeすることを、$p' \prec p$と書き、
+    \begin{equation}
+        \forall y \in [0,1] \quad \int_{0}^{y}{p'}(x)^{\downarrow}dx \leq \int_{0}^{y}p(x)^{\downarrow}dx
+    \end{equation}
+    が成り立つとき、$p$が$p'$をmajorizeするという。ただし、
+    \begin{align}
+        p^{\downarrow}(x) =sup\{y: m_p(y) >x\}\\
+        m_p(y) = \mu[x:p(x)>y]\\
+        \mu : \text{Lebesgue measure}
+    \end{align}
+    である。\footnote[1]{ルベーグ積分が分からないせいで全然納得できない。}
+\end{itembox}
 
+\begin{itembox}[l]{\textbf{Def:二重確率遷移写像}}
+    $T:L^1([0,1]) \to L^1([0,1])$が二重確率遷移写像であるとは、
+    \begin{equation}
+        \forall p \in L^1([0,1]) \quad Tp \prec p
+    \end{equation}
+    が成り立つことである。
+\end{itembox}
+%TODOルベーグ積分がわからないので一旦この節は飛ばす。
+
+\section{古典熱力学への適応}
+古典熱力学との対応を見ていく。
+\subsection{第二法則とKLダイバージェンス}
+熱力学第二法則が、KLダイバージェンスの単調性に由来することを確認する、\\
+$E_i$を、系の$i$番目の状態のエネルギーとし、Gibbs状態$p^G \in \mathcal{P}_d$を、$p^G_i = \frac{e^{-\beta E_i}}{Z}$で定義する。ただし、$Z$は正規化定数である。
+また、平衡状態での自由エネルギーは、$F = -\beta^{-1}\log Z$である。\\
+また、GPMは、
+\begin{equation}
+    p^G = Tp^G
+\end{equation}
+であった。\\
+\begin{itembox}[l]{\textbf{Prop:詳細つり合い条件とGPM}}
+    系が詳細つり合い条件
+    \begin{equation}
+        T_{ji} e^{-\beta E_i} = T_{ij} e^{-\beta E_j}
+    \end{equation}
+    を満たすならば、$T$はGPMである。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    \sum_j T_{ij}p_j &= \sum_j T_{ji}p_i\\
+    &= p_i \quad (\because \sum_j T_{ji} = 1)
+\end{align}
+からわかる。\hfill \qedsymbol\\
+
+以下、$\beta \geq 0$を逆温度とする。KLダイバージェンスの単調性を用いると、
+\begin{align}
+    S_1(p||p^G) \geq S_1(Tp||p^G)\\
+\end{align}
+となることがわかる。KLダイバージェンスの定義より、
+\begin{align}
+    S_1(p||p^G) &= \sum_{i=1}^{d}p_i\log\left(\frac{p_i}{p_i^G}\right)\\
+    &= \sum_{i=1}^{d}p_i\log(p_i) + \beta \sum_{i=1}^{d}p_i E_i\\
+    &= -S(p) + \beta \sum_{i=1}^{d}p_i E_i
+\end{align}
+同様にして、
+\begin{align}
+    S_1(Tp||p^G) &= -S(Tp) + \beta \sum_{i=1}^{d}(Tp)_i E_i\\
+\end{align}
+である。したがって、
+\begin{equation}
+    S(Tp) - S(p) \geq \beta (\sum_{i=1}^{d}E_i(Tp)_i - \sum_{i=1}^{d}E_ip_i)
+\end{equation}
+である。右辺を観察してみると、遷移前後のエネルギーの期待値の差が現れていることがわかる。ここで、
+\begin{equation}
+    Q = \sum_{i=1}^{d}E_i(Tp_i - \sum_{i=1}^{d}E_ip_i)
+\end{equation}
+と定義すると、
+\begin{equation}
+    \Delta S =S(Tp) - S(p) \geq \beta Q
+\end{equation}
+と書くことができる。これは、クラウジウス不等式と呼ばれ、熱力学第二法則を表す。ただし、注意したいこととしては、左辺はシャノンエントロピーという、情報理論の文脈でのエントロピーである。\\
+以上の議論を踏まえると、$T$という、Gibbs分布を保つ遷移がおこるとき、分布を保つために熱浴との相互作用が起こり、エントロピーが増大することがわかる。\\
+\textbf{Rem}\\
+上の熱について、$Q_{ji} =E_j-E_i$を、状態jからiへの遷移の際の熱の変化量とすると、
+\begin{equation}
+    Q = \sum_{i,j}T_{ji}p_iQ_{ji}
+\end{equation}
+と書くことができる。%TODOここの意味を後でとる。
+
+確率熱力学の文脈では、
+\begin{equation}
+    \Sigma = S_1(p||p^G)-S_1(Tp||p^G)=\Delta S - \beta Q \geq 0
+\end{equation}
+をエントロピー生成と呼ぶ。とくに、$\Delta S-\beta Q$は、熱浴のエントロピー増加ととらえられる。\\
+%地の文を書くかもしれない。
+
+つぎに、仕事と自由エネルギーについての第二法則を見ていく。いま、系のハミルトニアンは時間依存するとし、系への仕事はハミルトニアンの時間変化により実現されるとする。
+ここで、ハミルトニアンは、仕事浴ぬよって変化するのではなく、外部操作によって駆動すると考える。\\
+まず、クエンチによって駆動される系を考える。いま、$E =\sum_{i}E_i p_i$, $E' = \sum_{i}E'_i p_i$がクエンチ前後での系のエネルギーの期待値あるとする。また、クエンチによってなされる仕事の平均は、
+\begin{equation}
+    W = E'-E
+\end{equation}
+と書かれる。\\
+\textbf{Rem}\\
+このセットアップでは、仕事は揺らぐ量であることに注意したい。すなわち、確率的な仕事を$w_i = E'_i - E_i$として、
+\begin{equation}
+    W = \sum_{i}w_i p_i
+\end{equation}
+である。\\
+
+次に、より一般的な熱力学過程を考える。全体の過程が、複数のクエンチおよび緩和過程によって構成されると考える。クエンチとクエンチの間では、ハミルトニアンは一定であるとする。\\
+また、各緩和過程は確率的に独立であるとし、そのときのハミルトニアンに対応するGPMによって記述されると仮定する。
+以上の過程を図示すると以下のようになる。
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image4.png}
+    \end{center}
+    \caption{熱力学過程の図示}
+    \label{fig:four}
+\end{figure}
+全体の過程についての始状態と終状態を$p,p'$とし、ハミルトニアンを$H,H'$とする。また、Gibbs状態を$p^G,p'^G$として、ヘルムホルツ自由エネルギーを$F,F'$とする。\footnote{この自由エネルギーは、熱平衡状態にある時の自由エネルギーであることに注意されたい。}\\
+上の過程における、平均の仕事と熱について考える。$\Delta E = E'-E$、$E =\sum_{i}E_i p_i$, $E' = \sum_{i}E'_i p_i$とすると熱力学第一法則が成り立つ。すなわち、
+\begin{equation}
+    \Delta E = W + Q
+\end{equation}
+が成立する。このとき、クエンチは、一瞬で行われるので、その間に確率分布は変化せず、また、熱の交換も起こらないとみなせる。したがって、この過程において、熱力学第一法則に影響はない。\\
+この第一法則を用いると、第二法則は、
+\begin{equation}
+    W \geq \Delta E - \beta^{-1}\Delta S_1
+\end{equation}
+と書くことができる。ここで、非平衡状態における自由エネルギーを以下のように定義する。
+\begin{equation}
+    F_1(p;H) = \Delta E_i - \beta^{-1}\Delta S_1(p) = \beta^{-1}S_1(p||p^G) + F
+\end{equation}
+このとき、
+\begin{equation}
+    F_1(p;H) = F \Leftarrow p = p^G
+\end{equation}
+である。この自由エネルギーの表式を用いることにより、
+\begin{equation}
+    W \geq F_1(p';H') - F_1(p;H)
+\end{equation}
+と書くことができる。この不等式は、仕事の揺らぎを許すときの仕事の下限を与える。\\
+%準静的過程のときの話とかをここに追加する。
+
+\subsection{非平衡状態への遷移の要する仕事}
+非平衡状態へ遷移する際に必要な仕事を、Thermo-Majorizationを用いて考える。\\
+$p^G$を、系のGibbs分布とし、$p_{i}^G = \frac{e^{-\beta E_i}}{Z}$で定義する。また、$p$を、系の任意の状態とする。また、今、仕事浴が、二つのエネルギー準位$0,w$を持つとする。
+仕事浴のGibbs分布を$r^G$とし、$r^G = (\frac{1}{1+e^{-\beta w}},\frac{e^{-\beta w}}{1+e^{-\beta w}})^{\top}$とし、また、仕事浴の任意の状態を$r=(r_0,r_w)^{\top} \quad r_0+r_w=1$とする。\\
+また、はじめと最後の仕事浴のエネルギーが$0$か$w$で与えられているとして、エネルギーの変化はすべて$w$か$-w$であるとする。^^
+
+以下、非平衡状態を作るための最小仕事を求める。ここで、系のハミルトニアンが初めと終わりで等しいことを仮定する。\\
+始状態の系の確率分布は$p^G$であり、仕事浴の確率分布は、$r^{up} = (0,1)$であるとする。このとき、SW系(着目系と仕事浴の合成系)の初期状態は、$p^G \otimes r^{up}$である。\\
+また、終状態について、終状態の系の状態を$p$、仕事浴の状態を$r^{down} = (1,0)$とする。このとき、SW系の終状態は、$p \otimes r^{down}$である。\\
+このとき、それぞれのテンソル積を書き下すと以下のようになる。
+\begin{align}
+    p^G \otimes r^{up} &= (0,p_1^G,0,p_2^G,\cdots,0,p_n ^G)\\
+    p \otimes r^{down} &= (p_1,0,p_2,0,\cdots,p_n,0)
+\end{align}
+また、ローレンツ曲線を書くために、$p^G \otimes r^G$を書き下すと、
+\begin{equation}
+    p^G \otimes r^G = (p_1^G r^{G,down},p_1^G r^{G,up},p_2^G r^{G,down},p_2^G r^{G,up},\cdots,p_n^G r^{G,down},p_n^G r^{G,up})
+\end{equation}
+である。ここで、$r^{G,up} = \frac{1}{1+e^{-\beta w}}$、$r^{G,down} = \frac{e^{-\beta w}}{1+e^{-\beta w}}$である。\\
+以上の準備の下、ローレンツ曲線を描くことを考える。まず、初期状態についてのローレンツ曲線は、要素が0でないところから大きい順に足していけばよいことがわかる。また、終状態については、折れ線となる。これらを図示すると以下のようになる。
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image5.png}
+    \end{center}
+    \caption{非平衡状態への遷移の図示}
+    \label{fig:five}
+\end{figure}
+したがって、非平衡状態への遷移が可能な必要十分条件は、
+\begin{equation}
+    \frac{e^{-\beta w}}{1+e^{-\beta w}} \leq e^{-S_{\infty} (p\times r^{down}||p^G \times r^G)}
+\end{equation}
+である。ここで、
+\begin{align}
+    S_{\infty} (p\otimes r^{down}||p^G \otimes r^G) &= ln(\underset{i}{\max}\frac{p_i\otimes r^{down}}{p_i^G \otimes r^{G,down}})\\
+    &= ln(\underset{i}{\max}\frac{p_i}{p_i^G})-ln(r^{G,down})\\
+    &= S_{\infty}(p||p^G) - ln(r^{G,down})
+\end{align}
+であることを用いると、
+\begin{equation}
+    \frac{e^{-\beta w}}{1+e^{-\beta w}} \leq \frac{1}{1+e^{-\beta w}}e^{-S_{\infty}(p||p^G)}
+\end{equation}
+となる。整理して、
+\begin{equation}
+    w \geq \beta^{-1}S_{\infty}(p||p^G)
+\end{equation}
+となる。これが、平衡系から非平衡系への遷移に必要な最小仕事である。\\
+
+\subsection{熱平衡状態への緩和で取り出せる仕事}
+上と同様のことを考える。疲れたので図と結果だけを書く。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{image6.png}
+    \end{center}
+    \caption{熱平衡状態への緩和の図示}
+    \label{fig:six}
+\end{figure}
+\begin{equation}
+    -w \leq \beta^{-1}S_{0}(p||p^G)
+\end{equation}
+である。これが、非平衡系から平衡系への遷移において取り出せる最大仕事である。\\
+
+\subsection{平衡状態間の遷移における仕事}
+hogehoge
 
 \end{document}

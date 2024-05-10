@@ -1045,6 +1045,20 @@ INPUT ./image3.png
 INPUT ./image3.png
 INPUT image3.png
 INPUT extractbb -B cropbox -O image3.png
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT ./image4.png
+INPUT ./image4.png
+INPUT image4.png
+INPUT extractbb -B cropbox -O image4.png
+INPUT ./image5.png
+INPUT ./image5.png
+INPUT image5.png
+INPUT extractbb -B cropbox -O image5.png
+INPUT ./image6.png
+INPUT ./image6.png
+INPUT image6.png
+INPUT extractbb -B cropbox -O image6.png
 INPUT Majorization.aux
 INPUT ./Majorization.out
 INPUT ./Majorization.out

@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1715264378 "Majorization.dvi" "Majorization.pdf" "Majorization" 1715264381 0
-  "Majorization.dvi" 1715264377 105060 ae31e9b485769b6162fd44b265eb5f30 "latex"
+["dvipdf"] 1715339997 "Majorization.dvi" "Majorization.pdf" "Majorization" 1715340001 0
+  "Majorization.dvi" 1715339997 132040 acba3938f81a1eef1ba04d94a3783633 "latex"
   (generated)
   "Majorization.pdf"
   (rewritten before read)
-["latex"] 1715264370 "Majorization.tex" "Majorization.dvi" "Majorization" 1715264381 0
-  "Majorization.aux" 1715264377 2345 422f92eac9883b3a3db099279f4693aa "latex"
-  "Majorization.out" 1715264377 1315 a9e4cccc5f1251c82dc9ed2bef1a55be "latex"
-  "Majorization.tex" 1715264369 34566 d26bec9d9b1a3501573ee46753e14424 ""
+["latex"] 1715339987 "Majorization.tex" "Majorization.dvi" "Majorization" 1715340001 0
+  "Majorization.aux" 1715339997 3866 77175dd95f37699a07e6674d8f9a9a3f "latex"
+  "Majorization.out" 1715339997 2183 76782704162db90eaa5f3ec7037022a7 "latex"
+  "Majorization.tex" 1715339976 46598 46d7babb634d14aace53460fbc262951 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -48,6 +48,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -198,6 +199,9 @@
   "image1.png" 1715243380 44589 c7258ce5d38d77167d790c88ab94039e ""
   "image2.png" 1715255112 73362 049196e88c51da98df1e161770428394 ""
   "image3.png" 1715264115 46457 301f7cc9997ef62899a93b5aa88abea1 ""
+  "image4.png" 1715319664 25890 7f29fa8699c81fd30b10b012a14b392d ""
+  "image5.png" 1715337552 38576 33c5153613da383d6e2a94ba1700bbba ""
+  "image6.png" 1715339517 40090 0c40ac87ad2f0d9cf1e65f5abdaacfd6 ""
   (generated)
   "Majorization.aux"
   "Majorization.dvi"
