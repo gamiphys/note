@@ -42,6 +42,39 @@
 \date{\today}
 \maketitle
 
+\tableofcontents
+\newpage
+
+\section{リソース理論と確率熱力学の位置づけ}
+非平衡状態の熱力学第二法則を考えるときに、これまで二つのアプローチがとられてきた。\\
+\subsection{確率熱力学的アプローチ}
+確率熱力学においては、仕事の揺らぎを許した系を考え、ゆらぎの定理の系として、エントロピー生成の熱力学第二法則が導かれる。\\
+
+\subsection{リソース理論的アプローチ}
+リソース理論においては、外部からの仕事は完全に制御されたものとし、系の状態を変化させるために必要なリソースを考える。\\
+\begin{itembox}[l]{\textbf{Def:free state/free operation}}
+    何のコストもなしに得られる状態をfree state、何のコストもなしに行える操作をfree operationという。
+\end{itembox}
+熱力学においては、仕事や、非平衡状態がresourceである。というのも、仕事によって非平衡状態を作り出すことができ、また、非平衡状態から仕事を取り出すことができるからである。\\
+また、Gibbs分布(カノニカル分布)は、free stateであり、緩和過程(GPM)はfree operationである。\\
+
+さらに、monotoneと呼ばれる概念も重要である。\\
+\begin{itembox}[l]{\textbf{Def:monotone}}
+    free operationに対して、単調に変化する量をmonotoneという。とくに、ある操作が可能かどうかの必要十分条件を与えるmonotoneをcomplete monotoneという。
+\end{itembox}
+\textbf{ex:従来の熱力学}\\
+従来の熱力学におけるresource、free state、free operation、(complete) monotoneは以下のように対応する。\\
+\begin{itemize}
+    \item resource:仕事
+    \item free state:熱平衡状態
+    \item free operation:断熱操作
+    \item (complete) monotone:エントロピー
+\end{itemize}
+
+\subsection{確率熱力学とリソース理論の関係}
+両者は、出所やset upが異なるが、マクロ極限をとると、同じ第二法則が導かれる。\\
+
+\newpage
 \section{古典的エントロピー及びダイバージェンス}
 \subsection{古典的状態及び系}
 必要な量を定義する。\\
@@ -574,7 +607,7 @@ $p' = Tp$とし、$c=(c^1,...,c^m)\in \mathbb{R}^m$として、$\partial = \sum_
 \end{itembox}
 \textbf{Prf}\\
 略\\
-
+\newpage
 \section{Classical Majorization}
 状態の遷移可能性は、majorizationによって、必要十分に特徴づけられる。\\
 \subsection{Majorization}
@@ -782,6 +815,7 @@ Majorizationおよびd-majorizationの連続変数の場合を考える。\\
 \end{itembox}
 %TODOルベーグ積分がわからないので一旦この節は飛ばす。
 
+\newpage
 \section{古典熱力学への適応}
 古典熱力学との対応を見ていく。
 \subsection{第二法則とKLダイバージェンス}
