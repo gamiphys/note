@@ -989,7 +989,51 @@ $p^G$を、系のGibbs分布とし、$p_{i}^G = \frac{e^{-\beta E_i}}{Z}$で定�
 \end{equation}
 である。これが、非平衡系から平衡系への遷移において取り出せる最大仕事である。\\
 
+この等号が成り立つようなプロトコルが本文にあるが、クエンチしている時点でセットアップがよくわからん。外部系から操作しているように見えてしまう。\\
+ただまあ、仕事の揺らぎがある系(i.e.確率熱力学に従う系)は、その揺らぎを許さない形よりも効率が悪い気がする(カルノーサイクルの隔離る熱力学での話を思い出す)ので、原理的限界としてとりあえずリソース理論を用いていて、
+たまたまそれを達成する操作を確率熱力学の文脈からも出せるという話である気もしてくる。
+
 \subsection{平衡状態間の遷移における仕事}
-hogehogea
+最後に、Gibbs分布間の状態の遷移を考える。このとき、clockと呼ばれる機構により、ハミルトニアンを時間変化させる。\\
+系のハミルトニアンについて、clockが0のときは、$E_i$、clockが1のときは、$E'_i$であるとする。また、はじめと最後の確率分布を$p,p'$とする。ただし、
+\begin{align}
+    p_i &= \frac{e^{-\beta E_i}}{Z}\\
+    p'_i &= \frac{e^{-\beta E'_i}}{Z'}
+\end{align}
+である。\\
+また、それに対応する自由エネルギーは、
+\begin{align}
+    F &= -\beta^{-1}\log Z\\
+    F' &= -\beta^{-1}\log Z'
+\end{align}
+である。\\
+以下、簡単のために、clockは$0$か$1$の値のみを取るとする。初め、$C(clock)=(1,0)$であり、終わりには$C(clock)=(0,1)$であるとする。\\
+このとき、保存するGibbs分布は、
+\begin{align}
+    p_{SC}^G = \frac{Z}{Z+Z'}p \otimes c + \frac{Z'}{Z+Z'}p' \otimes c'
+\end{align}
+である。\\
+$\because$\\
+%TODO後で書く。よくわかってない。
+
+以上の準備の下、Majorizationを用いる。$p_{SC}^G \otimes r^{up}$と$p_{SC}^G \otimes r^{down}$について、Majorizationを考える。このとき、どちらもGibbs分布であるからどちらも直線となる:
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=70mm]{image7.png}
+    \end{center}
+    \caption{平衡状態間の遷移の図示}
+    \label{fig:seven}
+\end{figure}
+このとき$p$が$p'$をthermo-majorizeする条件は、
+\begin{equation}
+    \frac{Z}{Z+Z'}\frac{e^{-\beta w}}{1+e^{-\beta w}} \leq \frac{Z'}{Z+Z'}\frac{1}{1+e^{-\beta w}}
+\end{equation}
+である。これを整理することで、
+\begin{equation}
+    w \geq \Delta F
+\end{equation}
+となる。これが、平衡状態間の遷移における最小仕事であり、たしかに熱力学第二法則が再現されることがわかる。\\
+
 
 \end{document}

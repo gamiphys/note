@@ -1064,6 +1064,10 @@ INPUT ./image6.png
 INPUT ./image6.png
 INPUT image6.png
 INPUT extractbb -B cropbox -O image6.png
+INPUT ./image7.png
+INPUT ./image7.png
+INPUT image7.png
+INPUT extractbb -B cropbox -O image7.png
 INPUT Majorization.aux
 INPUT ./Majorization.out
 INPUT ./Majorization.out
