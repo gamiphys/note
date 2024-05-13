@@ -1,0 +1,231 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{沙川本}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{非平衡系の熱力学第二法則}
+\subsection{ゆらぐ熱力学系の定式化}
+熱浴に接した系$X$を考える。このとき、熱浴は巨大で、常に熱平衡状態に近いものとする。また、温度を$T$とする。\\
+系は、熱浴の影響で確率的にゆらぐこととなる。系$X$の取りうる状態を$x$とする。このとき、その状態が現れる確率は、$P(x)$と書くことができる。
+また、$x(t)$は熱浴の影響を受けて、$x(t)$のように時間発展している。\\
+さて、状態$x$に対応するエネルギーを$E_x$とする。このとき、系$X$のエネルギーの期待値は、
+\begin{equation}
+    E = \sum_x P(x)E_x
+\end{equation}
+と書くことができる。また、このエネルギー準位のもとでの平衡分布は、
+\begin{equation}
+    P_{\text{eq}}(x) = \frac{e^{-\beta E_x}}{Z}
+\end{equation}
+と書くことができる。ただし、$Z$は分配関数であり、
+\begin{equation}
+    Z = \sum_x e^{-\beta E_x}
+\end{equation}
+と書くことができる。これに対応する平衡自由エネルギーは、
+\begin{equation}
+    F_{\text{eq}} = -\beta^{-1}\log Z
+\end{equation}
+と書くことができる。これを用いると、カノニカル分布は、
+\begin{equation}
+    P_{\text{eq}}(x) = \frac{e^{\beta(F_{\text{eq}}-E_x)}}{Z}
+\end{equation}
+と書き換えることができる。
+
+\subsection*{熱力学的エントロピーと情報エントロピー}
+伝統的な熱力学においては、エントロピーは以下のように定義されていた:
+\begin{equation}
+    \Delta S_{\text{eq}} = \int \beta d'Q
+\end{equation}
+ただし、$d'Q$は熱浴から系に流れる熱である。また、統計力学においては、
+\begin{equation}
+    S_{\text{eq}} = \ln N
+\end{equation}
+と書くことができる。ただし、$N$は状態数である。これを、非平衡系にも拡張することを考える。\\
+
+\begin{itembox}[l]{\textbf{Def:非平衡系におけるエントロピー}}
+    系$X$が非平衡状態にあるとき、そのエントロピーは、
+    \begin{equation}
+        S = -\sum_x P(x)\ln P(x)
+    \end{equation}
+    である。
+\end{itembox}
+このように定義することの妥当性は、カノニカル分布におけるエントロピーの表式と一致することや、以下で見るように、熱力学第二法則が成り立つことからもわかる。\\
+シャノンエントロピーの表式に、先ほどのカノニカル分布の表式を代入すると、
+\begin{equation}
+    S = -\sum_x P(x)\ln P(x) = -\sum_x P(x)\ln \frac{e^{\beta(F_{\text{eq}}-E_x)}}{Z} = \beta (E-F_{\text{eq}})
+\end{equation}
+と書くことができる。したがって、
+\begin{equation}
+    E = F_{\text{eq}} +k_BT S
+\end{equation}
+と書くことができる。これは、平衡熱力学におけるエントロピーが満たす式と同じである。\\
+ここで、実は、以下の命題が成り立つことが知られている。
+\begin{itembox}[l]{\textbf{Prop:カノニカル分布の特徴づけ}}
+    カノニカル分布は、与えられた経いきんエネルギーEのもとでの、最大のシャノンエントロピーをもつ分布である。
+\end{itembox}
+\textbf{Prf}\\
+一般の分布とカノニカル分布についてのKL情報量は、
+\begin{equation}
+    D(P||P_{\text{eq}}) = \sum P(x)\ln \frac{P(x)}{P_{\text{eq}}(x)} =\beta(E-F_{\text{eq}})-S(P) = \beta(F-F_{\text{eq}})
+\end{equation}
+と書くことができる。これは、分布の"近さ"が自由エネルギーによって表現されている形となっている。ここで、kLダイバージェンスが非負であることを用いて、
+\begin{equation}
+    F \geq F_{\text{eq}}
+\end{equation}
+が成り立つ。ここで、
+\begin{equation}
+    F = E-k_BT S
+\end{equation}
+であり、$E$を固定しているとすると、$S$が最大になるのは、$F$が最小になるときである。したがって、カノニカル分布は、与えられたエネルギーのもとで、最大のエントロピーをもつ分布である。\\
+\hfill \qedsymbol
+
+また、エネルギーの拘束条件がないときは、以下の命題が成り立つことが知られている。
+\begin{itembox}[l]{\textbf{Prop:ミクロカノニカル分布の特徴づけ}}
+    何の拘束条件もないとき、シャノンエントロピーが最大になるのは一様分布のときであり、これは、ミクロカノニカル分布に対応する。
+\end{itembox}
+\textbf{Prf}\\
+$u$を一様分布とする。このとき、
+\begin{equation}
+    S(P||u) = \sum P(x)\ln \frac{P(x)}{u(x)} = \ln N -S(P)
+\end{equation}
+と書くことができる。KLダイバージェンスが非負であることを用いると、
+\begin{equation}
+    S(P) \leq \ln N
+\end{equation}
+が成り立つ。$S(P)$が最大になるのは、$S(P) = \ln N$のときであり、これは、一様分布のときである。\\
+\hfill \qedsymbol
+
+\subsection{非平衡ダイナミクス}
+熱力学系の時間発展を考え、熱や仕事の定義を述べる。\\
+前節に引き続き、熱的な揺らぎは、温度$T$の熱浴の影響で起きるとする。系$X$の確率分布の時間発展を$P(x,t)$とする。このとき、確率の保存則から、
+\begin{equation}
+    \sum_x \pdv{P(x,t)}{t} = 0
+\end{equation}
+が成り立つ。また、時刻$t$におけるシャノンエントロピーは、
+\begin{equation}
+    S(t) = -\sum_x P(x,t)\ln P(x,t)
+\end{equation}
+と書くことができる。この時間微分は、
+\begin{equation}
+    \dv{S(t)}{t} = -\sum_x \pdv{P(x,t)}{t}\ln P(x,t) 
+\end{equation}
+と書くことができる。\\
+次に、非保存力のない場合でのエネルギー収支を考える。時刻$t$における系$X$のエネルギーの期待値は、
+\begin{equation}
+    E(t) = \sum_x P(x,t)E_x
+\end{equation}
+と書くことができる。ハミルトニアンが時間変化しないとき、エネルギー変化はすべて熱なので、
+\begin{equation}
+    E(\tau) - E(0) = Q(\tau)
+\end{equation}
+と書くことができる。ただし、$Q(\tau)$は、時刻$0$から時刻$\tau$までの熱である。時間微分の形式で書くと、
+\begin{equation}
+    \dot{Q} = \dv{E}{t} = \sum_x \pdv{P(x,t)}{t}E_x
+\end{equation}
+と書くことができる。注意されたいこととしては、エネルギー順位が時間に依らないので、この熱は、確率分布の時間変化に依存していることである。\\
+
+次に、外場による駆動がある場合を考える、このときの時刻$t$における系$X$のエネルギーの期待値は、
+\begin{equation}
+    E(t) = \sum_x P(x,t)E_x(t)
+\end{equation}
+と書くことができる。このとき、エネルギー期待値は、確率分布とエネルギー準位(系の状態)の両方に依存している。\\
+また、注意として、このような駆動は、外場などの操作パラメータ$\lambda$に依存していることが多い。このとき、エネルギーの時間変化は、
+\begin{equation}
+    \pdv{E_x(t)}{t} = \pdv{E_x(\lambda)}{\lambda}\dv{\lambda}{t}
+\end{equation}
+と書くことができる。\\
+さて、エネルギーの時間微分は、
+\begin{equation}
+    \dv{E}{t} = \sum_x \pdv{P(x,t)}{t}E_x(t) + \sum_x P(x,t)\pdv{E_x(t)}{t}
+\end{equation}
+と書くことができる。この右辺について、第一項は、確率分布が変化していて、エネルギー準位は変化していないのだから、熱の流入の項だと考えることができる。また、右辺第二項については、エネルギー準位が変化しているのだから、仕事の項だと考えることができる。\\
+注意されたいこととして、この仕事の項についても、確率分布自体は時間に依存している。すなわち、揺らぎの効果は取り入れられているということである。\footnote{このとき、終状態までになされる仕事は確率によって変動するのに対して、リソース理論においてはW系がする仕事が一意に定まる。}
+以上を踏まえると、熱及び仕事の時間変化は以下のように定義される。
+\begin{itembox}[l]{\textbf{Def:熱及び仕事}}
+    熱の時間変化は、
+    \begin{equation}
+        \dot{Q}(t) = \sum_x \pdv{P(x,t)}{t}E_x(t)
+    \end{equation}
+    であり、仕事の時間変化は、
+    \begin{equation}
+        \dot{W}(t) = \sum_x P(x,t)\pdv{E_x(t)}{t}
+    \end{equation}
+    である。
+\end{itembox}
+また、このとき熱力学第一法則は、
+\begin{equation}
+    \dv{E}{t} = \dot{Q}(t) + \dot{W}(t)
+\end{equation}
+と書くことができる。\\
+
+\subsection{エントロピー生成と熱力学第二法則}
+古典熱力学において、熱力学第二法則は、
+\begin{equation}
+    \Delta S_{\text{eq}} -\beta Q \geq 0
+\end{equation}
+と書くことができる。これは、クラウジウス不等式と呼ばれる。\\
+後に示すことになるが、非平衡系においても熱力学第二法則が成立することが以下のように言える:
+\begin{equation}
+    \Delta S -\beta Q \geq 0
+\end{equation}
+ただし、$\Delta S$は、シャノンエントロピーの変化であり、熱も、非平衡でのセットアップを採用している。\footnote{エネルギーの期待値の差を用いて定義した。} 
+また、プリゴジンは、この不等式の左辺をエントロピー生成と呼び、
+\begin{equation}
+    \sigma = \Delta S -\beta Q
+\end{equation}
+と定義した。このとき右辺第二項は、熱浴のエントロピー変化だと考えられる。すなわち、エントロピー生成とは、系のエントロピー変化と熱浴のエントロピー変化を合わせたものである。\\
+エントロピー生成を用いて熱力学第二法則は、エントロピー生成が非負であると言い換えることができる。\\
+
+また、上で得た表式を、自由エネルギーを用いて書き換えることができる。非平衡系での最小仕事の原理は、
+\begin{equation}
+    W \geq \Delta F
+\end{equation}
+と書くことができる。ただし、ここで自由エネルギーを、
+\begin{equation}
+    F = E - \beta^{-1}S
+\end{equation}
+と定義した。このとき、
+\begin{equation}
+    F \geq F_{\text{eq}}
+\end{equation}
+が成り立つことを示すことができる。(これは、カノニカル分布の特徴づけの結果からも導かれる。)\\
+
+\end{document}
