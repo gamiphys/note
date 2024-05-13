@@ -1,10 +1,10 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  13 MAY 2024 14:53
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  12 MAY 2024 20:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Majorization.tex
-(./Majorization.tex
+**memo.tex
+(./memo.tex
 pLaTeX2e <2023-02-14u04>+1 (based on LaTeX2e <2022-11-01> patch level 1)
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2023/02/23 jsclasses (okumura, texjporg)
@@ -622,8 +622,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./Majorization.aux)
-\openout1 = `Majorization.aux'.
+) (./memo.aux)
+\openout1 = `memo.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -648,9 +648,9 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 Package hyperref Info: Link coloring OFF on input line 38.
- (./Majorization.out) (./Majorization.out)
+ (./memo.out) (./memo.out)
 \@outlinefile=\write4
-\openout4 = `Majorization.out'.
+\openout4 = `memo.out'.
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 15.9785pt on input line 44.
@@ -676,10 +676,6 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 44.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 45.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 45.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
@@ -688,90 +684,31 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
- (./Majorization.toc
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 46.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 2.
+(Font)              scaled to size 6.47278pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 2.
+(Font)              scaled to size 4.62341pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 2.
+(Font)              scaled to size 9.24683pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 2.
-)
-\tf@toc=\write5
-\openout5 = `Majorization.toc'.
-
+(Font)              scaled to size 6.47278pt on input line 47.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 47.
  [1
 
-]
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 50.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 55.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 55.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 55.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 55.
- [2] [3]
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 107.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 107.
- [4] [5] [6]
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 204.
- [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-File: image1.png Graphic file (type bmp)
-<image1.png>
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 623.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 623.
- [19] [20]
-File: image2.png Graphic file (type bmp)
-<image2.png>
- [21] [22]
-File: image3.png Graphic file (type bmp)
-<image3.png>
- [23]
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 802.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 802.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 802.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 802.
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 802.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 802.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 802.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 802.
- [24] [25] [26] [27]
-File: image4.png Graphic file (type bmp)
-<image4.png>
- [28]
-File: image5.png Graphic file (type bmp)
-<image5.png>
- [29]
-File: image6.png Graphic file (type bmp)
-<image6.png>
- [30] [31] (./Majorization.aux)
-Package rerunfilecheck Info: File `Majorization.out' has not changed.
-(rerunfilecheck)             Checksum: 99C45CB26F0BBE092EB289A511F15674;2786.
+] (./memo.aux)
+Package rerunfilecheck Info: File `memo.out' has not changed.
+(rerunfilecheck)             Checksum: A5554494277CC6881CAA306225F59D20;197.
  ) 
 Here is how much of TeX's memory you used:
- 23019 strings out of 476677
- 430070 string characters out of 5808165
- 1858484 words of memory out of 5000000
- 43045 multiletter control sequences out of 15000+600000
- 533898 words of font info for 132 fonts, out of 8000000 for 9000
+ 22942 strings out of 476677
+ 428822 string characters out of 5808165
+ 1850484 words of memory out of 5000000
+ 42989 multiletter control sequences out of 15000+600000
+ 531538 words of font info for 121 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,13n,89p,476b,515s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,8n,89p,468b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Majorization.dvi (31 pages, 146160 bytes).
+Output written on memo.dvi (1 page, 2944 bytes).

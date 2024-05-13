@@ -1,16 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1715579592 "Majorization.dvi" "Majorization.pdf" "Majorization" 1715579596 0
-  "Majorization.dvi" 1715579592 146160 b991a05fae4656ee25206afa54887415 "latex"
+["dvipdf"] 1715514014 "memo.dvi" "memo.pdf" "memo" 1715514015 0
+  "memo.dvi" 1715514014 2944 d89a6f31146adc3c1abd5ae5299cbe54 "latex"
   (generated)
-  "Majorization.pdf"
+  "memo.pdf"
   (rewritten before read)
-["latex"] 1715579580 "Majorization.tex" "Majorization.dvi" "Majorization" 1715579596 0
-  "Majorization.aux" 1715579592 4449 6dba4110fa8e591199f6338b2ce99369 "latex"
-  "Majorization.out" 1715579592 2786 99c45cb26f0bbe092eb289a511f15674 "latex"
-  "Majorization.tex" 1715579575 48688 a6e9d53968d1016136943b47055f6054 ""
-  "Majorization.toc" 1715579592 1850 03b2c6ca62c6f59dee74daebe5731232 "latex"
+["latex"] 1715514012 "memo.tex" "memo.dvi" "memo" 1715514015 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681536317 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -44,13 +39,10 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -198,16 +190,12 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "image1.png" 1715243380 44589 c7258ce5d38d77167d790c88ab94039e ""
-  "image2.png" 1715255112 73362 049196e88c51da98df1e161770428394 ""
-  "image3.png" 1715264115 46457 301f7cc9997ef62899a93b5aa88abea1 ""
-  "image4.png" 1715319664 25890 7f29fa8699c81fd30b10b012a14b392d ""
-  "image5.png" 1715337552 38576 33c5153613da383d6e2a94ba1700bbba ""
-  "image6.png" 1715339517 40090 0c40ac87ad2f0d9cf1e65f5abdaacfd6 ""
+  "memo.aux" 1715514014 761 989e0ce388c4ed2c55d6344163729c70 "latex"
+  "memo.out" 1715514014 197 a5554494277cc6881caa306225f59d20 "latex"
+  "memo.tex" 1715514003 1598 a7378e81370bb267c8dba8df5df41b10 ""
   (generated)
-  "Majorization.aux"
-  "Majorization.dvi"
-  "Majorization.log"
-  "Majorization.out"
-  "Majorization.toc"
+  "memo.aux"
+  "memo.dvi"
+  "memo.log"
+  "memo.out"
   (rewritten before read)

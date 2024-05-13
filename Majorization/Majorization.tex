@@ -104,11 +104,11 @@
 \begin{itembox}[l]{\textbf{Def:Supp}}
     確率分布$p ={p_i}_i \in \mathcal{P}_d$に対して、pの台を、
     \begin{equation}
-        \text{spp}(p) = \{i \in [d] | p_i > 0\} \subset \{1, 2, \cdots, d\}
+        \text{supp}(p) = \{i \in [d] | p_i > 0\} \subset \{1, 2, \cdots, d\}
     \end{equation}
     と表す。また、
     \begin{equation}
-        \text{rank}(p) = |\text{spp}(p)|
+        \text{rank}(p) = |\text{supp}(p)|
     \end{equation}
     を、pのランクという。とくに、$\text{rank}(p) = d$のとき、pはフルランクであるという。
 \end{itembox}
@@ -189,7 +189,7 @@
 \begin{itembox}[l]{\textbf{Prop:エントロピーとKLダイバージェンスの関係}}
     任意の$p, q \in \mathcal{P}_d$に対して、
     \begin{equation}
-        S_1(p) = ln(d) - S_1(p||u)
+        S_1(p) = \log(d) - S_1(p||u)
     \end{equation}
 \end{itembox}
 \textbf{Prf}\\
@@ -201,16 +201,12 @@
 \end{align}
 であることからわかる。\hfill \qedsymbol\\
 これより、$S_1(p) \leq \log d$であることがわかる。\\
-このとき、KLダイバージェンスのテイラー展開は以下のようになる。
+このとき、KLダイバージェンスのテイラー展開は、$\log \frac{1}{1-x}$のテイラー展開を用いて\footnote{$x+\frac{x^2}{2}+\cdots $}、以下のようになる。
 \begin{align}
     S_1(p||p-\Delta p) &= \frac{1}{2}\sum_i \frac{(\Delta p_i)^2}{p_i} + O(\Delta p^3)\\
 \end{align}
 ここで、$\sum_i \Delta p_i = 0$を用いている。\\
-%TODO後で示す。\\
-\begin{itembox}[l]{\textbf{Def:monotone}}
-    monotoneとは、free operationに対して、増減しない量のことである。
 
-\end{itembox}
 \begin{itembox}[l]{\textbf{Prop:KLダイバージェンスの単調性}}
     KLダイバージェンスは、$p' = Tp$および$q' = Tq$に対して、
     \begin{equation}
@@ -391,7 +387,7 @@ Jensenの不等式より、
     \sum_{j=1}^{d}q_j'f\left(\frac{p_j'}{q_j'}\right) \leq \sum_{j=1}^{d}\sum_{i=1}^{d}\frac{T_{ji}q_i}{q_j'}f\left(\frac{p_i}{q_i}\right)=\sum_{i=1}^{d}q_i f\left(\frac{p_i}{q_i}\right)
 \end{equation}
 である。\hfill \qedsymbol\\
-ここで、$p,q \in \mathcal{P}_d$として、$f(x)=xlogx$とすると、
+ここで、$p,q \in \mathcal{P}_d$として、$f(x)=x\log x$とすると、
 \begin{equation}
     S_1 (p||q) \geq S_1 (p'||q')
 \end{equation}
@@ -463,7 +459,7 @@ $\alpha \leq \alpha'$に対して、$f(x) =x^{\frac{\alpha-1}{\alpha'-1}}$とす
     で定義される。
 \end{itembox}
 
-KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェンスである。また、Rényiダイバージェンスは、$f(x) = x^{\alpha}$としてlogをとって$\frac{1}{\alpha - 1}$をかけたものである。\\
+KLダイバージェンスは、$f(x) = x\log x$のときのf-ダイバージェンスである。また、Rényiダイバージェンスは、$f(x) = x^{\alpha}$として$\log$をとって$\frac{1}{\alpha - 1}$をかけたものである。\\
 
 \begin{itembox}[l]{\textbf{Prop:f-ダイバージェンスの非負性}}
     任意の$p, q \in \mathcal{P}_d$に対して、
@@ -719,7 +715,7 @@ $\frac{p_1^*}{q_1^*} \geq \frac{p_2^*}{q_2^*} \geq ... \geq \frac{p_d^*}{q_d^*}$
     が成り立つとき、$(p,q)$は$(p',q')$をd-majorizeするという。
 \end{itembox}
 d-majorizationは、以下のような言いかえが可能である。\\
-\begin{itembox}[l]{\textbf{Thm:Bkackwellの定理}}
+\begin{itembox}[l]{\textbf{Thm:Blackwellの定理}}
     $p,q,p',q' \in \mathcal{P}_d$かつ$q,q'$がフルランクであるとき、以下は同値である。
     \begin{enumerate}
         \item $(p',q') \prec (p,q)$
@@ -799,7 +795,7 @@ Majorizationおよびd-majorizationの連続変数の場合を考える。\\
     \end{equation}
     が成り立つとき、$p$が$p'$をmajorizeするという。ただし、
     \begin{align}
-        p^{\downarrow}(x) =sup\{y: m_p(y) >x\}\\
+        p^{\downarrow}(x) =\sup \{y: m_p(y) >x\}\\
         m_p(y) = \mu[x:p(x)>y]\\
         \mu : \text{Lebesgue measure}
     \end{align}
@@ -936,7 +932,7 @@ $E_i$を、系の$i$番目の状態のエネルギーとし、Gibbs状態$p^G \i
 非平衡状態へ遷移する際に必要な仕事を、Thermo-Majorizationを用いて考える。\\
 $p^G$を、系のGibbs分布とし、$p_{i}^G = \frac{e^{-\beta E_i}}{Z}$で定義する。また、$p$を、系の任意の状態とする。また、今、仕事浴が、二つのエネルギー準位$0,w$を持つとする。
 仕事浴のGibbs分布を$r^G$とし、$r^G = (\frac{1}{1+e^{-\beta w}},\frac{e^{-\beta w}}{1+e^{-\beta w}})^{\top}$とし、また、仕事浴の任意の状態を$r=(r_0,r_w)^{\top} \quad r_0+r_w=1$とする。\\
-また、はじめと最後の仕事浴のエネルギーが$0$か$w$で与えられているとして、エネルギーの変化はすべて$w$か$-w$であるとする。^^
+また、はじめと最後の仕事浴のエネルギーが$0$か$w$で与えられているとして、エネルギーの変化はすべて$w$か$-w$であるとする。
 
 以下、非平衡状態を作るための最小仕事を求める。ここで、系のハミルトニアンが初めと終わりで等しいことを仮定する。\\
 始状態の系の確率分布は$p^G$であり、仕事浴の確率分布は、$r^{up} = (0,1)$であるとする。このとき、SW系(着目系と仕事浴の合成系)の初期状態は、$p^G \otimes r^{up}$である。\\
@@ -965,9 +961,9 @@ $p^G$を、系のGibbs分布とし、$p_{i}^G = \frac{e^{-\beta E_i}}{Z}$で定�
 \end{equation}
 である。ここで、
 \begin{align}
-    S_{\infty} (p\otimes r^{down}||p^G \otimes r^G) &= ln(\underset{i}{\max}\frac{p_i\otimes r^{down}}{p_i^G \otimes r^{G,down}})\\
-    &= ln(\underset{i}{\max}\frac{p_i}{p_i^G})-ln(r^{G,down})\\
-    &= S_{\infty}(p||p^G) - ln(r^{G,down})
+    S_{\infty} (p\otimes r^{down}||p^G \otimes r^G) &= \ln (\underset{i}{\max}\frac{p_i\otimes r^{down}}{p_i^G \otimes r^{G,down}})\\
+    &= \ln (\underset{i}{\max}\frac{p_i}{p_i^G})-\ln(r^{G,down})\\
+    &= S_{\infty}(p||p^G) - \ln(r^{G,down})
 \end{align}
 であることを用いると、
 \begin{equation}
@@ -994,6 +990,6 @@ $p^G$を、系のGibbs分布とし、$p_{i}^G = \frac{e^{-\beta E_i}}{Z}$で定�
 である。これが、非平衡系から平衡系への遷移において取り出せる最大仕事である。\\
 
 \subsection{平衡状態間の遷移における仕事}
-hogehoge
+hogehogea
 
 \end{document}

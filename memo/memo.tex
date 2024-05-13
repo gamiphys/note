@@ -1,0 +1,57 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{memo}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{須藤相対論問題6.10}
+\subsection{個数密度}
+個数密度を求める。$f(q)$が、運動量空間で考えたときの、粒子の状態の数の密度である(分布関数)ことを踏まえると、個数密度は
+\begin{align}
+    n = \frac{1}{h^3}g \int f(q)d^3q
+\end{align}
+と書ける。ここで、$g$はスピンの自由度である。これを極座標系に変換して、角度成分の計算を処理することで、
+\begin{align}
+    n = \frac{g}{h^3} 4\pi \int_0^\infty f(q)q^2dq
+\end{align}
+となる。
+
+\end{document}
