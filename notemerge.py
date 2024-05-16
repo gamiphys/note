@@ -1,43 +1,58 @@
 import os
 from PyPDF2 import PdfMerger
+import tkinter as tk
+from tkinter import filedialog
+from tkinter import messagebox
 
-# ファイルAのディレクトリを取得する
-script_directory = os.path.dirname(__file__)
+def select_files():
+    # ファイルダイアログを開いてPDFファイルを選択
+    file_paths = filedialog.askopenfilenames(
+        title="Select PDF files to merge",
+        filetypes=[("PDF files", "*.pdf")]
+    )
+    return list(file_paths)
 
-# 結合するフォルダのリストを初期化する
-folder_paths = []
-
-# ユーザが "end" と入力するまでフォルダ名を受け付ける
-while True:
-    folder_name = input("Enter the folder name to merge (or 'end' to stop): ").strip()
-    if folder_name.lower() == "end":
-        break
-    folder_path = os.path.join(script_directory, folder_name)
-    if os.path.exists(folder_path):
-        folder_paths.append(folder_path)
+def save_merged_file(pdf_merger):
+    # 保存ファイル名を入力
+    output_file_path = filedialog.asksaveasfilename(
+        defaultextension=".pdf",
+        filetypes=[("PDF files", "*.pdf")],
+        title="Save merged PDF as"
+    )
+    if output_file_path:
+        with open(output_file_path, 'wb') as f:
+            pdf_merger.write(f)
+        messagebox.showinfo("Success", "PDF files merged successfully!")
     else:
-        print(f"Error: Folder '{folder_name}' does not exist.")
+        messagebox.showwarning("Cancelled", "Save operation cancelled.")
 
-# 結合するPDFファイルのリストを初期化する
-pdf_files = []
+def merge_pdfs():
+    # PDFファイルを選択
+    file_paths = select_files()
+    if not file_paths:
+        return
+    
+    pdf_merger = PdfMerger()
 
-# 各フォルダ内のPDFファイルを取得する
-for folder_path in folder_paths:
-    for root, dirs, files in os.walk(folder_path):
-        for file in files:
-            if file.endswith(".pdf"):
-                pdf_files.append(os.path.join(root, file))
+    # ファイルを結合
+    for file_path in file_paths:
+        pdf_merger.append(file_path)
+    
+    # 結合後のファイルを保存
+    save_merged_file(pdf_merger)
 
-# 取得したPDFファイルを結合する
-pdf_file_merger = PdfMerger()
-for pdf_file in pdf_files:
-    with open(pdf_file, 'rb') as f:
-        pdf_file_merger.append(f)
+# メインウィンドウを作成
+root = tk.Tk()
+root.title("PDF Merger")
+root.geometry("300x150")
 
-# 結合後のファイル名を入力
-output_file_name = input("Enter the output PDF file name: ")
+# 説明ラベル
+label = tk.Label(root, text="Select PDF files to merge:")
+label.pack(pady=10)
 
-# 結合したファイルを保存
-output_file_path = os.path.join(script_directory, output_file_name)
-with open(output_file_path, 'wb') as f:
-    pdf_file_merger.write(f)
+# 結合ボタン
+merge_button = tk.Button(root, text="Merge PDFs", command=merge_pdfs)
+merge_button.pack(pady=20)
+
+# メインループを開始
+root.mainloop()

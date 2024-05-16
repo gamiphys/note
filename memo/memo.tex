@@ -37,21 +37,57 @@
 
 \begin{document}
 
-\title{memo}
-\author{大上由人}
-\date{\today}
-\maketitle
+\section*{4 正規直交標構を使う方法 (orthonormal frame)}
 
-\section{須藤相対論問題6.10}
-\subsection{個数密度}
-個数密度を求める。$f(q)$が、運動量空間で考えたときの、粒子の状態の数の密度である(分布関数)ことを踏まえると、個数密度は
-\begin{align}
-    n = \frac{1}{h^3}g \int f(q)d^3q
-\end{align}
-と書ける。ここで、$g$はスピンの自由度である。これを極座標系に変換して、角度成分の計算を処理することで、
-\begin{align}
-    n = \frac{g}{h^3} 4\pi \int_0^\infty f(q)q^2dq
-\end{align}
-となる。
+曲面 $\vb{p} = \vb{p}(u, v)$ が与えられたとき、$\mathcal{S}$ の各点で接平面内の正規直交基底 $\mathbf{e}_1, \mathbf{e}_2$ をとる：
+
+\begin{equation}
+\mathbf{e}_1 \cdot \mathbf{e}_1 = \mathbf{e}_2 \cdot \mathbf{e}_2 = 1, \quad \mathbf{e}_1 \cdot \mathbf{e}_2 = 0
+\end{equation}
+
+\begin{equation}
+\mathbf{e}_3 = \mathbf{e}_1 \times \mathbf{e}_2 \quad : \text{単位法線ベクトル}
+\end{equation}
+
+$(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$ は右手系 $\in SO(3)$
+
+\textbf{Rem.} $\mathbf{e}_1, \mathbf{e}_2$ の与え方の一例としては $\vb{p}_u, \vb{p}_v$ からシュミットの直交化法を使うとよい。
+
+\begin{equation}
+\mathbf{e}_1 = \frac{\vb{p}_u}{|\vb{p}_u|}, \quad \mathbf{e}_2 = \frac{\vb{p}_v - (\vb{p}_v \cdot \mathbf{e}_1)\mathbf{e}_1}{|\vb{p}_v - (\vb{p}_v \cdot \mathbf{e}_1)\mathbf{e}_1|}
+\end{equation}
+
+\subsection*{基底のとりかえ行列}
+
+\begin{equation}
+(\vb{p}_u, \vb{p}_v) = (\mathbf{e}_1, \mathbf{e}_2) A \quad A = 
+\begin{pmatrix}
+a_1^1 & a_1^2 \\
+a_2^1 & a_2^2
+\end{pmatrix}
+\end{equation}
+
+\begin{equation}
+\begin{cases}
+\vb{p}_u = a_1^1 \mathbf{e}_1 + a_1^2 \mathbf{e}_2 \\
+\vb{p}_v = a_2^1 \mathbf{e}_1 + a_2^2 \mathbf{e}_2
+\end{cases}
+\end{equation}
+
+\textbf{Rem + 仮定} $\mathbf{e}_1, \mathbf{e}_2$ は $\det A > 0$ となるようにとる。
+
+$\det A < 0$ のときは $\mathbf{e}_1, \mathbf{e}_2$ を入れ替えて改めて $\mathbf{e}_1, \mathbf{e}_2$ とすればよい。このとき $\mathbf{e}_3 = \mathbf{e}$ となる。
+
+\begin{equation}
+d\vb{p} = \vb{p}_u du + \vb{p}_v dv = (a_1^1 du + a_1^2 dv) \mathbf{e}_1 + (a_2^1 du + a_2^2 dv) \mathbf{e}_2
+\end{equation}
+
+\begin{equation}
+d\vb{p} = \theta^1 \mathbf{e}_1 + \theta^2 \mathbf{e}_2
+\end{equation}
+
+\begin{equation}
+I = d\vb{p} \cdot d\vb{p} = \theta^1 \theta^1 + \theta^2 \theta^2
+\end{equation}
 
 \end{document}

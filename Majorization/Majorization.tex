@@ -55,13 +55,19 @@
 \begin{itembox}[l]{\textbf{Def:free state/free operation}}
     何のコストもなしに得られる状態をfree state、何のコストもなしに行える操作をfree operationという。
 \end{itembox}
-熱力学においては、仕事や、非平衡状態がresourceである。というのも、仕事によって非平衡状態を作り出すことができ、また、非平衡状態から仕事を取り出すことができるからである。\\
-また、Gibbs分布(カノニカル分布)は、free stateであり、緩和過程(GPM)はfree operationである。\\
+熱力学リソース理論においては、熱浴に接触した系の状態や遷移を考える。以下が、free state/free operation/resourceの対応である。\\
+\begin{itemize}
+    \item free state:熱平衡状態
+    \item free operation:緩和過程(GPM)
+    \item resource:仕事/非平衡状態
+\end{itemize}
 
 さらに、monotoneと呼ばれる概念も重要である。\\
 \begin{itembox}[l]{\textbf{Def:monotone}}
     free operationに対して、単調に変化する量をmonotoneという。とくに、ある操作が可能かどうかの必要十分条件を与えるmonotoneをcomplete monotoneという。
 \end{itembox}
+我々の目的は、complete monotoneを見つけて、遷移可能性を評価することである。\\
+
 \textbf{ex:従来の熱力学}\\
 従来の熱力学におけるresource、free state、free operation、(complete) monotoneは以下のように対応する。\\
 \begin{itemize}

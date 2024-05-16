@@ -1,0 +1,82 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{情報幾何学の基礎}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{多様体のアフィン接続}
+\subsection{ベクトル場の共変微分}
+一般の多様体上では、共変微分を用いて平行移動を定義する。以下では初めに共変微分の定義を述べる。
+
+\begin{itembox}[l]{\textbf{Def:共変微分}}
+    Mを多様体とする。以下の4条件を満たす写像
+    \begin{equation}
+        \nabla : \mathfrak{X}(M) \times \mathfrak{X}(M) \to \mathfrak{X}(M)
+    \end{equation}
+    をM上の共変微分という。
+    \begin{enumerate}
+        \item 
+        \begin{equation}
+            \nabla_X(Y+Z) = \nabla_XY + \nabla_XZ
+        \end{equation}
+
+        \item
+        \begin{equation}
+            \nabla_X(fY) = (Xf)Y + f\nabla_XY
+        \end{equation}
+
+        \item
+        \begin{equation}
+            \nabla_{X+Y}Z = \nabla_XZ + \nabla_YZ
+        \end{equation}
+
+        \item
+        \begin{equation}
+            \nabla_{fX}Y = f\nabla_XY
+        \end{equation}
+    \end{enumerate}
+\end{itembox}
+\textbf{ex:Euclid空間}\\
+%時間がある時に書く
+
+
+
+\end{document}
