@@ -49,7 +49,7 @@
 \begin{itembox}[l]{\textbf{Def:共変微分}}
     Mを多様体とする。以下の4条件を満たす写像
     \begin{equation}
-        \nabla : \mathfrak{X}(M) \times \mathfrak{X}(M) \to \mathfrak{X}(M)
+        \nabla : \mathfrak{X}(M) \times \mathfrak{X}(M) \to \mathfrak{X}(M) \quad (X,Y) \mapsto \nabla_XY
     \end{equation}
     をM上の共変微分という。
     \begin{enumerate}
@@ -77,6 +77,491 @@
 \textbf{ex:Euclid空間}\\
 %時間がある時に書く
 
+このとき、共変微分$\nabla_XY$は、テンソル性を満たさないが、これらの差はテンソル性を持つ。\\
+$\because$\\
+\begin{align}
+    S(X,Y) &= \nabla_XY - \nabla'_{X}Y\\
+\end{align}
+に対して、任意の$f,g \in C^\infty(M)$に対して、
+\begin{align}
+    S(fX,gY) &= \nabla_{fX}(gY) - \nabla'_{fX}(gY)\\
+    &= f\nabla_X(gY) - f\nabla'_{X}(gY)\\
+    &= f((Xg)Y + g\nabla_XY) - f((Xg)Y + g\nabla'_{X}Y)\\
+    &= fg\nabla_XY - fg\nabla'_{X}Y\\
+    &= fgS(X,Y)
+\end{align}
+が成り立つ。\hfill\qedsymbol
+したがって、$S$は$(1,2)$型のテンソル場である。したがって、$M$上に何か一つ共変微分を固定して、それとの差を考えると、$M$上の共変微分全体と、$(1,2)$型のテンソル場全体は、同型である。すなわち、
+\begin{equation}
+ \{\text{M上の共変微分全体}\} \simeq \nabla^{0} +\{\text{（1,2）型のテンソル場全体}\}
+\end{equation}
+となる。\\
 
+次に、共変微分の局所座標表示を考える。
+\begin{itembox}[l]{\textbf{Def:接続係数}}
+    多様体$M$の座標近傍$(U;x^1,\cdots,x^n)$において、
+    \begin{equation}
+        \nabla_{\pdv{x^i}}\pdv{x^j} = \Gamma_{ij}^k\pdv{x^k}
+    \end{equation}
+    によって定義される、$n^3$個の関数$\Gamma_{ij}^k$を接続係数という。
+\end{itembox}
+これは、局所座標の取り方に依存することに注意する。別の座標近傍でも同様に、
+\begin{equation}
+    \nabla_{\pdv{\xi^a}}\pdv{\xi^b} = \Gamma_{ab}^c\pdv{\xi^c}
+\end{equation}
+により、接続係数の組$\{\Gamma_{ab}^c\}$が定義される。このとき、座標変換則を考える。
+\begin{itembox}[l]{\textbf{Prop:接続係数の座標変換}}
+    接続係数$\Gamma_{ij}^k$と$\Gamma_{ab}^c$の間には、次の関係が成り立つ。
+    \begin{equation}
+        \Gamma_{ij}^k = \pdv{\xi^a}{x^i}\pdv{\xi^b}{x^j}\pdv{x^k}{\xi^c}\Gamma_{ab}^c + \pdv[2]{\xi^c}{x^i}{x^j}\pdv{x^k}{\xi^c}
+    \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    \nabla_{\pdv{x^i}}\pdv{x^j} &= \Gamma_{ij}^k\pdv{x^k}\\
+    &= \Gamma_{ij}^k\pdv{\xi^c}{x^k}\pdv{\xi^c}\\
+\end{align}
+である、一方、
+\begin{align}
+    \nabla_{\pdv{x^i}}\pdv{x^j} &= \nabla_{\pdv{\xi^b}}\pdv{\xi^b}\\
+    &= \pdv[2]{\xi^b}{x^i}{x^j}\pdv{\xi^b} + \pdv{\xi^b}{x^j}\nabla_{\pdv{x^i}}\pdv{\xi^b}\\
+    &= \pdv[2]{\xi^b}{x^i}{x^j}\pdv{\xi^b} + \pdv{\xi^b}{x^j}\nabla_{(\pdv{\xi^a}{x^i}\pdv{xi^a})}\pdv{\xi^b}\\
+    &= \pdv[2]{\xi^b}{x^i}{x^j}\pdv{\xi^b} + \pdv{\xi^b}{x^j}\pdv{\xi^a}{x^i}\nabla_{\pdv{\xi^a}}\pdv{\xi^b}\\
+    &= \pdv[2]{\xi^b}{x^i}{x^j}\pdv{\xi^b} + \pdv{\xi^b}{x^j}\pdv{\xi^a}{x^i}\Gamma_{ab}^c\pdv{\xi^c}\\
+    &= \pdv[2]{\xi^c}{x^i}{x^j}\pdv{\xi^c} + \pdv{\xi^b}{x^j}\pdv{\xi^a}{x^i}\Gamma_{ab}^c\pdv{\xi^c}\\
+    &=(\pdv[2]{\xi^c}{x^i}{x^j} + \pdv{\xi^a}{x^i}\pdv{\xi^b}{x^j}\Gamma_{ab}^c)\pdv{\xi^c}
+\end{align}
+であるから、
+\begin{equation}
+    \Gamma_{ij}^k \pdv{\xi^c}{x^k} = \pdv[2]{\xi^c}{x^i}{x^j} + \pdv{\xi^a}{x^i}\pdv{\xi^b}{x^j}\Gamma_{ab}^c
+\end{equation}
+が成り立つ。したがって、
+\begin{equation}
+    \Gamma_{ij}^k = \pdv{\xi^a}{x^i}\pdv{\xi^b}{x^j}\pdv{x^k}{\xi^c}\Gamma_{ab}^c + \pdv[2]{\xi^c}{x^i}{x^j}\pdv{x^k}{\xi^c}
+\end{equation}
+が成り立つ。\hfill\qedsymbol
+
+ところで、共変微分がテンソル性を満たさないことは上の座標変換の第二項が現れることによっても分かる。
+
+\subsection{アフィン接続}
+\begin{itembox}[l]{\textbf{Def:アフィン接続}}
+    多様体$M$の各座標近傍に、上の座標変換則を満たすような$C^\infty(M)$上の関数の組$\{\Gamma_{ij}^k\}$を与えることを、$M$にアフィン接続を与えるといい、
+    $\{\Gamma_{ij}^k\}$を接続係数という。
+\end{itembox}
+以下、アフィン接続を用いて、平行および平行移動を定義する。
+\begin{itembox}[l]{\textbf{Def:平行}}
+    多様体$M$にアフィン接続が与えられているとする。$M$上のなめらかな曲線
+    \begin{equation}
+        C = \{p(t) ; t \in [a,b]\}
+    \end{equation}
+    に沿って定義されたベクトル場$Z=\{Z_{p(t)}\}$が、$C$に沿って平行であるとは、
+    \begin{equation}
+        \nabla_{\dot{p}(t)}Z_{p(t)} = 0
+    \end{equation}
+    が成り立つことをいう。ここで、
+    \begin{equation}
+        \dot{p}(t) = \dv{x^i}{t}\pdv{x^i}
+    \end{equation}
+    である。
+\end{itembox}
+\textbf{Prf}\\
+上の平行条件を局所座標表示する。
+\begin{equation}
+    Z_{p(t)} = Z^i\pdv{x^i}
+\end{equation}
+と成分表示すると、
+\begin{align}
+    \nabla_{\dot{p}(t)}Z &= \nabla_{\dv{x^i}{t} \pdv{x^i}} \left( Z^j \pdv{x^j} \right) \\
+    &= \dv{x^i}{t} \left( \pdv{Z^j}{x^i} \pdv{x^j} + \dv{x^j}{t} Z^j \nabla_{\pdv{x^i}} \pdv{x^j} \right) \\
+    &= \left( \dot{Z}^k + \dot{x}^i Z^j \Gamma_{ij}^k \right) \pdv{x^k}
+\end{align}
+となる。したがって、
+\begin{equation}
+    \label{eq:parallel_condition}
+    \dot{Z}^k + \dot{x}^iZ^j\Gamma_{ij}^k = 0
+\end{equation}
+が成り立つ。
+
+\textbf{ex:測地線}\\
+%時間がある時に書く
+
+\begin{itembox}[l]{\textbf{Def:平行移動}}
+    多様体$M$上のなめらかな曲線$C = \{p(t) ; t \in [a,b]\}$と、$\vb{p} \in T_{p(a)}M$が任意に与えられたとき、\ref{eq:parallel_condition}
+    の解として定まるベクトル場$Z$の$t=b$における値$Z_{p(b)}$を、$\vb{p}$を$t=a$から$t=b$に沿って平行移動して得られた接ベクトルという。\\
+    また、この対応は全単射線形写像となり、\footnote{微分方程式の解の一意性から従う。}、
+    \begin{equation}
+        \label{eq:parallel_transport}
+        \Pi_C : T_{p(a)}M \to T_{p(b)}M
+    \end{equation}
+    を定める。これを、曲線$C$に沿った平行移動という。
+\end{itembox}
+このとき、平行条件は、
+\begin{equation}
+    \vb{v} \in T_{p(a)}M \parallel \vb{w} \in T_{p(b)}M \Leftrightarrow \Pi_C \vb{v} = \vb{w}
+\end{equation}
+と書ける。\\
+
+\begin{itembox}[l]{\textbf{Thm:共変微分の幾何的意味}}
+    多様体$M$にアフィン接続が与えられているとし、点$p(a)\in M$を通るような$M$のなめらかな曲線
+    \begin{equation}
+        C = \{p(t) ; t \in [a-\epsilon,a+\epsilon]\}
+    \end{equation}
+    を考える。任意のベクトル場$Y \in \mathfrak{X}(M)$に対して、
+    \begin{equation}
+        (\nabla_{\dot{p}(t)} Y)_{p(a)} = \underset{t \to a}{\lim} \frac{1}{t-a}(\Pi_{p(a)}^{p(t)}Y_{p(t)} - Y_{p(a)})
+    \end{equation}
+    が成り立つ。ここで、$\Pi_{p(a)}^{p(t)}$は、$p(t)$から$p(a)$に沿って平行移動する写像である。
+\end{itembox}
+\textbf{Prf}\\
+%TODO:証明を書く
+
+\subsection{曲率}
+平行移動が、経路に依存することを示すために、曲率を導入する。以降、$\pdv{x^i}$を$\partial{i}$と略記する。
+
+\begin{itembox}[l]{\textbf{Def:曲率テンソル場}}
+    多様体$M$にアフィン接続が与えられているとする。$M$上で定義された3重$C^\infty(M)$-テンソル場$R$を、
+    \begin{align}
+        R : &\mathfrak{X}(M) \times \mathfrak{X}(M) \times \mathfrak{X}(M) \to \mathfrak{X}(M) \\
+        & (X,Y,Z) \mapsto \nabla_X(\nabla_YZ) - \nabla_Y(\nabla_XZ) - \nabla_{[X,Y]}Z
+    \end{align}
+    によって定義する。このテンソル場を、接続$\nabla$の曲率テンソル場という。
+
+\end{itembox}
+局所座標表示すると、
+\begin{align}
+    R(\partial{i},\partial{j},\partial{k}) &= R_{ijk}^l\partial{l}\\
+\end{align}
+となる。右辺を具体的に求めると、
+%TODO:具体的な計算を書く
+よって、
+\begin{equation}
+    R_{ijk}^l = \partial{i}\Gamma_{jk}^l - \partial{j}\Gamma_{ik}^l + \Gamma_{im}^l\Gamma_{jk}^m - \Gamma_{jm}^l\Gamma_{ik}^m
+\end{equation}
+となる。
+%TODO:ここにも追記する。
+
+\begin{itembox}[l]{\textbf{Prop:曲率と平行移動}}
+    曲率が0であることと、平行移動が経路に依存しないことは同値である。
+\end{itembox}
+\textbf{Prf}\\
+%TODO:証明を書く
+
+\subsection{捩率}
+\begin{itembox}[l]{\textbf{Def:捩率}}
+    アフィン接続$\nabla$をもつ多様体$M$上で定義された二重$C^\infty(M)$-テンソル場$T$を、
+    \begin{align}
+        T : &\mathfrak{X}(M) \times \mathfrak{X}(M) \to C^\infty(M) \\
+        & (X,Y) \mapsto \nabla_XY - \nabla_YX - [X,Y]
+    \end{align}
+    によって定義する。このテンソル場を、接続$\nabla$の捩率テンソル場という。
+\end{itembox}
+局所座標表示すると、
+\begin{align}
+    T(\partial{i},\partial{j}) &= T_{ij}^k\partial{k}\\
+\end{align}
+と定義される。$T_{ij}^k$を具体的に求める。左辺について、
+\begin{align}
+    T(\partial{i},\partial{j}) &= \nabla_{\partial{i}}\partial{j} - \nabla_{\partial{j}}\partial{i} - [\partial{i},\partial{j}]\\
+    &= \nabla_{\partial{i}}\partial{j} - \nabla_{\partial{j}}\partial{i} - 0\\
+    &= \Gamma_{ij}^k\partial{k} - \Gamma_{ji}^k\partial{k}\\
+    &= (\Gamma_{ij}^k - \Gamma_{ji}^k)\partial{k}
+\end{align}
+となるから、
+\begin{equation}
+    T_{ij}^k = \Gamma_{ij}^k - \Gamma_{ji}^k
+\end{equation}
+となる。\\
+捩率の幾何的な意味を見るために、曲率のときと同様に、微小四辺形をに沿って接ベクトルを平行移動してみる。
+%TODO:曲率のときと同様に、微小四辺形をに沿って接ベクトルを平行移動してみる。
+
+\subsection{平坦な多様体とアフィン座標系}
+\begin{itembox}[l]{\textbf{Def:$\nabla$-平坦}}
+    多様体$M$にアフィン接続$\nabla$が与えられているとする。このとき、$\nabla$が平坦であるとは、$R$と$T$が恒等的に0であることをいう。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:$\nabla$-アフィン座標系}}
+    多様体$M$にアフィン接続$\nabla$が与えられているとする。$M$の座標近傍$(U;x^1,\cdots,x^n)$において、接続係数$\{\Gamma_{ij}^k\}$がすべて恒等的に0であるとき、
+    この座標近傍を$\nabla$-アフィン座標近傍といい、局所座標系$(x^i)$を$\nabla$-アフィン座標系という。
+\end{itembox}
+
+\textbf{Rem}\\
+平坦であるという性質は(曲率や捩率がテンソルで定義されているのだから)座標の取り方に依らないが、アフィン座標系かどうかは座標の取り方に依存する。\\\\
+
+\begin{itembox}[l]{\textbf{Thm:局所アフィン座標系の存在}}
+    多様体$M$にアフィン接続$\nabla$が与えられているとする。このとき、以下の二つは同値である。
+    \begin{enumerate}
+        \item $M$は、$\nabla$-平坦である。
+        \item $M$の任意の点$p \in M$において、$\nabla$-アフィン座標近傍が存在する。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+(2) $\Rightarrow$ (1)\\
+接続係数が恒等的に0となる局所座標系があったならば、曲率と捩率の定義より、その座標系での曲率と捩率は0である。また、曲率と捩率はテンソル場であるから、それは座標系に依らない。したがって、$\nabla$は平坦である。\\
+(1) $\Rightarrow$ (2)\\
+任意の座標近傍$(U;x^1,\cdots,x^n)$に対して、ある座標近傍$(V;\xi^1,\cdots,\xi^n)$が存在して、$U \cap V$で、
+\begin{equation}
+    0=\Gamma_{ab}^c = \pdv{x^i}{\xi^a}\pdv{x^j}{\xi^b}\pdv{\xi^c}{x^k}\Gamma_{ij}^k + \pdv[2]{x^l}{\xi^a}{\xi^b}\pdv{\xi^c}{x^l} \quad \forall a,b,c
+\end{equation}
+が成り立つことを示す。\\
+
+\begin{equation}
+    \frac{\partial x^\ell}{\partial \xi^b} \frac{\partial \xi^b}{\partial x^j} = \delta^\ell_j
+    \end{equation}
+    
+    の両辺を $x^i$ で偏微分して
+    \begin{equation}
+    \frac{\partial^2 x^\ell}{\partial \xi^a \partial \xi^b} \frac{\partial \xi^a}{\partial x^i} \frac{\partial \xi^b}{\partial x^j} + \frac{\partial x^\ell}{\partial \xi^b} \frac{\partial^2 \xi^b}{\partial x^i \partial x^j} = 0
+    \end{equation}
+    
+    だから，両辺に Jacobi 行列 $\frac{\partial \xi^a}{\partial x^i}$ と $\frac{\partial \xi^b}{\partial x^j}$ の逆行列を掛けて
+    \begin{equation}
+    \frac{\partial^2 x^\ell}{\partial \xi^a \partial \xi^b} = -\frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \frac{\partial x^\ell}{\partial \xi^d} \frac{\partial^2 \xi^d}{\partial x^i \partial x^j}
+    \end{equation}
+    
+    この式を (3.20) に代入すれば
+    \begin{align}
+    0 &= \frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \frac{\partial \xi^c}{\partial x^k} \Gamma^k_{ij} - \left( \frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \frac{\partial x^\ell}{\partial \xi^d} \frac{\partial^2 \xi^d}{\partial x^i \partial x^j} \right) \frac{\partial \xi^c}{\partial x^\ell} \\
+    &= \frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \frac{\partial \xi^c}{\partial x^k} \Gamma^k_{ij} - \frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \delta^d \frac{\partial^2 \xi^d}{\partial x^i \partial x^j} \\
+    &= \frac{\partial x^i}{\partial \xi^a} \frac{\partial x^j}{\partial \xi^b} \left( \frac{\partial \xi^c}{\partial x^k} \Gamma^k_{ij} - \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} \right)
+    \end{align}
+    
+    従って (3.20) は次式と同値である。
+    \begin{equation}
+    \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} = \frac{\partial \xi^c}{\partial x^k} \Gamma^k_{ij}
+    \end{equation}
+    
+    あるいはこれを連立方程式の形で書けば
+    \begin{align}
+        \frac{\partial \xi^c}{\partial x^k} &= \theta^c_k \\
+        \pdv{\xi^c}{x^i}{x^j} &= \theta^c_k \Gamma^k_{ij}
+    \end{align}
+
+この連立偏微分方程式の可積分条件は
+    \begin{align}
+        \pdv[2]{\xi^c}{x^i}{x^j} &= \pdv[2]{\xi^c}{x^j}{x^i} \\
+        \pdv[2]{\theta^c_i}{x^i}{x^j} &= \pdv[2]{\theta^c_k}{x^j}{x^i}
+    \end{align}
+となる。これの第1式を同値変形していくと、
+\begin{equation}
+    \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} = \frac{\partial^2 \xi^c}{\partial x^j \partial x^i}
+\end{equation}
+\begin{equation}
+    \Leftrightarrow \frac{\partial}{\partial x^i} \theta^c_j = \frac{\partial}{\partial x^j} \theta^c_i
+\end{equation}
+\begin{equation}
+    \Leftrightarrow \theta^c_k \Gamma^k_{ij} = \theta^c_k \Gamma^k_{ji}
+\end{equation}
+\begin{equation}
+    \Leftrightarrow \theta^c_k T^k_{ij} = 0
+\end{equation}
+同様に (3.23) の第 2 式を同値変形していくと，
+\begin{equation}
+    \frac{\partial^2 \theta^c_k}{\partial x^i \partial x^j} = \frac{\partial^2 \theta^c_k}{\partial x^j \partial x^i} \iff \frac{\partial}{\partial x^i} (\theta^c_l \Gamma^l_{jk}) = \frac{\partial}{\partial x^j} (\theta^c_l \Gamma^l_{ik})
+\end{equation}
+
+\begin{equation}
+    \iff (\theta^c_m \Gamma^m_{il}) \Gamma^l_{jk} + \theta^c_l \left( \partial_i \Gamma^l_{jk} \right) = (\theta^c_m \Gamma^m_{jl}) \Gamma^l_{ik} + \theta^c_l \left( \partial_j \Gamma^l_{ik} \right)
+\end{equation}
+
+\begin{equation}
+    \iff \theta^c_m \left\{ \Gamma^m_{il} \Gamma^l_{jk} + \partial_i \Gamma^m_{jk} - \Gamma^m_{jl} \Gamma^l_{ik} - \partial_j \Gamma^m_{ik} \right\} = 0
+\end{equation}
+
+\begin{equation}
+    \iff \theta^c_m R^m_{ijk} = 0
+\end{equation}
+
+さて，仮定より \(T = 0\) かつ \(R = 0\) であるから，連立微分方程式 (3.22) は可積分であることが分かる。
+%TODO:続きを書く
+
+\begin{itembox}[l]{\textbf{Thm:アフィン座標系の自由度}}
+    多様体$M$に座標近傍$(U;x^i)$と$(V;\xi^a)$が与えられていて、$(x^i)$が局所$\nabla$-アフィン座標系であるとする。このとき、
+    \begin{equation}
+        (V;\xi^a)\text{が局所$\nabla$-アフィン座標系である} \Leftrightarrow \exists A \in GL(n,\mathbb{R}) \text{ s.t. } \xi^i = A^i_jx^j + b_i
+    \end{equation}
+    が成り立つ。ここで、$GL(n,\mathbb{R})$は$n$次正則行列全体の集合であり、$b_i$は定数である。
+\end{itembox}
+\textbf{Prf}\\
+接続係数の座標変換則 (3.5)、すなわち
+\begin{equation}
+    \Gamma^k_{ij} = \frac{\partial \xi^a}{\partial x^i} \frac{\partial \xi^b}{\partial x^j} \frac{\partial x^k}{\partial \xi^c} \Gamma^c_{ab} + \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} \frac{\partial x^k}{\partial \xi^c}
+\end{equation}
+
+において、\(\Gamma^k_{ij} = 0\) であるという条件のもとで \(\Gamma^c_{ab} = 0\) となるための必要十分条件は、第二項が消えることである。すなわち、
+\begin{equation}
+    \frac{\partial^2 \xi^c}{\partial x^i \partial x^j} = 0
+\end{equation}
+
+であり、これは (3.24) と同値である。またこのとき、\(A\) は座標変換の Jacobi 行列なので、特に正則となる。\hfill\qedsymbol
+%TODO:最後だけ怪しい
+
+\subsection{Riemann接続}
+\begin{itembox}[l]{\textbf{Def:Riemann多様体}}
+    $M$上で定義された(0,2)型テンソル場$g$であって、各点$p \in M$で、$g_p$が内積を定めるとき、$g$を$M$上のRiemann計量という。このとき、$(M,g)$をRiemann多様体という。
+    ここで、
+    \begin{equation}
+        g_{ij} = g(\partial{i},\partial{j})
+    \end{equation}
+    は正定値対称行列となる。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:Riemann接続/Levi-Civita接続/Levi-Civita平行移動}}
+    Riemann多様体$(M,g)$の各座標近傍$(U;x^1,\cdots,x^n)$において、
+    \begin{equation}
+        \Gamma_{ij,k} = \Gamma_{ij}^l g_{lk}=\frac{1}{2}(\partial_i g_{jk} + \partial_j g_{ki} - \partial_k g_{ij})
+    \end{equation}
+    により定まる$M$のアフィン接続を、Levi-Civita接続という。また、この接続が定める$M$上の平行移動をLevi-Civita平行移動という。  
+
+\end{itembox}
+%TODO:座標変換則に関する記述
+
+\begin{itembox}[l]{\textbf{Thm:平行移動に対する内積の不変性}}
+    なめらかな曲線$C = \{p(t) ; t \in [a,b]\}$に沿ったLevi-Civita平行移動によって、内積は不変である。すなわち、
+    \begin{equation}
+        g_p(b)\left(\Pi_b^a \vb{v},\Pi_b^a \vb{w}\right) = g_p(a)(\vb{v},\vb{w})
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    \dv{t}g_p(t)(Y_p(t),Z_p(t)) =0
+\end{align}
+を示す。\\
+
+局所座標系$(x^i)$において、$Y, Z$ を
+
+\begin{equation}
+    Y_{p(t)} = Y^i(t) (\partial_i)_{p(t)}, \quad Z_{p(t)} = Z^j(t) (\partial_j)_{p(t)}
+\end{equation}
+
+と成分表示すると、
+
+\begin{equation}
+    \frac{d}{dt} g_{p(t)} (Y_{p(t)}, Z_{p(t)}) = \frac{d}{dt} [g_{ij}(p(t)) Y^i(t) Z^j(t)] = (\partial_k g_{ij}) \dot{x}^k Y^i Z^j + g_{ij} \left( \dot{Y}^i Z^j + Y^i \dot{Z}^j \right) \tag{3.26}
+\end{equation}
+
+ここで $Y, Z$ は $C$ に沿って平行と仮定しているから、(3.9) より
+
+\begin{equation}
+    \dot{Y}^i = -\Gamma_{k\ell}^i \dot{x}^k Y^\ell, \quad \dot{Z}^j = -\Gamma_{k\ell}^j \dot{x}^k Z^\ell
+\end{equation}
+
+を満たす。これらを上式に代入して整理すると、
+
+\begin{equation}
+    (3.26) = (\partial_k g_{ij} - \Gamma_{ki,j} - \Gamma_{kj,i}) \dot{x}^k Y^i Z^j = 0
+\end{equation}
+
+を得る。ここで最後の等号では、接続係数の定義式 (3.25) と、対称性 $g_{ij} = g_{ji}$ を用いた。\hfill\qedsymbol
+%TODO:ここはもう少し詳しく書く
+
+\begin{itembox}[l]{\textbf{Prop:計量的}}
+    計量が平行移動で不変であるとき、接続を計量的であるという。ここで、接続$\nabla$が計量的であるための必要十分条件は、
+    \begin{equation}
+        \partial_k g_{ij} = \Gamma_{ki,j} + \Gamma_{kj,i} \quad \forall i,j,k
+    \end{equation}
+    が成り立つことである。座標系に依らない形で書くと、
+    \begin{equation}
+        X_g(Y, Z) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z) \quad (X, Y, Z \in \mathfrak{X}(M))
+    \end{equation}
+    と書ける。
+\end{itembox}
+上の定理からわかる通り、Levi-Civita接続は計量的である。\\
+
+\begin{itembox}[l]{\textbf{Thm:Riemann接続の特徴付け}}
+    \begin{equation}
+        \nabla \text{がRiemann接続である} \Leftrightarrow \nabla \text{が計量的であるかつ} T=0
+    \end{equation}
+
+\end{itembox}
+必要性は上の定理で証明した。十分性は、計量係数の条件 (3.27) のインデックスを巡回的に入れ替えて作った3つの式
+\begin{align}
+    \partial_i g_{jk} &= \Gamma_{ij,k} + \Gamma_{ik,j} \\
+    \partial_j g_{ki} &= \Gamma_{jk,i} + \Gamma_{ji,k} \\
+    \partial_k g_{ij} &= \Gamma_{ki,j} + \Gamma_{kj,i}
+\end{align}
+
+を用い、さらに接続の対称性 \(\Gamma_{ij,k} = \Gamma_{ji,k}\) に気をつければ
+\begin{align}
+    \partial_i g_{jk} + \partial_j g_{ki} - \partial_k g_{ij} &= (\Gamma_{ij,k} + \Gamma_{ik,j}) + (\Gamma_{jk,i} + \Gamma_{ji,k}) - (\Gamma_{ki,j} + \Gamma_{kj,i}) \\
+    &= 2 \Gamma_{ij,k}
+\end{align}
+
+となって Riemann 接続の定義式 (3.25) が再現される。\hfill\qedsymbol
+
+\subsection{部分多様体}
+\begin{itembox}[l]{\textbf{Def:部分多様体}}
+    $m<n$とする。$n$次元多様体$N$の部分集合$M$が$N$の$m$次元多様体であるとは、$M$の各点$p \in M$において、$p$の近傍$U$と$N$の座標近傍$(V;x^1,\cdots,x^n)$が存在して、
+    \begin{equation}
+        M \cap U = \{p \in U ; x^{m+1} = \cdots = x^n = 0\}
+    \end{equation}
+    と表されることをいう。
+\end{itembox}
+\textbf{ex}\\
+%TODO:例を書く
+
+ここで、$N$から$M$に誘導される多様体としての構造を考える。\\
+\textbf{座標近傍}\\
+$N$の座標近傍$(U,x^1,\cdots,x^n)$に対して、$M$の座標近傍$(U,x^1,\cdots,x^m)$を、$U \cap M$上での$x^i$の制限として定める。\\
+
+\textbf{計量}\\
+$N$のRiemann計量$g$に対して、$M$上の計量は、
+\begin{equation}
+    \tilde{g}_p(\vb{v},\vb{w}) = g_p(\vb{v},\vb{w}) \quad (\vb{v},\vb{w} \in T_pM)
+\end{equation}
+と定める。\\
+
+\textbf{接続}\\
+接続については厄介である。というのも、
+\begin{equation}
+    \nabla_X Y \in T_pN
+\end{equation}
+に対して、$\nabla_X Y$が$M$上のベクトル場であるとは限らないからである。\\
+解決策としては、共変微分したあとのベクトル場を$M$に射影することが考えられる。すなわち、
+\begin{equation}
+    (\tilde{\nabla}_X Y)_p = \pi((\nabla_X Y)_p)
+\end{equation}
+と定める。ここで、$\pi$は$T_pN$から$T_pM$への射影である。具体的な射影の方法としては、計量が用いられる:
+\begin{equation}
+    \tilde(g)(\tilde{\nabla}_X Y, Z) = g(\nabla_X Y, Z) \quad \forall Z \in \mathfrak{X}(M)
+\end{equation}
+を満たすように$\tilde{\nabla}$を定める。%TODO:ここはもう少し詳しく書く
+
+とくに、射影を用いずとも接続を自然に誘導することができる多様体に名前を付けておく。
+\begin{itembox}[l]{\textbf{Def:自己平行部分多様体}}
+    $N$をアフィン接続$\nabla$を持つ多様体とし、$M$を$N$の部分多様体とする。このとき、$M$が自己平行であるとは、
+    \begin{equation}
+        (\nabla_X Y)_p \in T_pM \quad \forall X,Y \in \mathfrak{X}(M)
+    \end{equation}
+    が成り立つことをいう。
+
+\end{itembox}
+また、関連する多様体についても定義しておく。
+
+\begin{itembox}[l]{\textbf{Def:全測地的部分多様体}}
+    $N$をRiemann多様体$(N,g)$とし、$M$を$N$の部分多様体とする。このとき、$M$が全測地的であるとは、
+    任意の点$p \in M$および$p(0) =p$かつ$\dot{p}(0) \in T_pM$を満たす任意の$\nabla$-測地線$p(t)$が、十分小さな$t$に対して$M$に含まれることをいう。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:自己平行ならば全測地的}}
+    $M$が自己平行であれば、$M$は全測地的である。
+\end{itembox}
+\textbf{Prf}\\
+$M$が自己平行であるということは、
+\begin{equation}
+    (\nabla_X Y)_p \in T_pM \quad \forall X,Y \in \mathfrak{X}(M)
+\end{equation}
+となることであった。接続係数が、$\nabla_{\partial{i}}\partial{j} = \Gamma_{ij}^k\partial{k}$と書けることを思い出すと、これは、接続係数$\Gamma_{ij}^k$が任意の$i,j$に対して$m+1 \leq k \leq n$で$0$であることを意味する。
+したがって、初期条件$x^k =\dot{x}^k = 0 \quad (m+1 \leq k \leq n)$での測地線の方程式
+\begin{equation}
+    \ddot{x}^k + \Gamma_{ij}^k \dot{x}^i \dot{x}^j = 0
+\end{equation}
+の解は、$x^k = \dot{x}^k = 0 \quad (m+1 \leq k \leq n)$である。\footnote{解の一意性からわかる}\hfill\qedsymbol
+
+逆は、一般には成り立たない。しかし、次の定理が成り立つ。
+\begin{itembox}[l]{\textbf{Thm:全測地的ならば自己平行}}
+    $N$の捩率が0であるとき、$M$が全測地的であれば、$M$は自己平行である。
+\end{itembox}
+\textbf{Prf}\\
 
 \end{document}

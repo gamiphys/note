@@ -1,12 +1,7 @@
-\documentclass[a3paper, twocolumn, 11pt]{jsarticle} 
- 
-% 「a3paper」でPDFのサイズをA3にしています．実際のポスターのサイズはA1の予定ですが，対応するコマンドが無いので，拡大して印刷します． 
-% 「twocolumn」でPDFを2段組にしています． 
-% 「11pt」でPDFの文字サイズを11ptにしています．10ptでは小さすぎるし，12ptでは大きすぎるような気がしたのでこれにしています． 
-% LuaLaTeXではなくpLaTeXを使いたい人は，「ltjsarticle」を「jsarticle」に書き替えてください． 
- 
+\documentclass[a3paper, twocolumn, 11pt]{jsarticle}
+
 \usepackage[top = 10truemm, bottom = 20truemm, left = 20truemm, right = 20truemm]{geometry} % PDFの余白を調整しています． 
- % 数式
+% 数式
 \usepackage{amsmath,amsfonts}
 \usepackage{amsthm}
 \usepackage{bm}
@@ -31,30 +26,29 @@
 \usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
 
 \pagestyle{empty} % ページ番号を消しています． 
- 
+
 \title{永久機関は存在するか？} % 「タイトル」の部分を実際のポスターのタイトルに書き替えてください． 
 \author{理学部物理学科3年　大上由人} % 「名前」の部分を自分の名前に書き替えてください． 
-\date{\today} % 日付は要らないような気もするのですが，消し方が分からなかったのでとりあえず残しておいています． 
- 
-\begin{document} 
- 
+\date{} % 日付を削除
+
+\begin{document}
+
 \maketitle % 上で設定したタイトル・名前・日付を出力しています． 
- 
+
 \setlength{\columnseprule}{0.1pt} % PDFの真ん中に2段組を分かり易くするための縦の線分を出力しています．「0.1pt」は線の太さです． 
- 
+
 % 以下に本文を書いてください． 
 \section{観察1}
-\begin{itembox}[l]{\textbf{Obs1}}
+\begin{itembox}[l]{\textbf{観察1}}
     どうやら自然界には、可能な操作と不可能な操作があるようだ。
 \end{itembox}
-\textbf{ex}
+\textbf{例}
 \begin{itemize}
-    \item 1.1 断熱容器に対して、仕事をすることで気体の温度を上げることはできるが、逆に気体の温度を下げることはできない。
-    \item 1.2 hogehoge
+    \item 断熱容器に対して、仕事をすることで気体の温度を上げることはできるが、逆に気体の温度を下げることはできない。
 \end{itemize}
 
 \section{断熱到達可能性}
-\begin{itembox}[l]{\textbf{Def1}}
+\begin{itembox}[l]{\textbf{定義1}}
     ある状態から別の状態に、熱のやりとりをせずに到達できるとき、状態間は断熱到達可能であるという。このとき、記号$\rightarrow$を用いて、
     \begin{equation}
         X \rightarrow Y
@@ -68,7 +62,7 @@
 
 やりたいことは、$\rightarrow$がもっているルールを考察し、そのルールを用いて、定量的に状態間の断熱到達可能性を評価することである。
 
-\begin{itembox}[l]{\textbf{Axiom}}
+\begin{itembox}[l]{\textbf{公理}}
     $\rightarrow$は以下のルールを満たす。
     \begin{itemize}
         \item A1: $ X \leftrightarrow X$
@@ -79,11 +73,12 @@
         \item A6: $ (X,\epsilon_1 Z) \rightarrow (Y,\epsilon_2 Z) \Rightarrow X \rightarrow Y$
         \end{itemize}
 \end{itembox}
+
 それぞれのルールがどのようなものかをを見ていく。\\
 
 \section{エントロピー}
 以上のルールをもとに、状態の断熱到達可能性を定量的に評価したい。そこで用いられる量がエントロピーである。\\
-\begin{itembox}[l]{\textbf{Def:エントロピー係数/エントロピー}}
+\begin{itembox}[l]{\textbf{定義:エントロピー係数/エントロピー}}
     ある状態$X_0,X_1$が$X_0 \rightarrow X_1$であるとする。このとき、状態$X$のエントロピー係数$\lambda_X$は、
     \begin{equation}
         \lambda_X = \text{sup} \left\{ ((1-\lambda)X_0 + \lambda X_1) \rightarrow X \right\}
@@ -95,7 +90,7 @@
     で定義される。
 \end{itembox}
 このとき、以下の定理が成り立つことが知られている。
-\begin{itembox}[l]{\textbf{Thm:エントロピー原理}}
+\begin{itembox}[l]{\textbf{定理:エントロピー原理}}
     以下の二つは同値である。
     \begin{itemize}
         \item $\rightarrow$がA1-A6を満たす。
@@ -110,13 +105,17 @@
 
 \section{永久機関は存在するか？}
 以上の議論をもとに、永久機関が存在するかを考える。
-\begin{itembox}[l]{\textbf{Def:第一種永久機関/第二種永久機関}}
+\begin{itembox}[l]{\textbf{定義:第一種永久機関/第二種永久機関}}
     \begin{itemize}
         \item 第一種永久機関: 外部から何も受け取ることなく、仕事をする機械
         \item 第二種永久機関: 熱効率が100\%の機械
     \end{itemize}
 \end{itembox}
 
+\subsection{第一種永久機関}
+第一永久機関は自明に存在しない。というのも、エネルギー保存則から、仕事をする機械は、何かしらのエネルギーを受け取らなければならないからである。\\
 
+\subsection{第二種永久機関}
+第二永久機関が存在しないことを示す。
 
 \end{document}

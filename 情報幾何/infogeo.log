@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  16 MAY 2024 14:34
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 MAY 2024 18:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -707,17 +707,41 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 52.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [1
 
-] (./infogeo.aux)
+]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 96.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 96.
+ [2] [3]
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 191.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 191.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 191.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 191.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 191.
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 191.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 191.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 191.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 191.
+ [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] (./infogeo.aux)
 Package rerunfilecheck Info: File `infogeo.out' has not changed.
-(rerunfilecheck)             Checksum: D51A34FB321316ED2F587B4F82C52701;240.
+(rerunfilecheck)             Checksum: CF1512FF2401145408B1C9CDC861B7E4;834.
  ) 
 Here is how much of TeX's memory you used:
- 22959 strings out of 476677
- 429161 string characters out of 5808165
- 1853484 words of memory out of 5000000
- 43000 multiletter control sequences out of 15000+600000
- 532355 words of font info for 125 fonts, out of 8000000 for 9000
+ 22971 strings out of 476677
+ 429326 string characters out of 5808165
+ 1869484 words of memory out of 5000000
+ 43011 multiletter control sequences out of 15000+600000
+ 533852 words of font info for 132 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,7n,89p,471b,450s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,89p,471b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on infogeo.dvi (1 page, 4624 bytes).
+Output written on infogeo.dvi (13 pages, 77148 bytes).
