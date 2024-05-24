@@ -1001,8 +1001,6 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
@@ -1025,6 +1023,8 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
