@@ -1,18 +1,23 @@
-\contentsline {section}{\numberline {1}リソース理論と確率熱力学の位置づけ}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}確率熱力学的アプローチ}{2}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}リソース理論的アプローチ}{2}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}確率熱力学とリソース理論の関係}{3}{subsection.1.3}%
-\contentsline {section}{\numberline {2}古典的エントロピー及びダイバージェンス}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}古典的状態及び系}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}シャノンエントロピー及びKLダイバージェンス}{6}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}R^^c3^^a9nyiエントロピー及びダイバージェンス}{8}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}フィッシャー情報量}{15}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Classical Majorization}{19}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Majorization}{19}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}d-MajorizationとThermo-Majorization}{21}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}連続変数の場合}{24}{subsection.3.3}%
-\contentsline {section}{\numberline {4}古典熱力学への適応}{26}{section.4}%
-\contentsline {subsection}{\numberline {4.1}第二法則とKLダイバージェンス}{26}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}非平衡状態への遷移の要する仕事}{29}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}熱平衡状態への緩和で取り出せる仕事}{31}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}平衡状態間の遷移における仕事}{31}{subsection.4.4}%
+\contentsline {section}{\numberline {1}リソース理論と確率熱力学の位置づけ}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}確率熱力学的アプローチ}{3}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}リソース理論的アプローチ}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}確率熱力学とリソース理論の関係}{4}{subsection.1.3}%
+\contentsline {section}{\numberline {2}古典的エントロピー及びダイバージェンス}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}古典的状態及び系}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}シャノンエントロピー及びKLダイバージェンス}{7}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}R^^c3^^a9nyiエントロピー及びダイバージェンス}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}フィッシャー情報量}{16}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Classical Majorization}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Majorization}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}d-MajorizationとThermo-Majorization}{22}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}連続変数の場合}{25}{subsection.3.3}%
+\contentsline {section}{\numberline {4}古典熱力学への適応}{27}{section.4}%
+\contentsline {subsection}{\numberline {4.1}第二法則とKLダイバージェンス}{27}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}非平衡状態への遷移の要する仕事}{30}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}熱平衡状態への緩和で取り出せる仕事}{32}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}平衡状態間の遷移における仕事}{32}{subsection.4.4}%
+\contentsline {section}{\numberline {5}量子エントロピー及びダイバージェンス}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}量子状態及び系}{35}{subsection.5.1}%
+\contentsline {section}{\numberline {6}von Neumannエントロピー/量子KLダイバージェンス}{38}{section.6}%
+\contentsline {section}{\numberline {7}量子Majorization}{41}{section.7}%
+\contentsline {section}{\numberline {8}量子熱力学}{41}{section.8}%

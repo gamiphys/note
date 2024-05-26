@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  4 MAY 2024 21:10
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 MAY 2024 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,19 +591,19 @@ LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
 (Font)              Font shape `JY2/mc/m/n' tried instead on input line 199.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 199.
- [5] [6] [7] [8] [9] [10] [11]
-Underfull \hbox (badness 10000) detected at line 457
+ [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15]
+Underfull \hbox (badness 10000) detected at line 593
 []$[]$[]
  []
 
-[12] [13] (./hottaQM.aux) ) 
+[16] (./hottaQM.aux) ) 
 Here is how much of TeX's memory you used:
  15724 strings out of 476677
  317195 string characters out of 5808165
- 1858484 words of memory out of 5000000
+ 1863484 words of memory out of 5000000
  35883 multiletter control sequences out of 15000+600000
  532898 words of font info for 127 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,16n,89p,471b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,17n,89p,471b,433s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on hottaQM.dvi (13 pages, 45088 bytes).
+Output written on hottaQM.dvi (16 pages, 58804 bytes).

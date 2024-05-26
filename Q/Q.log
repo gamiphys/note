@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 MAY 2024 14:47
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 MAY 2024 20:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -530,24 +530,24 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (./Q.aux)
 \openout1 = `Q.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for JY2/mc/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for JT2/mc/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: dvips
@@ -557,26 +557,26 @@ LaTeX Font Info:    ... okay on input line 34.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(51.96848pt, 741.1099pt, 51.96848pt)
-* v-part:(T,H,B)=(25.98424pt, 1117.06303pt, 51.96848pt)
-* \paperwidth=925.30975pt
-* \paperheight=1308.53302pt
-* \textwidth=741.1099pt
-* \textheight=1117.06303pt
-* \oddsidemargin=-20.30151pt
-* \evensidemargin=-20.30151pt
-* \topmargin=-90.27704pt
+* h-part:(L,W,R)=(19.05742pt, 806.932pt, 19.05742pt)
+* v-part:(T,H,B)=(9.52869pt, 1166.42964pt, 19.05742pt)
+* \paperwidth=2523.26477pt
+* \paperheight=3568.29187pt
+* \textwidth=806.932pt
+* \textheight=1166.42964pt
+* \oddsidemargin=-53.21257pt
+* \evensidemargin=-53.21257pt
+* \topmargin=-85.98065pt
 * \headheight=20.0pt
-* \headsep=23.99129pt
+* \headsep=3.23935pt
 * \topskip=12.76065pt
-* \footskip=36.75194pt
-* \marginparwidth=46.23413pt
+* \footskip=16.0pt
+* \marginparwidth=0.0pt
 * \marginparsep=18.49365pt
 * \columnsep=18.49365pt
 * \skip\footins=16.0pt plus 5.0pt minus 2.0pt
-* \hoffset=6.27573pt
-* \voffset=6.27573pt
-* \mag=1095
+* \hoffset=48.06955pt
+* \voffset=48.06955pt
+* \mag=2986
 * \@twocolumntrue
 * \@twosidefalse
 * \@mparswitchfalse
@@ -584,51 +584,51 @@ LaTeX Font Info:    ... okay on input line 34.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 36.
+(Font)              scaled to size 15.9785pt on input line 37.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 15.9785pt on input line 36.
+(Font)              scaled to size 15.9785pt on input line 37.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 36.
+(Font)              scaled to size 11.09619pt on input line 37.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 36.
+(Font)              scaled to size 11.09619pt on input line 37.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 36.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+(Font)              scaled to size 5.5481pt on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
 (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
  (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 36.
+(Font)              scaled to size 11.09619pt on input line 37.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 7.39746pt on input line 36.
+(Font)              scaled to size 7.39746pt on input line 37.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 36.
+(Font)              scaled to size 5.5481pt on input line 37.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 41.
+(Font)              scaled to size 11.09619pt on input line 42.
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 42.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 42.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 42.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 42.
+(Font)              scaled to size 9.24683pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 44.
+(Font)              scaled to size 6.47278pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 44.
+(Font)              scaled to size 4.62341pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 44.
+(Font)              scaled to size 6.47278pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 44.
+(Font)              scaled to size 4.62341pt on input line 45.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 84.
+(Font)              scaled to size 6.47278pt on input line 85.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 84.
+(Font)              scaled to size 4.62341pt on input line 85.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -645,4 +645,4 @@ Here is how much of TeX's memory you used:
  934 hyphenation exceptions out of 8191
  84i,8n,89p,465b,331s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Q.dvi (1 page, 11416 bytes).
+Output written on Q.dvi (1 page, 11428 bytes).

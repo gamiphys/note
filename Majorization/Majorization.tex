@@ -1041,5 +1041,251 @@ $\because$\\
 \end{equation}
 となる。これが、平衡状態間の遷移における最小仕事であり、たしかに熱力学第二法則が再現されることがわかる。\\
 
+\newpage
+\section{量子エントロピー及びダイバージェンス}
+\subsection{量子状態及び系}
+量子状態とかの話を確認する。\\
+
+\begin{itembox}[l]{\textbf{Def:完全正値写像}}
+    線形写像 $\mathcal{E} : \mathcal{L}(\mathcal{H}) \rightarrow \mathcal{L}(\mathcal{H}')$ について:
+
+\begin{itemize}
+  \item $\mathcal{E}$は正値であるとは、任意の演算子が正値演算子に写像されることを意味する。すなわち、$\hat{X} \geq 0$ ならば $\mathcal{E}(\hat{X}) \geq 0$である。
+  \item $\mathcal{E}$がn-positiveであるとは、$\mathcal{E} \otimes \mathcal{I}_n$が正値であることを意味する。ここで $\mathcal{I}_n$ は $\mathcal{L}(\mathbb{C}^n)$ 上の恒等超演算子である。
+  \item $\mathcal{E}$がCPであるとは、すべての $n \in \mathbb{N}$ に対してn-positiveであることを意味する。
+\end{itemize}
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:トレース保存性}}
+    線形写像 $\mathcal{E} : \mathcal{L}(\mathcal{H}) \rightarrow \mathcal{L}(\mathcal{H}')$ について、$\mathcal{E}$がトレース保存であるとは、
+    \begin{equation}
+        \text{Tr}[\mathcal{E}(\hat{X})] = \text{Tr}[\hat{X}]
+    \end{equation}
+    が成り立つことを意味する。
+\end{itembox}
+このとき、確率保存を満たすような任意の状態の写像はCPTP写像である。\\
+
+\begin{itembox}[l]{\textbf{Prop:Kraus表現}}
+    超演算子 $\mathcal{E} : \mathcal{L}(\mathcal{H}) \rightarrow \mathcal{L}(\mathcal{H}')$ がCPであるための必要十分条件は、
+    \begin{equation}
+        \mathcal{E}(\hat{\rho}) = \sum_{k} \hat{M}_k \hat{\rho} \hat{M}_k^{\dagger}
+    \end{equation}
+    と表現できることである。ここで、$\hat{M}_k$はKraus演算子であり、
+    \begin{equation}
+        \sum_{k} \hat{M}_k^{\dagger} \hat{M}_k = \hat{I}
+    \end{equation}
+    が成り立つ。これにより、トレース保存性が保証される。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:ユニタル写像}}
+    $\mathcal H$をヒルベルト空間とし、$\mathcal{E} : \mathcal{L}(\mathcal{H}) \rightarrow \mathcal{L}(\mathcal{H})$ がユニタルであるとは、
+    \begin{equation}
+        \mathcal{E}(I) = I
+    \end{equation}
+    を満たすことを意味する。ここで、$I$は恒等演算子である。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:Hilbert-Schmidt内積}}
+    ヒルベルト空間$\mathcal{H}$上の演算子$\hat{A},\hat{B}$に対して、Hilbert-Schmidt内積を以下のように定義する:
+    \begin{equation}
+        \langle \hat{Y},\hat{X} \rangle_{HS} = \text{Tr}[\hat{Y}^{\dagger}\hat{X}]
+    \end{equation}
+
+\end{itembox}
+また、これを用いて、$\mathcal{E}$のエルミート共役を以下のように定義する。
+\begin{itembox}[l]{\textbf{Def:$\mathcal{E}$のエルミート共役}}
+    $\mathcal{E} : \mathcal{L}(\mathcal{H}) \rightarrow \mathcal{L}(\mathcal{H})$ に対して、$\mathcal{E}$のエルミート共役$\mathcal{E}^{\dagger}$は、
+    \begin{equation}
+        \langle Y,\mathcal{E}(X) \rangle_{HS} = \langle \mathcal{E}^{\dagger}(Y),X \rangle_{HS}
+    \end{equation}
+    を満たすような線形写像である。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:}}
+    $\mathcal E$がTP写像であることと、$\mathcal E^{\dagger}$がユニタル写像であることは同値である。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    \Trace[\mathcal E(\hat X)] &= \ev{\hat{I},\mathcal E(\hat X)}_{HS}\\
+    &= \ev{\mathcal E^{\dagger}(\hat I),\hat X}_{HS}\\
+    &= \Trace[\mathcal E^{\dagger}(\hat I)\hat X]
+\end{align}
+であるから、示された。\hfill \qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Prop:}}
+    $\mathcal E$がCP写像であることと、$\mathcal E^{\dagger}$がCP写像であることは同値である。
+
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。
+
+最後に、演算子のノルムについて言及する。$\hat{X}$を$\mathcal{H}$上で作用する任意の演算子とする。まず、トレースノルムは次のように定義する。
+\begin{equation}
+\|\hat{X}\|_1 := \operatorname{tr}[|\hat{X}|],
+\end{equation}
+ここで、$|\hat{X}| := \sqrt{\hat{X}^\dagger \hat{X}}$である。これは数学的意味でのノルムであり、三角不等式$\|\hat{X} + \hat{X}'\|_1 \leq \|\hat{X}\|_1 + \|\hat{X}'\|_1$を満たし、$\|\hat{X}\|_1 = 0$が$\hat{X} = 0$のときかつそのときに限り成り立つ。トレース距離は次のように定義する。
+\begin{equation}
+D(\hat{\rho}, \hat{\sigma}) := \frac{1}{2} \|\hat{\rho} - \hat{\sigma}\|_1,
+\end{equation}
+これは量子状態$\hat{\rho}$と$\hat{\sigma}$の間の距離を測定するために一般的に使用され、CPTP写像$\mathcal{E}$の下での単調性を満たす（[4]の定理9.2）。
+\begin{equation}
+D(\hat{\rho}, \hat{\sigma}) \geq D(\mathcal{E}(\hat{\rho}), \mathcal{E}(\hat{\sigma})).
+\end{equation}
+
+もう一つの重要なノルムは演算子ノルムで、次のように定義する。
+\begin{equation}
+\|\hat{X}\|_\infty := \max_{\|\phi\|=1} \sqrt{\langle \phi | \hat{X}^\dagger \hat{X} | \phi \rangle},
+\end{equation}
+これは$\hat{X}$の最大の特異値に他ならない。
+
+\newpage
+\section{von Neumannエントロピー/量子KLダイバージェンス}
+
+\begin{itembox}[l]{\textbf{Def:von Neumannエントロピー}}
+        量子状態$\hat{\rho}$のvon Neumannエントロピーは、
+        \begin{equation}
+            S(\hat{\rho}) = -\Trace[\hat{\rho}\log \hat{\rho}]
+        \end{equation}
+        で定義される。
+
+\end{itembox}
+
+このとき、密度行列はエルミートなので、対角化可能である。すなわち、ヒルベルト空間$\mathcal{H}$の基底をうまく選ぶことで、
+\begin{equation}
+    \hat{\rho} = \sum_{i} p_i \ket{i}\bra{i}
+\end{equation}
+と書くことができる。このとき、von Neumannエントロピーは、
+\begin{equation}
+    S(\hat{\rho}) = -\sum_{i} p_i \log p_i
+\end{equation}
+と書くことができ、これはシャノンエントロピーと一致する。\\
+また、トレースの巡回性から、
+\begin{equation}
+    S(\hat{\rho}) = S(U\hat{\rho}U^{\dagger})
+\end{equation}
+が成り立つ。\\
+これと、シャノンエントロピーの性質から、
+\begin{equation}
+    0 \leq S(\hat{\rho}) \leq \log d
+\end{equation}
+が成り立つ。ここで、$d$はヒルベルト空間の次元である。\\
+
+\begin{itembox}[l]{\textbf{Def:量子KLダイバージェンス}}
+    量子状態$\hat{\rho},\hat{\sigma}$のKLダイバージェンスは、
+    \begin{equation}
+        S_1(\hat{\rho}||\hat{\sigma}) = \Trace[\hat{\rho}(\log \hat{\rho} - \hat{\rho}\log \hat{\sigma})]
+    \end{equation}
+    で定義される。
+\end{itembox}
+このとき、簡単な計算により、
+\begin{equation}
+    S_1(\hat{\rho}) =\ln d - S(\hat{\rho}||{\frac{\hat{{I}}}{d}})
+\end{equation}
+が成り立つ。\\
+また、もし$\hat{\rho},\hat{\sigma}$が同じ基底を用いて展開できるとき、量子KLダイバージェンスは、古典的なKLダイバージェンスと一致する。\\
+また、トレースの巡回性から、
+\begin{equation}
+    S_1(\hat{\rho}||\hat{\sigma}) = S_1(U\hat{\rho}U^{\dagger}||U\hat{\sigma}U^{\dagger})
+\end{equation}
+が成り立つ。\\
+また、量子KLダイバージェンスは、非負である。すなわち、
+\begin{equation}
+    S_1(\hat{\rho}||\hat{\sigma}) \geq 0
+\end{equation}
+が成り立つ。\\
+%TODO証明を後で書く
+
+\begin{itembox}[l]{\textbf{Thm:単調性}}
+    量子状態$\hat{\rho},\hat{\sigma}$に対して、
+    \begin{equation}
+        S_1(\hat{\rho}||\hat{\sigma}) \geq 0
+    \end{equation}
+    が成り立つ。また、
+    \begin{equation}
+        S_1(\hat{\rho}||\hat{\sigma}) \geq S_1(\mathcal{E}(\hat{\rho})||\mathcal{E}(\hat{\sigma}))
+    \end{equation}
+    が成り立つ。ここで、$\mathcal{E}$はCPTP写像である。
+
+\end{itembox}
+\textbf{Prf}\\
+略。\hfill \qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Prop:}}
+    $\mathcal{E}$がユニタル写像であるならば、
+    \begin{equation}
+        S_1(\hat{\rho}) \leq S_1(\mathcal{E}(\hat{\rho}))
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+von Neumannエントロピーと量子ダイバージェンスの関係式及び、量子ダイバージェンスの単調性を用いることで示される。\hfill \qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Prop:von Neumannエントロピーの劣加法性}}
+    量子状態$\hat{\rho}_A,\hat{\rho}_B$に対して、
+    \begin{equation}
+        S_1(\hat{\rho}_{AB}) \leq S_1(\hat{\rho}_A) + S_1(\hat{\rho}_B)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+量子KLダイバージェンスの定義および非負性を用いることで、
+\begin{equation}
+S_1(\hat{\rho}_{A}) + S_1(\hat{\rho}_{B}) - S_1(\hat{\rho}_{AB}) = S_1(\hat{\rho}_{AB}||\hat{\rho}_{A} \otimes \hat{\rho}_{B}) \geq 0
+\end{equation}
+が示される。\hfill \qedsymbol\\
+また、等号成立は、$\hat{\rho}_{AB} = \hat{\rho}_{A} \otimes \hat{\rho}_{B}$のときに成り立つ。\\
+
+証明の第一式は、
+\begin{align}
+    I_1(\hat{\rho}_{AB}) := S_1(\hat{\rho}_{A}) + S_1(\hat{\rho}_{B}) - S_1(\hat{\rho}_{AB})\\
+\end{align}
+とかき、相互情報量の性質という。\\
+
+\begin{itembox}[l]{\textbf{prop:強劣加法性}}
+    部分系$A,B,C$に対して、
+    \begin{equation}
+        S_1(\hat{\rho}_{ABC}) + S_1(\hat{\rho}_B) \leq S_1(\hat{\rho}_{AB}) + S_1(\hat{\rho}_{BC})
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+量子KLダイバージェンスの単調性を用いる。\\
+\begin{align}
+    S_1(\hat{\rho}_{AB}) + S_1(\hat{\rho}_{BC}) - S_1(\hat{\rho}_{ABC}) - S_1(\hat{\rho}_B) 
+    &=[S_1(\hat{\rho}_{BC}) - S_1(\hat{\rho}_{ABC})] - [S_1(\hat{\rho}_{B}) - S_1(\hat{\rho}_{AB})]\\
+    &= S_1(\hat{\rho}_{ABC}||\hat{\sigma}_A \otimes \hat{\rho}_{BC}) - S_1(\hat{\rho}_{B}||\hat{\sigma}_A \otimes \hat{\rho}_{B})\\
+\end{align}
+となる。ここで、部分トレースがCPTP写像であることを用いると、
+\begin{align}
+    \rho_{ABC} \geq \mathcal{E}(\rho_{ABC}) =\Trace_C[\rho_{ABC}] = \rho_{AB}
+\end{align}
+であるから、示したかった不等式が成り立つ。\hfill \qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm:Joint Convexity}}
+    $\hat{\rho} = \sum_{k} p_k \hat{\rho}_k$、$\hat{\sigma} = \sum_{k} p_k \hat{\sigma}_k$に対して、
+    \begin{equation}
+        S_1(\hat{\rho}||\hat{\sigma}) \leq \sum_{k} p_k S_1(\hat{\rho}_k||\hat{\sigma}_k)
+    \end{equation}
+    が成り立つ。等号が成立するのは、$\hat{\rho}_k$によって張られる部分空間が、$\hat{\sigma}_k$によって張られる部分空間と直交するときである。
+\end{itembox}
+\textbf{Prf}\\
+等号が成り立つ場合から示す。
+\begin{align}
+    S_1(\hat{\rho} || \hat{\sigma}) &= \text{tr} \left( \left[ \sum_k p_k \hat{\rho}_k \ln\left(\sum_k p_k \hat{\rho}_k\right) \right] - \left[ \sum_k p_k \hat{\rho}_k \ln\left(\sum_k p_k \hat{\sigma}_k\right) \right] \right) \\
+    &= \text{tr} \left( \sum_k p_k \hat{\rho}_k \ln(p_k \hat{\rho}_k) - \sum_k p_k \hat{\rho}_k \ln(p_k \hat{\sigma}_k) \right) \\
+    &= \sum_k p_k S_1(\hat{\rho}_k || \hat{\sigma}_k).
+\end{align}
+一行目から二行目への変形で直交性を用いている。
+
+
+
+
+\section{量子Majorization}
+
+\section{量子熱力学}
+
 
 \end{document}

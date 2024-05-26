@@ -398,6 +398,143 @@ SG実験のときの密度行列を再掲すると、
 後で書く。\\
 
 \section{テンソル}
+量子情報を学ぶ上で必要なテンソルの取り扱いについて学ぶ。
+
+\subsection{テンソル積の定義}
+\begin{itembox}[l]{\textbf{Def:テンソル積}}
+    \begin{align}
+        \hat{O}_A =(a_jk) =
+        \begin{pmatrix}
+            a_{11} & a_{12} \\
+            a_{21} & a_{22}
+        \end{pmatrix}
+    \end{align}
+    と、
+    \begin{align}
+        \hat{O}_B =(b_jk) =
+        \begin{pmatrix}
+            b_{11} & b_{12} \\
+            b_{21} & b_{22}
+        \end{pmatrix}
+    \end{align}
+    に対して、
+    \begin{align}
+        \hat{O}_A \otimes \hat{O}_B =
+        \begin{pmatrix}
+            a_{11}\hat{O}_B & a_{12}\hat{O}_B \\
+            a_{21}\hat{O}_B & a_{22}\hat{O}_B
+        \end{pmatrix}
+    \end{align}
+    と定義する。これは、四次元行列として、
+    \begin{align}
+        \hat{O}_A \otimes \hat{O}_B =
+        \begin{pmatrix}
+            a_{11}b_{11} & a_{11}b_{12} & a_{12}b_{11} & a_{12}b_{12} \\
+            a_{11}b_{21} & a_{11}b_{22} & a_{12}b_{21} & a_{12}b_{22} \\
+            a_{21}b_{11} & a_{21}b_{12} & a_{22}b_{11} & a_{22}b_{12} \\
+            a_{21}b_{21} & a_{21}b_{22} & a_{22}b_{21} & a_{22}b_{22}
+        \end{pmatrix}
+    \end{align}
+    と書くことができる。このとき、
+    \begin{align}
+        (\hat{O}_A \otimes \hat{O}_B)_{jj':kk'} = a_{jk}b_{j'k'}
+    \end{align}
+    である。
+
+\end{itembox}
+
+\subsection{部分トレース}
+\begin{itembox}[l]{\textbf{Def:部分トレース}}
+    各成分が$(\hat{T})_{jj':kk'}$であるような、四次元行列$\hat{T}$に対して、A系の部分トレースをとるとは、
+    \begin{align}
+        \hat{T}_{B} = \underset{A}{\trace}[\hat{T}]\\
+        (\hat{T}_B)_{j'k'} = \sum_{j}(\hat{T})_{jj':jk'}
+    \end{align}
+    で定義される、二次元行列を得る操作である。また、B系の部分トレースをとるとは、
+    \begin{align}
+        \hat{T}_{A} = \underset{B}{\trace}[\hat{T}]\\
+        (\hat{T}_A)_{jk} = \sum_{j'}(\hat{T})_{jj':kj'}
+    \end{align}
+    で定義される、二次元行列を得る操作である。
+\end{itembox}
+すなわち、A系に対して部分トレースをとるときは、A系の対角成分について和をとり、B系に対して部分トレースをとるときは、B系の対角成分について和をとる。\\
+
+\begin{itembox}[l]{\textbf{Prop:部分トレースの性質}}
+    \begin{align}
+        \underset{B}{\trace}[\hat{O}_A \otimes \hat{O}'_B] = \hat{O}_A\underset{B}{\trace}[ \hat{O}'_B]
+    \end{align}
+    および、
+    \begin{align}
+        \underset{A}{\trace}[\hat{O}_A \otimes \hat{O}'_B] = \hat{O}'_B\underset{A}{\trace}[ \hat{O}_A]
+    \end{align}
+    が成り立つ。また、AB系全体に対するトレースは、
+    \begin{align}
+        \underset{AB}{\trace}[\hat{T}] = \sum_j \sum_{j'} (\hat{T})_{jj':jj'} \\
+        =\underset{A}{\trace}[\underset{B}{\trace}[\hat{T}]]=\underset{B}{\trace}[\underset{A}{\trace}[\hat{T}]]\\
+        =\underset{A}{\trace}[\hat{T}_A]=\underset{B}{\trace}[\hat{T}_B]
+    \end{align}
+    であり、
+    \begin{align}
+        \underset{AB}{\trace}[\hat{O}_A \otimes \hat{O}'_B] = \underset{A}{\trace}[\hat{O}_A]\underset{B}{\trace}[\hat{O}'_B]=\underset{B}{\trace}[\hat{O}'_B]\underset{A}{\trace}[\hat{O}_A]=\underset{A}{\trace}[\hat{O}_A]\underset{B}{\trace}[\hat{O}'_B]
+    \end{align}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+一つ目の式について、
+\begin{align}
+   ( \hat{O_A})_{jk} &=\sum_{j'}(\hat{T})_{jj':kk'}\\
+    &=(\hat{T})_{j1:k1'}+(\hat{T})_{j2:k2'}\\
+    &=a_{jk}b_{11}+a_{jk}b_{22}\\
+    &=a_{jk}(b_{11}+b_{22})\\
+    &=a_{jk}\underset{B}{\trace}[\hat{O}'_B]
+\end{align}
+となることから、
+\begin{align}
+    \underset{B}{\trace}[\hat{O}_A \otimes \hat{O}'_B] = \hat{O}_A\underset{B}{\trace}[ \hat{O}'_B]
+\end{align}
+が成り立つ。\\
+二つ目の式についても同様に示すことができる。\\
+三つ目の式については、
+\begin{align}
+    \underset{AB}{\trace}[\hat{T}] &= \sum_j \sum_{j'} (\hat{T})_{jj':jj'} \\
+    &=\sum_j (\hat{T}_A)_{jj} \\
+    &=\underset{A}{\trace}[\hat{T}_A]
+\end{align}
+となることから、
+\begin{align}
+    \underset{AB}{\trace}[\hat{T}] = \underset{A}{\trace}[\hat{T}_A]
+\end{align}
+が成り立つ。\\
+四つ目の式については、
+\begin{align}
+    \underset{AB}{\trace}[\hat{O}_A \otimes \hat{O}'_B] &= \underset{A}{\trace}[\hat{O}_A \underset{B}{\trace}[\hat{O}'_B]]\\
+    &=\underset{A}{\trace}[\hat{O}_A]\underset{B}{\trace}[\hat{O}'_B]
+\end{align}
+となる。ここで、$\underset{B}{\trace}[\hat{O}'_B]$は単なる数であることに注意されたい。
+
+\subsection{状態ベクトルのテンソル積}
+
+\subsection{縮約状態}
+一般的な状態$\hat{\rho}_{AB}$について、例えば熱浴と着目系について考えているとすると、我々は、着目系のみの情報しか手に入らないときがある。このとき、着目形だけに制限した密度行列を、
+\begin{align}
+    \hat{\rho}_A = \underset{B}{\trace}[\hat{\rho}_{AB}]
+\end{align}
+と書く。このような密度行列を縮約状態という。\\
+例えば、この縮約状態を用いて、スピンの確率分布を計算することができる、%TODOここに追記する。\\
+
+合成系において、$\sigma_A$という物理量は、恒等演算子を用いて、$\sigma_A\otimes \hat{I}_B$と書くことができる。\\
+これのスペクトル分解により作られる射影演算子$\hat{P}_{\pm} = \frac{1}{2}(\hat{I}\pm \sigma_A\otimes \hat{I}_B)$を用いて、Born則により、
+\begin{align}
+    p(\pm) &= \underset{AB}{\trace}[\rho_{AB}\hat{P}_{\pm}]
+\end{align}
+となる。ここで、
+\begin{align}
+    \underset{AB}{\trace}[\rho_{AB}\hat{P}_{\pm}] = \underset{A}{\trace}[\rho_A\hat{P}_{\pm}]
+\end{align}
+を示すことができる。\\
+\textbf{Prf}\\
+%TODOあとで書く。\\
+
 
 \section{物理量の相関と量子もつれ}
 \subsection{スピン相関と確率分布}

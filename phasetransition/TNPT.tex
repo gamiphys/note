@@ -1,0 +1,234 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{相転移・臨界現象とくりこみ群ノート}
+\author{大上由人}
+\date{\today}
+\maketitle
+\section{概論}
+略
+
+\section{相転移とは何か}
+\subsection{統計力学と熱力学関数}
+略
+
+\subsection{Ising模型}
+略
+
+\subsection{相転移はどのようにして起こるか}
+\textbf{自由エネルギーの凸性}
+\textbf{Prop}\\
+カノニカル分布を用いて計算される自由エネルギーは温度に関して上に凸である。\\
+\textbf{Prf}\\
+
+\textbf{Ising模型の相転移:Peoerlsの議論}
+絶対零度の相転移を考える。絶対零度において、自由エネルギーは、
+\begin{equation}
+    f = -J\frac{N_B}{N}-|h|
+\end{equation}
+となる。ここで、$N_B$は、ボンドの数である。これを、横軸$h$、縦軸$f$のグラフにプロットすると、図\ref{fig:Peoerls}のようになる。
+%TODO: 図を入れる
+
+次に、温度の効果を見る。十分大きな温度では、磁気モーメントの向きはばらばらになり、磁化はゼロに近づいていく。\\
+一次元イジング模型を考える。絶対零度かつ磁場が十分小さいときの自由エネルギーの値は、
+\begin{equation}
+    F_0 = -JN_B = -JN
+\end{equation}
+となる。ここで、温度を上げていくと、スピンの揺らぎが生じ、スピン$-1$の影響を考えなくてはならない。ここで、一次元鎖のある点を境にスピンの値を反転させた状態について考える。
+このときのエネルギーは、スピンの値が反転したところで$2J$だけ増加するので、
+\begin{equation}
+    E =-(N-2)J
+\end{equation}
+となる。一方、境界の点は任意に取ることができ、境界の選び方は$N$通りあるので、エントロピーは。
+\begin{equation}
+    S = \ln N
+\end{equation}
+となる。したがって、この時の自由エネルギーは、
+\begin{equation}
+    F = E - TS = -(N-2)J - T\ln N
+\end{equation}
+となり、$F_0$との差は、
+\begin{equation}
+    F - F_0 = 2J - T\ln N
+\end{equation}
+となる。ここで、第二項は熱力学極限で負に発散する。すなわち、$F_0$との差が負の無限大となるので、$F_0$は不安定であることがわかる。したがって、
+有限温度において、一次元Ising模型のすべてのスピンが同じ値をとるような強磁性状態は存在しないことがわかる。\\
+
+二次元の系も同様に確かめることができる。下図のような、周辺の長さが$L$スピン$-1$クラスターを考える。このとき、クラスターによるエネルギーの増加は$2LJ$となる。\\
+一方、このようなクラスターの作り方は$3^L N$通りある。というのも、一歩進みながら長さ$L$の和を描いていくときに、次の進み方は直前までいた場所を除いて$3$通りあるからであり、また、クラスター全体の並進を考えると、$N$通りあるからである。したがって、エントロピーは、
+\begin{equation}
+    S = \ln (3^L N) \simeq L\ln 3
+\end{equation}
+となる。ただし、クラスターのの大きさを十分大きくとった。%ここあやしい
+したがって、自由エネルギーの差は、
+\begin{equation}
+    F - F_0 =L(2J - T\ln 3)
+\end{equation}
+となる。これより、温度が$T_C = \frac{2J}{\ln 3}$より小さければ、強磁性状態は、クラスターの生成に対して安定であることがわかる。\\
+
+以上の議論を見ると、空間の次元が相転移の有無を決定することがわかる。クラスターを考えたとき、隣り合ったスピンが異なる境界について考えた。このような境界のことをドメイン壁という。
+$d$次元の系において、ドメイン壁の次元は$d-1$次元である。したがって、$d=1$のときは、ドメイン壁は点であり、$d=2$のときは、ドメイン壁は線である。クラスターができることによるエネルギーの増加は、クラスターの長さを$L$としたとき、$L^{d-1}$に比例することがわかる。\\
+一般に、熱揺らぎの効果は低次元で大きくなる。ある次元を境にして、その次元以下では相転移が有限温度で怒らず、その次元以上では相転移が有限温度で起こるという、境界の次元の下限を、下部臨界次元という。例えば、Ising模型の下部臨界次元は1である。\\
+
+\textbf{Lee-Yangゼロ}\\
+一様磁場のもとでのIsing模型を取り扱うことにする。このとき、ハミルトニアンは、
+\begin{equation}
+    H = H_0 - h\sum_i S_i
+\end{equation}
+となる。ここで、$H_0$は、相互作用項であり、$h$は、外部磁場である。このとき、分配関数は、
+\begin{align}
+    Z &= \Trace \exp(-\beta H_0 + \beta h\sum_i S_i)\\
+    &= e^{\beta hN}(a_0 + a_1y + a_2y^2 + \cdots + a_Ny^N)\\
+    &= a_N e^{\beta hN}\Pi_{i=1}^N(y-y(i))
+\end{align}
+となる。ここで、$y = e^{2\beta h}$であり、$\{a_i\}$は、$h$に依らない定数であり、$H_0$の詳細に依存する。このとき、分配関数は正であるから、$y=y(i)$はありえない。
+したがって、分配関数のゼロ点は、複素数平面の正の実軸から離れた点にある。\\
+分配関数を用いて自由エネルギーを求めると、
+\begin{align}
+  -\beta f &=\frac{1}{N}\ln a_N -\beta h +\frac{1}{N}\sum_{i=1}^N\ln(y-y(i))\\
+  &=\frac{1}{N}\ln a_N -\beta h +\int \dd z_1 \dd z_2 \rho(z_1)\rho(z_2)\ln(y-z)
+\end{align}
+となる。ここで、ゼロ点密度関数
+\begin{equation}
+    \rho(z_1,z_2) = \sum_{i=1}^N\delta(z - y(i)) = \sum_{i=1}^N\delta(z_1 - \Re y(i))\delta(z_2 - \Im y(i))
+\end{equation}
+を導入した。このとき、$z = z_1 + iz_2$である。磁化および磁化率は、
+\begin{align}
+    m &= -\pdv{f}{h} = \int \dd z_1 \dd z_2 \rho(z_1,z_2)\frac{2y}{y-z}\\
+    \chi &= \pdv{m}{h} = \int \dd z_1 \dd z_2 \rho(z_1,z_2)\frac{yz}{(y-z)^2}
+\end{align}
+となる。これらの表式を見ると、熱力学量は、ゼロ点分布に依存していることがわかる。\\
+%TODO: ここから先は、理解が追いついていないので、後で再度読む
+
+具体的にゼロ点密度を求めるには、
+\begin{equation}
+    \rho(y_1,y_2) = \frac{1}{2\pi N}\left(\pdv[2]{y_1} + \pdv[2]{y_2}\right)\ln |Ze^{N\beta h}|
+\end{equation}
+を計算すればよい。この式からわかるように、ゼロ点密度は分配関数と同様の情報をもっている。\\
+
+\subsection{対称性の自発的破れ}
+\textbf{対称性の自発的破れ}\\
+Ising模型はスピン反転対称性をもち、自由エネルギーは$h$に対して偶関数となる。これを用いると、
+\begin{equation}
+    m(h) =-\pdv{f(h)}{h} = -\pdv{f(-h)}{h} = m(-h)
+\end{equation}
+となりそうなものだが、実はこれは誤りである。実際、$h=0$を代入すると、$m(0) = 0$となる。これは、強磁性相の存在に矛盾する。\\
+上の計算でおかしいところは、二つ目の等号である。というのも、磁化の定義を丁寧に取り扱うと、
+\begin{equation}
+    m(0+) = -\underset{h\to 0+}{\lim}\pdv{f(h)}{h} = -\underset{h\to 0+}{\lim} \underset{N \to \infty}{\lim}\frac{F(h)}{N}
+\end{equation}
+となる。すなわち、熱力学極限をとってから磁場で微分を行ってから、磁場を$0$に近づける極限を取ることが正しい。この順番を逆にすると、
+\begin{equation}
+    -\underset{N \to \infty}{\lim}\underset{h \to 0+}{\lim}\pdv{h} \frac{F(h)}{N} =0
+\end{equation}
+となってしまう。\\
+
+\textbf{長距離秩序}\\
+秩序層においては、全空間にわたって秩序が保たれている。これを長距離秩序という。長距離秩序を特徴づけるものとして、相関関数がある。相関関数は、
+\begin{equation}
+    G = \expval{S_iS_j} 
+\end{equation}
+によって定義される。ここで、$\expval{\cdots}$は、平均を取ることを表す。もし、スピンの取りうる値が独立に決まる時は$\expval{S_iS_j} = \expval{S_i}\expval{S_j}$となる。\\
+相関関数と長距離秩序の関係を見るために、$i,j$の距離を大きくしたらどうなるかを考える。$i,j$が十分離れれば、相関が小さくなることから、
+\begin{equation}
+    \underset{h \to 0}{\lim} \underset{|\vb{r}_i - \vb{r}_j| \to \infty}{\lim} \underset{N \to \infty}{\lim} \expval{S_iS_j} = \left(\underset{h \to 0}{\lim} \underset{N \to \infty}{\lim} \expval{S_i}\right) \left(\underset{h \to 0}{\lim} \underset{N \to \infty}{\lim} \expval{S_j}\right) =m^2
+\end{equation}
+となる。この最右辺が有限であることが長距離秩序の存在を示す。(クラスター性という。)\\
+また、連結相関関数を以下で定義する。
+\begin{equation}
+    G_{ij} = \expval{S_iS_j} - \expval{S_i}\expval{S_j}
+\end{equation}
+
+\textbf{エルゴード性の破れと純粋状態}\\
+
+\textbf{臨界指数}\\
+相転移は、臨界点における物理量の発散により特徴づけられる。その発散の度合いを示すものとして、臨界指数を導入する。\\
+\textbf{$\alpha$}\\
+臨界指数$\alpha$は、比熱の、$h=0,T\simeq T_C$のときの振る舞いによって定義される。すなわち、
+\begin{equation}
+    c \simeq \frac{1}{T_C}\abs{T-T_C}^{-\alpha}
+\end{equation}
+によって定義される定義する。\\
+
+\textbf{$\beta$}\\
+磁化の、臨界点よりもわずかに低い温度でのふるまいによって決定される。すなわち、
+\begin{equation}
+    m \simeq \abs{T_C - T}^{\beta}
+\end{equation}
+によって定義される。\\
+
+\textbf{$\gamma$}\\
+磁化率の、臨界点よりもわずかに高い温度でのふるまいによって決定される。すなわち、
+\begin{equation}
+    \chi \simeq \frac{1}{T_C}\abs{T-T_C}^{-\gamma}
+\end{equation}
+によって定義される。\\
+
+\textbf{$\delta$}\\
+臨界点直上の$T=T_C,h \simeq 0$での磁化のふるまいによって決定される。すなわち、
+\begin{equation}
+    m \simeq h^{1/\delta}
+\end{equation}
+によって定義される。\\
+
+%TODO: ここから先、ほかの臨界指数について書き足す
+
+\section{平均場理論}
+\subsection{Weissの分子場近似}
+スピン一つあたりの磁化を$m$とする。磁場$h$が小さければ、磁化を磁場に関して展開することができる。すなわち、
+\begin{equation}
+    m = Ah -Bh^3 + \cdots
+\end{equation}
+となる。ここで、$A,B$は温度に依存する定数である。また、磁化が磁場に対して奇関数であることを用いている。\\
+また、周りのスピンも同じ磁化をもっているはずであり、これが有効磁場として作用すると考えられる。これが磁化の大きさに比例すると考えると、
+\begin{equation}
+    m = A(km+h) - B(km+h)^3 + \cdots
+\end{equation}
+と書くことができる。とくに、磁場が小さいとき、
+\begin{equation}
+    m = \frac{A}{1-kA}
+\end{equation}
+となる。ところで、磁化の一次の項が磁化率を与えるが、この式は、$kA =1$のときに発散する。すなわち、臨界点がわかる。\\
+温度が臨界点$T_C$上から近づくとき、$1-kA = a(T-T_C)$となると考えるとする。ただし、$a$は正の定数である。このとき、
+\begin{equation}
+    \xi \sim \frac{1}{\sqrt{T_C-T}}
+\end{equation}
+のように、磁化率が発散すると考えられる。\\
+
+\end{document}
