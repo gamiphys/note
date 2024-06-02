@@ -1107,120 +1107,98 @@ $\theta$座標系において、測地線は直線で表すことができる。
 \end{align}
 となる。したがって、示された。\hfill\qedsymbol
 
-\begin{tikzpicture}
-    % 元の容器
-    \draw[thick] (0,0) rectangle (4,2);
-    \fill[blue!20] (0,0) rectangle (4,2);
+\section{確率分布空間の幾何構造}
+\subsection{Chentsovの定理}
+有限集合$\Omega$の要素である根元事象を自然数でラベル付けすることにして、サイズnの根元事象系を
+\begin{equation}
+    \Omega_n = \{1,2,\cdots,n\}
+\end{equation}
+と表すことにする。また、$\Omega_n$上の確率分布全体の集合を、
+\begin{equation}
+    \mathcal{S}_n = \{p: \Omega_n \to \mathbb{R}_{++}; \sum_{\omega \in \Omega_n} p(\omega) = 1\}
+\end{equation}
+と表す。ただし、
+\begin{equation}
+    \mathbb{R}_{++} = \{x \in \mathbb{R}; x > 0\}
+\end{equation}
+である。$\mathcal{S}_n$の各確率分布を、
+\begin{equation}
+    p = (p(1),p(2),\cdots,p(n))
+\end{equation}
+と同一視すると、$\mathcal{S}_n$は、$n-1$次元単体であり、$\mathbb{R}^n$内の超平面
+\begin{equation}
+    H = \{x \in \mathbb{R}^n; \sum_{i=1}^{n} x_i = 1\}
+\end{equation}
+と同一視される。\\
 
-    % 分割後の容器
-    \draw[thick] (6,0) rectangle (10,2);
-    \fill[blue!20] (6,0) rectangle (8,2);
-    \fill[blue!20] (8,0) rectangle (10,2);
+以下、統計多様体を定義する。このとき、統計多様体にかかる条件を考える。\\
+まず、事象のラベル付けは順序付けに依存しない。また、いくつかのラベルを同一視することを考えると、より高次元の統計多様体から低次元の統計多様体が誘導されるはずである。\\
+これらを踏まえて、Markov埋め込みを考える。\\
 
-    % ラベル
-    \node at (6.8,-0.5) {$t$};
-    \node at (8.7,-0.5) {$1-t$};
+\begin{itembox}[l]{\textbf{Def:Markov埋め込み}}
+    $2 \leq n \leq l in \mathbb{N}$に対して、以下の用の構成される写像
+    \begin{equation}
+        f: \mathcal{S}_{n-1} \to \mathcal{S}_{l-1}
+    \end{equation}
+    をMarkov埋め込みという。\\
+    \enumerate{
+        \item $\Omega_l$を空でなく互いに交わらない部分集合の族$\{C_1,C_2,\cdots,C_n\}$に分割する。
+        \item 各$j (1 \leq j \leq n)$に対し、$C_j$に台を持つ$\Omega_l$上の確率分布
+        \begin{equation}
+            Q_j = (Q_{(j)}^1,Q_{(j)}^2,\cdots,Q_{(j)}^l)
+        \end{equation}
+        を付随させる。ただし、$Q_{(j)}^k$は、$k \in C_{(j)}$ならば正であり、$k \notin C_{(j)}$ならば0である。\\
+        \item $(y^1,y^2,\cdots,y^l)=f(x^1,x^2,\cdots,x^n)$を、
+        \begin{equation}
+            y^k = \sum_{j=1}^{n} x^j Q_{(j)}^k
+        \end{equation}
+        により定義する。行列表記すると、
+        \begin{equation}
+            \begin{pmatrix}
+                y^1\\
+                y^2\\
+                \vdots\\
+                y^l
+            \end{pmatrix}
+            = 
+            \begin{pmatrix}
+                Q_{(1)}^1 & Q_{(2)}^1 & \cdots & Q_{(n)}^1\\
+                Q_{(1)}^2 & Q_{(2)}^2 & \cdots & Q_{(n)}^2\\
+                \vdots & \vdots & \ddots & \vdots\\
+                Q_{(1)}^l & Q_{(2)}^l & \cdots & Q_{(n)}^l
+            \end{pmatrix}
+            \begin{pmatrix}
+                x^1\\
+                x^2\\
+                \vdots\\
+                x^n
+            \end{pmatrix}
+        \end{equation}
+        となる。
+    }
+\end{itembox}
 
-    % 矢印
-    \draw[<->, thick] (4.5,1) -- (5.5,1);
+%TODO例を書く
 
-    % 区切り線
-    \draw[thick] (7.5,0) -- (7.5,2);
-\end{tikzpicture}
-\newpage
-\begin{tikzpicture}
-    % 元の容器 A
-    \draw[thick] (0,1) rectangle (2,3);
-    \fill[blue!20] (0,1) rectangle (2,3);
+\begin{itembox}[l]{\textbf{Post:要請}}
+    $\mathcal{S}_{n-1}$の幾何は、$\mathcal{S}_{l-1}$に埋め込まれた部分多様体$f(\mathcal{S}_{n-1})$の幾何と同等であるべきである。
+\end{itembox}
 
-    % 中間の容器 B
-    \draw[thick] (4,1) rectangle (6,3);
-    \fill[blue!20] (4,1) rectangle (6,3);
-
+\begin{itembox}[l]{\textbf{Thm:Chentsovの定理}}
     
-    % 最後の容器 tA
-    \draw[thick] (8,0.5) rectangle (11,3.5);
-    \fill[blue!20] (8,0.5) rectangle (11,3.5);
 
+\end{itembox}
 
-    % 最後の容器 tB
-    \draw[thick] (13,0.5) rectangle (16,3.5);
-    \fill[blue!20] (13,0.5) rectangle (16,3.5);
-
-    % 矢印
-    \draw[->, thick] (2.5,2) -- (3.5,2);
-    \node at (7,2) {\Huge $\Rightarrow$};
-    \draw[->, thick] (11.5,2) -- (12.5,2);
-
-\end{tikzpicture}
-
-\newpage
-\begin{tikzpicture}
-    % 元の容器 A
-    \draw[thick] (0,0) rectangle (2,2);
-    \fill[blue!20] (0,0) rectangle (2,2);
-
-    % 小さい容器 ε1C
-    \draw[thick] (2,0.75) rectangle (2.75,1.25);
-    \fill[green!20] (2,0.75) rectangle (2.75,1.25);
-
-    % 中間の容器 B
-    \draw[thick] (5,0) rectangle (7,2);
-    \fill[blue!20] (5,0) rectangle (7,2);
-
-    % 小さい容器 ε2C
-    \draw[thick] (7,0.75) rectangle (7.75,1.25);
-    \fill[green!20] (7,0.75) rectangle (7.75,1.25);
-
-    % 最後の容器 A
-    \draw[thick] (10,0) rectangle (12,2);
-    \fill[blue!20] (10,0) rectangle (12,2);
-
-    % 最後の容器 B
-    \draw[thick] (14,0) rectangle (16,2);
-    \fill[blue!20] (14,0) rectangle (16,2);
-
-    % 矢印
-    \draw[->, thick] (3.5,1) -- (4.5,1);
-    \node at (9,1) {\Huge $\Rightarrow$};
-    \draw[->, thick] (12.5,1) -- (13.5,1);
-
-\end{tikzpicture}
-
-\newpage
-
-\begin{tikzpicture}
-    % 軸の描画
-    \draw[->] (-0.5,0) -- (6,0) node[right] {};
-    \draw[->] (0,-0.5) -- (0,6) node[above] {};
-
-    % 曲線の描画
-    \draw[thick, domain=0.5:5, samples=100] plot (\x, {1/\x});
-    \draw[thick, domain=0.5:5, samples=100] plot (\x, {2/\x});
-    \draw[thick, domain=0.5:5, samples=100] plot (\x, {3/\x});
-
-    % 点とラベル
-    \node at (-0.5,1) {$\lambda$};
-    \node at (-0.5,2) {$1-\lambda$};
-    \node at (1.5,-0.5) {$x_0$};
-    \node at (0.5,2) {$x_1$};
-
-    % ポイントの描画
-    \fill (1,1) circle (2pt) node[below left] {};
-    \fill (2,0.5) circle (2pt) node[below left] {};
-    \fill (3,0.333) circle (2pt) node[below left] {};
-    \fill (4,0.25) circle (2pt) node[below left] {};
-    \fill (5,0.2) circle (2pt) node[below left] {};
-    
-    % 矢印
-    \draw[->, thick] (1,1) -- (1.1,1.1);
-    \draw[->, thick] (2,0.5) -- (2.1,0.55);
-    \draw[->, thick] (3,0.333) -- (3.1,0.366);
-    \draw[->, thick] (4,0.25) -- (4.1,0.275);
-    \draw[->, thick] (5,0.2) -- (5.1,0.22);
-
-\end{tikzpicture}
-
+\subsection{Fisher計量と$\alpha$-接続}
+Markov埋め込み$f: \mathcal{S}_{n-1} \to \mathcal{S}_{l-1}$のもとでの$\mathcal{S}_{n-1}$の計量$g^{(n)}$に対する不変性の要請は、
+\begin{equation}
+    g^{(n)}_p(X,Y) = g^{(n)}_{f(p)}(f_*X,f_*Y)
+\end{equation}
+であり、$\mathcal{S}_{n-1}$上のアフィン接続$\nabla^{(n)}$に対する不変性の要請は、
+\begin{equation}
+    g^{(n)}_p(\nabla^{(n)}_X Y,Z) = g^{(n)}_{f(p)}(\nabla^{(l)}_{f_*X} f_*Y,f_*Z)
+\end{equation}
+である。ただし、$f_*$は、多様体間の微分写像である。\\
 
 
 \end{document}

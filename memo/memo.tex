@@ -1,94 +1,69 @@
-\documentclass[a4paper,11pt]{jsarticle}
-
-% 数式
-\usepackage{amsmath,amsfonts}
-\usepackage{amsthm}
-\usepackage{bm}
-\usepackage{mathtools}
+\documentclass{article}
+\usepackage{amsmath}
 \usepackage{amssymb}
-
-% 表
-\usepackage[utf8]{inputenc}
-\usepackage{diagbox} % 斜線付きセルを作成するために必要
-\usepackage{booktabs} % 表の罫線を美しくするために必要
-\usepackage{hhline} % 水平罫線を制御するために必要
-
-% 画像
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{ascmac}
-\usepackage{physics}
-\usepackage{float} % 追加
-
-% 図
-\usepackage[dvipdfmx]{graphicx}
-\usepackage{tikz} %図を描く
-\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
-
-% ハイパーリンク
-\usepackage[dvipdfm,
-  colorlinks=false,
-  bookmarks=true,
-  bookmarksnumbered=false,
-  pdfborder={0 0 0},
-  bookmarkstype=toc]{hyperref}
-
-% 式番号を章ごとにリセット
-\numberwithin{equation}{section}
+\usepackage{bm}
 
 \begin{document}
 
-\section*{4 正規直交標構を使う方法 (orthonormal frame)}
+\section*{問題 1}
 
-曲面 $\vb{p} = \vb{p}(u, v)$ が与えられたとき、$\mathcal{S}$ の各点で接平面内の正規直交基底 $\mathbf{e}_1, \mathbf{e}_2$ をとる：
-
+平面波を重み $g(\bm{k})$ で重ね合わせた波束
 \begin{equation}
-\mathbf{e}_1 \cdot \mathbf{e}_1 = \mathbf{e}_2 \cdot \mathbf{e}_2 = 1, \quad \mathbf{e}_1 \cdot \mathbf{e}_2 = 0
+    \phi(\bm{x}, t) = \frac{1}{(2\pi)^{3/2}} \iiint g(\bm{k}) e^{i \bm{k} \cdot \bm{x} - i \omega(\bm{k}) t} d^3 k
+\end{equation}
+を考える。
+
+(1) $t=0$ において、
+\begin{equation}
+    \phi(\bm{x}, 0) = C e^{i \bm{k}_0 \cdot \bm{x}} \exp \left( - \frac{\bm{x}^2}{2\sigma} \right)
+\end{equation}
+であるとする。（$C$ は複素定数、$\bm{k}_0$, $\sigma$ は実定数。）
+
+この $\phi(\bm{x}, 0)$ を Fourier 変換することで重み $g(\bm{k})$ が
+\begin{equation}
+    g(\bm{k}) = C \sigma^{3/2} \exp \left( - \frac{\sigma}{2} (\bm{k} - \bm{k}_0)^2 \right)
+\end{equation}
+と表されることを示せ。
+
+関数 $f(\bm{x})$ の Fourier 変換は
+\begin{equation}
+    F(\bm{k}) = \frac{1}{(2\pi)^{3/2}} \iiint f(\bm{x}) e^{-i \bm{k} \cdot \bm{x}} d^3 x
+\end{equation}
+Fourier 逆変換は
+\begin{equation}
+    f(\bm{x}) = \frac{1}{(2\pi)^{3/2}} \iiint F(\bm{k}) e^{i \bm{k} \cdot \bm{x}} d^3 k
+\end{equation}
+で定義する。
+
+\subsection*{解答}
+
+与えられた $\phi(\bm{x}, 0)$ を Fourier 変換する。Fourier 変換の定義より、
+
+\begin{align}
+    g(\bm{k}) &= \frac{1}{(2\pi)^{3/2}} \iiint \phi(\bm{x}, 0) e^{-i \bm{k} \cdot \bm{x}} d^3 x \\
+    &= \frac{1}{(2\pi)^{3/2}} \iiint C e^{i \bm{k}_0 \cdot \bm{x}} \exp \left( - \frac{\bm{x}^2}{2\sigma} \right) e^{-i \bm{k} \cdot \bm{x}} d^3 x \\
+    &= \frac{C}{(2\pi)^{3/2}} \iiint \exp \left( i (\bm{k}_0 - \bm{k}) \cdot \bm{x} \right) \exp \left( - \frac{\bm{x}^2}{2\sigma} \right) d^3 x
+\end{align}
+
+ここで、指数関数の積をまとめて書き直すと、
+\begin{equation}
+    g(\bm{k}) = \frac{C}{(2\pi)^{3/2}} \iiint \exp \left( - \frac{\bm{x}^2}{2\sigma} + i (\bm{k}_0 - \bm{k}) \cdot \bm{x} \right) d^3 x
 \end{equation}
 
+次に、$\bm{x}$ のガウス積分を評価する。一般的なガウス積分の公式
 \begin{equation}
-\mathbf{e}_3 = \mathbf{e}_1 \times \mathbf{e}_2 \quad : \text{単位法線ベクトル}
+    \iiint \exp \left( -a \bm{x}^2 + \bm{b} \cdot \bm{x} \right) d^3 x = \left( \frac{\pi}{a} \right)^{3/2} \exp \left( \frac{\bm{b}^2}{4a} \right)
 \end{equation}
-
-$(\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3)$ は右手系 $\in SO(3)$
-
-\textbf{Rem.} $\mathbf{e}_1, \mathbf{e}_2$ の与え方の一例としては $\vb{p}_u, \vb{p}_v$ からシュミットの直交化法を使うとよい。
+を用いると、ここで $a = \frac{1}{2\sigma}$、$\bm{b} = i (\bm{k}_0 - \bm{k})$ であるため、
 
 \begin{equation}
-\mathbf{e}_1 = \frac{\vb{p}_u}{|\vb{p}_u|}, \quad \mathbf{e}_2 = \frac{\vb{p}_v - (\vb{p}_v \cdot \mathbf{e}_1)\mathbf{e}_1}{|\vb{p}_v - (\vb{p}_v \cdot \mathbf{e}_1)\mathbf{e}_1|}
+    g(\bm{k}) = \frac{C}{(2\pi)^{3/2}} \left( 2\pi\sigma \right)^{3/2} \exp \left( -\frac{\sigma}{2} (\bm{k} - \bm{k}_0)^2 \right)
 \end{equation}
 
-\subsection*{基底のとりかえ行列}
-
+以上から、
 \begin{equation}
-(\vb{p}_u, \vb{p}_v) = (\mathbf{e}_1, \mathbf{e}_2) A \quad A = 
-\begin{pmatrix}
-a_1^1 & a_1^2 \\
-a_2^1 & a_2^2
-\end{pmatrix}
+    g(\bm{k}) = C \sigma^{3/2} \exp \left( - \frac{\sigma}{2} (\bm{k} - \bm{k}_0)^2 \right)
 \end{equation}
+が得られる。証明終了。
 
-\begin{equation}
-\begin{cases}
-\vb{p}_u = a_1^1 \mathbf{e}_1 + a_1^2 \mathbf{e}_2 \\
-\vb{p}_v = a_2^1 \mathbf{e}_1 + a_2^2 \mathbf{e}_2
-\end{cases}
-\end{equation}
-
-\textbf{Rem + 仮定} $\mathbf{e}_1, \mathbf{e}_2$ は $\det A > 0$ となるようにとる。
-
-$\det A < 0$ のときは $\mathbf{e}_1, \mathbf{e}_2$ を入れ替えて改めて $\mathbf{e}_1, \mathbf{e}_2$ とすればよい。このとき $\mathbf{e}_3 = \mathbf{e}$ となる。
-
-\begin{equation}
-d\vb{p} = \vb{p}_u du + \vb{p}_v dv = (a_1^1 du + a_1^2 dv) \mathbf{e}_1 + (a_2^1 du + a_2^2 dv) \mathbf{e}_2
-\end{equation}
-
-\begin{equation}
-d\vb{p} = \theta^1 \mathbf{e}_1 + \theta^2 \mathbf{e}_2
-\end{equation}
-
-\begin{equation}
-I = d\vb{p} \cdot d\vb{p} = \theta^1 \theta^1 + \theta^2 \theta^2
-\end{equation}
-
-\subsection{}
 \end{document}
