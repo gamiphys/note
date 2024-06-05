@@ -99,7 +99,7 @@ $\because$\\
     &= fg\nabla_XY - fg\nabla'_{X}Y\\
     &= fgS(X,Y)
 \end{align}
-が成り立つ。\hfill\qedsymbol
+が成り立つ。\hfill\qedsymbol\\
 したがって、$S$は$(1,2)$型のテンソル場である。したがって、$M$上に何か一つ共変微分を固定して、それとの差を考えると、$M$上の共変微分全体と、$(1,2)$型のテンソル場全体は、同型である。すなわち、
 \begin{equation}
  \{\text{M上の共変微分全体}\} \simeq \nabla^{0} +\{\text{（1,2）型のテンソル場全体}\}
@@ -1106,6 +1106,7 @@ $\theta$座標系において、測地線は直線で表すことができる。
     &= 0
 \end{align}
 となる。したがって、示された。\hfill\qedsymbol
+\newpage
 
 \section{確率分布空間の幾何構造}
 \subsection{Chentsovの定理}
@@ -1180,25 +1181,273 @@ $\theta$座標系において、測地線は直線で表すことができる。
 
 %TODO例を書く
 
-\begin{itembox}[l]{\textbf{Post:要請}}
+\begin{itembox}[l]{\textbf{要請}}
     $\mathcal{S}_{n-1}$の幾何は、$\mathcal{S}_{l-1}$に埋め込まれた部分多様体$f(\mathcal{S}_{n-1})$の幾何と同等であるべきである。
 \end{itembox}
 
 \begin{itembox}[l]{\textbf{Thm:Chentsovの定理}}
-    
-
+    $\mathcal{S}_{n-1}$上の$(0,2)$テンソル場からなる列$\{g^{(n)}\}$が、任意のMarkov埋込$f$に対する不変性:
+    \begin{equation}
+        g^{(n)}_p(X,Y) = g^{(n)}_{f(p)}(f_*X,f_*Y)
+    \end{equation}
+    を満たすものは、定数倍を除いて、
+    \begin{equation}
+        g^{(n)}_p(X,Y) = \sum_{\omega = 1}^{n} p(\omega) (X\log p(\omega))(Y\log p(\omega))
+    \end{equation}
+    に限られる。
 \end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。
 
 \subsection{Fisher計量と$\alpha$-接続}
 Markov埋め込み$f: \mathcal{S}_{n-1} \to \mathcal{S}_{l-1}$のもとでの$\mathcal{S}_{n-1}$の計量$g^{(n)}$に対する不変性の要請は、
 \begin{equation}
+    \label{eq:1}
     g^{(n)}_p(X,Y) = g^{(n)}_{f(p)}(f_*X,f_*Y)
 \end{equation}
 であり、$\mathcal{S}_{n-1}$上のアフィン接続$\nabla^{(n)}$に対する不変性の要請は、
 \begin{equation}
+    \label{eq:2}
     g^{(n)}_p(\nabla^{(n)}_X Y,Z) = g^{(n)}_{f(p)}(\nabla^{(l)}_{f_*X} f_*Y,f_*Z)
 \end{equation}
 である。ただし、$f_*$は、多様体間の微分写像である。\\
+
+このとき、\ref{eq:1}が成り立つならば\ref{eq:2}も成り立つ。\\
+$\because$\\
+%TODO後で書く。
+
+また、$\mathcal{S}_{n-1}$上に許容される計量は他にもある。というのも、共変微分の差が$(1,2)$テンソル場と一対一に対応すること:
+\begin{equation}
+    S(X,Y) = \nabla_X Y - \tilde{\nabla}_X Y
+\end{equation}
+が成り立つため、これを計量を用いて射影した、
+\begin{equation}
+    S(X,Y,Z) = g((\nabla_X Y - \tilde{\nabla}_X Y),Z)
+\end{equation}
+は、$(0,3)$テンソル場に一対一対応する。しかも、Chentsovの定理から、不変性を満たすテンソル場は、定数倍を除いて定まっている。以上をまとめて、以下の定理を得る。\\
+
+\begin{itembox}[l]{\textbf{Thm:Chentsovの定理}}
+    Markov埋め込みの下での不変性を満たすRiemann計量は、定数倍を除いて、
+    \begin{equation}
+        \label{eq:Fisher1}
+        g_p(X,Y) = \sum_{\omega = 1}^{n} p(\omega) (X\log p(\omega))(Y\log p(\omega))
+    \end{equation}
+    に限られる。一方、アフィン接続の不変性を満たすようなアフィン接続は、
+    \begin{equation}    
+        \label{eq:Fisher2}
+        g(\nabla_X^{\alpha} Y,Z) = g(\tilde{\nabla}_X^{\alpha} Y,Z) - \frac{\alpha}{2} S_p(X,Y,Z)
+    \end{equation}
+    により、実数$\alpha$と一対一に対応する。ただし、
+    \begin{equation}
+        S_p(X,Y,Z) = \sum_{\omega = 1}^{n} p(\omega) (X\log p(\omega))(Y\log p(\omega))(Z\log p(\omega))
+    \end{equation}
+    である。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:Fisher計量}}
+    \ref{eq:Fisher1}を満たす計量$g$をFisher計量といい、\ref{eq:Fisher2}を満たすアフィン接続$\nabla^{\alpha}$を$\alpha$-接続という。
+
+\end{itembox}
+
+\subsection{指数型接続と混合型接続}
+\begin{itembox}[l]{\textbf{Thm:}}
+    有限確率分布空間$\mathcal{S}_{n-1}$上のFisher計量を$g$、$\alpha$-接続を$\nabla^{\alpha}$とする。このとき、以下が成り立つ。
+    \begin{enumerate}
+        \item 各$\alpha \in \mathbb{R}$に対して、$\nabla^{\alpha}$の捩率は0である。
+        \item 各$\alpha \in \mathbb{R}$に対して、$\nabla^{\alpha}$と$\nabla^{-\alpha}$は$g$に関して互いに双対である。
+        \item $\mathcal{S}_{n-1}$は双対構造$(g,\nabla^{+1},\nabla^{-1})$に関して双対平坦である。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf}\\
+\textbf{1.}\\
+$\nabla^{0}$はRiemann接続であるから、捩率は0である。これを用いると、
+\begin{align}
+    g(\nabla^{\alpha}_X Y-\nabla^{-\alpha}_X Y -[X,Y],Z) &= g(\nabla^{0}_X Y-\nabla^{0}_X Y-[X,Y],Z) - \frac{\alpha}{2} (S(X,Y,Z) - S(Y,X,Z))\\ 
+    &= 0 \quad \because \text{Sの対称性}
+\end{align}
+となる。したがって、捩率は0である。\\
+\textbf{2.}\\
+\begin{align}
+    Xg(Y,Z) &= g(\nabla^{0}_X Y,Z) + g(Y,\nabla^{0}_X Z) \quad \because \text{Riemann接続}\\
+    &= g(\nabla^{\alpha}_X Y,Z) + g(Y,\nabla^{-\alpha}_X Z) +\frac{\alpha}{2} (S(X,Y,Z) - S(X,Z,Y))\\
+    &= g(\nabla^{\alpha}_X Y,Z) + g(Y,\nabla^{-\alpha}_X Z) \quad \because \text{Sの対称性}
+\end{align}
+となる。したがって、$\nabla^{\alpha}$と$\nabla^{-\alpha}$は$g$に関して互いに双対である。\\
+\textbf{3.}\\
+各$\alpha$について捩率が0であることは述べたから、あとは曲率が0であることを示せばよい。以下、$\mathcal{S}_{n-1}$が$\nabla^{-1}$-アフィン座標系を持つことを示す。
+というのも、これが示されれば、$\mathcal{S}_{n-1}$が$\nabla^{-1}$-平坦であることが示されるため、この接続について曲率が0となり、なおかつそれに双対な接続についても曲率が0となるからである。\\
+
+\begin{equation}
+    p(\omega) = \sum_{a=1}^{n-1} \xi^a \delta_a(\omega) +\left(1-\sum_{a=1}^{n-1} \xi^a \right) \delta_n(\omega)
+\end{equation}
+により定義される座標系が、実は$\nabla^{-1}$-アフィン座標系であることを示す。\\
+
+計算により、%TODOあとで計算ちゃんと追う。
+\begin{align}
+    \Gamma_{i,j,k}^{\alpha} &=g(\nabla_{\partial_i}^{\alpha} \partial_j,\partial_k)\\
+    &= \frac{1-\alpha}{2} S_{ijk} + \sum_{\omega=1}^{n} p(\omega) (\partial_i \partial_j \log p(\omega))(\partial_k \log p(\omega))
+\end{align}
+であることがわかる。ただし、
+\begin{equation}
+    S_{ijk} = \sum_{\omega=1}^{n} p(\omega) (\partial_i \log p(\omega))(\partial_j \log p(\omega))(\partial_k \log p(\omega))
+\end{equation}
+である。とくに、$\alpha = -1$のとき、
+\begin{align}
+    \Gamma_{i,j,k}^{-1} &= \sum_{\omega=1}^{n} p(\omega) ((\partial_i\log p(\omega))( \partial_j \log p(\omega))+\partial_i \partial_j \log p(\omega))(\partial_k \log p(\omega))\\
+    &= \sum_{\omega=1}^{n} p(\omega) \left( \frac{p(\omega)^2}{(\partial_i p(\omega))(\partial_j p(\omega))} + \partial_i \left(\frac{\partial_j p(\omega)}{p(\omega)}\right) \right) \partial_k \log p(\omega)\\
+    &= \sum_{\omega=1}^{n} (\partial_i \partial_j p(\omega)) (\partial_k \log p(\omega)) \quad \because \text{積(商)の微分をばらしている}
+\end{align}
+となる。このとき、
+\begin{equation}
+    p(\omega) = \sum_{a=1}^{n-1} \xi^a \delta_a(\omega) +\left(1-\sum_{a=1}^{n-1} \xi^a \right) \delta_n(\omega)
+\end{equation}
+を見ると、$\partial_a \partial_b p(\omega) = 0$であるから、
+\begin{equation}
+    \Gamma_{a,b,c}^{-1} = 0
+\end{equation}
+であることがわかる。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:指数型接続/混合型接続}}
+    $\nabla^{-1}$を混合型接続といい、$\nabla^{m}$と書く。また、$\nabla^{+1}$を指数型接続といい、$\nabla^{e}$と書く。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:m-表現/e-表現}}
+    各$X \in T_p \mathcal{S}$に対して、
+    \begin{equation}
+        Xp = (Xp(1),Xp(2),\cdots,Xp(n))
+    \end{equation}
+    で定まる確率変数$Xp$を、$X$のm-表現という。また、その全体を、接空間$T_p \mathcal{S}$のm-表現空間といい、$T_p \mathcal{S}^m$と書く。\\
+    同様に、各$X \in T_p \mathcal{S}$に対して、
+    \begin{equation}
+        X\log p = (X\log p(1),X\log p(2),\cdots,X\log p(n))
+    \end{equation}
+    で定まる確率変数$X\log p$を、$X$のe-表現という。また、その全体を、接空間$T_p \mathcal{S}$のe-表現空間といい、$T_p \mathcal{S}^e$と書く。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:m-表現、e-表現の特徴づけ}}
+    接空間$T_p \mathcal{S}$のm-表現、e-表現空間は、それぞれ、以下のように特徴づけられる。
+    \begin{align}
+        T_p \mathcal{S}^m &= \{f : \Omega \to \mathbb{R}; \sum_{\omega \in \Omega} f(\omega) = 0\}\\
+        T_p \mathcal{S}^e &= \{f : \Omega \to \mathbb{R}; \sum_{\omega \in \Omega} f(\omega) = 0, \sum_{\omega \in \Omega} f(\omega)^2 = 1\}
+    \end{align}
+\end{itembox}
+上の表式を見ると、m-表現においては、$f(\omega)$0次のモーメントが0であることがわかる。また、e-表現においては、$f(\omega)$の1次のモーメントが0であることがわかる。\\
+\textbf{Prf}\\
+\textbf{m-表現}\\
+$\text{(左辺)} \subset \text{(右辺)}$は、
+\begin{equation}
+    \sum_{\omega \in \Omega} Xp(\omega) X\left(\sum_{\omega \in \Omega} p(\omega)\right) = X1 = 0
+\end{equation}
+であるから、成り立つ。\\
+また、両辺共に、$n-1$次元の線形空間であるから、線形代数の話を思い出すと、$\text{(右辺)} = \text{(左辺)}$である。\\
+
+\textbf{e-表現}\\
+$\text{(左辺)} \subset \text{(右辺)}$は、
+\begin{equation}
+    \sum_{\omega \in \Omega} p(\omega) X\log p(\omega) =\sum_{\omega \in \Omega} p(\omega) \left(\frac{Xp(\omega)}{p(\omega)}\right) = X1 = 0
+\end{equation}
+であるから、成り立つ。\\
+また、両辺共に、$n-1$次元の線形空間であるから、線形代数の話を思い出すと、$\text{(右辺)} = \text{(左辺)}$である。\\
+\hfill\qedsymbol\\
+
+\textbf{Rem}\\
+Fisher計量は、接ベクトルのe-表現とm-表現によって、
+\begin{equation}
+    g(X,Y) = \sum_{\omega \in \Omega} (X p(\omega))(Y \log p(\omega))
+\end{equation}
+と表すことができる。また、接続$\nabla^{m},\nabla^{e}$は、それぞれ、
+\begin{align}
+    g(\nabla^{m}_X Y,Z) &= \sum_{\omega \in \Omega} (XY\log p(\omega))(Zp(\omega))\\
+    g(\nabla^{e}_X Y,Z) &= \sum_{\omega \in \Omega} (XYp(\omega))(Z\log p(\omega))
+\end{align}
+と表すことができる。\\
+$\because$
+\begin{align}
+    \label{eq:3}
+    g_p(X,Y) &= \sum_{\omega \in \Omega} p(\omega) (X\log p(\omega))(Y\log p(\omega))\\
+    &= \sum_{\omega \in \Omega} p(\omega) \frac{Xp(\omega)}{p(\omega)} \frac{Yp(\omega)}{p(\omega)}\\
+    &= \sum_{\omega \in \Omega} (Xp(\omega))(Yp(\omega))
+\end{align}
+であるから、計量について示される。また、接続については、
+%TODO後で書く。
+
+\begin{itembox}[l]{\textbf{Def:m-平行移動/e-平行移動}}
+    二点$p,q \in \mathcal{S}$に対し、
+    \begin{align}
+        \Pi^{m} : T_p^{m} \mathcal{S} \to T_q^{m} \mathcal{S}:f \mapsto f
+    \end{align}
+    で定まる遠隔平行移動をm-平行移動という。また、
+    \begin{align}
+        \Pi^{e} : T_p^{e} \mathcal{S} \to T_q^{e} \mathcal{S}:f \mapsto f-E_q[f]
+    \end{align}
+    で定まる遠隔平行移動をe-平行移動という。
+
+\end{itembox}
+平行移動前後で、上で見た、m-表現、e-表現の特徴づけが保たれることがわかる。\\
+
+実は上で定義した平行移動の微小変化が、共変微分に対応することが以下でわかる。\\
+\begin{itembox}[l]{\textbf{Thm:}}
+    $t=0$で$p_0 \in \mathcal{S}$を通る$X \in \mathcal{X}(\mathcal{S})$の積分曲線を$p_t$とする。すなわち、$\dot{p}_t = X(p_t)$である。任意のベクトル場$Y \in \mathcal{X}(\mathcal{S})$に対して、
+    \begin{align}
+        (\nabla_X^{m} Y)_{p_0} &= \lim_{t \to 0} \frac{\Pi^{(m)t}_{0} Y_{p_t} - Y_{p_0}}{t}\\
+        (\nabla_X^{e} Y)_{p_0} &= \lim_{t \to 0} \frac{\Pi^{(e)t}_{0} Y_{p_t} - Y_{p_0}}{t}
+    \end{align}
+    が成り立つ。
+
+\end{itembox}
+\textbf{Prf}\\
+まず、m-表現について考える。証明の方針としては、平行移動を無限小にしたものが、(\ref{eq:3})をみたすことを示す。\\
+\begin{align}
+    &\lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{\Pi^{(m)t}_{0} (Y_{p_t} p_t(\omega)) - Y_{p_0} p_0(\omega)}{t} \right) (Z_{p_0}\log p_0(\omega))\\
+    &= \lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} p_t(\omega) - Y_{p_0} p_0(\omega)}{t} \right) (Z_{p_0}\log p_0(\omega)) \quad \because \text{m-平行移動の定義}\\
+    &= \sum_{\omega \in \Omega} (XYp(\omega))(Z\log p(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\%TODOここよくわからない
+    &= g(\nabla_X^{m} Y,Z)_{p_0} \because (\ref{eq:3})
+\end{align}
+となる。したがって、示された。\\
+
+次に、e-表現について考える。\\
+\begin{align}
+    &\lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{\Pi^{(e)t}_{0} (Y_{p_t} \log p_t(\omega)) - Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega))\\
+    &= \lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -E_{p_0}[Y_{p_t} \log p_t(\omega)]- Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \quad \because \text{e-平行移動の定義}\\
+    &= \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\
+    &= \sum_{\omega \in \Omega} (XY\log p(\omega))(Zp(\omega)) \left.\right|_{p=p_0} \\
+    &= g(\nabla_X^{e} Y,Z)_{p_0} \because (\ref{eq:3})
+\end{align}
+となる。したがって、示された。\hfill\qedsymbol\\
+
+
+\subsection{$\mathcal{S}_{n-1}$の双対微分幾何}
+
+\begin{itembox}[l]{\textbf{Def:統計多様体}}
+    4つ組($\mathcal{S},g,\nabla^{m},\nabla^{e}$)を統計多様体という。ただし、$\mathcal{S}$は有限確率分布空間、$g$はFisher計量、$\nabla^{m}$はm-接続、$\nabla^{e}$はe-接続である。
+\end{itembox}
+以下、便宜上のため、$\nabla^{e}$を$\nabla$、$\nabla^{m}$を$\nabla^*$と書くことにする。\\
+
+
+\subsection{自己平行部分多様体}
+\begin{itembox}[l]{\textbf{Def:指数型分布族}}
+    $\Omega$上の関数$C(\omega),F_1(\omega),\cdots,F_k(\omega)$及び$\mathbb{R}^k$上の領域$\Theta$上を動く$k$次元パラメータ$\theta = (\theta^1,\cdots,\theta^k) \in \Theta$を用いて
+    \begin{equation}
+        p_{\theta}(\omega) = \exp\left[ C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) - \psi(\theta) \right]
+    \end{equation}
+    と表される確率分属族$\{p_{\theta;\theta \in \Theta}\}$を指数型分布族という。ただし、$\psi(\theta)$は、
+    \begin{equation}
+        \psi(\theta) = \log \left[ \sum_{\omega \in \Omega} \exp\left[ C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) \right] \right]
+    \end{equation}
+    で定義される。  
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:}}
+    $\mathcal{S}$の部分多様体$M$に対し、$M$が$\nabla$-自己平行部分多様体であるための必要十分条件は、$M$が指数型分布族であることである。
+\end{itembox}
+\textbf{Prf}\\
+
+\subsection{双対葉層構造}
+
+
+
 
 
 \end{document}

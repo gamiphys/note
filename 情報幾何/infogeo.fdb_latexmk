@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1717243413 "infogeo.dvi" "infogeo.pdf" "infogeo" 1717243415 0
-  "infogeo.dvi" 1717243413 168924 e04f1a17b435d9592d50dc257db0e18b "latex"
+["dvipdf"] 1717478005 "infogeo.dvi" "infogeo.pdf" "infogeo" 1717478008 0
+  "infogeo.dvi" 1717478005 206248 e07a9b949e383306c68aa9b607398172 "latex"
   (generated)
   "infogeo.pdf"
   (rewritten before read)
-["latex"] 1717243410 "infogeo.tex" "infogeo.dvi" "infogeo" 1717243415 0
+["latex"] 1717478000 "infogeo.tex" "infogeo.dvi" "infogeo" 1717478008 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -195,9 +195,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "infogeo.aux" 1717243413 2827 eebe8e5adb13b4614f97a4e98d376ef0 "latex"
-  "infogeo.out" 1717243413 1620 deee60e21a0fa22d77906d5d1501ec22 "latex"
-  "infogeo.tex" 1717243409 61349 90795eaaaa9e34ee29ae91182f875267 ""
+  "infogeo.aux" 1717478005 3783 c43213f8ec310e28d7e58260f57adf5a "latex"
+  "infogeo.out" 1717478005 2103 3613c659d9887a7ffc4120cb27034de2 "latex"
+  "infogeo.tex" 1717477999 75536 a6c91c4ef9be2fc5459c5c7dd109866f ""
   (generated)
   "infogeo.aux"
   "infogeo.dvi"
