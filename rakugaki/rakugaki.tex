@@ -2,26 +2,27 @@
 
 % 数式
 \usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
 \usepackage{bm}
 \usepackage{mathtools}
+\usepackage{amssymb}
 
 % 表
 \usepackage[utf8]{inputenc}
-\usepackage{diagbox}
-\usepackage{booktabs}
-\usepackage{hhline}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
 
 % 画像
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{ascmac}
 \usepackage{physics}
-\usepackage{float}
-
+\usepackage{float} % 追加
 
 % 図
 \usepackage[dvipdfmx]{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{positioning, intersections, calc, arrows.meta,math}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
 
 % ハイパーリンク
 \usepackage[dvipdfm,
@@ -31,73 +32,217 @@
   pdfborder={0 0 0},
   bookmarkstype=toc]{hyperref}
 
-% その他
-% \usepackage{circuitikz}
-% \usepackage{caption}
-% \usepackage{cancel}
-% \usepackage{tensor}
-% \usepackage{tikz}
-% \usepackage{ascmac}
-% \usepackage{float}
-% \usepackage{hyperref}
-% \usepackage{pxjahyper}
-% \usepackage{tablefootnote}
-% \usepackage[thicklines]{cancel}
-\usepackage[version=4]{mhchem}
-\usepackage{here}
-\usepackage{pgfplots}
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
 
 \begin{document}
 
-\quad\\[35mm]
-\centerline{\Huge{\textsf{物理学実験Ⅰ}}}
-\quad\\[5mm]
-\begin{table}[h]
-  \centering
-  \begin{tabular}{| c | c |}
-    \hline
-    \Huge\textsf{{題目}} & \Huge{\textsf{タイトル}} \rule[-5mm]{0mm}{15mm} \\
-    \hline
-  \end{tabular}
-\end{table}
-\quad\\[10mm]
-\begin{table}[h]
-  \centering
-  \begin{tabular}{l l}
-    \hline
-    \LARGE{\textsf{氏\qquad 名}} & \LARGE{\textsf{:大上 由人}} \rule[0mm]{0mm}{6mm} \\
-    \hline
-    \LARGE{\textsf{学  籍  番  号}} & \LARGE{\textsf{: 02222100}} \rule[0mm]{0mm}{6mm} \\
-    \LARGE{\textsf{学部学科学年}} & \LARGE{\textsf{: 理学部物理学科3年}}\\
-    \hline
-  \end{tabular}
-\end{table}
+\title{rakugaki}
+\author{大上由人}
+\date{\today}
+\maketitle
 
-\quad\\[10mm]
-\centerline{\LARGE{\textsf{\today}}}\\[2mm]
+\begin{itembox}[l]{\textbf{Lem:}}
+  $ A \underset{\text{cofibration}}{\subset} X$であるならば、$X/A \underset{\text{cofibration}}{\supset}A/A$
+\end{itembox}
 
-\quad\\[10mm]
-\thispagestyle{empty}
-\clearpage
-\addtocounter{page}{-1}
-\newpage
+\begin{itembox}[l]{\textbf{Thm:等価空間のオイラー数}}
+  $\phi \neq A \underset{\text{cofibration}}{\subset}X$かつ$\mathcal{X}(A), \mathcal{X}(X), \mathcal{X}(X/A)$のどれか二つがwell-defined
 
-\section{目的}
+\end{itembox}
+\textbf{Prf}\\
+$X \cup CA =M_{\iota}/A\times \{0\}$\\
+$X(X \cup CA) = X(D) + X(E) -X(D \cap E)$\\
+右辺第一項は可縮である、第二項は$E\simeq X$であり、$D\cap E \equiv A \times (\frac{1}{3},\frac{2}{3}) \simeq S$\\
+$(X \cup CA)\sqcup_{p} {*} \cong X/A$\\
+左辺$\simeq X \cup CA$\\
+よって、求めるものを得る。\\
 
-\section{原理}
+$Top_0$起点つき位相空間の圏(射は連続写像であって、基点を基点に移すもの)\\
+$ X \in Obj(Top_0)$について、
+\begin{equation}
+  \tilde{X}(X) = X(X) -1(X(\{*\}))
+\end{equation}
+と定義する。\\
 
-\section{方法}
+\begin{itembox}[l]{\textbf{Cor}}
+  $A,X \in Obj(Top_0)$かつ$A \subset X$について(つまり、$X$の基点が$A$の基点に移る)、
+  \begin{equation}
+    \tilde{X}(X/A) = \tilde{X}(X) - \tilde{X}(A)
+  \end{equation}
+  ただし、3項のうちどれか二つがwell-definedである。
+\end{itembox}
+$A,B \in Obj(Top_0)$について、
+\begin{equation}
+  A \vee B := A \sqcup B / \{A^* \sim B^*\}
+\end{equation}
+\begin{equation}
+  A \wedge B := A \times B / \{A \times \{*_B\} \cup \{*_A\} \times B\}
+\end{equation}
+と定義する。\\
 
-\section{結果}
+\begin{itembox}[l]{\textbf{Thm:$\tilde{\mathcal{X}}$の性質}}
+  すべて基点つき空間で考える。$A,B \in X \text{s.t.} X = A \cup B$かつ、
+  \begin{equation}
+    A \underset{\text{cofibration}}{\supset}A \cap B 
+  \end{equation}
+  かつ
+  \begin{equation}
+    A \cap B \underset{\text{cofibration}}{\subset} B 
+  \end{equation}
+  であるとする。このとき、$\mathcal{X}(A), \mathcal{X}(B), \mathcal{X}(X), \mathcal{X}(A \cap B)$のうちどれか三つがwell-definedであるならヴぁ
+  \begin{equation}
+    \tilde{X}(X) = \tilde{X}(A) + \tilde{X}(B) - \tilde{X}(A \cap B)
+  \end{equation}
+  が成り立つ。
+  
 
-\section{課題}
+\end{itembox}
+\textbf{Prf}\\
+仮定より、
+\begin{equation}
+  A \underset{\text{cofibration}}{\subset} X \underset{\text{cofibration}}{\supset} A
+\end{equation}
+\begin{equation}
+  X/A \cong B/A \cap B \quad X/B \cong A/A \cap B
+\end{equation}
+先のことから、
+\begin{equation}
+  \tilde{\mathcal{X}}(X/A) = \tilde{\mathcal{X}}(X) - \tilde{\mathcal{X}}(A)
+\end{equation}
+\begin{equation}
+  \tilde{\mathcal{X}}(X/A) = \tilde{\mathcal{X}}(B/A \cap B) = \tilde{\mathcal{X}}(B) - \tilde{\mathcal{X}}(A \cap B)
+\end{equation}
+\begin{equation}
+  \tilde{\mathcal{X}}(X/B) = \tilde{\mathcal{X}}(X) - \tilde{\mathcal{X}}(B)
+\end{equation}
+\begin{equation}
+  \tilde{\mathcal{X}}(A/A \cap B) = \tilde{\mathcal{X}}(A) - \tilde{\mathcal{X}}(A \cap B)
+\end{equation}
+よって、
+\begin{equation}
+  \tilde{\mathcal{X}}(X) - \tilde{\mathcal{X}}(A) = \tilde{\mathcal{X}}(B) - \tilde{\mathcal{X}}(A \cap B) \label{eq:1}
+\end{equation}
+\begin{equation}
+  \tilde{\mathcal{X}}(X) - \tilde{\mathcal{X}}(B) = \tilde{\mathcal{X}}(A) - \tilde{\mathcal{X}}(A \cap B) \label{eq:2}
+\end{equation}
+であるから、(\ref{eq:1})-(\ref{eq:2})を辺々足して2で割ることで、求めるものを得る。\\
 
-\section{考察}
+\begin{itembox}[l]{\textbf{Def:退化}}
+  $A \in Obj(Top_0)$について、$A$の基点$\{*_A\} \in A $が非退化であるとは、($A$がwell-pointedであるとは)、
+  $\{*_A\} \in A$がcofibrationであることをいう。
+\end{itembox}
 
-\section{問題}
+\begin{itembox}[l]{\textbf{Prop:}}
+  $A,B$がwell-pointedであるならば、$A \wedge B, A \vee B$もwell-pointedである。
+\end{itembox}
 
-\begin{thebibliography}{99}
-  \bibitem{ref} 参考文献
-\end{thebibliography}
+\begin{itembox}[l]{\textbf{Cor}}
+  $A,B \in Obj(Top_0)$がwell-pointedであるかつ、$\tilde{\mathcal{X}}(A), \tilde{\mathcal{X}}(B)$がwell-definedであるならば、
+  \begin{align}
+    \tilde{\mathcal{X}}(A \wedge B) &= \tilde{\mathcal{X}}(A) + \tilde{\mathcal{X}}(B) -1\\
+    \tilde{\mathcal{X}}(A \vee B) &= \tilde{\mathcal{X}}(A) + \tilde{\mathcal{X}}(B) -1
+  \end{align}
+  が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+$A \subset A \vee B \supset B$と思う。
+仮定より、$A \cap B \in A \vee B = A \cup B$であり、
+\begin{equation}
+  A \underset{\text{cofibration}}{\subset} A \cap B(=\{*_A\} = \{*_B\}) \underset{\text{cofibration}}{\subset} B
+\end{equation}
+\begin{equation}
+  A \underset{\text{cofibration}}{\subset} A \cup B(\equiv A \vee B) \underset{\text{cofibration}}{\supset} B
+\end{equation}
+前の定理より、
+\begin{equation}
+  \tilde{\mathcal{X}}(A \vee B) = \tilde{\mathcal{X}}(A) + \tilde{\mathcal{X}}(B) - \tilde{\mathcal{X}}(A \cap B)
+\end{equation}
+である。いま、第三項が0であることに注意すると、求めるものを得る。\\
+また、
+\begin{equation}
+  A \wedge B = A \times B / \{A \vee B\} 
+\end{equation}
+である、このとき、$A = A \times \{*_B\} \subset A \times B \supset \{*_A\} \times B = B$であり、$A$と$B$の$A \times B$における合併は$A \vee B$と同じ。\\
+$A,B$がwell-pointedであることから、$A \vee B \underset{\text{cofibration}}{\subset} A \times B$である。\\
+2つ前の定理より、
+\begin{align}
+  \tilde{\mathcal{X}}(A \wedge B) &= \tilde{\mathcal{X}}(A \times B) / \tilde{\mathcal{X}}(A \vee B)\\
+  &= \tilde{\mathcal{X}}(A \times B) - \tilde{\mathcal{X}}(A \vee B)\\
+  &= ({\mathcal{X}}(A) {\mathcal{X}}(B) - 1) - ({\mathcal{X}}(A) + {\mathcal{X}}(B) -2)\\
+  &= ({\mathcal{X}}(A)-1)(\mathcal{X}(B)-1)\\
+  &= (\tilde{\mathcal{X}}(A)(\tilde{\mathcal{X}}(B)))
+\end{align}
+となる。\\
+
+\textbf{ex}\\
+$Top_0$におけるsuspensionを、$A \in Obj(Top_0)$について、
+\begin{equation}
+  SA = S^1 \wedge A
+\end{equation}
+と定義する。\\
+\begin{equation}
+  S^n A = S(S(\cdots S(SA)\cdots))
+\end{equation}
+と定義する。\\
+このとき、
+\begin{equation}
+  S^n \cong S^n S^0
+\end{equation}
+である。\\
+\begin{align}
+  \tilde{\mathcal{X}}(S^n) &= \tilde{\mathcal{X}}(S^n S^0)\\
+  &= \tilde{\mathcal{X}}(S^1 \wedge \cdots \wedge S^1 \wedge S^0)\\
+  &= (\tilde{\mathcal{X}}(S^1) )^n \tilde{\mathcal{X}}(S^0)\\
+  &\because \\
+  & \tilde{\mathcal{X}}(S^0) = \mathcal{X}(S^0) - 1 = 2-1 = 1\\
+  & \tilde{\mathcal{X}}(S^1) = \mathcal{X}(S^1) - 1 = 0-1 = -1\\
+  & \tilde{\mathcal{X}}(S^n) = (-1)^n
+\end{align}
+
+\begin{itembox}[l]{\textbf{Def:位相多様体}}
+  $M$が位相多様体であるとは、
+  \begin{enumerate}
+    \item $M$はHausdorffである
+    \item 任意の点$p \in M$について、$p$の近傍$U$であって、
+    \begin{equation}
+      (U,p) \cong (\mathbb{R}^n,0) \label{eq:3}
+    \end{equation}
+    または、
+    \begin{equation}
+      (U,p) \cong (H^n_+,0) \label{eq:4}
+    \end{equation}
+    ただし、
+    \begin{equation}
+      H^n_+ = \{x \in \mathbb{R}^n | x_n \geq 0\}
+    \end{equation}
+  \end{enumerate}
+  となるものをいう。このとき、(\ref{eq:3})と(\ref{eq:4})は排反事象である。
+      
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:}}
+  位相多様体が閉であるとは、
+  \begin{enumerate}
+    \item $M$はコンパクト
+    \item $\partial M = \varnothing$
+    \end{enumerate}
+    となるものをいう。
+\end{itembox}
+
+$\partial M = \text{$M$の境界点}$とおき、これを$M$の境界という。\\
+
+\textbf{ex}\\
+$\mathbb{R}^n, H^n_+$はそれぞれn次元多様体であり、
+\begin{equation}
+  \partial \mathbb{R}^n = \varnothing, \quad \partial H^n_+ = \mathbb{R}^{n-1}
+\end{equation}
+である。\\
+
+\textbf{ex}\\
+$S^n$は閉多様体\\
+
+\textbf{ex}\\
+$A,B$が多様体ならば、$A \times B$も閉多様体である。\\
 
 \end{document}

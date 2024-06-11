@@ -1031,6 +1031,9 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
 OUTPUT memo.dvi
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT memo.aux
 INPUT ./memo.out
 INPUT ./memo.out

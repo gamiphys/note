@@ -1197,6 +1197,72 @@ $\theta$座標系において、測地線は直線で表すことができる。
     に限られる。
 \end{itembox}
 \textbf{Prf}\\
+4段階に分けて証明する。\\
+\textbf{Step1:}\\
+$\mathcal{S}_{n-1}$の重心
+\begin{equation}
+    p_0 = \left( \frac{1}{n},\frac{1}{n},\cdots,\frac{1}{n} \right)
+\end{equation}
+について考える。\footnote{事象のラベル付け不変性を見るため?わからんくなってきた}このとき、事象のラベル付けの不変性から、
+\begin{equation}
+    g^{(n)}_{p_0}(\pdv{x^i},\pdv{x^i}) 
+\end{equation}
+は$i$に依存せず、また、
+\begin{equation}
+    g^{(n)}_{p_0}(\pdv{x^i},\pdv{x^j})
+\end{equation}
+は$i,j$に依存しない。したがって、
+\begin{equation}
+    g^{(n)}_{p_0}(\pdv{x^i},\pdv{x^j}) = \delta_{ij}A^{(n)} + B^{(n)}
+\end{equation}
+と書くことができる、ところで、点$p_0$における$\mathcal{S}_{n-1}$の接ベクトルを、
+\begin{equation}
+    X = X^i \pdv{x^i}
+\end{equation}
+と表すと、
+\begin{equation}
+    \sum_{i=1}^{n} X^i = 0
+\end{equation}
+が成り立つ。というのも、$\mathcal{S}_{n-1}$上の関数$h(x) = x^1 + x^2 + \cdots + x^n = 1$に対して、
+\begin{equation}
+    0 = Xh = \sum_{i=1}^{n} X^i
+\end{equation}
+が成り立つからである。したがって、
+\begin{equation}
+    g^{(n)}_{p_0}(X,X) = \sum_{i,j=1}^{n} X^i X^j (\delta_{ij}A^{(n)} + B^{(n)}) = A^{(n)} \sum_{i=1}^{n} X^i Y^i
+\end{equation}
+となって、$\mathcal{S}_{n-1}$上のでは$B$に依存しない。よって、一般性を失わずに、$B^{(n)} = 0$としてよい。\\
+
+\textbf{Step2:}\\
+ある自然数$K$が存在して、$l = kn$となっているとき、
+\begin{align}
+    f(x^1,x^2,\cdots,x^n) &= \left(\frac{x^1}{k},\cdots,\frac{x^1}{k},\frac{x^2}{k},\cdots,\frac{x^2}{k},\cdots,\frac{x^n}{k},\cdots,\frac{x^n}{k}\right)\\
+    &= (y^{1_1},y^{1_2},\cdots,y^{1_k},y^{2_1},y^{2_2},\cdots,y^{2_k},\cdots,y^{n_1},y^{n_2},\cdots,y^{n_k})
+\end{align}
+というMarkov埋め込みを考える。このとき、
+\begin{equation}
+    f_* : \pdv{x^i} \mapsto \sum_{r=1}^{k} \pdv{y^{i_r}}
+\end{equation}
+である。このとき、代入すればわかるように、$\mathcal{S}_{n-1}$の重心$p_0$の像$f(p_0)$は、$\mathcal{S}_{l-1}$の重心である。したがって、Step1の結果から、
+\begin{align}
+    A^{(n)} &= g^{(n)}_{p_0}(\pdv{x^i},\pdv{x^i})\\
+    &= g_{f(p_0)}^{(l)}(f_*\pdv{x^i},f_*\pdv{x^i})\\
+    &= g_{f(p_0)}^{(l)}\left(\sum_{r=1}^{k} \pdv{y^{i_r}},\sum_{s=1}^{k} \pdv{y^{i_s}}\right)\\
+    &= \frac{1}{k^2} \sum_{r,s=1}^{k} g_{f(p_0)}^{(l)}(\pdv{y^{i_r}},\pdv{y^{i_s}})\\
+    &= \frac{1}{k^2} \sum_{r,s=1}^{k} \delta_{rs} A^{(l)}\\
+    &= \frac{1}{k} A^{(l)}
+\end{align}
+となる。したがって、
+\begin{equation}
+    \frac{A^{(n)}}{n} = \frac{A^{(l)}}{l}
+\end{equation}
+となり、ある定数$\lambda$が存在して、
+\begin{equation}
+    A^{(n)} = \lambda n
+\end{equation}
+となる。\\
+
+\textbf{Step3:}\\
 %TODO後で書く。
 
 \subsection{Fisher計量と$\alpha$-接続}
@@ -1415,7 +1481,7 @@ $\because$
     &= g(\nabla_X^{e} Y,Z)_{p_0} \because (\ref{eq:3})
 \end{align}
 となる。したがって、示された。\hfill\qedsymbol\\
-
+%TODO上の証明は改めて追う。
 
 \subsection{$\mathcal{S}_{n-1}$の双対微分幾何}
 
@@ -1424,8 +1490,98 @@ $\because$
 \end{itembox}
 以下、便宜上のため、$\nabla^{e}$を$\nabla$、$\nabla^{m}$を$\nabla^*$と書くことにする。\\
 
+双対アフィン座標系を考える。前に、
+\begin{equation}
+    p(\omega) = \sum_{i=1}^{n-1} \eta^i \delta_i(\omega) + (1-\sum_{i=1}^{n-1} \eta^i) \delta_n(\omega)
+\end{equation}
+により定義される座標系が、実は$\nabla^{m}$-アフィン座標系であることを示した。この座標系に対しては、$\partial_i \partial_j p(\omega) = 0$
+となるので、$\nabla^{m}$の接続係数
+\begin{equation}
+    \Gamma_{ij,k}^{m} = \sum_{\omega=1}^{n} (\partial_i \partial_j p(\omega)) (\partial_k \log p(\omega))
+\end{equation}
+がすべて0である。\\
+%ここになんか日本語が書いているけどたいして意味がない気がするので省略
+つぎに、$\nabla$-アフィン座標系を考える。いま、接続係数は、
+\begin{equation}
+    \Gamma_{ij,k} ^{e} = \sum_{\omega=1}^{n} (\partial_i \partial_j \log p(\omega)) (\partial_k p(\omega))
+\end{equation}
+であった。ここで、
+\begin{equation}
+    \log p(\omega) = \sum_{i=1}^{n-1} \left(\log \frac{p(i)}{p(n)}\right) \delta_i(\omega) + \log p(n) 
+\end{equation}
+である。
+\begin{equation}
+\theta^i = \log \frac{p(i)}{p(n)}
+\end{equation}
+とおくと、規格化条件より、
+\begin{equation}
+    p(n) = \frac{1}{1+\sum_{i=1}^{n-1} \exp(\theta^i)} \label{eq:4}
+\end{equation}
+であるから、
+\begin{equation}
+    \log p(\omega) = \sum_{i=1}^{n-1} \theta^i \delta_i(\omega) - \log(1+\sum_{i=1}^{n-1} \exp(\theta^i))
+\end{equation}
+である。さらに、
+\begin{equation}
+    \psi(\theta) = \log \left[ 1+\sum_{i=1}^{n-1} \exp(\theta^i) \right]
+\end{equation}
+とおくと、
+\begin{equation}
+    \log p(\omega) = \sum_{i=1}^{n-1} \theta^i \delta_i(\omega) - \psi(\theta)
+\end{equation}
+である。これを用いて接続係数を計算すると、
+\begin{align}
+    \Gamma_{ij,k}^{e} &= \sum_{\omega=1}^{n} (\partial_i \partial_j \log p(\omega)) (\partial_k p(\omega))\\
+    &= -(\partial_i \partial_j \psi(\theta)) \sum_{\omega=1}^{n} (\partial_k p(\omega))\\
+    &= 0 \quad \because \text{$\psi$が$\omega$に依存しないかつ、$\sum_{\omega=1}^{n} p(\omega) = 1$}
+\end{align}
+となるから、たしかに$\theta^i$は$\nabla$-アフィン座標系である。\\
+また、このとき、$\theta$座標系と$\eta$座標系は、互いに双対の関係にある。というのも、
+\begin{align}
+    g\left( \pdv{\eta^i},\pdv{\theta^j} \right)
+    &= \sum_{\omega=1}^{n} \left( \pdv{\eta^i} p(\omega) \right) \left( \pdv{\theta^j} \log p(\omega) \right)\\
+    &= \sum_{\omega=1}^{n} \left( \delta_i(\omega) - \delta_n(\omega) \right) \left( \delta_j(\omega) - \pdv{\psi}{\theta^j} \right)\\
+    &= \sum_{\omega=1}^{n} (\delta_i(\omega) - \delta_n(\omega)) \delta_j(\omega) \\
+    &= \delta_{ij} 
+\end{align}
+%TODO上の変形よーわからん
+したがって、たしかに双対座標系である。\\
+
+次に、対応する双対ポテンシャルを定める。今、
+\begin{align}
+    \partial_i \psi &= \frac{\exp(\theta^i)}{1+\sum_{j=1}^{n-1} \exp(\theta^j)}\\
+    &= p(n) e^{\theta^i} \quad \because \text{(\ref{eq:4})}\\
+    &= p(i) \quad \because \text{$\theta$の定義}\\
+    &= \eta_i
+\end{align}
+となることから、$\psi$は$\theta$の双対ポテンシャルである。\\
+また、$\eta$の双対ポテンシャルは、ルジャンドル変換により、
+\begin{align}
+    \varphi &= \theta^i \eta_i - \psi(\theta)\\
+    &= \sum_{i=1}^{n-1} \left(\log \frac{p(i)}{p(n)}\right) p(i) + \log p(n)\\
+    &= \sum_{i=1}^{n-1} p(i) \log p(i) + \left(1-\sum_{i=1}^{n-1} p(i)\right) \log p(n)\\
+    &= \sum_{i=1}^{n} \eta_i \log \eta_i + \left(1-\sum_{i=1}^{n} \eta_i\right) \log \left(1-\sum_{i=1}^{n} \eta_i\right)
+\end{align}
+である。これより、
+\begin{align}
+    \partial^i \varphi &= \log \eta_i + 1 - \log \left(1-\sum_{i=1}^{n} \eta_i\right)-1\\
+    &= \log \frac{\eta_i}{p(n)}\\
+    &= \theta^i
+\end{align}
+となるから、$\varphi$は$\eta$の双対ポテンシャルである。\\
+
+最後にダイバージェンスを求める。
+\begin{align}
+    D^m(p||q) &= \psi(\theta(q)) + \varphi(\eta(p)) - \theta^i(q) \eta_i(p)\\
+    &= -\log q(n) + \sum_{i=1}^{n} p(\omega) \log p(\omega) - \sum_{i=1}^{n-1} \left(\log \frac{q(i)}{q(n)}\right) p(i)\\
+    &= \sum_{\omega=1}^{n} p(\omega) \log p(\omega) - \sum_{\omega=1}^{n-1} p(\omega) \log p(\omega)-\left(1-\sum_{\omega=1}^{n-1} p(\omega)\right) \log q(n)\\
+    &= \sum_{\omega=1}^{n} p(\omega) \log \frac{p(\omega)}{q(\omega)}
+\end{align}
+となる。このダイバージェンスをKLダイバージェンスという。\\
+
 
 \subsection{自己平行部分多様体}
+これまで、統計多様体$(S,g,\nabla,\nabla^*)$について考えてきた。以下では、その自己平行部分多様体について考える。\\
 \begin{itembox}[l]{\textbf{Def:指数型分布族}}
     $\Omega$上の関数$C(\omega),F_1(\omega),\cdots,F_k(\omega)$及び$\mathbb{R}^k$上の領域$\Theta$上を動く$k$次元パラメータ$\theta = (\theta^1,\cdots,\theta^k) \in \Theta$を用いて
     \begin{equation}
@@ -1443,8 +1599,96 @@ $\because$
     $\mathcal{S}$の部分多様体$M$に対し、$M$が$\nabla$-自己平行部分多様体であるための必要十分条件は、$M$が指数型分布族であることである。
 \end{itembox}
 \textbf{Prf}\\
+%TODO後で書く。
+
+\begin{itembox}[l]{\textbf{Prop:$M$の双対平坦性}}
+    $M$が指数型分布族であるとき、$M$は双対平坦である。
+
+\end{itembox}
+\textbf{Prf}\\
+%TODO後で書く。
+
+
+\begin{itembox}[l]{\textbf{Thm:双対アフィン座標系}}
+    $\mathcal{S}$の部分多様体$M$が指数型分布族
+    \begin{equation}
+        M = \{p_{\theta}(\omega) \in \mathcal{S}; \log p_{\theta}(\omega) = C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) - \psi(\theta) \}
+    \end{equation}
+    に対し、
+    \begin{equation}
+        \eta = E_{p_{\theta}}[F_i] = \sum_{\omega \in \Omega} p_{\theta}(\omega) F_i(\omega)
+    \end{equation}
+    とおくと、$\eta$は$\nabla$-双対アフィン座標系である。
+
+\end{itembox}
+\textbf{Prf}\\
+写像$\theta \mapsto \eta$のJacobi行列を計算すると、
+\begin{align}
+    \pdv{\eta^i}{\theta^j} &= \sum_{\omega \in \Omega} (\partial_j p_{\theta}(\omega)) F_i(\omega)\\
+    &= \sum_{\omega \in \Omega} (\partial_j p_{\theta}(\omega)) (\partial_i \log p_{\theta}(\omega) + \partial_i \psi(\theta))\\
+    &= \sum_{\omega \in \Omega} (\partial_j p_{\theta}(\omega)) (\partial_i \log p_{\theta}(\omega))\\
+    &= \tilde{g}_{ij}
+\end{align}
+となる。ここで、これは正定値行列であるから、逆写像定理によって、$\eta$は局所座標系をなす。そして、
+\begin{align}
+    \tilde{g}_{ij} &= \tilde{g}(\partial_i,\partial_j)\\
+    &= \tilde{g} \left(\partial_i , \pdv{\eta_k}{\theta^j} \partial^k \right)\\
+    &= \tilde{g} (\partial_i,\partial^k)\tilde{g}_{kj}
+\end{align}
+より、
+\begin{equation}
+    \tilde{g}(\partial_i,\partial^k) = \delta_i^k
+\end{equation}
+となる。この式を、$\eta_l$で偏微分すると、
+\begin{align}
+    0 &= \pdv{\eta_l}\tilde{g}(\partial_i,\partial^k)\\
+    &= \tilde{g}(\nabla_{\partial_l} ^{e} \partial_i,\partial^k) + \tilde{g}(\partial_i,\nabla_{\partial_l} ^{*} \partial^k)\\
+    &= \tilde{g}(\partial_i,\nabla_{\partial_l} ^{*} \partial^k) \quad \because \text{$\theta$が$\nabla^{e}$-アフィン座標系であること}
+\end{align}
+となる。これが、任意の$i$について成り立つことから、
+\begin{equation}
+    \nabla_{\partial_l} ^{*} \partial^k = 0
+\end{equation}
+となる。したがって、たしかに$\eta$は$\nabla$-双対アフィン座標系である。\hfill\qedsymbol\\
+
+$\nabla^{m}$-アフィン座標系についても同様のことができる。\\
+
+\begin{itembox}[l]{\textbf{Def:混合型分布族}}
+    $\Omega$上の確率分布の族$p_0(\omega),p_1(\omega),\cdots,p_k(\omega)$領域$H$上を動く$k$次元パラメータ$\eta = (\eta_0,\cdots,\eta_k) \in H$を用いて、
+    \begin{equation}
+        p_{\eta}(\omega) = \sum_{i=1}^{k} \eta_i p_i(\omega) + (1-\sum_{i=1}^{k} \eta_i) p_0(\omega)
+    \end{equation}
+    と表される確率分布族$M = \{p_{\eta};\eta \in H\}$を混合型分布族という。 
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:}}
+    $\mathcal{S}$の部分多様体$M$に対し、$M$が$\nabla^m$自己平行部分多様体であるための必要十分条件は、$M$が混合型分布族であることである。
+\end{itembox}
 
 \subsection{双対葉層構造}
+統計多様体$(\mathcal{S},g,\nabla^{e},\nabla^{m})$の$\nabla^{e}$-自己平行部分多様体である指数型分布族
+\begin{equation}
+    M = \{p_{\theta}(\omega) \in \mathcal{S}; \log p_{\theta}(\omega) = C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) - \psi(\theta) \}
+\end{equation}
+が与えられたとする。$M$の期待値座標系を固定したときに定まる$\mathcal{S}$確率分布族
+\begin{equation}
+    \Gamma_{\eta} = \{q(\omega) \in \mathcal{S}; E_q [F_i] = \eta_i \}
+\end{equation}
+を考える。任意の$q,r \in \Gamma_{\eta}$と、$\lambda \in [0,1]$に対して、
+\begin{align}
+    E_{\lambda q + (1-\lambda)r}[F_i] &= \sum_{\omega \in \Omega} (\lambda q(\omega) + (1-\lambda)r(\omega)) p(\omega) F_i(\omega)\\
+    &= \lambda \sum_{\omega \in \Omega} q(\omega) p(\omega) F_i(\omega) + (1-\lambda) \sum_{\omega \in \Omega} r(\omega) p(\omega) F_i(\omega)\\
+    &= \lambda E_q[F_i] + (1-\lambda) E_r[F_i]\\
+    &= \lambda \eta_i + (1-\lambda) \eta_i\\
+    &= \eta_i
+\end{align}
+となるから、$\Gamma_{\eta}$は凸集合である。したがって、$\Gamma_{\eta}$は、$\mathcal{S}$の$\nabla^{m}$-自己平行部分多様体である。\\%あんまりわかってない
+
+\begin{itembox}[l]{\textbf{Thm:}}
+    $M$と$\Gamma_{\eta}$が共有点を持つならば、その点において、$M$と$\Gamma_{\eta}$は直交する。
+\end{itembox}
+\textbf{Prf}\\
 
 
 

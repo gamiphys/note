@@ -62,6 +62,10 @@
 \section{微分積分学}
 
 \section{確率統計}
+\begin{itembox}[l]{\textbf{Thm:チェビシェフの不等式}}
+  
+
+\end{itembox}
 
 \section{幾何学}
 
@@ -84,8 +88,617 @@
 \section{電磁気学}
 
 \section{熱力学}
+熱力学を再構成する。Lieb流にエントロピーを導入して、残りは清水っぽくまとめたい。\\
+
+\begin{itembox}[l]{\textbf{Def:平衡状態/状態空間}}
+  平衡状態とは、状態空間の点である。状態空間とは、マクロ変数の値を座標軸とする$\mathbb{R}^n$の部分空間であり、$\Gamma$で表す。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Axiom1}}
+  系を長時間放置すると、系は平衡状態に達し、状態空間上の点で表される。
+\end{itembox}
+
+以下、平衡状態のことを単に状態と書くことにする。\\
+
+\begin{itembox}[l]{\textbf{Def:断熱到達可能性}}
+  状態$X \in \Gamma$から状態$Y \in \Gamma$へ、断熱到達可能な時、
+  \begin{align}
+    X \prec Y
+  \end{align}
+  と書く。ただし、状態$X \in \Gamma$から状態$Y \in \Gamma$へ、断熱到達可能であるとは、外部装置$D$の状態が遷移前後で変化せず、その装置を動かす力学装置のみが変化すること、すなわち、
+  \begin{align}
+    (X , D , h) \rightarrow (Y , D , h')
+  \end{align}
+  が成り立つことである。
+
+\end{itembox}
+
+この定義のもと、遷移の公理を以下に示す。\\
+
+\begin{itembox}[l]{\textbf{Axiom2}}
+  断熱到達可能性に、以下の性質を要請する。\\
+    (A1: 反射律) $ X \overset{A}{\sim} X$\\
+    (A2: 推移律) $X \prec Y$かつ$Y \prec Z$ならば、$X \prec Z$\\
+    (A3: 一貫性) $X \prec X'$かつ$Y \prec Y'$ならば、$(X,Y) \prec (X',Y')$\\
+    (A4: スケーリング不変性) $X \prec Y$ならば、$tX \prec tY$\\
+    (A5: 分割と結合) $0<t<1$に対して、$X \overset{A}{\sim} (tX,(1-t)X)$\\
+    (A6: 安定性) 0に近づく$\epsilon$の列およびいくつかの状態$Z_0,Z_1$に対して、$(X,\epsilon Z_0) \prec (Y,\epsilon Z_1)$ならば、$X \prec Y$ \\
+    (A7: 凸性) 状態空間が凸であるとき、$(tX,(1-t)Y) \prec tX+(1-t)Y$
+\end{itembox}
+いくらかの補足をする。\\
+(A3)について、一般には逆向きの矢印は成り立たない。というのも、系を熱的に接触させることで、片方の系の温度を下げることが可能であるが、そのような接触なしでは温度を下げることはできないからである。
+すなわち、複合系は、互いに相互作用させることができるという点で、取りうる操作の種類が多い。\\
+
+(A6)について、この公理は、系に、小さな外部系がくっついているときは、その外部系を無視して、着目系のみを考えてよいということを示している。\\
+
+(A7)について、この公理は、遷移前後で、エネルギーや体積の和が変化しないことを表している。
+
+\begin{itembox}[l]{\textbf{Thm:キャンセル法則}}
+  $X,Y,Z$が系の状態のとき、
+  \begin{equation}
+      (X,Z) \prec (Y,Z) \Rightarrow X \prec Y
+  \end{equation}
+  が成立する。
+
+\end{itembox}
+\textbf{Prf}\\
+$\epsilon =\frac{1}{n}$とする。このとき、
+\begin{align}
+    (X,\epsilon Z) &\overset{A}{\sim} ((1-\epsilon)X,\epsilon X,Z)\\
+    &\prec ((1-\epsilon)X,\epsilon Y,Z)\\
+    &\overset{A}{\sim} ((1-2\epsilon)X,\epsilon X,\epsilon Y,Z)\\
+    &\prec ((1-2\epsilon)Y,2\epsilon Y,Z)
+    \end{align}
+これを$n=\frac{1}{\epsilon}$回繰り返すと、$X$の係数は0に、$Y$の係数は1に収束する。\\
+以上より、$X \prec Y$が示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:エントロピー}}
+  状態空間$\Gamma$上のある$X_0,X_1$に対して、$X_0 \prec \prec X_1$であるとする。このとき、
+  \begin{equation}
+      S_{\Gamma}(X) = s^* \sup\{\lambda|((1-\lambda)X_0,\lambda X_1) \prec X\}
+  \end{equation}
+  で定義される関数$S_{\Gamma}$を、基準点$X_0 \prec \prec X_1$に関するエントロピーという。ただし、$s^*$は単位エントロピーである。
+\end{itembox}
+このエントロピーの意味するところは、
+\begin{enumerate}
+  \item まず、二つの基準系を$\lambda : 1-\lambda$の比で用意して、複合系とする。
+  \item 複合系全体に対して、断熱操作(それぞれの系に独立に作用させても、熱的接触のように二つの系を相互作用させても良い)を行う。
+  \item このとき、複合系が状態$X$に達するときの$\lambda$の最大値がエントロピーである。
+\end{enumerate}
+となる。\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピー原理}}
+  以下の(1),(2)は同値である。\\
+  (1) 関係$\prec$が、$\Gamma$の多重スケーリングコピーにおいて、順序の公理A1-A6及び比較仮説(CH)を満たす。\\
+  (2) ある関数$S_{\Gamma}:\Gamma \rightarrow \mathbb{R}$が存在して、以下の性質を満たす。\\
+  もし、$(t_1+ \cdots +t_n)=t_1'+ \cdots +t_m'$であるとき、
+  \begin{equation}
+      (t_1 Y_1, \cdots ,t_n Y_n) \prec (t_1' Y_1', \cdots ,t_m' Y_m') \Leftrightarrow S_{\Gamma}(Y_1)+ \cdots +S_{\Gamma}(Y_n) \leq S_{\Gamma}(Y_1')+ \cdots +S_{\Gamma}(Y_m')
+  \end{equation}
+\end{itembox}
+\textbf{Prf}\\
+証明は気が向いたら書く。\\
+
+
 
 \section{統計力学}
+\subsection{状態数}
+主に田崎統計を参考にしながら、統計物理の一般的な議論をまとめる。\\
+典型性からスタートして、それの表現としての確率分布を導入し、その性質や分布間の関係を考える。\\
+\textbf{状態数}
+\begin{itembox}[l]{\textbf{Def:状態数}}
+  エネルギーが$E_i$以下であるような固有状態の数を状態数といい、$\Omega(E_i)$で表す。
+\end{itembox}
+状態数を一般に計算することはできないが、例えば相互作用のない$N$粒子理想気体など、簡単な系については計算が可能である。\\
+
+\textbf{ex:N粒子理想気体}\\
+後に、温度計としての役割を理想気体に担ってもらうため、実際に理想気体の状態数を計算してみる。\\
+3次元の箱の中での理想気体のシュレディンガー方程式は、
+\begin{equation}
+  \frac{\hbar^2}{2m}\nabla^2 \psi = E \psi
+\end{equation}
+である。このとき、シュレディンガー方程式を解くと、
+\begin{equation}
+  E = \frac{\hbar^2 \pi^2}{2mL^2}(n_x^2+n_y^2+n_z^2)
+\end{equation}
+となることがわかる。ただし、$n_x,n_y,n_z$は自然数である。\\
+いま、$E_0 = \frac{\hbar^2 \pi^2}{2mL^2}$とおくと、
+\begin{equation}
+  E_{n_{\alpha}^{(j)}} = E_0 \sum_{\alpha = x,y,z} \sum_{j=1}^{N} (n_{\alpha}^{(j)})^2
+\end{equation}
+と表すことができる。このとき、状態数は、
+\begin{align}
+  \Omega(E) &= \frac{1}{N!} (E_{(n_{\alpha}^{(j)})} \leq E \text{を満たす自然数の組}(n_{\alpha}^{(j)})\text{の数})\\
+  &= \frac{1}{N!} (\sum_{\alpha = x,y,z} \sum_{j=1}^{N} (n_{\alpha}^{(j)})^2 \leq \frac{E}{E_0} \text{を満たす自然数の組}(n_{\alpha}^{(j)})\text{の数})
+\end{align}
+と書くことができる。ただし、ここでは粒子を区別しない方法により状態数を定義している。\\
+上の状態数を評価することを考える。このとき、状態数で数える自然数の条件を書き換えると、
+\begin{align}
+  \sqrt{\sum_{\alpha = x,y,z} \sum_{j=1}^{N} (n_{\alpha}^{(j)})^2} \leq \sqrt{\frac{E}{E_0}}
+\end{align}
+と書き換えることができる。これは、3N次元空間での球の内部の格子点を数えることに相当する。このとき、球の体積は、
+\begin{align}
+  V_{3N} = \frac{\pi^{3N/2}}{(3N/2)!}(\frac{E}{E_0})^{3N/2}
+\end{align}
+なるので、状態数は、
+\begin{align}
+  \Omega(E) &\sim \frac{1}{N!} \frac{1}{2^{3N}} \frac{\pi^{3N/2}}{(3N/2)!}(\frac{E}{E_0})^{3N/2}\\
+  &= \frac{1}{N!} \frac{1}{(3N/2)!}\tilde{\alpha}^N E^{3N/2}V^{N}
+\end{align}
+となる。ただし、第一式での$2^{3N}$は、$3N$次元でのある一つの象限に注目しているために出てきた因子である。また、$\tilde{\alpha}= \qty{\frac{m}{2\pi}}^{3/2}\hbar^{-3}$である。\\
+ここで、スターリングの公式を用いて、
+\begin{align}
+  \Omega(E) &\sim \qty{\frac{e}{N}}^{N} \qty{\frac{e}{3N/2}}^{3N/2} \tilde{\alpha}^N E^{3N/2}V^{N}\\
+  &= \alpha^N \qty{\frac{E}{V}}^{3N/2}\qty{\frac{V}{N}}^{5N/2}
+\end{align}
+と書くことができる。ただし、$\alpha = \qty{e^{5/2}(2/3)^{3/2}\tilde{\alpha}}$である。\\
+対数をとると、
+\begin{align}
+  \log \Omega(E) &\simeq N \log ( \alpha \qty{\frac{E}{V}}^{3/2}\qty{\frac{V}{N}}^{5/2} )\\
+  &= V(\rho \log (\alpha \epsilon^{3/2}\rho^{-5/2}))
+\end{align}
+のように体積をくくりだすことができる。ただし、
+\begin{align}
+  \rho = \frac{N}{V}, \epsilon = \frac{E}{N}
+\end{align}
+である。したがって、
+\begin{align}
+  \Omega (E) &\sim \exp(V\sigma(\rho, \epsilon))
+\end{align}
+と書くことができる。\\
+
+  
+
+
+
+\textbf{状態数の振る舞い}\\
+一般に、相互作用がある場合の状態数の振る舞いについて考える。
+ここでは厳密に示すことはしないが、"普通の"熱力学的な系について、以下が成り立つことが知られている。\\
+\begin{itembox}[l]{\textbf{Thm:状態数の熱力学極限}}
+  $v(|\bm{r}|)$を相互作用のポテンシャルとする。このとき、
+  \begin{enumerate}
+    \item ある定数$r_0$が存在し、任意の$|\bm{r}|>r_0$に対して、
+    \begin{equation}
+    v(|\bm{r}|) \leq 0
+    \end{equation}
+    が成り立つ。
+    \item ある定数$b>0$が存在して、任意の粒子数$N$と任意の粒子の位置$\bm{r}_1, \cdots , \bm{r}_N$に対して、
+    \begin{equation}
+    \sum_{i,j}^{N} v(|\bm{r}_i - \bm{r}_j|) \geq -bN
+    \end{equation}
+    が成り立つ。
+  \end{enumerate}
+  このとき、$\frac{N}{V}$を一定に保ちながら体積を大きくしたとき、基底エネルギー密度の極限
+  \begin{equation}
+    \epsilon_0(\rho) = \lim_{V \rightarrow \infty} \frac{E_0(V,N)}{V}
+  \end{equation}
+  が存在する。\\
+  また、$\epsilon_0(\rho)<\infty$であるとき、任意の$\rho >0, \epsilon > \epsilon_0(\rho)$に対して、$\rho$と$\epsilon$を一定に保って体積を大きくしたときの極限
+  \begin{equation}
+    \sigma (\rho, \epsilon) = \lim_{V \rightarrow \infty} \frac{\log \Omega_{V,N}(E)}{V}
+  \end{equation}
+  が存在する。このとき、関数$\sigma(\rho, \epsilon)$は、$\epsilon$の増加関数であり、$\rho,\epsilon$について上に凸である。
+\end{itembox}
+上の二つの条件を見ていく。一つ目の条件は、遠方で、引力相互作用が働くことを表している。無限遠で相互作用ポテンシャルが$0$に漸近することを考えると、漸近の仕方は2通り(正から近づくか負から近づくか)あるが、ここでは、負から近づくことを考えている。\\
+そもそも遠方で斥力が働く系では、系全体が無限に広がってしまうのだから明らかに普通ではない。\\
+二つ目の条件は、逆に、系のポテンシャルエネルギーの下限を定めている。あまりにポテンシャルエネルギーの極小値が小さいと、無数の粒子が強い引力で凝縮するというこれまた病的な状態となってしまう。\\
+
+このようなとき、状態数は、
+\begin{equation}
+  \Omega_{V,N}(E) \sim \exp(V\sigma(\rho, \epsilon))
+\end{equation}
+と表すことができる。同様の議論は、粒子数を大きくするときにもできて、
+\begin{equation}
+  \Omega_{V,N}(E) \sim \exp(N\sigma(\rho, \epsilon))
+\end{equation}
+と表すことができる。ただし、
+\begin{align}
+  \sigma(\rho, \epsilon) &= \rho \log (\alpha \epsilon^{3/2}\rho^{-5/2})
+\end{align}
+である。\\
+
+\subsection{典型性}
+\begin{itembox}[l]{\textbf{Def:"許された状態"}}
+  "許された状態"とは、マクロに見たときの系のエネルギーにほぼ等しいエネルギーをもつ状態およびその重ね合わせの状態のことである。\footnote{エネルギーを用いて定義しているわけだが、ほかの変数を用いて定義することはできないのかなと思う。}
+\end{itembox}
+このことを用いて、以下の要請を考える。\\
+
+\begin{itembox}[l]{\textbf{Post:典型性}}
+  ある系の平衡状態がもつ性質は、"許された状態"のうち、典型的な状態が共通に持つ性質のことである。\\
+  また、非平衡状態か平衡状態に緩和するとは、"許された状態"のうち、典型的でないものが、典型的なものに遷移することである。\\
+\end{itembox}
+このとき、我々は、典型的な状態のほうが、非典型的な状態よりも圧倒的に多く存在すると考える。\\
+
+典型性の要請から、系の状態を何らかの方法で平均すると、期待値として平衡状態における値が返ってくるはずである。我々が統計力学を組み立てていくうえですべき残りのことは、
+状態を、適当な重みづけにより混合することで確率分布を構成し、その確率分布が平衡状態を記述するうえでふさわしいことを確かめることである。後者は特に、示量変数の密度のゆらぎが十分に小さいことを確かめればよい。
+以下、特に熱力学の知見との対応をとりやすいような混合の仕方を見ていく。\\
+
+\subsection{ミクロカノニカル分布}
+一番シンプルな重みづけの方法として、すべての状態を等確率に混ぜ合わせる手法が考えられる。
+
+\begin{itembox}[l]{\textbf{Def:ミクロカノニカル分布}}
+  エネルギー固有値が、
+  \begin{equation}
+    U - V\delta < E_{i} < U
+  \end{equation}
+  であるような状態の数を、
+  \begin{equation}
+    W(U,\delta) = \Omega (U) - \Omega(U-\delta)
+  \end{equation}
+  とかく。このとき、
+  \begin{align}
+    p_i = \frac{1}{W(U,\delta)} \quad (U-\delta < E_i < U)\\
+    p_i = 0 \quad (\text{otherwise})
+  \end{align}
+  で定義される分布をミクロカノニカル分布という。
+\end{itembox}
+
+注意されたいこととして、我々は、あくまでも物理量の期待値に関心があり、ある状態$i$が選ばれる確率それ自体に物理的な意味はない。例えば、MCを少し加工したものとして、奇数番目の状態を選ぶ確率を$0$とし、
+偶数番目を選ぶ確率を$2p_i$としても、物理量の期待値に影響は出ないであろう。したがって、あくまでも確率それ自体には物理的な意味はなく、単に混ぜ合わせているだけである。\\
+
+状態数の振る舞いを考えると、実は、ミクロカノニカル分布を拡張することができる。いま、系が"許された状態"に入っていない確率を計算すると、
+\begin{align}
+  p &= \frac{\Omega(U-\delta)}{\Omega(U)}\\
+  &= \exp(V\sigma(U-\delta V,\epsilon)-V\sigma(U,\epsilon))\\
+  &= \exp(-V\pdv{\sigma}{u}\delta )
+  \ll 0 
+\end{align}
+となる。このことから、ミクロカノニカル分布を以下のように拡張する。
+\begin{itembox}[l]{\textbf{Def:拡張されたミクロカノニカル分布}}
+  エネルギー固有値が$U$以下である状態の数を$\Omega(U)$とする。このとき、
+  \begin{align}
+    p_i = \frac{1}{\Omega(U)} \quad (E_i \leq U)\\
+    p_i = 0 \quad (\text{otherwise})
+  \end{align}
+  で定義される分布を拡張されたミクロカノニカル分布という。
+\end{itembox}
+これは、熱力学極限においては、状態数は、相空間の"表皮"の部分に集中することを意味している。\\
+
+この拡張されたミクロカノニカル分布を用いて、以下のようにエントロピーを定義する。\\
+\begin{itembox}[l]{\textbf{Def:MCにおけるエントロピー}}
+  MCにおけるエントロピー$S$は、
+  \begin{equation}
+    S(U,V,N) = k_{B} \log \Omega_{V,N}(U) \label{eq:mcentropy}
+  \end{equation}
+  により定まる。
+
+\end{itembox}
+注意されたいこととして、この定義から、MCは、熱力学でいうところの$(U,V,N)$表示に対応することがわかる。\\
+ところで、上では定義としたエントロピーだが、適切な仮定により導くことができる。\\
+
+\begin{itembox}[l]{\textbf{Thm:エントロピーの導出}}
+  エントロピー$S$が以下の条件を満たすとする:
+  \begin{enumerate}
+    \item $S$が、熱力学で得られたエントロピーと一致する。
+    \item 平衡状態が統計力学により記述される。
+    \item ミクロな力学によって現れる$(U,V,N)$は、それぞれマクロに見たエネルギー、体積、粒子数である。
+    \item 熱力学的な系への力学的操作は、ミクロな力学では、ハミルトニアンのパラメータ変化として表現できる。
+  \end{enumerate}
+  このとき、エントロピーは(\ref{eq:mcentropy})式で表される。
+\end{itembox}
+\textbf{Prf}\\
+熱力学のほうから準備をする。平衡状態$(U,V,N)$から体積を$V+\Delta V$まですばやく変化させ、平衡状態$(U+\Delta U,V+\Delta V,N)$に緩和させる。すなわち、
+\begin{equation}
+  (U,V,N) \underset{a}{\rightarrow} (U+\Delta U,V+\Delta V,N) 
+\end{equation}
+という操作を考える。この操作が準静的に近いとすると、
+\begin{equation}
+  S(U,V,N) = S(U+\Delta U,V+\Delta V,N) + O(\Delta V ^2)
+\end{equation}
+となる。ここで、$S$は、熱力学的なエントロピーである。\\
+同じ状況を統計力学的に考察してみる。今、4つめの仮定から、操作者が外からする仕事はハミルトニアンのパラメータ変化によって記述され、
+\begin{equation}
+  \Delta W = \expval{\hat{H}(V+\Delta V)-\hat{H}(V)}_{U,V}^{\text{MC}}
+\end{equation}
+となる。ここで、MCを拡張したときの議論を思い出すと、あくまでも、エネルギー固有値が上辺の$U$に近いエネルギー固有状態のみが期待値に寄与するので、
+\begin{equation}
+  U = \expval{\hat{H}}_{U,V}^{\text{MC}}
+\end{equation}
+と書くことができる。今、断熱操作でのエネルギー変化が仕事$\Delta W$であることから、
+\begin{equation}
+  U + \Delta U = \expval{\hat{H}(V)}_{U,V}^{\text{MC}} + \Delta W = \expval{\hat{H}(V+\Delta V)}_{U,V}^{\text{MC}}
+\end{equation}
+となる。最右辺について、$\Delta V$について展開すると、
+\begin{align}
+  \expval{\hat{H}(V+\Delta V)}_{U,V}^{\text{MC}} &= \expval{\hat{H}(V) + \pdv{\hat{H}}{V}\Delta V}_{U,V}^{\text{MC}} + O((\Delta V)^2)\\
+  &= \frac{1}{\tilde{\Omega(U,V)}_{V,N}(U)}\sum_{i}^{\tilde{\Omega(U,V)}_{V,N}(U)} (E_i(V) + \pdv{E_i}{V}\Delta V) + O((\Delta V)^2)\\
+  &= \frac{1}{\tilde{\Omega(U,V)}_{V,N}(U)}\sum_{i}^{\tilde{\Omega(U,V)}_{V,N}(U)} E_i(V+\Delta V) + O((\Delta V)^2)
+\end{align}
+となる。一方、
+\begin{align}
+  U + \Delta U &= \expval{\hat{H}(V+\Delta V)}_{U,V}^{\text{MC}}\\
+  &= \frac{1}{\tilde{\Omega(U,V)}_{V,N}(U)}\sum_{i}^{\tilde{\Omega(U,V)}_{V,N}(U)} E_i(V+\Delta V) 
+\end{align}
+である。右辺同士を比較して、
+\begin{equation}
+  \Omega_{V,N}(U) = \tilde{\Omega(U,V)}_{V+\delta V,N}(U) + O((\Delta V)^2)
+\end{equation}
+となる。したがって、エントロピーは、状態数の関数で表されると考えられる。\\
+また、エントロピーが相加性を持つことから、関数形としては、状態数の対数をとればよいことがわかる\footnote{他にないのかな}\\
+したがって、$\log \Omega_{V,N}(U)$は、エントロピーの持つべき資格を見たいしていることになる。ところで、熱力学の知見より、エントロピーはこれの定数倍と定数の足し算になることがわかる。すなわち、
+\begin{equation}
+  S(U,V,N) = a \log \Omega_{V,N}(U) + b
+\end{equation}
+と表されることがわかる。一般性を失うことなく、(または、熱力学第三法則に適合するように)、$b=0$としてよい。\\
+ここで、$a$の値を決めることを考える。ここで、上で準備した理想気体を用いる。\\
+理想気体については、
+\begin{equation}
+  \log \Omega_{V,N}(U) \simeq N\log \qty(\alpha \qty(\frac{N}{V})^{-\frac{5}{2}}\qty(\frac{U}{N})^{\frac{3}{2}})
+\end{equation}
+であることがわかっている。また、
+\begin{equation}
+  \pdv{S}{U} = a\frac{3}{2}\frac{N}{U}
+\end{equation}
+となる。ところで、熱力学の知見より、
+\begin{equation}
+  \pdv{S}{U} = \frac{1}{T}
+\end{equation}
+である。したがって、
+\begin{equation}
+  \frac{3}{2}a N \qty(\frac{3}{2}NkT)^{-1} = \frac{1}{T}
+\end{equation}
+となる。これを解いて、
+\begin{equation}
+  a = k
+\end{equation}
+となる。以上より、エントロピーは、
+\begin{equation}
+  S(U,V,N) = k \log \Omega_{V,N}(U)
+\end{equation}
+となることがわかる。\hfill\qedsymbol\\
+
+また、エントロピーが示量性を持つことも示すことができる。\\
+\begin{itembox}[l]{\textbf{Thm:エントロピーの示量性}}
+  (\ref{eq:mcentropy})式で定義されるエントロピーは、熱力学極限において示量性を持つ。
+\end{itembox}
+\textbf{Prf}\\
+状態数の熱力学極限を考えると、普通の系については、
+\begin{equation}
+  s(u,\rho) = \lim_{V \rightarrow \infty} \frac{k}{V}\log \Omega_{V,N}(U)
+\end{equation}
+が極限を持つ。この左辺はエントロピー密度を表しており、エントロピー密度の熱力学極限が定義できることから、たしかに熱力学極限において、エントロピーは示量性を持つことがわかる。\hfill\qedsymbol\\
+
+また、このとき定義されたエントロピー密度が、その二つの変数に対して上に凸であることは、状態数の熱力学極限の話から直ちに得られる。\\
+
+
+\subsection{カノニカル分布}
+ミクロカノニカル分布を前提にして、カノニカル分布を導出する。\\
+系のエネルギーを$E_i$、熱浴のエネルギーを$B_j$とする。このとき、全系の内部エネルギーが、マクロにみて$U$であるときの"許された状態"は、
+\begin{equation}
+  U - \delta V_{R} < E_i + B_j < U
+\end{equation}
+である。これを変形して、
+\begin{equation}
+  U - E_i - \delta V_{R} < B_j < U - E_i
+\end{equation}
+となる。これを用いて、系がエネルギー状態$E_i$にある状態数は、
+\begin{equation}
+  \Omega_{i} = \Omega(U-E_i) - \Omega(U-E_i-\delta V_{R})
+\end{equation}
+により計算される。このとき、系がエネルギー状態$E_i$にある確率は、
+\begin{equation}
+  p_i = \frac{\Omega_i}{\Omega_{\text{total}}}
+\end{equation}
+である。ここで、熱浴の状態数を、
+\begin{equation}
+  \Omega_{R} (B) = \exp(V_{R}\sigma \left(\frac{B}{V_{R}},\frac{N_{R}}{V_{R}}\right))
+\end{equation}
+と書くことができる。
+$\tilde{U} = U - E_i$とおくと、
+\begin{align}
+  p_i &= \frac{\Omega(\tilde{U}) - V_{R}\delta}{\Omega(\tilde{U})} \\
+  &= \exp(V_{R}\{\sigma(\tilde{u}-\delta ,\rho) - \sigma(\tilde{u},\rho)\} + o(\delta))\\
+  &= \exp(-V_{R}\left(\pdv{\tilde{u}}\sigma(\tilde{u},\rho)\delta + o(\delta^2)\right)+ o(V_R\delta))\ll 1
+\end{align}
+を満たす。ただし、$\tilde{u} = \frac{U}{V_{R}}$であり、熱浴の体積が十分大きいことを用いている。\\
+このとき、
+\begin{align}
+  p_i &\simeq \frac{\Omega_{R}(U-E_i)}{\sum_{j}^{n} \Omega_{R}(U-E_j)}\\
+  &= \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)}\left(\sum_{j}^{n} \frac{\Omega_{R}(U-E_j)}{\Omega_{R}(U)}\right)^{-1}
+\end{align}
+と書ける。ここで、
+\begin{align}
+  \log \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)} &= \log \Omega_{R}(U-E_i) - \log \Omega_{R}(U)\\
+  &= -E_{i}\pdv{U}\log \Omega_{R}(U) + \frac{E_{i}^2}{2}\pdv{U}^2 \log \Omega_{R}(U) + \cdots\\
+  &= -\frac{E_{i}}{V_{R}}\pdv{u}\{V_R\sigma(u,\rho) + o(V_R)\} + \frac{E_{i}^2}{2V_{R}^2}\pdv{u}^2\{V_R\sigma(u,\rho) + o(V_R)\} + \cdots\quad \\
+  &= -E_{i}\pdv{u}\sigma(u,\rho) + \frac{1}{V_{R}}\frac{E_{i}^2}{2}\pdv{u}^2\sigma(u,\rho) +\cdots +\frac{o(V_R)}{V_{R}}\\
+  &\simeq -\beta(u,\rho)E_{i} \quad \because \text{$V_{R}$が十分大きい}
+\end{align}
+となる。ここで、$\beta(u,\rho) = \pdv{u}\sigma(u,\rho)=\pdv{U}\log \Omega_{R}(U)$である。これにより、
+\begin{align}
+  \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)} &= \exp(-\beta(u,\rho)E_{i})
+\end{align}
+と書くことができ、
+\begin{align}
+  p_i &= \frac{\exp(-\beta(u,\rho)E_{i})}{Z(\beta)}
+\end{align}
+と書くことができる。ただし、$Z$は規格化定数であり、
+\begin{align}
+  Z(\beta) &= \sum_{i} \exp(-\beta(u,\rho)E_{i})
+\end{align}
+である。\\
+また、$N$この粒子を区別しないときには、エネルギー固有状態についての和を、$N!$で割ればよい。すなわち、
+\begin{align}
+  Z'_{V,N}(\beta) = \frac{1}{N!}Z_{V,N}(\beta)
+\end{align}
+により新たな分配関数を定義すればよい。このとき、期待値の表式は、
+\begin{align}
+  \expval{f}_\beta^{\text{can}} = \frac{1}{Z'_{V,N}(\beta)}\frac{1}{N!}\sum_{i} f_i \exp(-\beta E_i)
+\end{align}
+となる。以下、このときの分配関数も$Z$と書くことにする。\\
+
+パラメータ$\beta$の物理的な意味を考える。理想気体における状態数を温度計として使うと、定義から、
+\begin{align}
+  \beta(u,\rho) &= \pdv{u}\sigma(u,\rho)\\
+  &= \pdv{u}(\rho \log (\alpha u^{3/2}\rho^{-5/2}))\\
+  &= \frac{3\rho}{2u}\\
+  &= \frac{3}{2}\frac{N_R}{U_{total}}
+\end{align}
+となる。ところで、熱力学の知見より、
+\begin{align}
+  U_{total} = \frac{3}{2}N_R kT
+\end{align}
+である。したがって、
+\begin{align}
+  \beta = \frac{1}{kT}
+\end{align}
+となる。この$\beta$は逆温度と呼ばれる。\\
+ 
+以下、この分布を用いて、熱力学で登場する物理量を導出する。\footnote{ただし、これは熱力学極限をとらずとも定義できる。ただし、その整合性は熱力学極限をとったときにゆらぎが小さいことから確かめる。}
+\begin{itembox}[l]{\textbf{Prop:エネルギー期待値と分散/比熱}}
+  カノニカル分布において、エネルギーの期待値と分散は、
+  \begin{align}
+    \expval{E} &= -\pdv{\beta}\ln Z\\
+    \sigma^2 &= \pdv[2]{\beta}\ln Z
+  \end{align}
+  で与えられる。また、比熱は、
+  \begin{align}
+    C = \frac{1}{kT^2}\sigma^2
+  \end{align}
+  で与えられる。
+
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+  -\pdv{\beta}\log Z &= -\frac{1}{Z}\pdv{Z}{\beta}\\
+  &= -\frac{1}{Z}\pdv{}{\beta}\sum_{i}e^{-\beta E_{i}}\\
+  &= -\frac{1}{Z}\sum_{i}(-E_{i})e^{-\beta E_{i}}\\
+  &= \sum_{i}E_{i}p_{i}\\
+  &= \expval{E}
+\end{align}
+
+\begin{align}
+  \ev{E^2} &= \sum_{i}E_{i}^2p_{i}\\
+  &=\sum_{i}E_{i}^2\frac{e^{-\beta E_{i}}}{Z}\\
+  &=\frac{1}{Z}\pdv[2]{beta}\sum_{i}e^{-\beta E_{i}}\\
+  &=\frac{Z''}{Z}
+\end{align}
+となる。したがって、
+
+\begin{align}
+  \sigma^2 &= \ev{E^2} - \ev{E}^2\\
+  &= \frac{Z''}{Z} - \left( \frac{Z'}{Z} \right)^2\\
+  &= \frac{Z''Z - Z'^2}{Z^2}\\
+  &=\pdv[2]{\beta}\log Z
+\end{align}
+となる。さらに、
+\begin{align}
+  C(T)&=\pdv|\ev{E}|{T}\\
+  &=\pdv{\beta}{T}\pdv{\ev{E}}{\beta}\\
+  &=\frac{1}{kT^2}\pdv[2]{\beta}\log Z\\
+  &=\frac{1}{kT^2}(\ev{E^2}-\ev{E}^2)
+\end{align}
+である。以上より示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:ヘルムホルツ自由エネルギー}}
+  カノニカル分布において、ヘルムホルツ自由エネルギーは、
+  \begin{align}
+    F = -\frac{1}{\beta}\ln Z_{V,N}(\beta) \label{eq:helmholtz}
+  \end{align}
+  により定まる。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:ヘルムホルツ自由エネルギーの導出}}
+  ヘルムホルツ自由エネルギーが以下の条件を満たすとする:
+  \begin{enumerate}
+    \item ヘルムホルツ自由エネルギーが、熱力学で得られたヘルムホルツ自由エネルギーと一致する。
+    \item 平衡状態が統計力学により記述される。
+    \item ミクロな力学によって現れる$(U,V,N)$は、それぞれマクロに見たエネルギー、体積、粒子数である。
+    \item 熱力学的な系への力学的操作は、ミクロな力学では、ハミルトニアンのパラメータ変化として表現できる。
+  \end{enumerate}
+  このとき、ヘルムホルツ自由エネルギーは、(\ref{eq:helmholtz})式で表される。
+
+\end{itembox}
+\textbf{Prf}\\
+熱力学のほうから準備する。平衡状態$(T,V,N)$から体積を$V+\Delta V$まですばやく変化させ、平衡状態$(T,V+\Delta V,N)$に緩和させる。すなわち、
+\begin{equation}
+  (T,V,N) \underset{a}{\rightarrow} (T,V+\Delta V,N)
+\end{equation}
+という操作を考える。この操作が準静的に近いとすると、
+\begin{equation}
+  F(T,V,N) - F(T,V+\Delta V,N) = W_{\text{max}} + O(\Delta V^2)
+\end{equation}
+となる。ここで、$F$は、熱力学的なヘルムホルツ自由エネルギーである。\\
+同じ状況を統計力学的に考察してみる。今、4つめの仮定から、操作者が外からする仕事はハミルトニアンのパラメータ変化によって記述され、
+\begin{equation}
+  \Delta W = \expval{\hat{H}(V+\Delta V)-\hat{H}(V)}_{T,V}^{\text{can}}
+\end{equation}
+と書くことができる。
+
+
+\begin{itembox}[l]{\textbf{Prop:エントロピー}}
+  カノニカル分布において、エントロピーは、
+  \begin{align}
+    S(\beta,V,N) = -k\sum_{i}p_{i}\log p_{i} -k\log N!
+  \end{align}
+  で与えられる。
+
+\end{itembox}
+\textbf{Prf}\\
+熱力学の知見より、
+\begin{align}
+  S = -\pdv{F}{T}
+\end{align}
+である。ところで、
+%TODO:証明を書く
+
+次に、熱力学極限を考える。
+\begin{itembox}[l]{\textbf{Thm:ヘルムホルツ自由エネルギー密度}}
+  統計力学的に定めたヘルムホルツ自由エネルギーについて、
+\begin{align}
+  f(\beta,\rho)= \lim_{V\rightarrow \infty} \frac{1}{V}F(\beta,V,N) = -\frac{1}{V\beta}\log Z
+\end{align}
+の極限が存在する。この極限をヘルムホルツ自由エネルギー密度という。
+\end{itembox}
+\textbf{Prf}\\
+状態数の熱力学極限と同様に従う。\hfill\qedsymbol\\
+
+上の熱力学極限は、ヘルムホルツ自由エネルギーが、
+\begin{align}
+  F(\beta,V,N) = Vf(\beta,\rho) + o(V)
+\end{align}
+と表されることを意味している。これを用いて、エネルギー密度の期待値やゆらぎを考える。
+
+\begin{itembox}[l]{\textbf{Prop:エネルギー密度の期待値とゆらぎ}}
+  カノニカル分布において、エネルギー密度の期待値とゆらぎは、
+  \begin{align}
+    \expval{\epsilon} &\simeq \pdv{\beta}(\beta f(\beta,\rho))\\
+    \sigma_{\beta}^{\text{can}} (\epsilon) &\simeq \frac{1}{\sqrt{V}}\sqrt{-\pdv[2]{\beta}(\beta f(\beta,\rho))}
+  \end{align}
+  で与えられる。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+  \expval{\epsilon} &= -\frac{1}{V}\pdv{\beta}\log Z\\
+  &= \pdv{\beta}(\beta f(\beta,\rho))+\frac{o(V)}{V}
+\end{align}
+となる。また、
+\begin{align}
+  \sigma_{\beta}^{\text{can}} (\epsilon) &= \frac{1}{V}\sqrt{\pdv[2]{\beta}\log Z}\\
+  &= \frac{1}{\sqrt{V}}\sqrt{-\pdv[2]{\beta}(\beta f(\beta,\rho))} + \frac{o(V)}{V}
+\end{align}
+となる。以上より示された。\hfill\qedsymbol\\
+
+したがって、たしかに、カノニカル分布による状態の混合は、熱力学極限においてゆらぎが十分小さく、混ぜ合わせ方として妥当であることがわかる。\\
+
+\textbf{グランドカノニカル分布}\\
+
+
+
+\textbf{モデルの等価性}\\
+これまで導いてきた分布が等価であることを示す。具体的な手続きとしては、まずミクロカノニカル分布が$(U,V,N)$表示に対応することを示し、次に、ミクロカノニカル分布とカノニカル分布がルジャンドル変換によって結ばれることを統計力学側の視点から示す。グランドカノニカル分布についても同様である。\\
+
+
+
+
+
+%残り書くこと:カノニカル分布の続き、グランドカノニカル分布、3つのモデルの等価性、フェルミ・ディラック分布、ボース・アインシュタイン分布、分布の他の導出
+\subsection{その他}
+統計力学における諸注意や、ちょっとした議論をまとめておく。\\
+
+\textbf{独立な部分からなる系}
+
+
 
 \section{非平衡統計力学}
 
