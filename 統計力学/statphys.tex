@@ -22,7 +22,7 @@
 % 図
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{tikz} %図を描く
-\usetikzlibrary{positioning, intersections, calc, arrows.meta, math, matrix} %tikzのlibrary
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math,matrix} %tikzのlibrary
 
 % ハイパーリンク
 \usepackage[dvipdfm,
@@ -37,444 +37,15 @@
 
 \begin{document}
 
-\title{メモ}
+
+\title{統計力学}
 \author{大上由人}
 \date{\today}
 \maketitle
 
 \tableofcontents
+
 \newpage
-
-\part{数学}
-\section{線形代数}
-
-\begin{itembox}[l]{\textbf{Thm:}}
-  実$n$次元数ベクトル空間$\mathbb{R}^n$の任意の部分ベクトル空間$W_1, W_2$に対して、
-  \begin{align}
-    W_1 \subset W_2 \Rightarrow \dim W_1 \leq \dim W_2
-  \end{align}
-  が成立する。また、
-  \begin{align}
-    W_1 \subset W_2 \quad \text{and} \quad \dim W_1 = \dim W_2 \quad \Rightarrow \quad W_1 = W_2
-  \end{align}
-  が成立する。
-\end{itembox}
-\textbf{Prf}\\
-%後で書く。\\
-
-\section{微分積分学}
-
-\section{確率統計}
-\begin{itembox}[l]{\textbf{Thm:Markovの不等式}}
-  確率変数$\hat{X}$に対して、任意の正数$\epsilon > 0$に対して、
-  \begin{align}
-    P(|\hat{X} | \geq \epsilon) \leq \frac{\expval{|X|}}{\epsilon}
-  \end{align}
-  が成立する。
-
-\end{itembox}
-\textbf{Prf}\\
-新たに確率変数$\theta$を導入し、
-\begin{align}
-  \theta = \begin{cases}
-    1 & (|\hat{X}| \geq \epsilon)\\
-    0 & (|\hat{X}| < \epsilon)
-  \end{cases}
-\end{align}
-とする。このとき、明らかに、
-\begin{align}
-  \theta \leq \frac{|\hat{X}|}{\epsilon}
-\end{align}
-が成り立つ。\footnote{グラフを書いてみると良い。}したがって、この関係式に$p$をかけて和をとることで、
-\begin{align}
-  \ev{\theta} \leq \frac{\expval{|\hat{X}|}}{\epsilon}
-\end{align}
-が成り立つ。ここで、左辺は、
-\begin{align}
-  \ev{\theta} = P(|\hat{X} | \geq \epsilon)
-\end{align}
-であるから、示された。\hfill\qedsymbol\\
-
-
-\begin{itembox}[l]{\textbf{Thm:チェビシェフの不等式}}
-  確率変数$\hat{X}$に対して、任意の正数$\epsilon > 0$に対して、
-  \begin{align}
-    P(|\hat{X} - \expval{\hat{X}}| \geq \epsilon) \leq \frac{\sigma^2(\hat{X})}{\epsilon^2}
-  \end{align}
-  が成立する。ただし、$\sigma^2(\hat{X})$は$\hat{X}$の分散である。
-
-\end{itembox}
-この結果は、確率分布によらず成り立つことに注意したい。すなわち、期待値と分散さえわかっていれば、確率変数の取りうる範囲が大体どの程度かがわかるということである。\\
-また、ゆらぎが測定精度よりもはるかに小さいと仮定すると、
-\begin{align}
-  P(|\hat{X} - \expval{\hat{X}}| \geq \epsilon) \ll 1
-\end{align}
-となる。これは、ゆらぎが小さいときは、確率変数を一回だけ測定した値が、期待値と一致することを表している。例えば、統計力学において、熱力学極限をとった時はこのような状況になる。\\
-
-\textbf{Prf}\\
-新たに確率変数$\theta$を導入し、
-\begin{align}
-  \theta_i = \begin{cases}
-    1 & (|\hat{X}_i - \expval{\hat{X}}| \geq \epsilon)\\
-    0 & (|\hat{X}_i - \expval{\hat{X}}| < \epsilon)
-  \end{cases}
-\end{align}
-とする。このとき、明らかに、
-\begin{align}
-  \theta_i \leq \frac{(\hat{X}_i - \expval{\hat{X}})^2}{\epsilon^2}
-\end{align}
-が成り立つ。\footnote{グラフを書いてみると良い。}したがって、この関係式に$p_i$をかけて和をとることで、
-\begin{align}
-  \ev{\theta} \leq \frac{\sigma^2(\hat{X})}{\epsilon^2}
-\end{align}
-が成り立つ。ここで、左辺は、
-\begin{align}
-  \ev{\theta} = P(|\hat{X} - \expval{\hat{X}}| \geq \epsilon)
-\end{align}
-であるから、示された。\hfill\qedsymbol\\
-
-\begin{itembox}[l]{\textbf{Thm:大数の法則}}
-  任意の正の実数$\epsilon$に対して、
-  \begin{align}
-    \lim_{n \to \infty} P\left(\left|\frac{1}{n} \sum_{i=1}^{n} \hat{X}_i - \expval{\hat{X}}\right| \geq \epsilon\right) = 0
-  \end{align}
-  が成立する。
-
-\end{itembox}
-この定理は、数多くの系で同時に実験をしたときの結果の算術平均が、ほぼ確実に期待値に一致することを示している。\\
-
-\textbf{Prf}\\
-ある単独の系において、$\hat{X},\hat{X}^2$の期待値をそれぞれ$\mu=\ev{\hat{X}}_{\vb{p}},\nu=\ev{\hat{X^2}}_{\vb{p}}$とする。このとき、
-\begin{align}
-  \sigma^2_{\vb{p}}(\hat{X}) = \nu - \mu^2
-\end{align}
-である。$N$この系での$\hat{X}$の算術平均
-\begin{align}
-  \hat{m} = \frac{1}{N} \sum_{i=1}^{N} \hat{X}_i
-\end{align}
-を考える。このとき、線形性から、
-\begin{align}
-  \expval{\hat{m}} = \frac{1}{N} \sum_{i=1}^{N} \expval{\hat{X}_i}_{\tilde{\vb{p}}} 
-\end{align}
-となる。また、独立性から、$\ev{\hat{X}_i}_{\tilde{\vb{p}}} = \ev{\hat{X}}_{\vb{p}}=\mu$である。したがって、
-\begin{align}
-  \expval{\hat{m}} = \mu
-\end{align}
-である。また、$\hat{m^2}$の期待値は、
-\begin{align}
-  \expval{\hat{m^2}}_{\tilde{\vb{p}}} = \frac{1}{N^2} \sum_{j,k} \expval{\hat{X}_j \hat{X}_k}_{\tilde{\vb{p}}}\\
-  = \frac{1}{N^2} (N\nu + (N^2-N)\mu^2)
-\end{align}
-となる。したがって、
-\begin{align}
-  \sigma_{\tilde{\vb{p}}}(\hat{m}) = \sqrt{\expval{\frac{\nu - \mu^2}{N}}}
-\end{align}
-となる。したがって、
-\begin{align}
-  \ev{\hat{m}}_{\tilde{\vb{p}}} = \mu, \quad \sigma_{\tilde{\vb{p}}}(\hat{m}) = \frac{\sigma_{\vb{p}}(\hat{X})}{\sqrt{N}}
-\end{align}
-となる。チェビシェフの不等式より、
-\begin{align}
-  P(|\hat{m} - \mu| \geq \epsilon) \leq \left(\frac{\sigma_{\vb{p}}(\hat{X})}{\epsilon}\right)^2 \frac{1}{N}
-\end{align}
-となる。したがって、極限をとって、
-\begin{align}
-  \lim_{N \to \infty} P(|\hat{m} - \mu| \geq \epsilon) = 0
-\end{align}
-が示された。\hfill\qedsymbol\\
-
-\textbf{モーメント母関数/キュムラント母関数}\\
-\begin{itembox}[l]{\textbf{Def:モーメント母関数/キュムラント母関数}}
-  確率分布$p(x)$のモーメント母関数は、以下で定義される。
-  \begin{align}
-    M(t) = \expval{e^{kx}} = \int e^{kx} p(x) dx \label{eq:moment}\\
-    &= \sum_{n=0}^{\infty} \frac{M_n}{n!} t^n
-  \end{align}
-  このとき、$M_n$をモーメントという。\\
-  また、キュムラント母関数は、以下で定義される。
-  \begin{align}
-    K(t) &= \log M(t) = \log \expval{e^{kx}} \label{eq:cumulant}\\
-    &= \sum_{n=0}^{\infty} \frac{C_n}{n!} t^n
-  \end{align}
-  このとき、$C_n$をキュムラントという。
-\end{itembox}
-このとき、確率分布と母関数は、一対一に対応することが示される。\\
-
-\begin{itembox}[l]{\textbf{Thm:モーメントとキュムラントの関係}}
-  モーメントとキュムラントは以下のように関係する。
-  \begin{align}
-    &C_1 = M_1\\
-    &C_2 = M_2 - M_1^2\label{eq:cumulant2}\\
-    &C_3 = M_3 - 3M_1M_2 + 2M_1^3
-  \end{align}
-\end{itembox}
-\textbf{Prf}\\
-キュムラント母関数を展開すると、
-\begin{align}
-  \ln \left\langle e^{s\hat{X}} \right\rangle &= \ln \left\langle 1 + \frac{1}{1!}s\hat{X} + \frac{1}{2!}s^2\hat{X}^2 + \frac{1}{3!}s^3\hat{X}^3 + O(s^4) \right\rangle \nonumber \\
-  &= \frac{1}{1!} \left\langle \hat{X} \right\rangle s + \left( \frac{1}{2!} \left\langle \hat{X}^2 \right\rangle - \frac{1}{2} \left\langle \hat{X} \right\rangle^2 \right) s^2 \\
-  &+ \left( \frac{1}{3!} \left\langle \hat{X}^3 \right\rangle - \frac{1}{2} \cdot 2 \left\langle \hat{X} \right\rangle \cdot \frac{1}{2!} \left\langle \hat{X}^2 \right\rangle + \frac{1}{3!} \left\langle \hat{X} \right\rangle^3 \right) s^3 + O(s^4) \nonumber \\
-  &= \frac{\left\langle \hat{X} \right\rangle}{1!} s + \left( \frac{\left\langle \hat{X}^2 \right\rangle - \left\langle \hat{X} \right\rangle^2}{2!} \right) s^2 + \left( \frac{\left\langle \hat{X}^3 \right\rangle - 3 \left\langle \hat{X} \right\rangle \left\langle \hat{X}^2 \right\rangle + 2 \left\langle \hat{X} \right\rangle^3}{3!} \right) s^3 + O(s^4)
-\end{align}
-となることから、示された。\hfill\qedsymbol\\
-
-上の関係からわかるように、キュムラント母関数を二階微分することで分散が出てくる。
-  
-\section{幾何学}
-
-\section{ラプラス変換}
-\begin{itembox}[l]{\textbf{Def:ラプラス変換}}
-  関数$f(t)$のラプラス変換は、以下で定義される。
-  \begin{align}
-    F(s) = \mathcal{L}[f(t)] = \int_{0}^{\infty}  f(t) e^{-st} dt
-  \end{align}
-
-\end{itembox}
-
-ラプラス変換には逆変換が存在する。\\
-\begin{itembox}[l]{\textbf{Thm:ラプラス逆変換}}
-  関数$F(s)$の逆ラプラス変換は、以下で定義される。
-  \begin{align}
-    f(t) = \mathcal{L}^{-1}[F(s)] = \frac{1}{2\pi i} \int_{\gamma - i \infty}^{\gamma + i \infty}  F(s) e^{st} ds
-  \end{align}
-  ただし、$\gamma$は右半平面における収束領域を表す。
-
-\end{itembox}
-\begin{figure}[H]
-  \centering
-  \begin{tikzpicture}
-    % 半円の半径
-    \def\R{3}
-
-    % x軸とy軸
-    \draw[->] (-\R-1,0) -- (\R,0) node[right] {};
-    \draw[->] (0,-\R-0.5) -- (0,\R+0.5) node[above] {};
-
-    % 左半円
-    \draw (\R,0) arc[start angle=0,end angle=90,radius=\R];
-    \draw (\R,0) arc[start angle=0,end angle=-90,radius=\R];
-
-    % 線分
-    \draw[-] (0,\R) -- (0,-\R);
-
-    % ラベル
-    \node at (0.3,-0.3) {$0$};
-    \node at (-0.3,\R/2) {$s$};
-    \node at (+\R/2,\R/2) {$p$};
-
-    %点pに印
-    \fill (\R/2-0.5,\R/2) circle[radius=0.05];
-
-    % 矢印
-    \draw[<-] (0,-\R) -- (0,-\R/2);
-\end{tikzpicture}
-  \caption{逆ラプラス変換の複素積分の積分経路 $C$.}
-  \end{figure}
-\textbf{Prf}\\
-コーシーの積分公式より、正則な領域の点$p$について、
-\begin{align}
-  F(p) = \frac{1}{2\pi i} \oint_C \frac{F(s)}{s-p} ds
-\end{align}
-が成り立つ。いま、この線積分で生き残るのは、$Re(s) = \gamma$上の経路のみである。ここで、
-\begin{align}
-  \frac{1}{s-p} = \int_{0}^{\infty} e^{-(p-s)t}  \quad \because \Re(p) > \Re(s)
-\end{align}
-であるから、
-\begin{align}
-  F(p) &= \frac{1}{2\pi i} \int_{\gamma - i \infty}^{\gamma + i \infty} F(s) \int_{0}^{\infty} e^{-(s-p)t} dt ds\\
-  &= \int_{0}^{\infty} \left( \frac{1}{2\pi i} \int_{\gamma - i \infty}^{\gamma + i \infty} F(s) e^{st} ds \right) e^{-pt} dt\\
-  &= \int_{0}^{\infty} f(t) e^{-pt} dt
-\end{align}
-が成り立つ。したがって、
-\begin{align}
-  f(t) = \frac{1}{2\pi i} \int_{\gamma - i \infty}^{\gamma + i \infty}  F(s) e^{st} ds
-\end{align}
-が示された。\hfill\qedsymbol\\
-
-
-
-\section{その他}
-\subsection{計算の類}
-\textbf{ガウス積分}\\
-ガウス積分の変わったやり方を書く。\\
-\begin{align}
-  \int_{-\infty}^{\infty} x^2 e^{-ax^2} dx
-  &=-\int_{-\infty}^{\infty} \dv{a} e^{-ax^2} dx\\
-  &=-\dv{a} \int_{-\infty}^{\infty} e^{-ax^2} dx\\
-  &=-\dv{a} \sqrt{\frac{\pi}{a}}\\
-  &=\frac{\sqrt{\pi}}{2a^{3/2}}
-\end{align}
-により計算できる。\\
-
-\part{物理}
-\section{古典力学}
-
-\section{電磁気学}
-
-\section{熱力学}
-熱力学を再構成する。Lieb流にエントロピーを導入して、残りは清水っぽくまとめたい。\\
-
-\begin{itembox}[l]{\textbf{Def:平衡状態/状態空間}}
-  平衡状態とは、状態空間の点である。状態空間とは、マクロ変数の値を座標軸とする$\mathbb{R}^n$の部分空間であり、$\Gamma$で表す。
-\end{itembox}
-
-\begin{itembox}[l]{\textbf{Axiom1}}
-  系を長時間放置すると、系は平衡状態に達し、状態空間上の点で表される。
-\end{itembox}
-
-以下、平衡状態のことを単に状態と書くことにする。\\
-
-\begin{itembox}[l]{\textbf{Def:断熱到達可能性}}
-  状態$X \in \Gamma$から状態$Y \in \Gamma$へ、断熱到達可能な時、
-  \begin{align}
-    X \prec Y
-  \end{align}
-  と書く。ただし、状態$X \in \Gamma$から状態$Y \in \Gamma$へ、断熱到達可能であるとは、外部装置$D$の状態が遷移前後で変化せず、その装置を動かす力学装置のみが変化すること、すなわち、
-  \begin{align}
-    (X , D , h) \rightarrow (Y , D , h')
-  \end{align}
-  が成り立つことである。
-
-\end{itembox}
-
-この定義のもと、遷移の公理を以下に示す。\\
-
-\begin{itembox}[l]{\textbf{Axiom2}}
-  断熱到達可能性に、以下の性質を要請する。\\
-    (A1: 反射律) $ X \overset{A}{\sim} X$\\
-    (A2: 推移律) $X \prec Y$かつ$Y \prec Z$ならば、$X \prec Z$\\
-    (A3: 一貫性) $X \prec X'$かつ$Y \prec Y'$ならば、$(X,Y) \prec (X',Y')$\\
-    (A4: スケーリング不変性) $X \prec Y$ならば、$tX \prec tY$\\
-    (A5: 分割と結合) $0<t<1$に対して、$X \overset{A}{\sim} (tX,(1-t)X)$\\
-    (A6: 安定性) 0に近づく$\epsilon$の列およびいくつかの状態$Z_0,Z_1$に対して、$(X,\epsilon Z_0) \prec (Y,\epsilon Z_1)$ならば、$X \prec Y$ \\
-    (A7: 凸性) 状態空間が凸であるとき、$(tX,(1-t)Y) \prec tX+(1-t)Y$
-\end{itembox}
-いくらかの補足をする。\\
-(A3)について、一般には逆向きの矢印は成り立たない。というのも、系を熱的に接触させることで、片方の系の温度を下げることが可能であるが、そのような接触なしでは温度を下げることはできないからである。
-すなわち、複合系は、互いに相互作用させることができるという点で、取りうる操作の種類が多い。\\
-
-(A6)について、この公理は、系に、小さな外部系がくっついているときは、その外部系を無視して、着目系のみを考えてよいということを示している。\\
-
-(A7)について、この公理は、遷移前後で、エネルギーや体積の和が変化しないことを表している。
-
-\begin{itembox}[l]{\textbf{Thm:キャンセル法則}}
-  $X,Y,Z$が系の状態のとき、
-  \begin{equation}
-      (X,Z) \prec (Y,Z) \Rightarrow X \prec Y
-  \end{equation}
-  が成立する。
-
-\end{itembox}
-\textbf{Prf}\\
-$\epsilon =\frac{1}{n}$とする。このとき、
-\begin{align}
-    (X,\epsilon Z) &\overset{A}{\sim} ((1-\epsilon)X,\epsilon X,Z)\\
-    &\prec ((1-\epsilon)X,\epsilon Y,Z)\\
-    &\overset{A}{\sim} ((1-2\epsilon)X,\epsilon X,\epsilon Y,Z)\\
-    &\prec ((1-2\epsilon)Y,2\epsilon Y,Z)
-    \end{align}
-これを$n=\frac{1}{\epsilon}$回繰り返すと、$X$の係数は0に、$Y$の係数は1に収束する。\\
-以上より、$X \prec Y$が示された。\hfill\qedsymbol\\
-
-\begin{itembox}[l]{\textbf{Def:エントロピー}}
-  状態空間$\Gamma$上のある$X_0,X_1$に対して、$X_0 \prec \prec X_1$であるとする。このとき、
-  \begin{equation}
-      S_{\Gamma}(X) = s^* \sup\{\lambda|((1-\lambda)X_0,\lambda X_1) \prec X\}
-  \end{equation}
-  で定義される関数$S_{\Gamma}$を、基準点$X_0 \prec \prec X_1$に関するエントロピーという。ただし、$s^*$は単位エントロピーである。
-\end{itembox}
-このエントロピーの意味するところは、
-\begin{enumerate}
-  \item まず、二つの基準系を$\lambda : 1-\lambda$の比で用意して、複合系とする。
-  \item 複合系全体に対して、断熱操作(それぞれの系に独立に作用させても、熱的接触のように二つの系を相互作用させても良い)を行う。
-  \item このとき、複合系が状態$X$に達するときの$\lambda$の最大値がエントロピーである。
-\end{enumerate}
-となる。\\
-
-\begin{itembox}[l]{\textbf{Thm:エントロピー原理}}
-  以下の(1),(2)は同値である。\\
-  (1) 関係$\prec$が、$\Gamma$の多重スケーリングコピーにおいて、順序の公理A1-A6及び比較仮説(CH)を満たす。\\
-  (2) ある関数$S_{\Gamma}:\Gamma \rightarrow \mathbb{R}$が存在して、以下の性質を満たす。\\
-  もし、$(t_1+ \cdots +t_n)=t_1'+ \cdots +t_m'$であるとき、
-  \begin{equation}
-      (t_1 Y_1, \cdots ,t_n Y_n) \prec (t_1' Y_1', \cdots ,t_m' Y_m') \Leftrightarrow S_{\Gamma}(Y_1)+ \cdots +S_{\Gamma}(Y_n) \leq S_{\Gamma}(Y_1')+ \cdots +S_{\Gamma}(Y_m')
-  \end{equation}
-\end{itembox}
-\textbf{Prf}\\
-証明は気が向いたら書く。\\
-
-\subsection{その他}
-
-\subsubsection{様々な操作}
-自分のメモ用に、操作についてまとめておく。\\
-\textbf{熱的接触}\\
-田崎熱問題5.1を解いたので、メモとして残しておく。\\
-二つの系$(T,X),(T',Y) $を、示量変数を固定したまま接触させて、温度$\tilde{T}$に達するとき、全系について、
-\begin{align}
-  U(T,X)+U(T',Y) = U(\tilde{T},X)+U(\tilde{T},Y)
-\end{align}
-が成立し、温度は一意に定まる。\\
-また、このとき$T<\tilde{T}<T'$を仮定すると、熱の移動は、
-\begin{align}
-  Q = U(\tilde{T},X)-U(T,X) = -(U(\tilde{T},Y)-U(T',Y)) 
-\end{align}
-となる。\\
-
-\subsubsection{熱機関の効率の上限}
-\begin{itembox}[l]{\textbf{Thm:カルノーの定理}}
-  任意の熱機関の効率の上限は、
-  \begin{equation}
-    \eta \leq 1-\frac{T_L}{T_H}
-  \end{equation}
-  と書くことができる。ただし、$\eta$は熱効率、$T_L,T_H$はそれぞれ低温熱浴の温度、高温熱浴の温度である。
-
-\end{itembox}
-\textbf{Prf}\\
-着目系、高温熱浴、低温熱浴の複合系を考える。このとき、複合経緯の断熱遷移を、
-\begin{align}
-  ((T,X),(T_H,X_H),(T_L,X_L)) \rightarrow ((T,X),(T_H',X_H),(T_L',X_L))
-\end{align}
-とする。このとき、エントロピー原理より、
-\begin{align}
-  S((T,X),(T_H,X_H),(T_L,X_L)) \leq S((T,X),(T_H',X_H),(T_L',X_L))
-\end{align}
-が成り立つ。ここで、エントロピーの相加性から、
-\begin{align}
-  S(T,X)+S(T_H,X_H)+S(T_L,X_L) \leq S(T,X)+S(T_H',X_H)+S(T_L',X_L)
-\end{align}
-が成り立つ。すなわち、
-\begin{align}
-  S(T_H,X_H) - S(T_H',X_H) \leq S(T_L',X_L) - S(T_L,X_L)
-\end{align}
-が成り立つ。ここで、左辺について、
-\begin{align}
-  S(T_H,X_H) - S(T_H',X_H) &= \int_{T_H'}^{T_H} \pdv{S}{T} \dd T\\
-  &= \int_{T_H'}^{T_H} \frac{1}{T} \pdv{U}{T} \dd T\\
-  &\geq \frac{1}{T_H} \int_{T_H'}^{T_H} \pdv{U}{T} \dd T\\
-  &= \frac{1}{T_H} (U(T_H)-U(T_H'))\\
-  &= \frac{Q_H}{T_H}
-\end{align}
-となる。ただし、$Q_H$は高温熱浴からの熱量である。同様の手順により、
-\begin{align}
-  S(T_L,X_L) - S(T_L',X_L) \leq \frac{Q_L}{T_L}
-\end{align}
-となる。したがって、
-\begin{align}
-  \frac{Q_H}{T_H} \leq \frac{Q_L}{T_L}
-\end{align}
-が成り立つ。すなわち、
-\begin{align}
-  \frac{T_L}{T_H} \leq \frac{Q_L}{Q_H}
-\end{align}
-となる。熱効率の定義は、
-\begin{align}
-  \eta = 1 - \frac{Q_L}{Q_H}
-\end{align}
-であるから、
-\begin{align}
-  \eta \leq 1 - \frac{T_L}{T_H}
-\end{align}
-が成り立つ。\hfill\qedsymbol\\
 
 \section{統計力学}
 主に田崎統計を参考にしながら、統計物理の一般的な議論をまとめる。\\
@@ -494,7 +65,7 @@ $\epsilon =\frac{1}{n}$とする。このとき、
 後に、温度計としての役割を理想気体に担ってもらうため、実際に理想気体の状態数を計算してみる。\\
 3次元の箱の中での理想気体のシュレディンガー方程式は、
 \begin{equation}
-  -\frac{\hbar^2}{2m}\nabla^2 \psi = E \psi
+  \frac{\hbar^2}{2m}\nabla^2 \psi = E \psi
 \end{equation}
 である。このとき、シュレディンガー方程式を解くと、
 \begin{equation}
@@ -599,6 +170,8 @@ $\epsilon =\frac{1}{n}$とする。このとき、
   "許された状態"とは、マクロに見たときの系のエネルギーにほぼ等しいエネルギーをもつ状態およびその重ね合わせの状態のことである。\footnote{エネルギーを用いて定義しているわけだが、ほかの変数を用いて定義することはできないのかなと思う。}
 \end{itembox}
 このことを用いて、以下の要請を考える。\\
+
+このとき、マクロな量子系について、ある平衡状態に対応する「許される量子状態」のほとんどすべてが、マクロ物理量の測定により区別不可能である。このような状態を「典型的な状態」と呼ぶ。
 
 \begin{itembox}[l]{\textbf{Post:典型性}}
   ある系の平衡状態がもつ性質は、"許された状態"のうち、典型的な状態が共通に持つ性質のことである。\\
@@ -927,7 +500,7 @@ $\tilde{U} = U - E_i$とおくと、
 \begin{align}
   \ev{E^2} &= \sum_{i}E_{i}^2p_{i}\\
   &=\sum_{i}E_{i}^2\frac{e^{-\beta E_{i}}}{Z}\\
-  &=\frac{1}{Z}\pdv[2]{beta}\sum_{i}e^{-\beta E_{i}}\\
+  &=\frac{1}{Z}\pdv[2]{\beta}\sum_{i}e^{-\beta E_{i}}\\
   &=\frac{Z''}{Z}
 \end{align}
 となる。したがって、
@@ -1153,8 +726,7 @@ $\tilde{U} = U - E_i$とおくと、
 
 
 %残り書くこと:カノニカル分布の続き、グランドカノニカル分布、3つのモデルの等価性、フェルミ・ディラック分布、ボース・アインシュタイン分布、分布の他の導出
-
-\subsection{その他}
+\subsection{分布間の関係}
 統計力学における諸注意や、ちょっとした議論をまとめておく。\\
 
 \subsubsection{独立な部分からなる系}
@@ -1198,8 +770,8 @@ $\tilde{U} = U - E_i$とおくと、
   \centering
   \begin{tikzpicture}
       % 軸の設定
-      \draw[->] (-4,0) -- (4,0) node[right] {Re};
-      \draw[->] (0,-3) -- (0,3) node[above] {Im};
+      \draw[->] (-4,0) -- (4,0) node[right] {$Re$};
+      \draw[->] (0,-3) -- (0,3) node[above] {$Im$};
   
       % 曲線の描画
       \draw[thick] (1,-3) -- (1,3);
@@ -1280,12 +852,6 @@ $\tilde{U} = U - E_i$とおくと、
   &= -\pdv{\beta}\log Z(\beta)
 \end{align}
 となる。\\
-また、分配関数をモーメント母関数とみなすということは、$\log Z$をキュムラント母関数とみなすことにもなる。実際、
-\begin{align}
-  \pdv[2]{\log Z}{\beta} &= \sigma^2(\beta)
-\end{align}
-である。((\ref{eq:cumulant2})式を参照)\\
-
 まとめると、分配関数は、エネルギーのモーメント母関数とみなすことができ、確率分布の情報を取り出すことができるのである。\\ 
 
 ところで、この話をMCにも持ち込めないかを考えてみる。Cでみたこととしては、確率分布の規格化
@@ -1312,19 +878,6 @@ $\tilde{U} = U - E_i$とおくと、
   k\Phi = \log Z_{V,N}(\beta)
 \end{align}
 なる量がキュムラント母関数である。ここで、左辺の$k$はボルツマン定数、$\Phi$はマシュー関数である。要するに、キュムラント母関数は、完全な熱力学関数に対応する。\\
-キュムラント母関数は、ゆらぎと対応していたのであった。試しに、$k\Phi$を$\beta$で微分してみると、
-\begin{align}
-  \pdv[2] {\Phi}{\beta} &= \frac{1}{k}\sigma^2
-\end{align}
-となる。これの両辺$k^2\beta^2$をかけると、
-\begin{align}
-  k^2\beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
-\end{align}
-となり、比熱が出てくる。\footnote{この左辺は見慣れないかもしれないが、
-\begin{align}
-  C(T,V,N) = -T\pdv[2]{F}{T}
-\end{align}
-のマシュー関数版である。}\\
 
 また、グランドカノニカル分布についても考えてみる。グランドカノニカル分布の大分配関数は、
 \begin{align}
@@ -1440,20 +993,138 @@ $\tilde{U} = U - E_i$とおくと、
 となる。
 
 \subsection{典型性に関する追記}
+典型的な状態とは、「ある平衡状態に対応する量子状態のほとんどすべてが区別不可能な状態」のことであった。このとき、典型性の要請は以下である。
+\begin{itembox}[l]{\textbf{典型性の要請}}
+  ある平衡状態の性質は、それに対応する"許された状態"が共通に持つ性質である。
+\end{itembox}
+この要請は、「典型的な状態」が、そうでない状態よりも圧倒的に多いことを意味するが、これは極めて非自明な問題である。
+
+\subsubsection{準備}
+エネルギー密度$u$および、小さいエネルギー幅$\delta u$を考える。この幅に含まれる固有状態の添え字を集合を
+\begin{align}
+  \mathcal{J}_{V,u} = \left\{ j \left| u - \delta u < \frac{E_j}{V} < u\right. \right\}
+\end{align}
+とすると、この要素数は
+\begin{align}
+  D_{V,u} = \Omega_V (Vu) - \Omega_V(V(u-\delta u))
+\end{align}
+とかける。また$\mathcal{H}_{V,u}$を、$\mathcal{J}_{V,u}$に属する$\ket{\psi_j}$によって張られる$\mathcal{H}_{V,\text{tot}}$の部分空間とする。
+
+\begin{itembox}[l]{\textbf{Def:ミクロカノニカル平均}}
+  任意の演算子のミクロカノニカル平均は、
+  \begin{align}
+    \expval{O}_{V,u}^{\text{mc}} &= \frac{1}{D_{V,u}}\sum_{j\in \mathcal{J}_{V,u}}\bra{\psi_j}O\ket{\psi_j}\\
+    &= \Tr[\rho_{V,u}^{\text{mc}}O]
+  \end{align}
+  で定義される。ただし、$\rho_{V,u}^{\text{mc}}$は、
+  \begin{align}
+    \rho_{V,u}^{\text{mc}} = \frac{1}{D_{V,u}}\sum_{j\in \mathcal{J}_{V,u}}\ket{\psi_j}\bra{\psi_j}
+  \end{align}
+  である。
+\end{itembox}
+この量は後で大事になるため、大々的に定義しておいた。\\
+
+また、射影演算子は、
+\begin{align}
+  \hat{P}[O \geq o] = \sum_{o_j \geq o} \ket{\psi_j}\bra{\psi_j}
+\end{align}
+である。\\
+
+\subsubsection{熱力学境界}
+あるミクロ状態が、漸近極限からずれている部分のヒルベルト空間を考える。
+\begin{itembox}[l]{\textbf{Def:非平衡射影演算子}}
+  ある物理量$M$に対して、
+  \begin{align}
+    m(u) = \lim_{V\to \infty}\frac{1}{V}\expval{M}^{\text{mc}}_{V,u}
+  \end{align}
+  を考える。これは、熱力学極限に対応する。このとき、
+  \begin{align}
+    \hat{P}_{\text{neq}} = \hat{P}\left[\left| \frac{M_V}{V} - m(u) \right| \geq \epsilon\right]
+  \end{align}
+  を、非平衡射影演算子という。
+\end{itembox}
+要するに、漸近極限をとったときの値と、確率的に得られる値とのずれが、$\epsilon$以上であるような状態は、非平衡状態であるとして、射影する演算子である。\\  
 
 
-\section{非平衡統計力学}
-
-\section{量子力学}
-
-\section{相対論}
-
-\section{場の量子論}
-
-\section{その他}
 
 
+% 考える孤立量子系の住むヒルベルト空間を$\mathcal{H}_{V,\text{tot}}$とする。このとき、
+% \begin{itembox}[l]{\textbf{Def:ミクロカノニカル部分空間}}
+%   孤立系のハミルトニアンを$H$とする。このとき、
+%   \begin{align}
+%     H \ket{\psi_j} = E_j \ket{\psi_j} \quad j \in \mathcal{J}_{V,u}
+%   \end{align}
+%   であるような$\ket{\psi_j}$の張る部分空間$\mathcal{H}_{V,u}$を、ミクロカノニカル部分空間という。ミクロカノニカル部分空間の次元は、$D_{V,u}$である。
+% \end{itembox}
+
+% さて、ミクロカノニカル部分空間を、平衡状態の部分と非平衡状態の部分に直和分解する。すなわち、
+% \begin{align}
+%   \mathcal{H}_{V,u} = \mathcal{H}_{V,u}^{\text{eq}} \oplus \mathcal{H}_{V,u}^{\text{neq}}
+% \end{align}
+% とする。このとき、
+% \begin{align}
+%   \ket{\varphi} = (1-\hat{P}_{\text{neq}})\ket{\varphi} + \hat{P}_{\text{neq}}\ket{\varphi}
+% \end{align}
+% となる。
+
+% \begin{itembox}[l]{\textbf{Def:熱平衡}}
+%   正定数$a$を任意に選び、固定する。このとき、純粋状態$\varphi \in \mathcal{H}_{V,u}$に対して、ある$V>0$が存在して、
+%   \begin{align}
+%     \bra{\varphi}\hat{P}_{\text{neq}}\ket{\varphi} \leq e^{-aV}
+%   \end{align}
+%   が成り立つとき、系は熱平衡にあるという。
+% \end{itembox}
+
+% とくに、体積が大きいときは、非平衡状態をとる確率がほぼ0とみなせる。\\
+
+ここで、典型性を論ずるうえで重要となる、熱力学境界について述べる。\\
+\begin{itembox}[l]{\textbf{Def:熱力学境界}}
+  系がエネルギー状態$u$に対して、熱力学境界を満たすとは、ある定数$\gamma$および$V_0$が存在して、
+  \begin{align}
+    \ev{\hat{P}_{\text{neq}}}^{\text{mc}}_{V,u} \leq e^{-\gamma V}
+  \end{align}
+  が任意の$V>V_0$に対して成り立つことである。
+\end{itembox}
 
 
+\subsubsection{熱平衡の典型性}
+いよいよ典型性について述べる。まず、典型性とは何かを(ざっくりと)述べる。\\
+\begin{itembox}[l]{\textbf{Def:典型的}}
+  ある性質が、測度を備えた集合$S$に対して典型的であるとは、その性質が、$S$に属するほとんどの要素に対して成り立つことである。
+\end{itembox}
+例えば、$S = [0,1]$が標準ルベーグ測度を備えているとき、無理数であるという性質は典型的である。\\
 
+さて、以上の準備の下、ミクロカノニカル混合した系について、以下の定理が成り立つ。\\
+\begin{itembox}[l]{\textbf{Thm:熱平衡の典型性}}
+  
+  $\gamma > \alpha$で、系が熱力学境界を満たすことを仮定する。このとき、任意の$V \geq V_0$を固定し、純粋状態$\ket{\varphi} \in \mathcal{H}_{V,u}$をランダムに選ぶとき、
+  確率$1-e^{-(\gamma - \alpha)V}$よりも高い確率で、
+  \begin{align}
+    \bra{\varphi}\hat{P}_{\text{neq}}\ket{\varphi} \leq e^{-\alpha V}
+  \end{align}
+  が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+  \text{Prob} \left( \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right) &= \left\langle \chi \left[ \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right] \right\rangle \\
+  &\leq e^{\alpha V} \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle  \\
+  &= e^{\alpha V} \ev{P_{\text{neq}}}_{V,u}^{\text{mc}} \\
+  &\leq e^{-(\gamma - \alpha)V},
+  \end{align}
+  %TODOここの変形がわからない
+  ここで、
+  \begin{align}
+    \chi[A] = \begin{cases}
+      1 & A \text{ is true} \\
+      0 & A \text{ is false}
+    \end{cases}
+  \end{align}
+  である。
+  
+
+系が熱力学境界を満たすとき、とくに系の体積が十分大きいとき、典型的でない状態を選ぶ確率がほぼ0であることがわかる。\\
+
+以上の定理から、系が熱力学境界を満たすならば、非常に高い確率で平衡状態が選ばれることがわかる。すなわち、平衡状態は典型的な状態である。\\
+
+あとは、熱力学境界が成り立つことを示す必要があるが、これは様々な熱力学系について成り立つことが知られている。\\
 \end{document}

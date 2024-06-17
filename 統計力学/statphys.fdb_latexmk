@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1718610375 "memo.dvi" "memo.pdf" "memo" 1718610377 0
-  "memo.dvi" 1718610375 220192 576becc63267b1be90e6644cf504731b "latex"
+["dvipdf"] 1718613264 "statphys.dvi" "statphys.pdf" "statphys" 1718613266 0
+  "statphys.dvi" 1718613264 169084 25a2638c17ba2bf0310e5a4e1ac5c9e1 "latex"
   (generated)
-  "memo.pdf"
+  "statphys.pdf"
   (rewritten before read)
-["latex"] 1718610373 "memo.tex" "memo.dvi" "memo" 1718610377 0
+["latex"] 1718613262 "statphys.tex" "statphys.dvi" "statphys" 1718613266 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -47,7 +47,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss17.tfm" 1681537339 1320 ed93d62c5f2c16343826001f03341dbc ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
@@ -201,14 +200,14 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "memo.aux" 1718610375 6184 ed3f3319039cc43ed2cc6d9192a634b6 "latex"
-  "memo.out" 1718610375 2489 723a9b9797509287f9553b1a1c0cc9cc "latex"
-  "memo.tex" 1718610369 71488 7c953dde7ab42ffbf80d479675bab3f5 ""
-  "memo.toc" 1718610375 3055 541347dbeb7e52faf78e91d8a1cb5a0f "latex"
+  "statphys.aux" 1718613264 3903 dc3b58a5cac82346c0e18bd37c1517ef "latex"
+  "statphys.out" 1718613264 1040 4adfcd2b8c522d700959f163b4269e96 "latex"
+  "statphys.tex" 1718613259 59186 dc20f8a56eb84220dced13713ecb3a04 ""
+  "statphys.toc" 1718613264 1851 ffa9bfe454de9d45867928a8c521160d "latex"
   (generated)
-  "memo.aux"
-  "memo.dvi"
-  "memo.log"
-  "memo.out"
-  "memo.toc"
+  "statphys.aux"
+  "statphys.dvi"
+  "statphys.log"
+  "statphys.out"
+  "statphys.toc"
   (rewritten before read)
