@@ -878,6 +878,19 @@ $\tilde{U} = U - E_i$とおくと、
   k\Phi = \log Z_{V,N}(\beta)
 \end{align}
 なる量がキュムラント母関数である。ここで、左辺の$k$はボルツマン定数、$\Phi$はマシュー関数である。要するに、キュムラント母関数は、完全な熱力学関数に対応する。\\
+キュムラント母関数は、ゆらぎと対応していたのであった。試しに、$k\Phi$を$\beta$で微分してみると、
+\begin{align}
+  \pdv[2] {\Phi}{\beta} &= k\sigma^2
+\end{align}
+となる。これの両辺$\beta^2$をかけると、
+\begin{align}
+  \beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
+\end{align}
+となり、比熱が出てくる。\footnote{この左辺は見慣れないかもしれないが、
+\begin{align}
+  C(T,V,N) = -T\pdv[2]{F}{T}
+\end{align}
+のマシュー関数版である。}\\
 
 また、グランドカノニカル分布についても考えてみる。グランドカノニカル分布の大分配関数は、
 \begin{align}
@@ -958,7 +971,7 @@ $\tilde{U} = U - E_i$とおくと、
 \end{align}
 である。これがカノニカル分布である。\\
 
-\textbf{シャノンエントロピーを、拘束条件のもと最大化する方法}\\
+\textbf{シャノンエントロピーを、拘束条件のもと最大化する方法}\\%TODOこの議論は実はまずいらしい。清水統計を参照せよ
 エネルギーを一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
 \begin{align}
   \tilde{S}= -k_B\sum_{i}p_i\log p_i -\lambda\left(\sum_{i}p_i - 1\right)-\rho\left(\sum_{i}p_iE_i - U\right)  
@@ -993,14 +1006,16 @@ $\tilde{U} = U - E_i$とおくと、
 となる。
 
 \subsection{典型性に関する追記}
+特に、孤立量子系の純粋状態\footnote{すなわち、系のエネルギー固有値だけで、混合状態を純粋状態まで分解できる系のこと。}については、典型性をさらに基礎づけられることが知られている。以下ではその議論をまとめる。\\
+
 典型的な状態とは、「ある平衡状態に対応する量子状態のほとんどすべてが区別不可能な状態」のことであった。このとき、典型性の要請は以下である。
 \begin{itembox}[l]{\textbf{典型性の要請}}
-  ある平衡状態の性質は、それに対応する"許された状態"が共通に持つ性質である。
+  ある平衡状態に対応する"許された状態"のほとんどすべては、区別不可能な状態である。平衡状態の性質は、この典型的な状態が共通に持つ性質のことである。
 \end{itembox}
-この要請は、「典型的な状態」が、そうでない状態よりも圧倒的に多いことを意味するが、これは極めて非自明な問題である。
+このとき、平衡状態のほうがそうでない状態よりも圧倒的に多いことを前提にしているが、これは極めて非自明な問題である。以下では、平衡状態が「典型的な状態」であることを示す。\\
 
 \subsubsection{準備}
-エネルギー密度$u$および、小さいエネルギー幅$\delta u$を考える。この幅に含まれる固有状態の添え字を集合を
+エネルギー密度$u$および、小さいエネルギー幅$\delta u$を考える。この幅に含まれる固有状態の添え字の集合を
 \begin{align}
   \mathcal{J}_{V,u} = \left\{ j \left| u - \delta u < \frac{E_j}{V} < u\right. \right\}
 \end{align}
@@ -1008,7 +1023,7 @@ $\tilde{U} = U - E_i$とおくと、
 \begin{align}
   D_{V,u} = \Omega_V (Vu) - \Omega_V(V(u-\delta u))
 \end{align}
-とかける。また$\mathcal{H}_{V,u}$を、$\mathcal{J}_{V,u}$に属する$\ket{\psi_j}$によって張られる$\mathcal{H}_{V,\text{tot}}$の部分空間とする。
+とかける。また$\mathcal{H}_{V,u}$を、$\mathcal{J}_{V,u}$に属する$\ket{\psi_j} \in \mathcal{H}_{V,\text{tot}}$によって張られる$\mathcal{H}_{V,\text{tot}}$の部分空間とする。
 
 \begin{itembox}[l]{\textbf{Def:ミクロカノニカル平均}}
   任意の演算子のミクロカノニカル平均は、
@@ -1041,7 +1056,7 @@ $\tilde{U} = U - E_i$とおくと、
   \begin{align}
     \hat{P}_{\text{neq}} = \hat{P}\left[\left| \frac{M_V}{V} - m(u) \right| \geq \epsilon\right]
   \end{align}
-  を、非平衡射影演算子という。
+  を、非平衡射影演算子という。\footnote[1]{この射影演算子は、$\ket{\psi} \in \mathcal{H}_{V,\text{tot}}$に作用する。}
 \end{itembox}
 要するに、漸近極限をとったときの値と、確率的に得られる値とのずれが、$\epsilon$以上であるような状態は、非平衡状態であるとして、射影する演算子である。\\  
 
@@ -1067,17 +1082,17 @@ $\tilde{U} = U - E_i$とおくと、
 % \end{align}
 % となる。
 
-% \begin{itembox}[l]{\textbf{Def:熱平衡}}
-%   正定数$a$を任意に選び、固定する。このとき、純粋状態$\varphi \in \mathcal{H}_{V,u}$に対して、ある$V>0$が存在して、
-%   \begin{align}
-%     \bra{\varphi}\hat{P}_{\text{neq}}\ket{\varphi} \leq e^{-aV}
-%   \end{align}
-%   が成り立つとき、系は熱平衡にあるという。
-% \end{itembox}
+ここで、改めて熱平衡を微視的に定義する。熱力学において、平衡状態とは、観測精度の範囲でマクロ物理量が時間変化しない状態のことであった。これを微視的に定義すると以下のようになる。
+\begin{itembox}[l]{\textbf{Def:熱平衡}}
+  正定数$a$を任意に選び、固定する。このとき、純粋状態$\varphi \in \mathcal{H}_{V,u}$に対して、ある$V>0$が存在して、
+  \begin{align}
+    \bra{\varphi}\hat{P}_{\text{neq}}\ket{\varphi} \leq e^{-aV}
+  \end{align}
+  が成り立つとき、系は熱平衡にあるという。
+\end{itembox}
+要するに、ある体積$V$よりも大きい範囲で、非平衡状態を引く確率が圧倒的に小さくなるとき、系は熱平衡にあるという。このとき、あくまでも純粋状態に対しての議論であることに注意されたい。\\
 
-% とくに、体積が大きいときは、非平衡状態をとる確率がほぼ0とみなせる。\\
-
-ここで、典型性を論ずるうえで重要となる、熱力学境界について述べる。\\
+ここで、典型性を論ずるうえで重要となる、熱力学境界について述べる。
 \begin{itembox}[l]{\textbf{Def:熱力学境界}}
   系がエネルギー状態$u$に対して、熱力学境界を満たすとは、ある定数$\gamma$および$V_0$が存在して、
   \begin{align}
@@ -1085,10 +1100,11 @@ $\tilde{U} = U - E_i$とおくと、
   \end{align}
   が任意の$V>V_0$に対して成り立つことである。
 \end{itembox}
+ここでは、上での平衡状態の定義とは異なり、ミクロカノニカル平均(すなわち、混合状態の平均)を用いていることに注意されたい。\\
 
 
 \subsubsection{熱平衡の典型性}
-いよいよ典型性について述べる。まず、典型性とは何かを(ざっくりと)述べる。\\
+いよいよ典型性について述べる。まず、典型性とは何かを(ざっくりと)述べる。
 \begin{itembox}[l]{\textbf{Def:典型的}}
   ある性質が、測度を備えた集合$S$に対して典型的であるとは、その性質が、$S$に属するほとんどの要素に対して成り立つことである。
 \end{itembox}
@@ -1106,8 +1122,8 @@ $\tilde{U} = U - E_i$とおくと、
 \end{itembox}
 \textbf{Prf}\\
 \begin{align}
-  \text{Prob} \left( \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right) &= \left\langle \chi \left[ \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right] \right\rangle \\
-  &\leq e^{\alpha V} \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle  \\
+  \text{Prob} \left( \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right) &= \overline{\left\langle \chi \left[ \left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle \geq e^{-\alpha V} \right] \right\rangle}\\
+  &\leq e^{\alpha V} \overline{\left\langle \varphi \middle| P_{\text{neq}} \middle| \varphi \right\rangle}  \\
   &= e^{\alpha V} \ev{P_{\text{neq}}}_{V,u}^{\text{mc}} \\
   &\leq e^{-(\gamma - \alpha)V},
   \end{align}
@@ -1121,10 +1137,79 @@ $\tilde{U} = U - E_i$とおくと、
   \end{align}
   である。
   
-
-系が熱力学境界を満たすとき、とくに系の体積が十分大きいとき、典型的でない状態を選ぶ確率がほぼ0であることがわかる。\\
-
 以上の定理から、系が熱力学境界を満たすならば、非常に高い確率で平衡状態が選ばれることがわかる。すなわち、平衡状態は典型的な状態である。\\
-
 あとは、熱力学境界が成り立つことを示す必要があるが、これは様々な熱力学系について成り立つことが知られている。\\
+
+\subsubsection{等重率の原理の妥当性}
+平衡統計力学における等重率の原理の妥当性は、上の典型性の表式を見れば明らかである。要するに、典型的な状態はそうでない状態よりも圧倒的に多く(上の定理でいうところの、$1-e^{-(\gamma - \alpha)V}$よりも高い確率)、さらにそれが平衡状態なのだから、等確率で状態を混合したとき、ほぼ確実に平衡状態が選ばれることがわかる。\\
+
+\subsection{密度行列を用いた定式化}
+密度行列を用いて各分布を表してみる。\\
+
+\subsubsection{密度行列}
+前景の状態が波動関数$\Psi(x,q)$で記述されるとき、その一部の座標$x$で記述される部分系のみに注目する。物理量Aの期待値は、
+\begin{align}
+  \expval{A} = \iint \dd x \dd q \Psi^*(x,q)\hat{A}\Psi(x,q)
+\end{align}
+である。ここで、部分系の密度行列を、
+\begin{align}
+  \hat{\rho}(x',x) = \int \dd q \Psi^*(x',q)\Psi(x,q)
+\end{align}
+密度行列を用いて、物理量の期待値は、
+\begin{align}
+  \expval{A} = \int \dd x \hat{A}(x)\hat{\rho}(x',x)|_{x'=x}
+\end{align}
+
+
+\subsection{密度演算子の時間発展}
+時刻$t$における密度演算子を$\rho(t)$とする。このとき、
+\begin{align}
+  \hat{\rho}(t) &= \sum_{i}w_i(t)\ket{\psi_i(t)}\bra{\psi_i(t)}\\
+  &= \sum_{i}w_i(t)e^{-iHt}\ket{\psi_i(0)}\bra{\psi_i(0)}e^{iHt}\\
+  &= e^{-iHt}\hat{\rho}(0)e^{iHt}
+\end{align}
+となる。これを微分することにより、
+\begin{align}
+  \dv{\hat{\rho}(t)}{t} = -\frac{i}{\hbar}[H,\hat{\rho}(t)]
+\end{align}
+となる。これは、von Neumann方程式と呼ばれる。\\
+
+熱平衡状態において、系は時間変化しない。すなわち、平衡状態の密度演算子を$\rho_{\text{eq}}$とすると、
+\begin{align}
+  \dv{\hat{\rho}_{\text{eq}}}{t} = 0
+\end{align}
+である。したがって、
+\begin{align}
+  [H,\rho_{\text{eq}}] = 0
+\end{align}
+となり、$\hat{\rho}_{\text{eq}}$は$H$と可換である。このとき、波動関数をエネルギーの固有関数$\hat{H}\ket{j} = E_j\ket{j}$で表示すれば、$\hat{\rho}_{\text{eq}}$は対角的であればよい。すなわち、
+\begin{align}
+  \hat{\rho}_{\text{eq}} = \sum_{j}p_j\ket{j}\bra{j}
+\end{align}
+であれば、よい。あとは、典型性の仮定を満たすように密度行列を構成すればよい。\\
+
+\subsubsection{ミクロカノニカル分布}
+対角的かつ典型性を満たす密度行列のうち最もシンプルなものはミクロカノニカル分布である。ミクロカノニカル分布の密度行列は、
+\begin{align}
+  \hat{\rho}_{\text{mc}} = \frac{1}{\Omega(U,\delta V)}\sum_{U-\delta V < E_i \leq U}\ket{i}\bra{i}
+\end{align}
+である。行列を成分表示すると、対角成分の、エネルギーが$U$から$U+\delta U$の間にある状態のみが$\frac{1}{\Omega(U,\delta V)}$で、それ以外は0である行列である。
+
+\subsubsection{カノニカル分布}
+カノニカル分布の密度行列は、
+\begin{align}
+  \hat{\rho}_{\text{can}} = \frac{e^{-\beta \hat{H}}}{\Tr e^{-\beta \hat{H}}}
+\end{align}
+である。とくに、これの整合性は、ミクロカノニカル分布を用いて導出することで確かめられる。\\
+
+\subsubsection{グランドカノニカル分布}
+グランドカノニカル分布の密度行列は、
+\begin{align}
+  \hat{\rho}_{\text{gcan}} = \frac{e^{-\beta(\hat{H}-\mu \hat{N})}}{\Tr e^{-\beta(\hat{H}-\mu \hat{N})}}
+\end{align}
+である。これも、カノニカル分布を用いて導出することで確かめられる。\\
+
+\subsection{エントロピー}
+
+
 \end{document}

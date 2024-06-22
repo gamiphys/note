@@ -219,7 +219,29 @@
 となることから、示された。\hfill\qedsymbol\\
 
 上の関係からわかるように、キュムラント母関数を二階微分することで分散が出てくる。
-  
+
+\begin{itembox}[l]{\textbf{Def:大偏差原理}}
+  確率分布$P_N(x)$について、レート関数と呼ばれる関数$I(x)$が存在して、
+  \begin{align}
+    \lim_{N \to \infty} -\frac{1}{N} \log P_N(x) = I(x)
+  \end{align}
+  を任意の$x$に対して満たすとき、大偏差原理が成り立つという。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:ガートナー・エリスの定理}}
+  確率変数密度$x$に対するスケールされたキュムラント母関数$q(k)$が存在し、それが実数$k \in \mathbb{R}$で微分可能であるとする。
+  このとき、$x$は大偏差原理を満たし、そのレート関数は以下のルジャンドル変換で与えられる。
+  \begin{align}
+    I(x) = \sup_{k} \{kx - q(k)\}
+  \end{align}
+  また、逆ルジャンドル変換により、
+  \begin{align}
+    q(k) = \sup_{b} \{kb - I(b)\}
+  \end{align}
+  が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+
 \section{幾何学}
 
 \section{ラプラス変換}
@@ -940,7 +962,7 @@ $\tilde{U} = U - E_i$とおくと、
 \end{align}
 となる。さらに、
 \begin{align}
-  C(T)&=\pdv|\ev{E}|{T}\\
+  C(T)&=\pdv{\ev{E}}{T}\\
   &=\pdv{\beta}{T}\pdv{\ev{E}}{\beta}\\
   &=\frac{1}{kT^2}\pdv[2]{\beta}\log Z\\
   &=\frac{1}{kT^2}(\ev{E^2}-\ev{E}^2)
@@ -1233,7 +1255,7 @@ $\tilde{U} = U - E_i$とおくと、
 \end{align}
 である。したがって、たしかに、ラプラス変換逆変換によって状態密度を求めることができた。
 
-
+\subsection{母関数との対応}
 \subsubsection{母関数との対応}
 各分布についてのモーメント母関数を考えてみる。\\
 
@@ -1301,6 +1323,15 @@ $\tilde{U} = U - E_i$とおくと、
   S = k\log W
 \end{align}
 である。これは、Wをモーメント母関数とみなしたときのキュムラント母関数である。\footnote{何のモーメント母関数なのかは謎だが、カノニカル分布との対応を見てなんとなく書いてみた。}\\
+また、
+\begin{align}
+  W = e^{\frac{S}{k}}
+\end{align}
+より、
+\begin{align}
+  p_i = \frac{1}{W} = \exp(-\frac{S}{k}) = \exp(-V \frac{s}{k})
+\end{align}
+となる。よって、エネルギー分布$p_i$のレート関数は$\frac{s}{k}$である。\\
 
 また、分配関数は、
 \begin{align}
@@ -1309,22 +1340,38 @@ $\tilde{U} = U - E_i$とおくと、
 これと、モーメント母関数の定義(\ref{eq:moment})式を見比べてみると、分配関数は、$w$を確率密度とみなしたときの(すなわち、$W$を確率とみなしたときの)、エネルギーのモーメント母関数になっていることがわかる。\footnote{ただし、状態密度が確率分布でないから、本当にモーメント母関数であるとはいえないのだが。}\\
 モーメント母関数が求まったので、キュムラント母関数も求まる。キュムラント母関数の定義(\ref{eq:cumulant})式を見ると、
 \begin{align}
-  k\Phi = \log Z_{V,N}(\beta)
+  \frac{1}{k}\Phi = \log Z_{V,N}(\beta)
 \end{align}
 なる量がキュムラント母関数である。ここで、左辺の$k$はボルツマン定数、$\Phi$はマシュー関数である。要するに、キュムラント母関数は、完全な熱力学関数に対応する。\\
 キュムラント母関数は、ゆらぎと対応していたのであった。試しに、$k\Phi$を$\beta$で微分してみると、
 \begin{align}
-  \pdv[2] {\Phi}{\beta} &= \frac{1}{k}\sigma^2
+  \pdv[2] {\Phi}{\beta} &= k\sigma^2
 \end{align}
-となる。これの両辺$k^2\beta^2$をかけると、
+となる。これの両辺$\beta^2$をかけると、
 \begin{align}
-  k^2\beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
+  \beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
 \end{align}
 となり、比熱が出てくる。\footnote{この左辺は見慣れないかもしれないが、
 \begin{align}
   C(T,V,N) = -T\pdv[2]{F}{T}
 \end{align}
-のマシュー関数版である。}\\
+のマシュー関数版である。実際、
+\begin{align}
+  \pdv[2]{T} &= k^2\beta^2\pdv{\beta}\left(\beta^2 \pdv{\beta}\right)
+\end{align}
+を用いると、
+\begin{align}
+  C(T,V,N) &= -T\pdv[2]{F}{T}\\
+  &=\beta\pdv{\beta}\left(\beta^2\pdv{\beta}\right)\left(\frac{\Phi}{\beta}\right)\\
+  &=\beta^2\pdv[2]{\Phi}{\beta}
+\end{align}
+となる。}\\
+
+また、キュムラント母関数とレート関数はルジャンドル変換によって結ばれているのであった。すなわち、
+\begin{align}
+  \phi = s - \frac{u}{T}
+\end{align}
+である。これは、エントロピーとマシュー関数がルジャンドル変換で結ばれていることをに対応する。\\
 
 また、グランドカノニカル分布についても考えてみる。グランドカノニカル分布の大分配関数は、
 \begin{align}

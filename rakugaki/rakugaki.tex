@@ -245,4 +245,94 @@ $S^n$は閉多様体\\
 \textbf{ex}\\
 $A,B$が多様体ならば、$A \times B$も閉多様体である。\\
 
+\section{実験6.2の計算}
+今、RCローパスフィルター1段での入力$(v_1,i_1)$と出力$(v_2,i_2)$の関係はF行列を用いて、
+\begin{equation}
+  \begin{pmatrix}
+    v_1\\
+    i_1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1+i\omega RC & R\\
+    i\omega C & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    v_2\\
+    i_2
+  \end{pmatrix}
+\end{equation}
+と表される。\\
+これを3段噛ませたものが、位相$\pi$だけ反転してくれればよい。今、3段噛ませる前後での関係は、F行列を用いて、
+\begin{equation}
+  \begin{pmatrix}
+    v_1\\
+    i_1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    1+i\omega RC & R\\
+    i\omega C & 1
+  \end{pmatrix}^3
+  \begin{pmatrix}
+    v_2\\
+    0
+  \end{pmatrix}
+\end{equation}
+と表される。ここで、計算の便宜のために、$t =1+i\omega RC = 1+is$とおくと、
+\begin{equation}
+  F^3 =
+  \begin{pmatrix}
+    t^3+2t^2-t & O\\
+    O & O
+  \end{pmatrix}
+\end{equation}
+となる。ただし、$O$は適当な数である。したがって、
+\begin{equation}
+  \begin{pmatrix}
+    v_1\\
+    i_1
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    t^3+2t^2-t & O\\
+    O & O
+  \end{pmatrix}
+  \begin{pmatrix}
+    v_2\\
+    0
+  \end{pmatrix}
+\end{equation}
+となる。電圧について計算することにより、
+\begin{equation}
+  v_1 = (t^3+2t^2-t)v_2
+\end{equation}
+となる。ここで、位相差が$\pi$であるためには、
+\begin{equation}
+  \Im(t^3+2t^2-t) = 0
+\end{equation}
+である必要がある。
+\begin{align}
+  \Im(t^3+2t^2-t) &= \Im((1+is)^3+2(1+is)^2-(1+is))\\
+  &= -s^3+6s
+  &= 0
+\end{align}
+よって、$s = \sqrt{6}$である。いま、$s = \omega RC$であるから、
+\begin{equation}
+  \omega = \frac{\sqrt{6}}{RC}
+\end{equation}
+である。\\
+
+\section{実験6.3の計算}
+今、正入力と出力の関係は、
+\begin{equation}
+  V_{+} = \frac{Z_1}{Z_1+Z_2}V_{\text{out}}
+\end{equation}
+である。ここで、
+\begin{align} 
+  Z_1 &= R_1 + \frac{1}{i\omega C_1}\\
+  Z_2 &= R_2 + \frac{1}{i\omega C_2}        
+\end{align}
+
+
 \end{document}

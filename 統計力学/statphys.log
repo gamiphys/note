@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  17 JUN 2024 17:34
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  19 JUN 2024 23:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -754,16 +754,16 @@ LaTeX Warning: Reference `eq:moment' on page 25 undefined on input line 875.
 LaTeX Warning: Reference `eq:cumulant' on page 25 undefined on input line 876.
 
 [25] [26]
-Overfull \hbox (1.08173pt too wide) detected at line 970
+Overfull \hbox (1.08173pt too wide) detected at line 983
 []
  []
 
-[27] [28] [29] [30] [31] (./statphys.aux)
+[27] [28] [29] [30] [31] [32] [33] [34] (./statphys.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `statphys.out' has not changed.
-(rerunfilecheck)             Checksum: 4ADFCD2B8C522D700959F163B4269E96;1040.
+(rerunfilecheck)             Checksum: 5618B287A25C045B563DBA11CAB431EC;1406.
  ) 
 Here is how much of TeX's memory you used:
  23311 strings out of 476677
@@ -772,6 +772,6 @@ Here is how much of TeX's memory you used:
  43343 multiletter control sequences out of 15000+600000
  535908 words of font info for 140 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,16n,89p,479b,886s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,89p,485b,886s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on statphys.dvi (31 pages, 169084 bytes).
+Output written on statphys.dvi (34 pages, 184496 bytes).
