@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1719056934 "chap9.dvi" "chap9.pdf" "chap9" 1719056938 0
-  "chap9.dvi" 1719056933 49376 df40d9e8b77272917e15ce31abfe1b9d "latex"
+["dvipdf"] 1719063103 "chap9.dvi" "chap9.pdf" "chap9" 1719063107 0
+  "chap9.dvi" 1719063102 49968 e20218099e4cea307fc623dfc20f777c "latex"
   (generated)
   "chap9.pdf"
   (rewritten before read)
-["latex"] 1719056923 "chap9.tex" "chap9.dvi" "chap9" 1719056938 0
+["latex"] 1719063093 "chap9.tex" "chap9.dvi" "chap9" 1719063107 0
   "Bennett.png" 1719045478 63745 1a4fdcf5818b4e41b8587298013c3449 ""
   "Landauer.png" 1719045516 34111 3d0e366e98f43e14505551b2041f9461 ""
   "Szilard.png" 1718879250 116389 4fedeefacb530c4b4446a36e7bd2b0ea ""
@@ -194,12 +194,13 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "chap9.aux" 1719056933 2025 25358931ec5ba84ba42bd81912e7428b "latex"
-  "chap9.out" 1719056927 0 d41d8cd98f00b204e9800998ecf8427e "latex"
-  "chap9.tex" 1719056911 19894 bc0ce1a6041d5b06310aec2d097c7be3 ""
+  "chap9.aux" 1719063102 2205 e9c31ff24454e67251e8197747b1dc83 "latex"
+  "chap9.out" 1719063096 0 d41d8cd98f00b204e9800998ecf8427e "latex"
+  "chap9.tex" 1719063082 20055 da60a0e24127c510294a4954a23bd660 ""
   "cycle.png" 1719038015 30168 3898837a6a39a6e5b6e9cfc37e296fed ""
   "demon.png" 1718880534 127469 206822d123c96841d775a7147cef0494 ""
   "mfe.png" 1718944508 49787 c3ef507ff58449b878c9e8dce79e924d ""
+  "s.png" 1719063059 85536 8de693207608a9e25d3faeda7e1179de ""
   (generated)
   "chap9.aux"
   "chap9.dvi"

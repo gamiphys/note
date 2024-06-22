@@ -46,6 +46,95 @@
 \newpage
 
 \part{数学}
+\section{位相空間}
+見返しそうな定義などをまとめる。\\
+\begin{itembox}[l]{\textbf{Def:位相空間}}
+  集合$X$とその部分集合族$\mathfrak{O}$が以下の条件を満たすとき、$(X,\mathfrak{O})$を位相空間という。\\
+  (1) $\emptyset, X \in \mathfrak{O}$\\
+  (2) $O_1,O_2 \in \mathfrak{O} \Rightarrow O_1 \cap O_2 \in \mathfrak{O}$\\
+  (3) $\{O_i\} \subset \mathfrak{O} \Rightarrow \bigcup_{i} O_i \in \mathfrak{O}$\\
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:相対位相}}
+  $(X,\mathfrak{O})$を位相空間、$A \subset X$とする。このとき、
+  \begin{align}
+    \mathfrak{O}_A = \{O \cap A | O \in \mathfrak{O}\}
+  \end{align}
+  は$A$上の位相となる。
+\end{itembox}
+\textbf{Prf}\\
+(1) $\emptyset \cap A = \emptyset, X \cap A = A$であり、$\emptyset, A \in \mathfrak{O}$であるから、$\emptyset, A \in \mathfrak{O}_A$である。\\
+(2) $O_1,O_2 \in \mathfrak{O}_A$とする。このとき、$O_1 = O_1' \cap A, O_2 = O_2' \cap A$となる$O_1',O_2' \in \mathfrak{O}$が存在する。したがって、
+\begin{align}
+  O_1 \cap O_2 = (O_1' \cap A) \cap (O_2' \cap A) = (O_1' \cap O_2') \cap A \in \mathfrak{O}_A
+\end{align}
+であるから、$\mathfrak{O}_A$は交叉について閉じている。\\
+(3) $\{O_i\} \subset \mathfrak{O}_A$とする。このとき、$O_i = O_i' \cap A$となる$O_i' \in \mathfrak{O}$が存在する。したがって、
+\begin{align}
+  \bigcup_{i} O_i = \bigcup_{i} (O_i' \cap A) = \left(\bigcup_{i} O_i'\right) \cap A \in \mathfrak{O}_A
+\end{align}
+であるから、$\mathfrak{O}_A$は和について閉じている。以上より、示された。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:閉集合}}
+  $(X,\mathfrak{O})$を位相空間、$A \subset X$とする。このとき、$A$が閉集合であるとは、$X \setminus A$が開集合であることをいう。
+\end{itembox}
+
+閉集合全体からなる集合族を$\mathfrak{A}$とする。
+\begin{itembox}[l]{\textbf{Thm:閉集合の性質}}
+  $X$を位相空間とする。このとき、以下が成り立つ。\\
+  (1) $\emptyset, X \in \mathfrak{A}$\\
+  (2) $A_1,A_2 \in \mathfrak{A} \Rightarrow A_1 \cup A_2 \in \mathfrak{A}$\\
+  (3) $\{A_i\} \subset \mathfrak{A} \Rightarrow \bigcap_{i} A_i \in \mathfrak{A}$
+\end{itembox}
+\textbf{Prf}\\
+略(開集合と同様に示す)。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:内点/近傍}}
+  $(X,\mathfrak{O})$を位相空間、$U \subset X$とする。このとき、
+  (1) $x \in U$が内点であるとは、$x$を含む開集合$O$が存在し、$O \subset U$であることをいう。\\
+  (2) $x$が$U$の内点であるとき、$U$は$x$の近傍であるという。とくに、$U$が$X$の開集合/閉集合であるとき、$U$は$x$の開近傍/閉近傍であるという。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:内部/外部/境界}}
+  $(X,\mathfrak{O})$を位相空間、$A \subset X$とする。このとき、\\
+  (1) $A$の内部とは、$A$に含まれる全ての内点からなる集合のことであり、
+  \begin{align}
+    A^{i} = \bigcup \{O \subset A | O \text{は開集合}\}
+  \end{align}
+  と定義される。\\
+  (2) $A$の外部とは、$A$の補集合の内部のことであり、
+  \begin{align}
+    A^{o} = (X \setminus A)^{i}
+  \end{align}
+  と定義される。\\
+  (3) $A$の境界とは、$A$の内部でも外部でもない点全体のことであり、
+  \begin{align}
+    \partial A = \overline{A^{i} \sqcup A^{o}}
+  \end{align}
+  と定義される。 
+\end{itembox}
+すなわち、$A$の内部とは、$A$に含まれる全ての開集合のなかで最大のものである。\\
+
+\begin{itembox}[l]{\textbf{Def:閉包/触点}}
+  $(X,\mathfrak{O})$を位相空間、$A \subset X$とする。このとき、\\
+  (1) $A$の閉包とは、$A$を含む最小の閉集合のことであり、
+  \begin{align}
+    \overline{A} = \bigcap \{F \supset A | F \text{は閉集合}\}
+  \end{align}
+  と定義される。\\
+  (2) $x \in \overline{A}$であるとき、$x$は$A$の触点であるという。
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:内部/外部}}
+  $(X,\mathfrak{O})$を位相空間、$A \subset X$とする。このとき、以下が成り立つ。\\
+  (1) $A$が開集合であるための必要う十分条件は、$A = A^{i}$であることである。\\
+  (2) $A$が閉集合であるための必要う十分条件は、$A = \overline{A}$であることである。
+\end{itembox}
+\textbf{Prf}\\
+定義から明らかである。\hfill\qedsymbol\\
+
+
 \section{線形代数}
 
 \begin{itembox}[l]{\textbf{Thm:}}
@@ -1175,6 +1264,45 @@ $\tilde{U} = U - E_i$とおくと、
 
 
 %残り書くこと:カノニカル分布の続き、グランドカノニカル分布、3つのモデルの等価性、フェルミ・ディラック分布、ボース・アインシュタイン分布、分布の他の導出
+
+\subsection{量子統計}
+\subsubsection{多粒子系の量子力学}
+多粒子系の量子力学について、簡単にまとめておく。\\
+
+\begin{itembox}[l]{\textbf{要請:粒子の区別}}
+  量子力学的な粒子は区別不可能である。
+
+\end{itembox}
+量子式学的な粒子が区別できないことから、
+\begin{align}
+  \Psi(\vb{r}_1,\vb{r}_2) &= \alpha \psi(\vb{r}_2,\vb{r}_1)\\
+  &= \alpha^2 \psi(\vb{r}_1,\vb{r}_2)
+\end{align}
+となる。したがって、$\alpha = \pm 1$である。\\
+\begin{itembox}[l]{\textbf{Def:フェルミ粒子/ボース粒子}}
+  \begin{align}
+    \Psi(\vb{r}_1,\vb{r}_2) &= -\psi(\vb{r}_2,\vb{r}_1)
+  \end{align}
+  を満たす粒子をフェルミ粒子、
+  \begin{align}
+    \Psi(\vb{r}_1,\vb{r}_2) &= \psi(\vb{r}_2,\vb{r}_1)
+  \end{align}
+  を満たす粒子をボース粒子という。
+
+\end{itembox}
+また、$N$粒子系の波動関数は、ボーズ粒子の場合、
+\begin{align}
+  \Psi(\vb{r}_1,\cdots,\vb{r}_N) &= \Psi(\vb{r}_{\sigma(1)},\cdots,\vb{r}_{\sigma(N)})
+\end{align}
+を満たす。ここで、$\sigma$は$N$粒子の置換である。\\
+また、フェルミ粒子の場合、
+\begin{align}
+  \Psi(\vb{r}_1,\cdots,\vb{r}_N) &= (-1)^{\sigma}\Psi(\vb{r}_{\sigma(1)},\cdots,\vb{r}_{\sigma(N)})
+\end{align}
+を満たす。\\
+
+
+
 
 \subsection{その他}
 統計力学における諸注意や、ちょっとした議論をまとめておく。\\

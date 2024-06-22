@@ -1048,6 +1048,10 @@ INPUT ./Bennett.png
 INPUT ./Bennett.png
 INPUT Bennett.png
 INPUT extractbb -B cropbox -O Bennett.png
+INPUT ./s.png
+INPUT ./s.png
+INPUT s.png
+INPUT extractbb -B cropbox -O s.png
 INPUT ./mfe.png
 INPUT ./mfe.png
 INPUT mfe.png

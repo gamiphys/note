@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  22 JUN 2024 20:48
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  22 JUN 2024 22:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -726,23 +726,25 @@ File: Landauer.png Graphic file (type bmp)
 <Landauer.png>
 File: Bennett.png Graphic file (type bmp)
 <Bennett.png>
- [6] [7] [8] [9]
+ [6] [7] [8]
+File: s.png Graphic file (type bmp)
+<s.png>
+ [9] [10]
 File: mfe.png Graphic file (type bmp)
 <mfe.png>
- [10]
 File: cycle.png Graphic file (type bmp)
 <cycle.png>
- [11] (./chap9.aux)
+ [11] [12] (./chap9.aux)
 Package rerunfilecheck Info: File `chap9.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23050 strings out of 476677
- 431101 string characters out of 5808165
+ 23057 strings out of 476677
+ 431186 string characters out of 5808165
  1867484 words of memory out of 5000000
- 43082 multiletter control sequences out of 15000+600000
+ 43087 multiletter control sequences out of 15000+600000
  532560 words of font info for 128 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,14n,89p,469b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap9.dvi (11 pages, 49376 bytes).
+Output written on chap9.dvi (12 pages, 49968 bytes).

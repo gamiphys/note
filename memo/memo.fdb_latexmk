@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1718944990 "memo.dvi" "memo.pdf" "memo" 1718944993 0
-  "memo.dvi" 1718944990 227236 02327211a83fb43c0131bc768cd0b6dc "latex"
+["dvipdf"] 1719071992 "memo.dvi" "memo.pdf" "memo" 1719071994 0
+  "memo.dvi" 1719071992 246824 ca2023e49cf62ec5e4eba171c8787b83 "latex"
   (generated)
   "memo.pdf"
   (rewritten before read)
-["latex"] 1718944985 "memo.tex" "memo.dvi" "memo" 1718944993 0
+["latex"] 1719071990 "memo.tex" "memo.dvi" "memo" 1719071994 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -19,6 +19,9 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm" 1681536317 1508 6e807ff901c35a5f1fde0ca275533df8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm" 1681536317 1528 dab402b9d3774ca98baa037071cee7ae ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm" 1681536317 1528 159d57adcba064aab4277245c826577d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1681536317 1040 b84415f97d114011685943ade933dc71 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm" 1681536317 1040 a9d2074f3fa062d4d9046b92e2334d8c ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm" 1681536317 1040 82eb6630b094bff824fccca83ff507f9 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1681536317 916 f87d7c45f9c908e672703b83b72241a3 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1681536317 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1681536317 928 2dc8d444221b7a635bb58038579b861a ""
@@ -134,6 +137,7 @@
   "c:/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty" 1681536312 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1681536317 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1681536317 13829 94730e64147574077f8ecfea9bb69af4 ""
+  "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd" 1681536317 1047 4252767c0fde12e3ce9f914ef4bb1ea1 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd" 1681536317 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd" 1681536317 961 d02606146ba5601b5645f987c92e6193 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1681536324 2222 78b930a5a6e3dc2ac69b78c2057b94d7 ""
@@ -201,10 +205,10 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "memo.aux" 1718944990 6323 e88d664cc0504346249b42fc58b2a975 "latex"
-  "memo.out" 1718944990 2599 6c8dfade82290a7f497fefc33c38c5d5 "latex"
-  "memo.tex" 1718944984 73412 d1d7b5e84c75884dcc5bc0b8c30dfa99 ""
-  "memo.toc" 1718944990 3153 a6dc575ec1fc2ea7e17a82d225974526 "latex"
+  "memo.aux" 1719071992 6714 186272ccd79f58e7f92f73d6fd942c63 "latex"
+  "memo.out" 1719071992 2769 6e5128902eab67b75cce6e3f5ff40050 "latex"
+  "memo.tex" 1719071989 79401 0906dfbd9416f6b60438565e38a856b3 ""
+  "memo.toc" 1719071992 3420 2b9106954c3eb3ef3949cab178833fed "latex"
   (generated)
   "memo.aux"
   "memo.dvi"
