@@ -1,10 +1,10 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  25 JUN 2024 15:41
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  24 JUN 2024 11:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**chap9.tex
-(./chap9.tex
+**FT.tex
+(./FT.tex
 pLaTeX2e <2023-02-14u04>+1 (based on LaTeX2e <2022-11-01> patch level 1)
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2023/02/23 jsclasses (okumura, texjporg)
@@ -622,8 +622,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./chap9.aux)
-\openout1 = `chap9.aux'.
+) (./FT.aux)
+\openout1 = `FT.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -648,9 +648,9 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 Package hyperref Info: Link coloring OFF on input line 38.
- (./chap9.out) (./chap9.out)
+ (./FT.out) (./FT.out)
 \@outlinefile=\write4
-\openout4 = `chap9.out'.
+\openout4 = `FT.out'.
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 15.9785pt on input line 44.
@@ -677,100 +677,56 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 44.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 46.
+(Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 46.
+(Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 46.
+(Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 46.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 47.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 48.
+(Font)              scaled to size 13.31541pt on input line 45.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 46.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 46.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 48.
-File: demon.png Graphic file (type bmp)
-<demon.png>
+(Font)              scaled to size 9.24683pt on input line 46.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 46.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 46.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 55.
+(Font)              scaled to size 6.47278pt on input line 46.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 46.
+File: noneq.png Graphic file (type bmp)
+<noneq.png>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 53.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 55.
-File: Szilard.png Graphic file (type bmp)
-<Szilard.png>
+(Font)              scaled to size 8.32214pt on input line 53.
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 58.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 58.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 58.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 58.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 71.
  [1
 
-]
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 76.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 76.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 76.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 76.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 77.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 77.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 86.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 93.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 93.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 93.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 93.
- [2] [3] [4] [5]
-File: Landauer.png Graphic file (type bmp)
-<Landauer.png>
-File: Bennett.png Graphic file (type bmp)
-<Bennett.png>
- [6] [7] [8]
-File: s.png Graphic file (type bmp)
-<s.png>
- [9] [10]
-File: mfe.png Graphic file (type bmp)
-<mfe.png>
-File: s2.png Graphic file (type bmp)
-<s2.png>
-File: cycle.png Graphic file (type bmp)
-<cycle.png>
- [11] [12]
-File: Sagawa.png Graphic file (type bmp)
-<Sagawa.png>
- [13] [14]
-Overfull \hbox (19.11118pt too wide) detected at line 508
-[]
- []
-
-[15]
-Overfull \hbox (26.73663pt too wide) detected at line 533
-[]
- []
-
-[16]
-File: 4state.png Graphic file (type bmp)
-<4state.png>
- [17] [18]
-File: partial1.png Graphic file (type bmp)
-<partial1.png>
- [19]
-File: stoen.png Graphic file (type bmp)
-<stoen.png>
- [20] [21] [22] [23] (./chap9.aux)
-Package rerunfilecheck Info: File `chap9.out' has not changed.
-(rerunfilecheck)             Checksum: D8A4922ACA9EE1F52C963A67837CD9C0;749.
+] [2] [3] (./FT.aux)
+Package rerunfilecheck Info: File `FT.out' has not changed.
+(rerunfilecheck)             Checksum: 3FD21255F4EE521597F9341CBF6E62C3;142.
  ) 
 Here is how much of TeX's memory you used:
- 23103 strings out of 476677
- 431902 string characters out of 5808165
- 1875484 words of memory out of 5000000
- 43121 multiletter control sequences out of 15000+600000
- 533200 words of font info for 130 fonts, out of 8000000 for 9000
+ 22962 strings out of 476677
+ 429034 string characters out of 5808165
+ 1859484 words of memory out of 5000000
+ 43003 multiletter control sequences out of 15000+600000
+ 532479 words of font info for 127 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,16n,89p,469b,689s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,89p,466b,490s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on chap9.dvi (23 pages, 101748 bytes).
+Output written on FT.dvi (3 pages, 13388 bytes).

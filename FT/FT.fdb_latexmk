@@ -1,15 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1719297701 "chap9.dvi" "chap9.pdf" "chap9" 1719297707 0
-  "chap9.dvi" 1719297700 101748 7a4cf071fecd41f934c7be7269a6daa5 "latex"
+["dvipdf"] 1719194449 "FT.dvi" "FT.pdf" "FT" 1719194452 0
+  "FT.dvi" 1719194449 13388 7dd780c0be57a3f512f2bcf4d9cb275d "latex"
   (generated)
-  "chap9.pdf"
+  "FT.pdf"
   (rewritten before read)
-["latex"] 1719297685 "chap9.tex" "chap9.dvi" "chap9" 1719297707 0
-  "4state.png" 1719206126 59454 8e2e4ea286e510f7983796683aa0b47b ""
-  "Bennett.png" 1719045478 63745 1a4fdcf5818b4e41b8587298013c3449 ""
-  "Landauer.png" 1719045516 34111 3d0e366e98f43e14505551b2041f9461 ""
-  "Sagawa.png" 1719111987 59553 f316b8b5ca9d121490f7d86595f68a98 ""
-  "Szilard.png" 1718879250 116389 4fedeefacb530c4b4446a36e7bd2b0ea ""
+["latex"] 1719194441 "FT.tex" "FT.dvi" "FT" 1719194452 0
+  "FT.aux" 1719194449 914 8a5cffdfadffa9efbde31ccf277cb66c "latex"
+  "FT.out" 1719194449 142 3fd21255f4ee521597f9341cbf6e62c3 "latex"
+  "FT.tex" 1719194437 3990 ed37e64ae6196e08a34c658c62ef89c7 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -46,7 +44,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -198,19 +195,10 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "chap9.aux" 1719297700 6516 15cc533cc898913a4e3a8691ff3d3506 "latex"
-  "chap9.out" 1719297700 749 d8a4922aca9ee1f52c963a67837cd9c0 "latex"
-  "chap9.tex" 1719297683 42026 e11435996fe3dc36f29f6c96c46cd3c3 ""
-  "cycle.png" 1719038015 30168 3898837a6a39a6e5b6e9cfc37e296fed ""
-  "demon.png" 1718880534 127469 206822d123c96841d775a7147cef0494 ""
-  "mfe.png" 1718944508 49787 c3ef507ff58449b878c9e8dce79e924d ""
-  "partial1.png" 1719233458 63334 c858e90f574243dbe64e03e837ca40e6 ""
-  "s.png" 1719063059 85536 8de693207608a9e25d3faeda7e1179de ""
-  "s2.png" 1719114342 88594 5e2fd5a2024305662357fdb9615c5b38 ""
-  "stoen.png" 1719234707 30726 842f5684851ad81d652a1904cbab7a21 ""
+  "noneq.png" 1719132634 36991 56796d76aa05a534c7414929ce8fd558 ""
   (generated)
-  "chap9.aux"
-  "chap9.dvi"
-  "chap9.log"
-  "chap9.out"
+  "FT.aux"
+  "FT.dvi"
+  "FT.log"
+  "FT.out"
   (rewritten before read)

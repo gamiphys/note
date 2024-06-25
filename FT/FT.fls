@@ -1,9 +1,9 @@
-PWD c:/Users/gamiy/note/Shiraishi/9
+PWD c:/Users/gamiy/note/FT
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt
-INPUT chap9.tex
-OUTPUT chap9.log
+INPUT FT.tex
+OUTPUT FT.log
 INPUT c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 INPUT c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 INPUT c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
@@ -935,22 +935,22 @@ INPUT c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT c:/texlive/2023/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT c:/texlive/2023/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 INPUT c:/texlive/2023/texmf-dist/tex/generic/infwarerr/infwarerr.sty
-INPUT ./chap9.aux
-INPUT chap9.aux
-INPUT chap9.aux
-OUTPUT chap9.aux
+INPUT ./FT.aux
+INPUT FT.aux
+INPUT FT.aux
+OUTPUT FT.aux
 INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/graphicx.sty
-INPUT ./chap9.out
-INPUT chap9.out
-INPUT ./chap9.out
-INPUT chap9.out
-INPUT ./chap9.out
-INPUT chap9.out
-INPUT ./chap9.out
-INPUT chap9.out
-INPUT ./chap9.out
-INPUT ./chap9.out
-OUTPUT chap9.out
+INPUT ./FT.out
+INPUT FT.out
+INPUT ./FT.out
+INPUT FT.out
+INPUT ./FT.out
+INPUT FT.out
+INPUT ./FT.out
+INPUT FT.out
+INPUT ./FT.out
+INPUT ./FT.out
+OUTPUT FT.out
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -1000,23 +1000,6 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
-INPUT ./demon.png
-INPUT ./demon.png
-INPUT demon.png
-INPUT extractbb -B cropbox -O demon.png
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
-INPUT ./Szilard.png
-INPUT ./Szilard.png
-INPUT Szilard.png
-INPUT extractbb -B cropbox -O Szilard.png
-OUTPUT chap9.dvi
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
@@ -1038,50 +1021,20 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT ./noneq.png
+INPUT ./noneq.png
+INPUT noneq.png
+INPUT extractbb -B cropbox -O noneq.png
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT ./Landauer.png
-INPUT ./Landauer.png
-INPUT Landauer.png
-INPUT extractbb -B cropbox -O Landauer.png
-INPUT ./Bennett.png
-INPUT ./Bennett.png
-INPUT Bennett.png
-INPUT extractbb -B cropbox -O Bennett.png
-INPUT ./s.png
-INPUT ./s.png
-INPUT s.png
-INPUT extractbb -B cropbox -O s.png
-INPUT ./mfe.png
-INPUT ./mfe.png
-INPUT mfe.png
-INPUT extractbb -B cropbox -O mfe.png
-INPUT ./s2.png
-INPUT ./s2.png
-INPUT s2.png
-INPUT extractbb -B cropbox -O s2.png
-INPUT ./cycle.png
-INPUT ./cycle.png
-INPUT cycle.png
-INPUT extractbb -B cropbox -O cycle.png
-INPUT ./Sagawa.png
-INPUT ./Sagawa.png
-INPUT Sagawa.png
-INPUT extractbb -B cropbox -O Sagawa.png
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm
-INPUT ./4state.png
-INPUT ./4state.png
-INPUT 4state.png
-INPUT extractbb -B cropbox -O 4state.png
-INPUT ./partial1.png
-INPUT ./partial1.png
-INPUT partial1.png
-INPUT extractbb -B cropbox -O partial1.png
-INPUT ./stoen.png
-INPUT ./stoen.png
-INPUT stoen.png
-INPUT extractbb -B cropbox -O stoen.png
-INPUT chap9.aux
-INPUT ./chap9.out
-INPUT ./chap9.out
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+OUTPUT FT.dvi
+INPUT FT.aux
+INPUT ./FT.out
+INPUT ./FT.out
