@@ -183,6 +183,33 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/color.sty
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/dvipsnam.def
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
 INPUT c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty
@@ -221,10 +248,6 @@ INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/pict2e.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/pict2e.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/pict2e.cfg
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/pict2e.cfg
-INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
-INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
-INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
-INPUT c:/texlive/2023/texmf-dist/tex/latex/graphics-def/dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/p2e-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/p2e-dvips.def
 INPUT c:/texlive/2023/texmf-dist/tex/latex/pict2e/p2e-dvips.def
@@ -1078,10 +1101,27 @@ INPUT ./partial1.png
 INPUT ./partial1.png
 INPUT partial1.png
 INPUT extractbb -B cropbox -O partial1.png
+INPUT ./ome.png
+INPUT ./ome.png
+INPUT ome.png
+INPUT extractbb -B cropbox -O ome.png
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT ./stoen.png
 INPUT ./stoen.png
 INPUT stoen.png
 INPUT extractbb -B cropbox -O stoen.png
+INPUT ./omega.png
+INPUT ./omega.png
+INPUT omega.png
+INPUT extractbb -B cropbox -O omega.png
 INPUT chap9.aux
 INPUT ./chap9.out
 INPUT ./chap9.out

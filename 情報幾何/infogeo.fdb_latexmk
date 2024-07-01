@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1717860637 "infogeo.dvi" "infogeo.pdf" "infogeo" 1717860640 0
-  "infogeo.dvi" 1717860637 239288 4163f4326b3548059c5f0924bce06eab "latex"
+["dvipdf"] 1719536155 "infogeo.dvi" "infogeo.pdf" "infogeo" 1719536158 0
+  "infogeo.dvi" 1719536155 248616 182b7929dab25d9cf39f712edf085efe "latex"
   (generated)
   "infogeo.pdf"
   (rewritten before read)
-["latex"] 1717860633 "infogeo.tex" "infogeo.dvi" "infogeo" 1717860640 0
+["latex"] 1719536150 "infogeo.tex" "infogeo.dvi" "infogeo" 1719536158 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -42,6 +42,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -195,12 +196,14 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "infogeo.aux" 1717860637 3871 0dfbf066ed1eea0751ba111eb285cea7 "latex"
-  "infogeo.out" 1717860637 2103 3613c659d9887a7ffc4120cb27034de2 "latex"
-  "infogeo.tex" 1717860626 87895 50e3e8873c652696a8e06dfcdf4995c5 ""
+  "infogeo.aux" 1719536155 3872 9e1d386566702ea213cc43761da34f5f "latex"
+  "infogeo.out" 1719536155 2103 3613c659d9887a7ffc4120cb27034de2 "latex"
+  "infogeo.tex" 1719536144 87925 aa2a63d4b62c86479ce45404a61afa71 ""
+  "infogeo.toc" 1719536155 1677 e966fb4e330b17347ab3cbbd7b7aad14 "latex"
   (generated)
   "infogeo.aux"
   "infogeo.dvi"
   "infogeo.log"
   "infogeo.out"
+  "infogeo.toc"
   (rewritten before read)

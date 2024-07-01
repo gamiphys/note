@@ -64,7 +64,7 @@
 \end{itembox}
 \textbf{Prf}\\
 (1) $\emptyset \cap A = \emptyset, X \cap A = A$であり、$\emptyset, A \in \mathfrak{O}$であるから、$\emptyset, A \in \mathfrak{O}_A$である。\\
-(2) $O_1,O_2 \in \mathfrak{O}_A$とする。このとき、$O_1 = O_1' \cap A, O_2 = O_2' \cap A$となる$O_1',O_2' \in \mathfrak{O}$が存在する。したがって、
+(2) $O_1',O_2' \in \mathfrak{O}_A$とする。このとき、$O_1 = O_1' \cap A, O_2 = O_2' \cap A$となる$O_1',O_2' \in \mathfrak{O}$が存在する。したがって、
 \begin{align}
   O_1 \cap O_2 = (O_1' \cap A) \cap (O_2' \cap A) = (O_1' \cap O_2') \cap A \in \mathfrak{O}_A
 \end{align}
@@ -134,6 +134,85 @@
 \textbf{Prf}\\
 定義から明らかである。\hfill\qedsymbol\\
 
+\begin{itembox}[l]{\textbf{Def:連続写像}}
+  $(X,\mathfrak{O}_X),(Y,\mathfrak{O}_Y)$を位相空間、$f:X \to Y$とする。
+  このとき、$f$が連続であるとは、$Y$の任意の開集合$O$に対して、$f^{-1}(O)$が$X$の開集合であることをいう。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:}}
+  ユークリッド空間における連続写像の定義と、上での連続写像は等価である。
+\end{itembox}
+\textbf{Prf}\\
+\textbf{$\Rightarrow$}\\
+$f:(V,\mathfrak{O}_V) \to (W,\mathfrak{O}_W)$をユークリッド空間における連続写像とする。$U$を$W$の任意の開集合としたとき、$f^{-1}(U)$は$V$の開集合であることを示せばよい。\\
+任意の点$\vb{a} \in f^{-1}(U)$をとると、逆像の定義より、$f(\vb{a}) \in U$である。$U$が開集合なので、
+十分小さな$\epsilon > 0$が存在して、$B_{\epsilon}(f(\vb{a});\mathbb{R}^n) \subset U$となる。\\
+また、$f$は連続写像であるから、十分小さな$\delta > 0$を選べば、
+\begin{align}
+  f(B_{\delta}(\vb{a};\mathbb{R}^m)) \subset B_{\epsilon}(f(\vb{a});\mathbb{R}^n)
+\end{align}
+となる。以上を組み合わせて、
+\begin{align}
+  f(B_{\delta}(\vb{a};\mathbb{R}^m)) \subset U
+\end{align}
+である。ここで、逆像の性質から、
+\begin{align}
+  B_{\delta}(\vb{a};\mathbb{R}^m) \subset f^{-1}(U)
+\end{align}
+であるから、$f^{-1}(U)$は開集合である。\\
+
+\textbf{$\Leftarrow$}\\
+任意の点$\vb{a} \in V$と、像$f(\vb{a}) \in W$の近傍$B_{\epsilon}(f(\vb{a});\mathbb{R}^n)$をとる。このとき、$\epsilon$はどれほど小さくとっても良いので、
+\begin{align}
+  B_{\epsilon}(f(\vb{a});\mathbb{R}^n) \subset W
+\end{align}
+としてよい。いま、開円板の定義から、
+\begin{align}
+  B_{\epsilon}(f(\vb{a});\mathbb{R}^n) \in \mathfrak{O}_W
+\end{align}
+である。また、$f$は連続写像であるから、
+\begin{align}
+  f^{-1}(B_{\epsilon}(f(\vb{a});\mathbb{R}^n)) \in \mathfrak{O}_V
+\end{align}
+である。いま、
+\begin{align}
+  \vb{a} \in f^{-1}(B_{\epsilon}(f(\vb{a});\mathbb{R}^n))
+\end{align}
+であるから、$delta >0$を十分小さくとれば、
+\begin{align}
+  B_{\delta}(\vb{a};\mathbb{R}^m) \subset f^{-1}(B_{\epsilon}(f(\vb{a});\mathbb{R}^n))
+\end{align}
+となる。以上より、
+\begin{align}
+  f(B_{\delta}(\vb{a};\mathbb{R}^m)) \subset B_{\epsilon}(f(\vb{a});\mathbb{R}^n)
+\end{align}
+であるから、$f$は連続写像である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def:商位相}}
+  $(X,\mathfrak{O})$を位相空間、$Y$を単なる集合であるとする。このとき、
+  \begin{align}
+    f:X \to Y
+  \end{align}
+  が全射であるとする。このとき、
+  \begin{align}
+    \mathfrak{O}_Y = \{O \subset Y | f^{-1}(O) \in \mathfrak{O}\}
+  \end{align}
+  と定義すると、$\mathfrak{O}_Y$は$Y$上の位相となる。これを商位相といい、$(Y,\mathfrak{O}_Y)$を$(X,\mathfrak{O})$の商空間という。
+\end{itembox}
+$(\because) \quad (\mathfrak{O}_Y$が位相となること)\\
+(1)$f^{-1}(\emptyset) = \emptyset, f^{-1}(Y) = X$であるから、$\emptyset, Y \in \mathfrak{O}_Y$である。\\
+(2)$O_1,O_2 \in \mathfrak{O}_Y$とする。このとき、$f^{-1}(O_1),f^{-1}(O_2) \in \mathfrak{O}$であるから、
+\begin{align}
+  f^{-1}(O_1) \cap f^{-1}(O_2) = f^{-1}(O_1 \cap O_2) \in \mathfrak{O}
+\end{align}
+である。したがって、$O_1 \cap O_2 \in \mathfrak{O}_Y$である。\\
+(3)$\{O_i\} \subset \mathfrak{O}_Y$とする。このとき、$f^{-1}(O_i) \in \mathfrak{O}$であるから、
+\begin{align}
+  f^{-1}\left(\bigcup_{i} O_i\right) = \bigcup_{i} f^{-1}(O_i) \in \mathfrak{O}
+\end{align}
+である。したがって、$\bigcup_{i} O_i \in \mathfrak{O}_Y$である。以上より、示された。\hfill\qedsymbol\\
+
+このとき、$Y$に商位相を入れれば、$f:X \to Y$は連続写像となる。\\
 
 \section{線形代数}
 

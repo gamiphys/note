@@ -6,6 +6,7 @@
 \usepackage{bm}
 \usepackage{mathtools}
 \usepackage{amssymb}
+\usepackage{color}
 
 % 表
 \usepackage[utf8]{inputenc}
@@ -441,16 +442,17 @@ $W$を取り出されるエネルギーとして、エントロピー生成は�
     \item $\tau_{2n+1} \leq t \leq \tau_{2n+2}\quad(n=0,1,\cdots,N-1)$の間は、$X$のみ状態が変化し、feedbackが行われる。
     \item $\tau_{2n} \leq t \leq \tau_{2n+1}$と$\tau_{2n+1} \leq t \leq \tau_{2n+2}\quad(n=0,1,\cdots,N-1)$の時間間隔をそれぞれ第$n$Y-フェーズとX-フェーズと呼ぶ。
     \item 第$n$X-フェーズについて、$m_n$をXでのジャンプ回数とし、$t_{n,i}$を第$i$回ジャンプが発生する時間とする。$t_{n,i}$でのジャンプはXの状態を$x^{n,i-1}$から$x^{n,i}$に変える。
-    \item $t_{n,0} := \tau_{2n+1}$と$t_{n,m_n+1} := \tau_{2n+2}$とする。
-    \item $x$は$\tau_{2n} \leq t \leq \tau_{2n+1}$の間に変化しないため、$x^{n,0} = x(\tau_{2n}) = x(\tau_{2n+1}) = x(\tau_{2n+1})$が成り立つ。
+    \item $t_{n,0} := \tau_{2n+1}$と$t_{n,m_n+1} := \tau_{2n+2}$とする。(Xに切り替わった瞬間はjumpしない)
+    \item $x$は$\tau_{2n} \leq t \leq \tau_{2n+1}$の間(すなわち、Yがmovableなとき)に変化しないため、$x^{n-1,m_{n-1}} = x(\tau_{2n}) = x(\tau_{2n+1}) = x^{n,0}$が成り立つ。
+    \item $y$は$\tau_{2n+1} \leq t \leq \tau_{2n+2}$の間(すなわち、Xがmovableなとき)に変化しないため、$y(\tau_{2n+1}) = y(\tau_{2n+2})$が成り立つ。
 \end{itemize}
 
 このとき、系$X$のエントロピー生成は、
 \begin{align}
     \hat{\sigma}_X := \sum^{N-1}_{n=0} \sum^{m_n}_{i=1} \ln \frac{P^{x^{n,i-1} \to x^{n,i}; y(\tau_{2n+1}), t^{n,i}}}{P^{x^{n,i} \to x^{n,i-1}; y(\tau_{2n+1}), t^{n,i}}} - \ln P(x(\tau); \tau) + \ln P(x(0); 0)
 \end{align}
-ただし、第一項は系$X$に接触している熱浴への熱放出、第二項は系$X$のエントロピーの変化である。このエントロピー生成の定義はもっともらしいが、普通の第二法則$\ev{\hat{\sigma}_X} \geq 0$を満たさない。代わりに、以下の沙川-上田関係をみたす。
-\begin{itembox}[l]{\textbf{Def:沙川-上田関係}}
+ただし、第一項は系$X$に接触している熱浴への熱放出、第二項は系$X$の自己情報量の変化である。このエントロピー生成の定義はもっともらしいが、普通の第二法則$\ev{\hat{\sigma}_X} \geq 0$を満たさない。代わりに、以下の沙川-上田関係をみたす。
+\begin{itembox}[l]{\textbf{Thm:沙川-上田関係}}
     系$X$のエントロピー生成は以下の関係を満たす:
     \begin{align}
         \ev{e^{-\hat{\sigma}_X+\sum_{n=1}^N\Delta \hat{I}^{2n} }} = 1 \label{eq:s-u}
@@ -470,14 +472,17 @@ X系について、
 \end{align}
 とすると、エスケープレートについても、
 \begin{align}
-    e_{x,y,t} =e'_{x,y,\tau-t}
+    e_{x,y,t} &=\sum_{x'\neq x} P_{x\to x'; y, t} \\
+    &= \sum_{x'\neq x} P'_{x\to x'; y, \tau-t} \\
+    &=e'_{x,y,\tau-t}
 \end{align}
-である。また、$Y$系について、今$Y$系については時間発展しないとしていることに注意すると、逆向きの遷移は、
+である。また、$Y$系については、各phaseの始状態と終状態がわかればよい。というのも、今回導出しようとしている沙川-上田関係は$X$系のものであり、$Y$系からの寄与が出てくるのは相互情報量だけであるからである。(相互情報量はphaseの始状態と終状態だけで決まる)
+それゆえ、ここでは$Y$系の時間発展は、1回のjumpからなるMarkov chainとして考える。$\tau_{2n}$から$\tau_{2n+1}$の間の遷移を$P^n(y'|x, y)$とする。これは、時刻$\tau_{2n}$において、状態が$(x, y)$であるとき、時刻$\tau_{2n+1}$において状態が$(x, y')$になる確率である。このとき、逆向きの遷移を以下で定める:
 \begin{align}
     P'^{N-n+1}(y|x, y') &:= \frac{P^n(y'|x, y) P(x, y; \tau_{2n})}{P(x, y'; \tau_{2n+1})} 
 \end{align}
-である。
-このとき、$P'$は実は遷移確率であることがわかる。すなわち、以下のように規格化条件を満たす:
+である。(分母を払ってあげると見やすい。)\\
+このとき、$P'$が遷移確率となること、すなわち、規格化条件を満たすことは以下のように確かめられる。
 \begin{align}
     \sum_{y} P'^{N-n+1}(y|x, y') &= \sum_{y} \frac{P^n(y'|x, y) P(x, y; \tau_{2n})}{P(x, y'; \tau_{2n+1})} \notag \\
     &= \frac{P(x, y'; \tau_{2n+1})}{P(x, y'; \tau_{2n+1})} = 1 
@@ -485,26 +490,27 @@ X系について、
 (\ref{eq:s-u})式の左辺は、
 \begin{align}
     &\left\langle e^{-\hat{\sigma}_X + \sum_{n=1}^N \Delta I^{2n}} \right\rangle \\
+    &= \int d\Gamma P(\Gamma) e^{-\hat{\sigma}_X + \sum_{n=1}^N \Delta I^{2n}} \\
     &= \int d\Gamma \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P_{x^{n,i-1} \to x^{n,i}; y(\tau_{2n+1}), t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e_{x^{n,i}, y(\tau_{2n+1}), t} \right) \right) \notag \\
     &\quad \cdot \prod_{n=0}^{N-1} P^n(y(\tau_{2n+1}) | x(\tau_{2n}), y(\tau_{2n})) \cdot P(x(0), y(0); 0) \cdot e^{-\hat{\sigma}_X + \sum_{n=1}^N \Delta I^{2n}} 
 \end{align}
 ここで、$P'$を用いて書き換える。$X$由来のほうについては、
 \begin{align}
     &\prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P_{x^{n,i-1} \to x^{n,i}; y(\tau_{2n+1}), t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e_{x^{n,i}, y(\tau_{2n+1}), t} \right) \right) e^{-\hat{\sigma}_X} \notag \\
-    &\left(e^{-\hat{\sigma}_X} = \frac{P(x(\tau); \tau)}{P(x(0); 0)} \prod_{n=0}^{N-1} \prod_{i=1}^{m_n} \frac{P_{x^{n,i-1} \to x^{n,i}; y(\tau-\tau_{2n+1}), t^{n,i}}}{P_{x^{n,i-1} \to x^{n,i}; y(\tau_{2n+1}), t^{n,i}}}\text{ を用いて、}\right) \notag \\
-    &= \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P_{x^{n,i-1} \to x^{n,i}; y(\tau-\tau_{2n+1}),  t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e_{x^{n,i}, y(\tau-\tau_{2n+1}),  t} \right) \right) \notag \\
+    &\left(e^{-\hat{\sigma}_X} = \frac{P(x(\tau); \tau)}{P(x(0); 0)} \prod_{n=0}^{N-1} \prod_{i=1}^{m_n} \frac{P_{x^{n,i} \to x^{n,i-1}; y(\tau-\tau_{2n+1}), t^{n,i}}}{P_{x^{n,i-1} \to x^{n,i}; y(\tau_{2n+1}), t^{n,i}}}\text{ を用いて、}\right) \notag \\
+    &= \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P_{x^{n,i} \to x^{n,i-1}; y(\tau_{2n+1}),  t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e_{x^{n,i}, y(\tau-\tau_{2n+1}),  t} \right) \right) \notag \\
     &\quad \cdot \frac{P(x(\tau); \tau)}{P(x(0); 0)} \\
     &\text{逆過程に直して、} \notag \\
-    &= \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'_{x^{n,i-1} \to x^{n,i}; y(\tau-\tau_{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'_{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
+    &= \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'_{x^{n,i} \to x^{n,i-1}; y(\tau_{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'_{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
     &\quad \cdot \frac{P(x(\tau); \tau)}{P(x(0); 0)} 
 \end{align}
 
 $Y$由来のほうについては、
 \begin{align}
     &\prod_{n=0}^{N-1} P^n(y(\tau_{2n+1}) | x(\tau_{2n}), y(\tau_{2n})) \cdot e^{\sum_{n=1}^N \Delta \hat{I}^{2n}} \notag \\
-    &= \prod_{n=0}^{N-1} P^n(y(\tau_{2n+ 1}) | x(\tau_{2n}), y(\tau_{2n}))\frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n+2}); \tau_{2n+2})y(\tau_{2n+2}; \tau_{2n+2})} \frac{P(x(\tau_{2n+1}))P(y(\tau_{2n+1}))}{P(x(\tau_{2n+1}), y(\tau_{2n+1});\tau_{2n+1})} \\
+    &= \prod_{n=0}^{N-1} P^n(y(\tau_{2n+ 1}) | x(\tau_{2n}), y(\tau_{2n}))\frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n+2}); \tau_{2n+2})P(y(\tau_{2n+2}))} \frac{P(x(\tau_{2n+1}))P(y(\tau_{2n+1}))}{P(x(\tau_{2n+1}), y(\tau_{2n+1});\tau_{2n+1})} \\
     &y(\tau_{2n+2}) = y(\tau_{2n+1}) \text{として、} \notag \\
-    &= \prod_{n=0}^{N-1} P^{n}(y(\tau_{2n+1}) | x(\tau_{2n}), y(\tau_{2n})) \cdot \frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n+1}), y(\tau_{2n+1}); \tau_{2n+1})} \cdot \frac{P(x(\tau_{2n+1}; \tau_{2n+1})}{P(x(\tau_{2n+2}); \tau_{2n+2})}
+    &= \prod_{n=0}^{N-1} P^{n}(y(\tau_{2n+1}) | x(\tau_{2n}), y(\tau_{2n})) \cdot \frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n+1}), y(\tau_{2n+1}); \tau_{2n+1})} \cdot \frac{P(x(\tau_{2n+1}; \tau_{2n+1}))}{P(x(\tau_{2n+2}); \tau_{2n+2})}
 \end{align}
 となる。ここで、
 \begin{align}
@@ -514,20 +520,22 @@ $Y$由来のほうについては、
 \begin{align}
     &=\prod_{n=0}^{N-1} P'^{N-n+1}(y(\tau_{2n}) | x(\tau_{2n}), y(\tau_{2n+1})) \cdot \frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n+1}), y(\tau_{2n+1}); \tau_{2n+1})}\notag \\
     &\quad \cdot \frac{P(x(\tau_{2n}),y(\tau_{2n+1}); \tau_{2n+1})}{P(x(\tau_{2n}), y(\tau_{2n}); \tau_{2n})} \frac{P(x(\tau_{2n+1}); \tau_{2n+1})}{P(x(\tau_{2n+2}); \tau_{2n+2})} \\
-    &\text{$\Pi$を処理して、$x(\tau_{2n+1})=x(\tau_{2n})$を用いて、} \notag \\
+    &\text{$x(\tau_{2n+1})=x(\tau_{2n})$を用いて、} \notag \\
+    &= \prod_{n=0}^{N-1} P'^{N-n+1}(y(\tau_{2n}) | x(\tau_{2n}), y(\tau_{2n+1})) \cdot \frac{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})}{P(x(\tau_{2n}), y(\tau_{2n}); \tau_{2n})} \notag \\
+    &\quad \cdot \frac{P(x(\tau_{2n+1}), y(\tau_{2n+1}); \tau_{2n+1})}{P(x(\tau_{2n+2}), y(\tau_{2n+2}); \tau_{2n+2})} \\
+    &\text{$\Pi$を処理して、} \notag \\
     &= \prod_{n=0}^{N-1} P'^{N-n+1}(y(\tau_{2n}) | x(\tau_{2n}), y(\tau_{2n+1})) \cdot \frac{P(x(\tau),y(\tau); \tau)}{P(x(0), y(0); 0)} \cdot \frac{P(x(0); 0)}{P(x(\tau); \tau)} 
 \end{align}
-となる。\\
-
+となる。$(\tau_{2N} = \tau,\tau_0 = 0)$
 これらをまとめて、
 \begin{align}
-    &\left\langle e^{-\hat{\sigma}X + \sum{n=1}^N \Delta \hat{I}^{2n}} \right\rangle \\
-    &= \int d\Gamma \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'^{x^{n,i-1} \to x^{n,i}; y(\tau-\tau{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
+    &\left\langle e^{-\hat{\sigma}_X + \sum{n=1}^N \Delta \hat{I}^{2n}} \right\rangle \\
+    &= \int d\Gamma \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'^{x^{n,i} \to x^{n,i-1}; y(\tau-\tau_{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
     &\quad \cdot \frac{P(x(\tau); \tau)}{P(x(0); 0)} \\
     &\quad \cdot P'^{N-n+1}(y(\tau_{2n}) | x(\tau_{2n}), y(\tau_{2n+1})) \cdot \frac{P(x(\tau),y(\tau); \tau)}{P(x(0), y(0); 0)} \cdot \frac{P(x(0); 0)}{P(x(\tau); \tau)} \\
     &\quad \cdot P(x(0),y(0); 0)\\
-    &= \int d\Gamma \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'^{x^{n,i-1} \to x^{n,i}; y(\tau-\tau{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
-    &\quad \cdot \frac{P(x(\tau),y(\tau); \tau)}{P(x(0), y(0); 0)} \\
+    &= \int d\Gamma \prod_{n=0}^{N-1} \left( \prod_{i=1}^{m_n} P'^{x^{n,i} \to x^{n,i}; y(\tau-\tau{2n+1}), \tau - t^{n,i}} \cdot \exp \left( -\sum_{i=0}^{m_n} \int_{t^{n,i}}^{t^{n,i+1}} dt e'{x^{n,i}, y(\tau-\tau_{2n+1}), \tau - t} \right) \right) \notag \\
+    &\quad P'^{N-n+1}(y(\tau_{2n}) | x(\tau_{2n}), y(\tau_{2n+1})) \cdot P(x(\tau),y(\tau); \tau)\\
     &= \int d\Gamma P'(\Gamma^{\dagger}) \\
     &= 1
     \end{align}
@@ -600,7 +608,7 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 \subsubsection{一般の第二法則}
 自律的なMaxwell demonについては、沙川-上田関係を用いることはできない。というのも、沙川上田関係では、片方の系を固定して考えていたが、実際にはそんなことはなく、両方時間発展するからである。自律的なMaxwell demonに用いることのできる第二法則のような関係は、以下のようになる。
 \begin{align}
-    \sigma_x(t) \geq \sum_{x,x',y} J^y_{x,x'}(t) \left( \hat{I}_t(x'; y) - \hat{I}_t(x; y) \right). \tag{9.44}
+    \hat{\sigma}_x(t) \geq \sum_{x,x',y} J^y_{x,x'}(t) \left( \hat{I}_t(x'; y) - \hat{I}_t(x; y) \right). \tag{9.44}
 \end{align}
 ここで、\(J^y_{x,x'}(t) := J((x', y) \to (x, y); t)\) は時刻 \(t\) における状態 \((x', y)\) から \((x, y)\) への確率流であり、\(\hat{I}_t\) は時刻 \(t\) における確率相互情報である。右辺は情報流と呼ばれ、$X$のカレントにより相互情報量がどれほど変化するかを表す。\\
 この関係式は9.5節で導出される。\\
@@ -613,20 +621,20 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 \subsubsection{部分エントロピー生成}
 時間$0 \leq t \leq \tau$において、状態$w_1, w_2, \cdots, w_M$に対するMarkovジャンプ過程を考える。また、この節では詳細つり合い条件が成り立っているものと仮定する。全系のエントロピー生成
 \begin{align}
-    \sigma = -\sum_{\nu_1}^{k} \beta_{\nu} \hat{Q}_{\nu} + \hat{s}(w(\tau); \tau) - \hat{s}(w(0); 0)
+    \hat{\sigma} = -\sum_{\nu} \beta_{\nu} \hat{Q}_{\nu} + \hat{s}(w(\tau); \tau) - \hat{s}(w(0); 0)
 \end{align}
 を、それぞれの単一遷移$w' \to w$によるエントロピー生成$\hat{\sigma}_{w' \to w}$に分解する。この分解したあとの$\hat{\sigma}_{w' \to w}$を部分エントロピー生成と呼ぶ。部分エントロピー生成が満たすべき性質として、以下の2つを要請する。
 \begin{enumerate}
     \item \textbf{加法性}\\
     任意の一つの経路について、任意の取りうる経路の部分エントロピー生成の和が全系のエントロピー生成になる:
     \begin{align}
-        \sum_{w'\to w\in G} \hat{\sigma}_{w' \to w} = \sigma
+        \sum_{w'\to w\in G} \hat{\sigma}_{w' \to w} = \hat{\sigma}
     \end{align}
     ただし、$G$は全ての経路の集合である。
     \item \textbf{熱力学的な構造}\\
-    取りうる経路の集合任意の部分集合$\Omega$について、この部分集合の部分エントロピー生成は、
+    取りうる経路の集合の、任意の部分集合$\Omega$について、この部分集合の部分エントロピー生成は、
     \begin{align}
-        \hat{\sigma}_{\Omega} = \sum_{w \to w' \in \Omega} \hat{\sigma}_{w \to w'}
+        \hat{\sigma}_{\Omega} = \sum_{w' \to w \in \Omega} \hat{\sigma}_{w' \to w}
     \end{align}
     となる。これが、IFT型の等式を満たす:
     \begin{align}
@@ -635,15 +643,23 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 \end{enumerate}
 \begin{figure}[H]
     \begin{center}
-    \includegraphics[width=100mm]{partial1.png}
+    \includegraphics[width=80mm]{partial1.png}
     \end{center}
-    \caption{caption}
+    \caption{状態空間の例と単一の遷移の選びかた}
     \label{fig:状態空間の例と単一の遷移の選びかた}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{ome.png}
+    \end{center}
+    \caption{部分集合$\Omega$の例}
+    \label{fig:ome}
 \end{figure}
 
 一つの遷移に対するエントロピー生成を、
 \begin{align}
-    \hat{\sigma}_{w' \to w} = -\beta \hat{Q}_{w' \to w} + \Delta \hat{s}_{w' \to w}
+    \hat{\sigma}_{w' \to w} = \beta \hat{Q}_{w' \to w} + \Delta \hat{s}_{w' \to w}
 \end{align}
 とする。ここで、
 \begin{align}
@@ -722,31 +738,192 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
     J_\Omega(w, t) &:= \sum_{\{w' | (w' \to w) \in \Omega\}} J_{w' \to w; t}
 \end{align}
 
-\subsubsection{部分エントロピー生成に対するFT}
-部分エントロピー生成は以下の加法性を満たす:%TODOあとで確認する
+\subsubsection{部分エントロピー生成に対するIFT}
+上で定義した部分エントロピー生成が要請を満たすことを確かめる。\\
+\textbf{加法性}\\
+定義から、部分エントロピー生成は以下の加法性を満たす:%TODOあとで確認する
 \begin{align}
-    \hat{\sigma_{\text{tot}}} = \sum_{w' \to w \in G} \hat{\sigma}_{w' \to w}
+    \hat{\sigma}_{\Omega} = \sum_{w' \to w \in G} \hat{\sigma}_{w' \to w}
 \end{align}
-また、部分エントロピー生成に対するIFTは以下のようになる:
-\begin{itembox}[l]{\textbf{Thm:部分エントロピー生成に対するFT}}
+
+\textbf{IFT}\\
+\begin{itembox}[l]{\textbf{Thm:部分エントロピー生成に対するIFT}}
     部分エントロピー生成に対して、以下が成り立つ:
     \begin{align}
         \ev{e^{-\hat{\sigma}_\Omega}} = 1
     \end{align}
 \end{itembox}
 \textbf{Prf}\\
-
+以下のように、遷移行列$P'$を定義する:
 \begin{align}
-    e'_{w,t} &= \sum_{w'} P'_{w' \to w; t} \nonumber \\
-    &= \left( \sum_{w': w' \to w \notin \Omega} \frac{P_{w', t} P_{w' \to w; t}}{p_{w, t}} \right) 
-    + \left( \sum_{w': w' \to w \in \Omega} P_{w' \to w; t} \right) \nonumber \\
-    &= \left( \sum_{w': w' \to w \notin \Omega} \frac{P_{w', t} P_{w' \to w; t}}{p_{w, t}} \right) 
-    + \left( \sum_{w': w' \to w \in \Omega} P_{w \to w'; t} + \frac{P_{w', t} P_{w \to w'; t} - p_{w, t} P_{w \to w'; t}}{p_{w, t}} \right) \nonumber \\
-    & \quad + \left( \sum_{w': w' \to w \in \Omega} P_{w \to w'; t} \right) \nonumber \\
-    &= e_{w, t} + \frac{J_\Omega(w, t)}{p_{w, t}}, \tag{9.63}
+    P'_{w \to w'; t} 
+    \begin{cases}
+        P_{w \to w'; t} & (w' \to w \in \Omega) \\
+        \frac{p_{w',t}P_{w' \to w; t}}{p_{w,t}} & (w' \to w \notin \Omega)
+    \end{cases}
 \end{align}
-\subsubsection{一般の情報過程におけるFT}
+これのエスケープレートを計算すると、
+\begin{align}
+    e'_{w,t} &= \sum_{w'} P'_{w \to w'; t} \\
+    &= \left( \sum_{w' : w' \to w \notin \Omega} \frac{p_{w',t}P_{w' \to w; t}}{p_{w,t}}\right) + \left(\sum_{w' : w' \to w \in \Omega} P_{w \to w'; t} \right) \\
+    &= \left( \sum_{w' : w' \to w \notin \Omega} P_{w \to w'; t} +\frac{p_{w',t}P_{w' \to w; t}-p_{w,t}P_{w \to w'; t}}{p_{w,t}}\right) + \left(\sum_{w' : w' \to w \in \Omega} P_{w \to w'; t} \right) \\
+    &= e_{w,t} + \frac{J_{\Omega^c}(w,t)}{p_{w,t}} 
+\end{align}
+となる。ここで、$\Omega^c$は$\Omega$の補集合である。\\
+つぎに、$e^{-\hat{\sigma}_\Omega}$の寄与を計算する。$w' \to w \in \Omega$について、
+\begin{align}
+    P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} \\
+    &= P_{w' \to w; t} \cdot \frac{P_{w \to w'; t}}{P_{w' \to w; t}} \cdot \frac{p_{w,t}}{p_{w',t}} \quad \because \text{自己情報量と熱の定義} \\
+    &= P'_{w \to w'; t} \cdot \frac{p_{w,t}}{p_{w',t}} \quad \because \text{$P'$の定義} 
+\end{align}
+となる。$w' \to w \notin \Omega$については、
+\begin{align}
+    P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} \\
+    &= P_{w' \to w; t} \cdot 1\quad \because \text{経路$w' \to w$が$\Omega$に含まれない} \\
+    &= \frac{p_{w,t}P'_{w \to w'; t}}{p_{w',t}} \quad \because \text{$P'$の定義}
+\end{align}
+となる。したがって、任意の$w' \to w$について、
+\begin{align}
+    P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} = P'_{w \to w'; t} \cdot \frac{p_{w,t}}{p_{w',t}}
+\end{align}
+となる。また、
+\begin{align}
+    \frac{J_{\Omega}(w,t)}{p_{w,t}} + \frac{J_{\Omega^c}(w,t)}{p_{w,t}} = \frac{1}{p_{w,t}} \dv{t} p_{w,t} = \dv{t} \ln p_{w,t}
+\end{align}
+である。これより、
+\begin{align}
+    &\exp(\sum_{w }\int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}}) \\
+    &= \prod_{i=0}^{N} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega}(w^{i},t)}{p_{w^{i},t}}) \\
+    &= \prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \quad \because \text{上で示した等式、積分実行} 
+\end{align}
+となる。以上の関係より、
+\begin{align}
+    \ev{e^{-\hat{\sigma}_\Omega}} &= \ev{\exp(-\beta \hat{Q}_\Omega - \Delta \hat{s}_\Omega) + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}}} \\
+    &= \int \dd \Gamma p_{w^{0},0} \cdot \left(\prod_{i=0}^{N} P_{w^{i-1} \to w^{i}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e_{w^{i},t}) \right) \\
+    &\quad \cdot \exp\left(-\beta \hat{Q}_\Omega - \Delta \hat{s}_\Omega + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}} \right) \\
+    &= \int \dd \Gamma p_{w^{0},0} \cdot \left(\prod_{i=1}^{N} \frac{p_{w^{i},t^{i}}}{p_{w^{i-1},t^{i}}} P'_{w^{i} \to w^{i-1}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e_{w^{i},t}) \right) \\
+    &\quad \cdot \left(\prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \right) \\
+    &= \int \dd \Gamma p_{w^{N},\tau} \cdot \left(\prod_{i=1}^{N} P'_{w^{i} \to w^{i-1}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e'_{w^{i},t}) \right) \\
+    &=\int \dd \Gamma P'(\Gamma^{\dagger})\\
+    &= 1
+\end{align}
 
+\subsubsection{一般的な情報過程におけるゆらぎの定理}
+9.4で述べた通り、沙川上田関係では、自律的なMaxwell demonに対しては適用できない。ここでは、そのような系も扱えるような、一般性のある情報過程に対するゆらぎの定理を述べる。\\
+\textbf{設定/記法}\\
+\begin{itemize}
+    \item 系$X$と$Y$の複合系を考える。
+    \item 系$X$がとる状態を$x$、系$Y$がとる状態を$y$とする。
+    \item $x \in S_X$、$y \in S_Y$とする。
+    \item 時間$0 \leq t \leq \tau$を考え、この間、自身の状態を同時に変化させることはできないとする。
+    \item エントロピー生成の定義は沙川-上田関係のものと同様に定義する。すなわち、
+    \begin{align}
+        \hat{\sigma}_X = \beta\hat{Q}_X + s(x_{N}; \tau) - s(x_0; 0) 
+    \end{align}
+    である。
+    \item それぞれの経路について、jumpの回数を$N$とし、$i$回目のjumpでは、時刻$t = t^i$において状態が$(x^{i-1}, y^{i-1})$から$(x^{i}, y^{i})$に変化するとする。
+\end{itemize}
+ここで、$x$に関係する相互情報量の変化を定義すると、
+\begin{align}
+    \Delta \hat{I}_X = \hat{I}_{X,\text{jump}} + \int_{0}^{\tau} \dd t F_X(x(t), y(t), t)
+\end{align}
+ここで、第1項は、ジャンプによる相互情報量の変化を表しており、
+\begin{align}
+    \hat{I}_{X,\text{jump}} = \sum_{i=1}^{N} I(x^{i}; y^{i}) - I(x^{i-1}; y^{i-1})\delta_{y^{i-1}, y^{i}}
+\end{align}
+である。第二項は時間発展による相互情報量の変化を表す。$F$の関数形を決めるために、相互情報量の時間微分を考える。\\
+\begin{align}
+    \hat{I}_t(x,y) &= \ln \frac{p_{x,y}}{(\sum_{y' \in S_Y} p_{x,y'})(\sum_{x' \in S_X} p_{x',y})} 
+\end{align}
+とすると、\footnote{略記のため、$p_{x,y}$は$P(x,y)$のことを指す。}
+\begin{align}
+    \dv{t} \hat{I}_t(x,y) &= \sum_{c \in S_X} \sum_{d \in S_Y} \pdv{\hat{I}_t(x,y)}{p_{c,d}} \dv{p_{c,d}}{t} \\
+    &= \sum_{c \in S_X} \sum_{d \in S_Y} \pdv{\hat{I}_t(x,y)}{p_{c,d}} \cdot \left( \sum_{x'} J_{x' ,c}^d(t) + \sum_{y'} J_{y',d}^c(t) \right) 
+\end{align}
+となる。ここで、
+\begin{align}
+    J_{x',x}^y(t) = J((x',y) \to (x,y); t) 
+\end{align}
+である。(上付きの状態を固定して、下付きの状態が遷移を表す。)これの第一項を$F_X(x,y,t)$とすると、
+\begin{align}
+    F_X(x,y,t) &= \sum_{c \in S_X} \sum_{d \in S_Y} \pdv{\hat{I}_t(x,y)}{p_{c,d}} \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right) \\
+    &= \frac{1}{P(x,y,t)} \sum_{x'} J_{x',x}^y(t) - \frac{1}{P(x,t)} \sum_{y,x'} J_{x',x}^y(t) \label{eq:FX}
+\end{align}
+となる。\\
+$(\because)$((\ref{eq:FX})の導出)\\
+\begin{align}
+    &\sum_{c\in S_X} \sum_{d \in S_Y} \pdv{\hat{I}_t(x,y)}{p_{c,d}} \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right)\\
+    &= \sum_{c\in S_X} \sum_{d \in S_Y} \pdv{p_{c,d}}\left( \ln \frac{p_{x,y}}{(\sum_{y'' \in S_Y} p_{x,y''})(\sum_{x'' \in S_X} p_{x'',y})} \right) \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right)
+\end{align}
+となる。ここで、微分を三つに分けて実行する。対数の分子の部分について、
+\begin{align}
+    \sum_{c\in S_X} \sum_{d \in S_Y} \pdv{p_{c,d}}\left( \ln p_{x,y} \right) \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right) &= \frac{1}{p_{x,y}} \sum_{x'} J_{x' ,x}^y(t)
+\end{align}
+となる。対数の分母の左側について、
+\begin{align}
+    &\sum_{c\in S_X} \sum_{d \in S_Y} \left(-\pdv{p_{c,d}}\left( \ln \sum_{y'' \in S_Y} p_{x,y''} \right) \right) \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right) \\
+    &= -\sum_{y'' \in S_Y} \frac{1}{p_{x,y''}} \sum_{x'} J_{x' ,x}^{y''}(t)
+\end{align}
+となる。対数の分母の右側について、
+\begin{align}
+    &\sum_{c\in S_X} \sum_{d \in S_Y} \left(-\pdv{p_{c,d}}\left( \ln \sum_{x'' \in S_X} p_{x'',y} \right) \right) \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right) \\
+    &= -\sum_{x'' \in S_X} \frac{1}{p_{x'',y}} \sum_{x'} J_{x' ,x''}^{y}(t)
+\end{align}
+となる。ところで、最後の式の$J$は和をとると$0$になる。したがって、(\ref{eq:FX})が成り立つ。\hfill\qedsymbol\\
 
+以上の結果を用いて、以下の定理を示す。
+\begin{itembox}[l]{\textbf{Thm:一般の情報過程におけるIFT}}
+    複合系$X$と$Y$の情報過程に対して、以下が成り立つ:
+    \begin{align}
+        \ev{e^{-\hat{\sigma}_X + \Delta \hat{I}_X}} = 1
+    \end{align}
+\end{itembox}
+\textbf{Prf}\\
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=80mm]{omega.png}
+    \end{center}
+    \caption{$\Omega$の選び方}
+    \label{fig:omega}
+\end{figure}
+
+$\Omega$を図のように、$X$に関するすべての遷移を含むように選ぶ。このとき、
+\begin{align}
+    \hat{Q}_{\Omega} &= \hat{Q}_{X}, \\
+    \int_{0}^{\tau} \frac{J_{\Omega}(w,t) \delta_{w(t),w}}{p_{w,t}} dt &= \int_{0}^{\tau} \frac{\sum_{x'} J_{x',x(t)}^{y(t)}(t)}{P(x(t), y(t), t)} dt,
+\end{align}
+である。また、
+\begin{align}
+    \hat{I}_{X,\text{jump}} &= \sum_{i=1}^{N} \left(\hat{I}_{t^i}(x^{i}, y^{i}) - \hat{I}_{t^i}(x^{i-1}, y^{i-1})\right)\delta_{y^{i-1}, y^{i}} \\
+    &= \sum_{i=1}^{N} \left(\log \frac{P(x^{i}, y^{i})}{P(x^{i})P(y^{i})} - \log \frac{P(x^{i-1}, y^{i-1})}{P(x^{i-1})P(y^{i-1})}\right)\delta_{y^{i-1}, y^{i}} \\
+    &\text{とくに、$\Omega$に含まれる遷移については、}\\
+    &= \sum_{i=1}^{N} \left(\log P(x^{i}, y^{i}) - \log P(x^{i-1}, y^{i}) - \log P(x^{i}) + \log P(x^{i}) - \log P(x^{i-1}) \right)\\
+    &= -\sum_{w' \to w \in \Omega} \hat{s}_{w' \to w, \text{jump}} + \sum_{i=1}^{N} (s_{x^{i}, t^i} - s_{x^{i-1}, t^i})
+\end{align}
+である。よって、
+\begin{align}
+    -\sum_{w' \to w \in \Omega} (s_{w' \to w, \text{jump}} ) &= \hat{I}_{X,\text{jump}} -\sum_{i=1}^{N} (s_{x^{i}, t^i} - s_{x^{i-1}, t^i})\\
+    &= \hat{I}_{X,\text{jump}} - \Delta \hat{s}_{X}\\
+    &= \hat{I}_{X,\text{jump}} - s_{x_N, \tau} + s_{x_0, 0} - \int_{0}^{\tau} \sum_{y,x'} \frac{J_{x',x(t)}^{y(t)}(t)}{P(x(t), t)} dt
+\end{align}
+となる。以上より、
+\begin{align}
+    \hat{\sigma}_{\Omega} &= \beta \hat{Q}_{\Omega} + \Delta \hat{s}_{\Omega} \\
+    &= \beta \hat{Q}_{X} + \hat{s}_{\Omega, \text{jump}} - \int_{0}^{\tau} \frac{\sum_{x'} J_{x',x(t)}^{y(t)}(t)}{P(x(t), y(t), t)} dt \\
+    &= \beta \hat{Q}_{X} - \hat{I}_{X,\text{jump}} + s(x_{N}; \tau) - s(x_0; 0) - \int_{0}^{\tau} \frac{\sum_{y,x'} J_{x',x(t)}^{y}(t)}{P(x(t), t)} dt -\int_{0}^{\tau} \frac{\sum_{x'} J_{x',x(t)}^{y(t)}(t)}{P(x(t), y(t), t)} dt\\
+    &= \beta \hat{Q}_{X} - \hat{I}_{X,\text{jump}} + s(x_{N}; \tau) - s(x_0; 0) - \int_{0}^{\tau} F_X(x(t), y(t), t) dt\\
+    &= \hat{\sigma_X} - \Delta \hat{I}_X
+\end{align}
+となる。これと部分エントロピー生成に対するIFTを用いると、
+\begin{align}
+    \ev{e^{-\hat{\sigma}_X + \Delta \hat{I}_X}} = 1
+\end{align}
+となる。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Prop:第二法則}}
+上のIFTを変形することにより、第二法則が導かれる。すなわち、
+
+\end{itembox}
 
 \end{document}

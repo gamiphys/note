@@ -335,4 +335,45 @@ $A,B$が多様体ならば、$A \times B$も閉多様体である。\\
 \end{align}
 
 
+\section*{カノニカル分布の裏づけ}
+
+注目する部分系 $S$ と熱浴 $B$ が弱く相互作用しているとする。全系のハミルトニアンは
+\begin{equation}
+\mathcal{H} = \mathcal{H}_S + \mathcal{H}_B + \mathcal{H}_{\text{int}}.
+\end{equation}
+ここで、相互作用のオーダーは、$o(V^\frac{2}{3})$なので、無視できるとする。全系の状態は $S$ の状態を表す Hilbert 空間と $B$ の状態を表す Hilbert 空間の直積で表され
+\begin{equation}
+\mathcal{H}\ket{\Psi_k} = (\mathcal{H}_S + \mathcal{H}_B)\ket{\psi_i}\ket{\phi_j} = E_k \ket{\Psi_k}
+\end{equation}
+である。ここで \(\ket{\psi_i} \ket{\phi_j}\) は \(\mathcal{H}_S \ket{\psi_i} = E^S_i \ket{\psi_i}\) と \(\mathcal{H}_B \ket{\phi_j} = E^B_j \ket{\phi_j}\) を満たす系 \(S\) と熱浴 \(B\) の固有状態で、\(E_k = E^S_i + E^B_j\), \(\ket{\Psi_k} = \ket{\psi_i} \ket{\phi_j}\) である。全系がミクロカノニカル分布で記述されるとすると、
+\begin{equation}
+\hat{\rho}_{U, \delta U} = \frac{1}{W(U, \delta U)} \sum_{U-\delta U \leq E_k \leq U} \ket{\Psi_k} \bra{\Psi_k}.
+\end{equation}
+である。ここで \(W(U,\delta U)\) は \([U-\delta U, U]\) にある固有状態数である。熱浴について対角和をとると
+\begin{align}
+\hat{\rho}^S &= \text{Tr}_B \hat{\rho}_{U, \delta U} \\
+&= \frac{1}{W(U, \delta U)} \sum_{U-\delta U \leq E_k \leq U} \sum_l \bra{\phi_l} \ket{\Psi_k} \bra{\Psi_k} \ket{\phi_l} \\
+&= \frac{1}{W(U, \delta U)} \sum_{U-\delta U -E_i^S \leq  E_j^B \leq U-E_i^s} \sum_l \sum_{i} \bra{\phi_l} \ket{\phi_j} \ket{\psi_i} \bra{\psi_i} \bra{\phi_j} \ket{\phi_l} \\
+&= \frac{1}{W(U, \delta U)} \sum_i \ket{\psi_i} \bra{\psi_i} \sum_{i} \sum_{U - \delta U -E_i^S \leq E_j^B \leq U - E_i^S} 1 \\
+&= \frac{1}{W(U, \delta U)} \sum_i W^B(U - E_i^S, \delta U) \ket{\psi_i} \bra{\psi_i}.
+\end{align}
+となる。状態数とエントロピーの関係 \(S(E) = k_B \ln W(U, \Delta U)\) から
+\begin{align}
+W^B(U - E_i^S) &= e^{S^B(U - E_i^S)/k_B}\\ 
+&\approx \exp\left[ \frac{1}{k_B} \left( S^B(U) - \frac{d S^B(U)}{dU} E_i^S \right) \right] \\
+&= e^{S^B(U)/k_B - \beta E_i^S} \\
+&\propto e^{-\beta E_i^S}
+\end{align}
+となる。ただし、$E_i^S\ll U$ を用いた。したがって、規格化を考慮して、
+\begin{align}
+  \hat{\rho}^S &\approx \frac{\sum_i e^{-\beta E_i^S} \ket{\psi_i} \bra{\psi_i}}{\sum_i e^{-\beta E_i^S}} \\
+  &= \frac{e^{-\beta \mathcal{H}_S}}{\text{Tr} e^{-\beta \mathcal{H}_S}}
+\end{align}
+となる。ここで、
+\begin{equation}
+  \beta = \frac{1}{k_B}\dv{S^B}{U} = \frac{1}{k_B T}
+\end{equation}
+である。ただし、\(T\) は熱浴の温度である。以上より、系 \(S\) はカノニカル分布で記述される。
+
+
 \end{document}

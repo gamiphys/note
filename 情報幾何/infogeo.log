@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  9 JUN 2024 00:30
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  28 JUN 2024 09:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -676,6 +676,10 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 44.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 45.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 45.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
@@ -684,104 +688,110 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 46.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 46.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 46.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 46.
+ (./infogeo.toc
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 47.
+(Font)              scaled to size 6.47278pt on input line 3.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 47.
+(Font)              scaled to size 4.62341pt on input line 3.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 47.
+(Font)              scaled to size 6.47278pt on input line 3.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 47.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 55.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 61.
- (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [1
+(Font)              scaled to size 4.62341pt on input line 3.
+)
+\tf@toc=\write5
+\openout5 = `infogeo.toc'.
+
+ [1
 
 ]
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 49.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 49.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 58.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 64.
+ (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [2]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 105.
+(Font)              scaled to size 6.47278pt on input line 108.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 105.
- [2] [3] [4]
+(Font)              scaled to size 4.62341pt on input line 108.
+ [3] [4]
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 200.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 203.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 200.
+(Font)              scaled to size 6.47278pt on input line 203.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 200.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 203.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 200.
+(Font)              scaled to size 6.47278pt on input line 203.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 200.
+(Font)              scaled to size 5.5481pt on input line 203.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 200.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 203.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 200.
+(Font)              scaled to size 5.5481pt on input line 203.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 200.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 203.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 200.
- [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18]
-Overfull \hbox (34.23274pt too wide) detected at line 806
+(Font)              scaled to size 5.5481pt on input line 203.
+ [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19]
+Overfull \hbox (34.23274pt too wide) detected at line 809
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 821
+Underfull \hbox (badness 10000) detected at line 824
 []$[]$[]
  []
 
-[19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29]
+[20] [21] [22] [23] [24] [25] [26] [27] [28] [29] [30]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1268.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\alpha' on input line 1268.
+(hyperref)                removing `math shift' on input line 1271.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1268.
+(hyperref)                removing `\alpha' on input line 1271.
 
-[30] [31] [32] [33] [34] [35]
-Overfull \hbox (7.88084pt too wide) detected at line 1482
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1271.
+
+[31] [32] [33] [34] [35] [36]
+Overfull \hbox (7.88084pt too wide) detected at line 1485
 []
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1486.
+(hyperref)                removing `math shift' on input line 1489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1486.
+(hyperref)                removing `subscript' on input line 1489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1486.
+(hyperref)                removing `math shift' on input line 1489.
 
-[36] [37] [38] [39] [40] [41] [42] (./infogeo.aux)
+[37] [38] [39] [40] [41] [42] [43] (./infogeo.aux)
 Package rerunfilecheck Info: File `infogeo.out' has not changed.
 (rerunfilecheck)             Checksum: 3613C659D9887A7FFC4120CB27034DE2;2103.
  ) 
 Here is how much of TeX's memory you used:
- 22983 strings out of 476677
- 429461 string characters out of 5808165
+ 22991 strings out of 476677
+ 429550 string characters out of 5808165
  1874484 words of memory out of 5000000
- 43023 multiletter control sequences out of 15000+600000
- 534088 words of font info for 133 fonts, out of 8000000 for 9000
+ 43027 multiletter control sequences out of 15000+600000
+ 534393 words of font info for 134 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,15n,89p,519b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on infogeo.dvi (42 pages, 239288 bytes).
+Output written on infogeo.dvi (43 pages, 248616 bytes).

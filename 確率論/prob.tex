@@ -1,0 +1,96 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{中島確率論}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{確率空間}
+\begin{itembox}[l]{\textbf{Def:標本/事象/確率空間}}
+  \begin{description}
+    \item[標本空間] ある捜査を行ったときに起こりうるすべての結果の集合を標本空間といい、$\Omega$で表す。
+    \item[事象] 標本空間の部分集合を事象といい、その全体を$\mathcal{F}$で表す。
+    \item[確率] 事象に対して、0以上1以下の実数を対応させる関数$P$を確率といい、$P(A)$で表す。すなわち、
+    \begin{align}
+      P: \mathcal{F} \to [0,1]
+    \end{align}
+    である。
+    \end{description}
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:確率空間}}
+    集合$\Omega$、$\mathcal{F} \in 2^{\Omega}$、$P: \mathcal{F} \to [0,\infty)$が次の条件を満たすとき、$(\Omega, \mathcal{F}, P)$を確率空間という。
+    \begin{description}
+      \item[F1] $\emptyset , \Omega \in \mathcal{F}$
+      \item[F2] $A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}$
+      \item[F3] $A_n \in \mathcal{F} (n=1,2,\cdots) \Rightarrow \bigcup_{n=1}^{\infty} A_n \in \mathcal{F}$
+      \item[P1] $P(\Omega) = 1$
+      \item[P2] $0 = P(\emptyset) \leq P(A) \quad (A \in \mathcal{F})$
+      \item[P3] $A_n \cap A_m = \emptyset (n \neq m) \Rightarrow P(\sum_{n=1} A_n) = \sum_{n=1} P(A_n)$
+    \end{description}
+
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:$\sigma$-加法族/可測空間/測度/測度空間}}
+    $F \subset 2^{\Omega}$がF1,F2,F3を満たすとき、$\sigma$-加法族といい、$(\Omega, \mathcal{F})$を可測空間という。\\
+    また、$P: \mathcal{F} \to [0,\infty)$がP2,P3を満たすとき、$P$を測度といい、$(\Omega, \mathcal{F}, P)$を測度空間という。
+\end{itembox}
+ただし、測度は可算的なものしか許可していない。
+
+\begin{itembox}[l]{\textbf{Prop:}}
+$(\Omega, \mathcal{F}, P)$を確率空間とする。このとき、以下が成り立つ。\\
+\begin{description}
+  \item[1] $A_n \in \mathcal{F} (n\geq 1) \Rightarrow \bigcap_{n=1}^{\infty} A_n \in \mathcal{F}$
+  \item[2] $A_i \in \mathcal{F} (i=1,2,\cdots,n) \Rightarrow \bigcup_{i=1}^{n} A_i \in \mathcal{F}$
+  \item[3] $A,B \in \mathcal{F} \Rightarrow A\backslash B \in \mathcal{F}$
+  \item[4] $A_i \in \mathcal{F} (i=1,2,\cdots,n) $について、$A_i \cap A_j = \emptyset (i \neq j) \Rightarrow P(\sum_{i=1}^{n} A_i) = \sum_{i=1}^{n} P(A_i)$
+  \item[5] $A,B \in \mathcal{F} , A \subset B \Rightarrow P(A) \leq P(B)$
+  \item[6] $A,B \in \mathcal{F} , A \subset B \Rightarrow P(B\backslash A) = P(B) - P(A)$
+  \item[7] $A_n \in \mathcal{F} (n=1,2,\cdots) \Rightarrow P(\bigcup_{n=1}^{\infty} A_n) \leq \sum_{n=1}^{\infty} P(A_n)$
+  \item[8] $A_n \in \mathcal{F} (n=1,2,\cdots), A_n \subset A_{n+1} \Rightarrow P(\bigcup_{n=1}^{\infty} A_n) = \lim_{n \to \infty} P(A_n)$
+  \item[9] $A_n \in \mathcal{F} (n=1,2,\cdots), A_n \supset A_{n+1} \Rightarrow P(\bigcap_{n=1}^{\infty} A_n) = \lim_{n \to \infty} P(A_n)$
+\end{description}
+\end{itembox}
+\textbf{Prf}\\
+
+
+\end{document}
