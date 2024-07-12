@@ -1,10 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1719805300 "chap9.dvi" "chap9.pdf" "chap9" 1719805307 0
-  "chap9.dvi" 1719805299 135536 9014b2e090dd0f7eeda5fc8b1425b86c "latex"
+["dvipdf"] 1720325190 "chap9.dvi" "chap9.pdf" "chap9" 1720325197 0
+  "chap9.dvi" 1720325189 143408 d352993e3a816df82e22913814ae596a "latex"
   (generated)
   "chap9.pdf"
   (rewritten before read)
-["latex"] 1719805282 "chap9.tex" "chap9.dvi" "chap9" 1719805307 0
+["latex"] 1720325171 "chap9.tex" "chap9.dvi" "chap9" 1720325197 0
+  "4s.png" 1719811846 96847 8219b19db34043d8a15d05ad44ea9d3f ""
   "4state.png" 1719206126 59454 8e2e4ea286e510f7983796683aa0b47b ""
   "Bennett.png" 1719045478 63745 1a4fdcf5818b4e41b8587298013c3449 ""
   "Landauer.png" 1719045516 34111 3d0e366e98f43e14505551b2041f9461 ""
@@ -57,6 +58,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1681537339 1116 25a7bf822c58caf309a702ef79f4afbb ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -206,9 +208,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "chap9.aux" 1719805299 7142 b4e341086eef6fc53c466a2937b55c7e "latex"
-  "chap9.out" 1719805299 749 d8a4922aca9ee1f52c963a67837cd9c0 "latex"
-  "chap9.tex" 1719805280 54079 a37258091fd733fb1681db84c3586539 ""
+  "chap9.aux" 1720325189 7361 0294470bbc7efa2dd645909072856893 "latex"
+  "chap9.out" 1720325189 749 d8a4922aca9ee1f52c963a67837cd9c0 "latex"
+  "chap9.tex" 1720325171 57454 350c96934382749cf95fd8a35d52eef9 ""
   "cycle.png" 1719038015 30168 3898837a6a39a6e5b6e9cfc37e296fed ""
   "demon.png" 1718880534 127469 206822d123c96841d775a7147cef0494 ""
   "mfe.png" 1718944508 49787 c3ef507ff58449b878c9e8dce79e924d ""

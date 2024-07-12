@@ -617,13 +617,13 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 上と同じようなことが書いてある。\\
 
 \subsection{部分エントロピー生成およびIFT}
-沙川-上田関係においては、系全体のエントロピー生成を部分系に分解することができた。この節では、この考え方を一つの遷移に対して考える。\\
+沙川-上田関係においては、系全体のエントロピー生成を部分系に分解することができた。この節では、更に分解して、1つの遷移によるエントロピー生成について考える。\\
 \subsubsection{部分エントロピー生成}
 時間$0 \leq t \leq \tau$において、状態$w_1, w_2, \cdots, w_M$に対するMarkovジャンプ過程を考える。また、この節では詳細つり合い条件が成り立っているものと仮定する。全系のエントロピー生成
 \begin{align}
     \hat{\sigma} = -\sum_{\nu} \beta_{\nu} \hat{Q}_{\nu} + \hat{s}(w(\tau); \tau) - \hat{s}(w(0); 0)
 \end{align}
-を、それぞれの単一遷移$w' \to w$によるエントロピー生成$\hat{\sigma}_{w' \to w}$に分解する。この分解したあとの$\hat{\sigma}_{w' \to w}$を部分エントロピー生成と呼ぶ。部分エントロピー生成が満たすべき性質として、以下の2つを要請する。
+を、それぞれの単一遷移$w' \to w$によるエントロピー生成$\hat{\sigma}_{w' \to w}$に分解する。この分解したあとの$\hat{\sigma}_{w' \to w}$を部分エントロピー生成と呼ぶ。部分エントロピー生成が満たすべき性質として、以下の2つが期待される。
 \begin{enumerate}
     \item \textbf{加法性}\\
     任意の一つの経路について、任意の取りうる経路の部分エントロピー生成の和が全系のエントロピー生成になる:
@@ -631,7 +631,7 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
         \sum_{w'\to w\in G} \hat{\sigma}_{w' \to w} = \hat{\sigma}
     \end{align}
     ただし、$G$は全ての経路の集合である。
-    \item \textbf{熱力学的な構造}\\
+    \item \textbf{IFT}\\
     取りうる経路の集合の、任意の部分集合$\Omega$について、この部分集合の部分エントロピー生成は、
     \begin{align}
         \hat{\sigma}_{\Omega} = \sum_{w' \to w \in \Omega} \hat{\sigma}_{w' \to w}
@@ -687,20 +687,20 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
     \label{fig:one}
 \end{figure}
 
-上の図からわかるように、不連続に変化する部分と連続的に変化する部分がある。離散的なほうに関しては熱のときと同様に定義することができ、
+ジャンプによる直接的な自己情報量の変化(離散的)と、ジャンプ後の、確率分布の連続的な変化による自己情報量の変化(連続的)に分けて考える。ジャンプによる自己情報量の変化は、
 \begin{align}
     \hat{s}_{w' \to w,\text{jump}} = \sum_{i=1}^{N} (s_{w^{(i)};t^i} - s_{w^{(i-1)};t^i})\delta_{w'\to w}(w^{(i-1)}, w^{(i)})
 \end{align}
 となる。連続的なほうについて、自己情報量を微分すると、
 \begin{align}
-    \dv{s_{w,t}}{t} &= -\frac{1}{p(w,t)}\dv{p(w,t)}{t}\\
-    &= -\frac{1}{p(w,t)}\sum_{w''} J_{w'' \to w; t}
+    \dv{\hat{s}_{w,t}}{t} &= -\frac{1}{p(w,t)}\dv{p(w,t)}{t}\\
+    &= -\frac{1}{p(w,t)}\sum_{w''} J_{w'' \to w; t}\\
 \end{align}
 となる。ただし、
 \begin{align}
     J_{w'' \to w; t} = p_{w'' ,t} P_{w'' \to w; t}- p_{w,t} P_{w \to w''; t}
 \end{align}
-である。これを用いると、$w' \to w$における連続的な部分エントロピー生成は、
+である。(マスター方程式を思い出すと良い。)これを用いると、$w' \to w$における連続的な部分エントロピー生成は、
 \begin{align}
     \hat{s}_{w' \to w, \text{cont}} = -\int_{0}^{\tau} dt \frac{J_{w' \to w; t}\delta_{w(t), w}}{p(w(t), t)}
 \end{align}
@@ -748,9 +748,9 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 
 \textbf{IFT}\\
 \begin{itembox}[l]{\textbf{Thm:部分エントロピー生成に対するIFT}}
-    部分エントロピー生成に対して、以下が成り立つ:
+    部分エントロピー生成に対して、以下が成り立つ:\footnote{この期待値の経路積分は、$\Omega$と$\Omega^c$の両方の経路積分を含む。}
     \begin{align}
-        \ev{e^{-\hat{\sigma}_\Omega}} = 1
+        \ev{e^{-\hat{\sigma}_{\text{tot}}}} = 1
     \end{align}
 \end{itembox}
 \textbf{Prf}\\
@@ -772,13 +772,12 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 となる。ここで、$\Omega^c$は$\Omega$の補集合である。\\
 つぎに、$e^{-\hat{\sigma}_\Omega}$の寄与を計算する。$w' \to w \in \Omega$について、
 \begin{align}
-    P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} \\
-    &= P_{w' \to w; t} \cdot \frac{P_{w \to w'; t}}{P_{w' \to w; t}} \cdot \frac{p_{w,t}}{p_{w',t}} \quad \because \text{自己情報量と熱の定義} \\
+    &P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} = P_{w' \to w; t} \cdot \frac{P_{w \to w'; t}}{P_{w' \to w; t}} \cdot \frac{p_{w,t}}{p_{w',t}} \quad \because \text{自己情報量と熱の定義} \\
     &= P'_{w \to w'; t} \cdot \frac{p_{w,t}}{p_{w',t}} \quad \because \text{$P'$の定義} 
 \end{align}
 となる。$w' \to w \notin \Omega$については、
 \begin{align}
-    P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} \\
+    &P_{w' \to w; t} e^{-\beta \hat{Q}_{\Omega}-\hat{s}_{\Omega, \text{jump}}} \\
     &= P_{w' \to w; t} \cdot 1\quad \because \text{経路$w' \to w$が$\Omega$に含まれない} \\
     &= \frac{p_{w,t}P'_{w \to w'; t}}{p_{w',t}} \quad \because \text{$P'$の定義}
 \end{align}
@@ -794,15 +793,15 @@ $x \in \{0,1\}$をsiteに粒子があるかないかを表す変数とする。�
 \begin{align}
     &\exp(\sum_{w }\int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}}) \\
     &= \prod_{i=0}^{N} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega}(w^{i},t)}{p_{w^{i},t}}) \\
-    &= \prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \quad \because \text{上で示した等式、積分実行} 
+    &= \prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \quad \because \text{上で示した等式、積分実行} 
 \end{align}
 となる。以上の関係より、
 \begin{align}
-    \ev{e^{-\hat{\sigma}_\Omega}} &= \ev{\exp(-\beta \hat{Q}_\Omega - \Delta \hat{s}_\Omega) + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}}} \\
+    \ev{e^{-\hat{\sigma}_\Omega}} &= \ev{\exp(-\beta \hat{Q}_\Omega -  \hat{s}_{\Omega,\text{jump}} + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}})} \\
     &= \int \dd \Gamma p_{w^{0},0} \cdot \left(\prod_{i=0}^{N} P_{w^{i-1} \to w^{i}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e_{w^{i},t}) \right) \\
-    &\quad \cdot \exp\left(-\beta \hat{Q}_\Omega - \Delta \hat{s}_\Omega + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}} \right) \\
+    &\quad \cdot \exp\left(-\beta \hat{Q}_\Omega -  \hat{s}_{\Omega,\text{jump}} + \int_{0}^{\tau} \dd{t} \frac{J_{\Omega}(w,t)\delta_{w(t), w}}{p_{w,t}} \right) \\
     &= \int \dd \Gamma p_{w^{0},0} \cdot \left(\prod_{i=1}^{N} \frac{p_{w^{i},t^{i}}}{p_{w^{i-1},t^{i}}} P'_{w^{i} \to w^{i-1}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e_{w^{i},t}) \right) \\
-    &\quad \cdot \left(\prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \right) \\
+    &\quad \cdot \left(\prod_{i=0}^{N} \frac{p_{w^{i},t^{i+1}}}{p_{w^{i},t^{i}}} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} \frac{J_{\Omega^c}(w^{i},t)}{p_{w^{i},t}}) \right) \\
     &= \int \dd \Gamma p_{w^{N},\tau} \cdot \left(\prod_{i=1}^{N} P'_{w^{i} \to w^{i-1}; t^i} \right) \cdot \left(\prod_{i=0}^{N} \exp(-\int_{t^i}^{t^{i+1}} \dd{t} e'_{w^{i},t}) \right) \\
     &=\int \dd \Gamma P'(\Gamma^{\dagger})\\
     &= 1
@@ -869,7 +868,7 @@ $(\because)$((\ref{eq:FX})の導出)\\
     &\sum_{c\in S_X} \sum_{d \in S_Y} \left(-\pdv{p_{c,d}}\left( \ln \sum_{x'' \in S_X} p_{x'',y} \right) \right) \cdot \left( \sum_{x'} J_{x' ,c}^d(t) \right) \\
     &= -\sum_{x'' \in S_X} \frac{1}{p_{x'',y}} \sum_{x'} J_{x' ,x''}^{y}(t)
 \end{align}
-となる。ところで、最後の式の$J$は和をとると$0$になる。したがって、(\ref{eq:FX})が成り立つ。\hfill\qedsymbol\\
+となる。ところで、最後の式の$J$は和をとると$0$になる。(確率の保存)したがって、(\ref{eq:FX})が成り立つ。\hfill\qedsymbol\\
 
 以上の結果を用いて、以下の定理を示す。
 \begin{itembox}[l]{\textbf{Thm:一般の情報過程におけるIFT}}
@@ -898,22 +897,22 @@ $\Omega$を図のように、$X$に関するすべての遷移を含むように
     \hat{I}_{X,\text{jump}} &= \sum_{i=1}^{N} \left(\hat{I}_{t^i}(x^{i}, y^{i}) - \hat{I}_{t^i}(x^{i-1}, y^{i-1})\right)\delta_{y^{i-1}, y^{i}} \\
     &= \sum_{i=1}^{N} \left(\log \frac{P(x^{i}, y^{i})}{P(x^{i})P(y^{i})} - \log \frac{P(x^{i-1}, y^{i-1})}{P(x^{i-1})P(y^{i-1})}\right)\delta_{y^{i-1}, y^{i}} \\
     &\text{とくに、$\Omega$に含まれる遷移については、}\\
-    &= \sum_{i=1}^{N} \left(\log P(x^{i}, y^{i}) - \log P(x^{i-1}, y^{i}) - \log P(x^{i}) + \log P(x^{i}) - \log P(x^{i-1}) \right)\\
-    &= -\sum_{w' \to w \in \Omega} \hat{s}_{w' \to w, \text{jump}} + \sum_{i=1}^{N} (s_{x^{i}, t^i} - s_{x^{i-1}, t^i})
+    &= \sum_{i=1}^{N} \left(\log P(x^{i}, y^{i}) - \log P(x^{i-1}, y^{i}) - \log P(x^{i}) + \log P(x^{i-1}) \right)\\
+    &= -\sum_{w' \to w \in \Omega} \hat{s}_{w' \to w, \text{jump}} + \sum_{i=1}^{N} (\hat{s}_{x^{i}, t^i} - \hat{s}_{x^{i-1}, t^i})
 \end{align}
 である。よって、
 \begin{align}
-    -\sum_{w' \to w \in \Omega} (s_{w' \to w, \text{jump}} ) &= \hat{I}_{X,\text{jump}} -\sum_{i=1}^{N} (s_{x^{i}, t^i} - s_{x^{i-1}, t^i})\\
+    -\sum_{w' \to w \in \Omega} (\hat{s}_{w' \to w, \text{jump}} ) &= \hat{I}_{X,\text{jump}} -\sum_{i=1}^{N} (\hat{s}_{x^{i}, t^i} - \hat{s}_{x^{i-1}, t^i})\\
     &= \hat{I}_{X,\text{jump}} - \Delta \hat{s}_{X}\\
-    &= \hat{I}_{X,\text{jump}} - s_{x_N, \tau} + s_{x_0, 0} - \int_{0}^{\tau} \sum_{y,x'} \frac{J_{x',x(t)}^{y(t)}(t)}{P(x(t), t)} dt
+    &= \hat{I}_{X,\text{jump}} - \hat{s}_{x_N, \tau} + \hat{s}_{x_0, 0} + \int_{0}^{\tau} \sum_{y,x'} \frac{J_{x',x(t)}^{y(t)}(t)}{P(x(t), t)} dt
 \end{align}
-となる。以上より、
+となる。以上より、%TODOこの下の式の導出あやしい
 \begin{align}
     \hat{\sigma}_{\Omega} &= \beta \hat{Q}_{\Omega} + \Delta \hat{s}_{\Omega} \\
     &= \beta \hat{Q}_{X} + \hat{s}_{\Omega, \text{jump}} - \int_{0}^{\tau} \frac{\sum_{x'} J_{x',x(t)}^{y(t)}(t)}{P(x(t), y(t), t)} dt \\
     &= \beta \hat{Q}_{X} - \hat{I}_{X,\text{jump}} + s(x_{N}; \tau) - s(x_0; 0) - \int_{0}^{\tau} \frac{\sum_{y,x'} J_{x',x(t)}^{y}(t)}{P(x(t), t)} dt -\int_{0}^{\tau} \frac{\sum_{x'} J_{x',x(t)}^{y(t)}(t)}{P(x(t), y(t), t)} dt\\
     &= \beta \hat{Q}_{X} - \hat{I}_{X,\text{jump}} + s(x_{N}; \tau) - s(x_0; 0) - \int_{0}^{\tau} F_X(x(t), y(t), t) dt\\
-    &= \hat{\sigma_X} - \Delta \hat{I}_X
+    &= \hat{\sigma}_X - \Delta \hat{I}_X
 \end{align}
 となる。これと部分エントロピー生成に対するIFTを用いると、
 \begin{align}
@@ -923,7 +922,65 @@ $\Omega$を図のように、$X$に関するすべての遷移を含むように
 
 \begin{itembox}[l]{\textbf{Prop:第二法則}}
 上のIFTを変形することにより、第二法則が導かれる。すなわち、
-
+\begin{align}
+    \dot{\sigma}_x(t) \geq \sum_{x,x',y} J^y_{x,x'}(t) \left( \hat{I}_t(x'; y) - \hat{I}_t(x; y) \right). \tag{9.44}
+\end{align}
+が成り立つ。
 \end{itembox}
+\textbf{Prf}\\
+Jensenの不等式を用いることで、
+\begin{align}
+    \ev{e^{-\hat{\sigma}_X + \Delta \hat{I}_X}} \geq e^{-\ev{\hat{\sigma}_X} + \ev{\Delta \hat{I}_X}}
+\end{align}
+となる。したがって、
+\begin{align}
+    \ev{\hat{\sigma}_X} \geq  \ev{\Delta \hat{I}_X}
+\end{align}
+となる。ここで、右辺について、
+\begin{align}
+    \ev{\Delta \hat{I}_X} &= \ev{\hat{I}_{X,\text{jump}} + \int_{0}^{\tau} \dd t F_X(x(t), y(t), t)} \\
+    &\because \ev{F_X(x(t), y(t), t)} = 0\\
+    &= \ev{\hat{I}_{X,\text{jump}}}\notag\\
+    &= \ev{\sum_{i=1}^{N} \hat{I}(x^{i}; y^{i}) - \hat{I}(x^{i-1}; y^{i-1})\delta_{y^{i-1}, y^{i}}}\\
+    &\because \text{今$y$固定しているので}\notag\\
+    &= \sum_{i=1}^{N} \ev{\hat{I}(x^{i}; y^{i}) - \hat{I}(x^{i-1}; y^{i})}
+\end{align}
+となる。したがって、両辺時間微分することで、
+\begin{equation}
+    \begin{aligned}
+    \dv{\ev{\Delta \hat{I}_X}}{t}&=\sum_{x,x',y} \frac{\dd P(x,y,t)}{\dd t} (\sum_{i=1}^{N} \hat{I}(x^{i}; y^{i}) - \hat{I}(x^{i-1}; y^{i}))\\
+    &= \sum_{x,x',y}\hat{J}^y_{x,x'}(t) \left( \hat{I}_t(x'; y) - \hat{I}_t(x; y) \right)
+\end{aligned}
+\end{equation}
+となる。以上より、
+\begin{align}
+    \ev{\hat{\sigma}_X} \geq \sum_{x,x',y} J^y_{x,x'}(t) \left( \hat{I}_t(x'; y) - \hat{I}_t(x; y) \right)
+\end{align}
+となる。\hfill\qedsymbol\\ %TODO 上の和の取り方についてもう少し考える
+
+ \( \ev{F_X(x, y, t)} \) がゼロであるにもかかわらず、IFT型の等式を得るためには \( F_X(x, y, t) \) が不可避である。
+4状態モデルを使用してこの事実を数値的に示す。
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=120mm]{4s.png}
+    \end{center}
+    \caption{4状態モデルの数値計算}
+    \label{fig:4s}
+\end{figure}
+
+パラメータを以下のように設定する。
+\begin{align*}
+P(1 \to 0 | r) &= P(0 \to 1 | l) = 1, \\
+P(0 \to 1 | r) &= P(1 \to 0 | l) = 2, \\
+P(r \to 1 | 1) &= P(1 \to r | 0) = 1, \\
+P(1 \to r | 1) &= P(r \to 1 | 0) = R,
+\end{align*}
+\(\tau = 10\) とし、初期状態を定常状態に設定する。\( R = 3.5 \) のときの \( -\sigma_X + I_{X, \text{jump}} \)（青色）および \( -\sigma_X + I_{X, \text{jump}} + \int F_X(x, y, t) \, dt \)（赤色）の確率分布を計算する。
+このヒストグラムからわかるように、\( -\sigma_X + I_{X, \text{jump}} + \int F_X(x, y, t) \, dt \) の分散は \( -\sigma_X + I_{X, \text{jump}} \) よりも大きい。
+分布の尾部がIFT型の等式に大きく寄与しているため、\( \langle e^{-\hat{\sigma}_X + \hat{I}_{X, \text{jump}}} \rangle \) は \( R \) が増加するにつれて1から逸脱するが、
+\( \langle e^{-\hat{\sigma}_X + \hat{I}_{X, \text{jump}} + \int F_X(x, y, t) \, dt} \rangle \) は1のままである。
+
+
 
 \end{document}

@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1719640422 "rakugaki.dvi" "rakugaki.pdf" "rakugaki" 1719640423 0
-  "rakugaki.dvi" 1719640422 36916 0564ac9b1ceabef39179b15e1554b096 "latex"
+["dvipdf"] 1720597320 "rakugaki.dvi" "rakugaki.pdf" "rakugaki" 1720597322 0
+  "rakugaki.dvi" 1720597319 51108 6861c3f47cf1c5a00f140d557a64f1c2 "latex"
   (generated)
   "rakugaki.pdf"
   (rewritten before read)
-["latex"] 1719640419 "rakugaki.tex" "rakugaki.dvi" "rakugaki" 1719640423 0
+["latex"] 1720597315 "rakugaki.tex" "rakugaki.dvi" "rakugaki" 1720597322 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -39,6 +39,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -190,9 +191,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "rakugaki.aux" 1719640422 934 2a45d4a1dba53ce539ce31bc770ff31a "latex"
-  "rakugaki.out" 1719640422 186 dd54103aad8149977d7ed6880a122eac "latex"
-  "rakugaki.tex" 1719640417 13838 ce46138e0a269307ae08b23035562731 ""
+  "rakugaki.aux" 1720597319 2045 2b42411c3a6fc6bc0d4331a755e38f51 "latex"
+  "rakugaki.out" 1720597319 573 e28395fb25bdb8aa581dfaf91b2151b1 "latex"
+  "rakugaki.tex" 1720597314 21552 1e1e1e6205a928245efb9df6be0edede ""
   (generated)
   "rakugaki.aux"
   "rakugaki.dvi"

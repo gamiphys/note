@@ -1118,10 +1118,16 @@ INPUT ./stoen.png
 INPUT ./stoen.png
 INPUT stoen.png
 INPUT extractbb -B cropbox -O stoen.png
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT ./omega.png
 INPUT ./omega.png
 INPUT omega.png
 INPUT extractbb -B cropbox -O omega.png
+INPUT ./4s.png
+INPUT ./4s.png
+INPUT 4s.png
+INPUT extractbb -B cropbox -O 4s.png
 INPUT chap9.aux
 INPUT ./chap9.out
 INPUT ./chap9.out

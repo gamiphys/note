@@ -26,3 +26,4 @@
 \contentsline {subsubsection}{\numberline {1.11.2}カノニカル分布}{33}{subsubsection.1.11.2}%
 \contentsline {subsubsection}{\numberline {1.11.3}グランドカノニカル分布}{33}{subsubsection.1.11.3}%
 \contentsline {subsection}{\numberline {1.12}エントロピー}{34}{subsection.1.12}%
+\contentsline {subsection}{\numberline {1.13}状態密度}{34}{subsection.1.13}%

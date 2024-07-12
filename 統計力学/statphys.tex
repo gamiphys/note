@@ -1211,5 +1211,23 @@ $\tilde{U} = U - E_i$とおくと、
 
 \subsection{エントロピー}
 
+\subsection{状態密度}
+状態密度を導入する。$\epsilon_j$の任意の関数$h(\epsilon_j)$に対して、
+\begin{align}
+  \sum_{j=1}^{\infty}h(\epsilon_j) 
+  &=\sum_{n=1}^{\infty} \sum_{(n-1)\Delta \epsilon \leq \epsilon \leq n\Delta \epsilon}h(\epsilon)\\
+  &\simeq \sum_{n=1}^{\infty} \sum_{(n-1)\Delta \epsilon \leq \epsilon \leq n\Delta \epsilon}h(n\Delta \epsilon)\\
+  &= \sum_{n=1}^{\infty} (\Omega(n\Delta \epsilon) - \Omega((n-1)\Delta \epsilon))h(n\Delta \epsilon)\\
+  &= \sum_{n=1}^{\infty} D(n\Delta \epsilon)h(n\Delta \epsilon)\Delta \epsilon\\
+  &= \int \dd \epsilon D(\epsilon)h(\epsilon)
+\end{align}
+となる。
+
+\textbf{グランドカノニカル分布を用いたBose/Fermi分布の導出}\\
+グランドカノニカル分布の密度行列は、
+\begin{align}
+  \hat{\rho}_{\text{gcan}} = \frac{e^{-\beta(\hat{H}-\mu \hat{N})}}{\Tr e^{-\beta(\hat{H}-\mu \hat{N})}}
+\end{align}
+である。
 
 \end{document}

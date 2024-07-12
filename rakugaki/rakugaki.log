@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  29 JUN 2024 14:53
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  10 JUL 2024 16:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -622,7 +622,20 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./rakugaki.aux)
+) (./rakugaki.aux
+
+LaTeX Warning: Label `eq:1' multiply defined.
+
+
+LaTeX Warning: Label `eq:2' multiply defined.
+
+
+LaTeX Warning: Label `eq:3' multiply defined.
+
+
+LaTeX Warning: Label `eq:4' multiply defined.
+
+)
 \openout1 = `rakugaki.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -707,17 +720,23 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 248.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 248.
- [5] [6] [7] (./rakugaki.aux)
+ [5] [6]
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 379.
+ [7] [8] [9] [10] [11] (./rakugaki.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `rakugaki.out' has not changed.
-(rerunfilecheck)             Checksum: DD54103AAD8149977D7ED6880A122EAC;186.
+(rerunfilecheck)             Checksum: E28395FB25BDB8AA581DFAF91B2151B1;573.
  ) 
 Here is how much of TeX's memory you used:
- 22946 strings out of 476677
- 428916 string characters out of 5808165
- 1861484 words of memory out of 5000000
- 42993 multiletter control sequences out of 15000+600000
- 531449 words of font info for 122 fonts, out of 8000000 for 9000
+ 22950 strings out of 476677
+ 428963 string characters out of 5808165
+ 1862484 words of memory out of 5000000
+ 42996 multiletter control sequences out of 15000+600000
+ 532170 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,12n,89p,472b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on rakugaki.dvi (7 pages, 36916 bytes).
+Output written on rakugaki.dvi (11 pages, 51108 bytes).
