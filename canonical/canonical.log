@@ -1,10 +1,10 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  2 AUG 2024 12:46
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  1 AUG 2024 00:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**memo.tex
-(./memo.tex
+**canonical.tex
+(./canonical.tex
 pLaTeX2e <2023-02-14u04>+1 (based on LaTeX2e <2022-11-01> patch level 1)
 L3 programming layer <2023-03-30> (c:/texlive/2023/texmf-dist/tex/platex/jsclasses/jsarticle.cls
 Document Class: jsarticle 2023/02/23 jsclasses (okumura, texjporg)
@@ -508,8 +508,6 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@math@for@depth=\count308
 \tikz@math@dimen=\dimen328
 \tikz@math@toks=\toks48
-) (c:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
-File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
  (c:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -624,8 +622,8 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./memo.aux)
-\openout1 = `memo.aux'.
+) (./canonical.aux)
+\openout1 = `canonical.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
@@ -650,9 +648,9 @@ LaTeX Font Info:    ... okay on input line 38.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
 LaTeX Font Info:    ... okay on input line 38.
 Package hyperref Info: Link coloring OFF on input line 38.
- (./memo.out) (./memo.out)
+ (./canonical.out) (./canonical.out)
 \@outlinefile=\write4
-\openout4 = `memo.out'.
+\openout4 = `canonical.out'.
 
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 15.9785pt on input line 44.
@@ -678,100 +676,52 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 7.39746pt on input line 44.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 44.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 45.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 45.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 45.
+(Font)              scaled to size 13.31541pt on input line 46.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 45.
+(Font)              scaled to size 13.31541pt on input line 46.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 45.
+(Font)              scaled to size 13.31541pt on input line 46.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 13.31541pt on input line 45.
- (./memo.toc
+(Font)              scaled to size 13.31541pt on input line 46.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 1.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 9.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 9.
+(Font)              scaled to size 11.09619pt on input line 47.
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 49.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 49.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 49.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 9.
+(Font)              scaled to size 9.24683pt on input line 49.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 51.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 51.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 9.
+(Font)              scaled to size 6.47278pt on input line 51.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 51.
  [1
 
-])
-\tf@toc=\write5
-\openout5 = `memo.toc'.
-
- [2]
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 48.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 19.17792pt on input line 48.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 51.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 51.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 51.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 51.
-LaTeX Font Info:    Trying to load font information for U+euf on input line 52.
- (c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [3]
+]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 103.
+(Font)              scaled to size 6.47278pt on input line 76.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 103.
- [4] [5] [6] [7]
+(Font)              scaled to size 4.62341pt on input line 76.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 256.
- [8] [9] [10] [11]
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
- [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 789.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 789.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 789.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 789.
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 789.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 789.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 789.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 789.
- [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
-[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
-Overfull \hbox (1.08173pt too wide) detected at line 1671
-[]
- []
-
-[46] [47] (./memo.aux)
-Package rerunfilecheck Info: File `memo.out' has not changed.
-(rerunfilecheck)             Checksum: 6E5128902EAB67B75CCE6E3F5FF40050;2769.
+(Font)              scaled to size 5.5481pt on input line 78.
+ [2] [3] [4] (./canonical.aux)
+Package rerunfilecheck Info: File `canonical.out' has not changed.
+(rerunfilecheck)             Checksum: 20973B9C3F068B575D243E6BF65D1648;361.
  ) 
 Here is how much of TeX's memory you used:
- 23361 strings out of 476677
- 437806 string characters out of 5808165
- 1866484 words of memory out of 5000000
- 43386 multiletter control sequences out of 15000+600000
- 537917 words of font info for 149 fonts, out of 8000000 for 9000
+ 22946 strings out of 476677
+ 428961 string characters out of 5808165
+ 1867484 words of memory out of 5000000
+ 42993 multiletter control sequences out of 15000+600000
+ 531974 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,17n,89p,477b,884s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,89p,674b,462s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on memo.dvi (47 pages, 256596 bytes).
+Output written on canonical.dvi (4 pages, 23100 bytes).

@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1722572954 "infogeo.dvi" "infogeo.pdf" "infogeo" 1722572957 0
-  "infogeo.dvi" 1722572953 255264 f0c02d766744d48267abb3a3d01130bd "latex"
+["dvipdf"] 1722438208 "canonical.dvi" "canonical.pdf" "canonical" 1722438209 0
+  "canonical.dvi" 1722438208 23100 dd93cfac27fb329ddb41e17a0bdacbcc "latex"
   (generated)
-  "infogeo.pdf"
+  "canonical.pdf"
   (rewritten before read)
-["latex"] 1722572949 "infogeo.tex" "infogeo.dvi" "infogeo" 1722572957 0
+["latex"] 1722438206 "canonical.tex" "canonical.dvi" "canonical" 1722438209 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -16,9 +16,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm" 1681536317 1516 a3bf6a5e7ec4401b1f52092dfaaed242 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm" 1681536317 1508 6e807ff901c35a5f1fde0ca275533df8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm" 1681536317 1528 dab402b9d3774ca98baa037071cee7ae ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm10.tfm" 1681536317 1040 b84415f97d114011685943ade933dc71 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm5.tfm" 1681536317 1040 a9d2074f3fa062d4d9046b92e2334d8c ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.tfm" 1681536317 1040 82eb6630b094bff824fccca83ff507f9 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1681536317 916 f87d7c45f9c908e672703b83b72241a3 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1681536317 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1681536317 928 2dc8d444221b7a635bb58038579b861a ""
@@ -42,12 +39,10 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -128,7 +123,6 @@
   "c:/texlive/2023/texmf-dist/tex/latex/amscls/amsthm.sty" 1681536312 12594 0d51ac3a545aaaa555021326ff22a6cc ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1681536317 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1681536317 13829 94730e64147574077f8ecfea9bb69af4 ""
-  "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/ueuf.fd" 1681536317 1047 4252767c0fde12e3ce9f914ef4bb1ea1 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsa.fd" 1681536317 961 6518c6525a34feb5e8250ffa91731cff ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsfonts/umsb.fd" 1681536317 961 d02606146ba5601b5645f987c92e6193 ""
   "c:/texlive/2023/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1681536324 2222 78b930a5a6e3dc2ac69b78c2057b94d7 ""
@@ -196,14 +190,12 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "infogeo.aux" 1722572953 4135 e6961f4b435b0e3b933443cc4a716f1d "latex"
-  "infogeo.out" 1722572953 2338 dd447d29917a6267be1753e8bd5bffa3 "latex"
-  "infogeo.tex" 1722572939 90159 e2b525bfe856aaed19587605b9ff6960 ""
-  "infogeo.toc" 1722572953 1858 f0a67c8b379eb76bf9a8f2680bbac439 "latex"
+  "canonical.aux" 1722438208 1059 d21d7e7391bfd487887fdd6a903f109b "latex"
+  "canonical.out" 1722438208 361 20973b9c3f068b575d243e6bf65d1648 "latex"
+  "canonical.tex" 1722438205 8789 61c12dc563dfe9629134fe24cea659ee ""
   (generated)
-  "infogeo.aux"
-  "infogeo.dvi"
-  "infogeo.log"
-  "infogeo.out"
-  "infogeo.toc"
+  "canonical.aux"
+  "canonical.dvi"
+  "canonical.log"
+  "canonical.out"
   (rewritten before read)

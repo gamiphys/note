@@ -17,3 +17,5 @@
 \contentsline {subsection}{\numberline {4.4}$\mathcal {S}_{n-1}$の双対微分幾何}{37}{subsection.4.4}%
 \contentsline {subsection}{\numberline {4.5}自己平行部分多様体}{40}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}双対葉層構造}{42}{subsection.4.6}%
+\contentsline {section}{\numberline {5}統計物理学への応用}{43}{section.5}%
+\contentsline {subsection}{\numberline {5.1}最大エントロピー原理}{43}{subsection.5.1}%

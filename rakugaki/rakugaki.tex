@@ -491,5 +491,39 @@ $X/A$は$A$の点を一つの点につぶした空間である。\\
 \subsection{カノニカル分布の用意の仕方}
 カノニカル分布は、エネルギーの期待値を一定に保った時、もっとも一様分布に近い分布とみなすことができる。すなわち、エネルギーの期待値さえ与えれば、最小化問題としてカノニカル分布を求めることができる。\\
 
+\section{a}
+である。ここで、熱浴の状態数を、
+\begin{equation}
+  \Omega_{R} (B) = \exp(V_{R}\sigma \left(\frac{B}{V_{R}},\frac{N_{R}}{V_{R}}\right))
+\end{equation}
+と書くことができる。
+$\tilde{U} = U - E_i$とおくと、
+\begin{align}
+  p_i &= \frac{\Omega(\tilde{U}) - V_{R}\delta}{\Omega(\tilde{U})} \\
+  &= \exp(V_{R}\{\sigma(\tilde{u}-\delta ,\rho) - \sigma(\tilde{u},\rho)\} + o(\delta))\\
+  &= \exp(-V_{R}\left(\pdv{\tilde{u}}\sigma(\tilde{u},\rho)\delta + o(\delta^2)\right)+ o(V_R\delta))\ll 1
+\end{align}
+を満たす。ただし、$\tilde{u} = \frac{U}{V_{R}}$であり、熱浴の体積が十分大きいことを用いている。\\
+このとき、
+\begin{align}
+  p_i &\simeq \frac{\Omega_{R}(U-E_i)}{\sum_{j}^{n} \Omega_{R}(U-E_j)}\\
+  &= \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)}\left(\sum_{j}^{n} \frac{\Omega_{R}(U-E_j)}{\Omega_{R}(U)}\right)^{-1}
+\end{align}
+と書ける。ここで、
+\begin{align}
+  \log \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)} &= \log \Omega_{R}(U-E_i) - \log \Omega_{R}(U)\\
+  &= -E_{i}\pdv{U}\log \Omega_{R}(U) + \frac{E_{i}^2}{2}\pdv{U}^2 \log \Omega_{R}(U) + \cdots\\
+  &= -\frac{E_{i}}{V_{R}}\pdv{u}\{V_R\sigma(u,\rho) + o(V_R)\} + \frac{E_{i}^2}{2V_{R}^2}\pdv{u}^2\{V_R\sigma(u,\rho) + o(V_R)\} + \cdots\quad \\
+  &= -E_{i}\pdv{u}\sigma(u,\rho) + \frac{1}{V_{R}}\frac{E_{i}^2}{2}\pdv{u}^2\sigma(u,\rho) +\cdots +\frac{o(V_R)}{V_{R}}\\
+  &\simeq -\beta(u,\rho)E_{i} \quad \because \text{$V_{R}$が十分大きい}
+\end{align}
+となる。ここで、$\beta(u,\rho) = \pdv{u}\sigma(u,\rho)=\pdv{U}\log \Omega_{R}(U)$である。これにより、
+\begin{align}
+  \frac{\Omega_{R}(U-E_i)}{\Omega_{R}(U)} &= \exp(-\beta(u,\rho)E_{i})
+\end{align}
+と書くことができ、
+\begin{align}
+  p_i &= \frac{\exp(-\beta(u,\rho)E_{i})}{Z(\beta)}
+\end{align}
 
 \end{document}

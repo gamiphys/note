@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  28 JUN 2024 09:55
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  2 AUG 2024 13:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -781,17 +781,17 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 1489.
 
-[37] [38] [39] [40] [41] [42] [43] (./infogeo.aux)
+[37] [38] [39] [40] [41] [42] [43] [44] (./infogeo.aux)
 Package rerunfilecheck Info: File `infogeo.out' has not changed.
-(rerunfilecheck)             Checksum: 3613C659D9887A7FFC4120CB27034DE2;2103.
+(rerunfilecheck)             Checksum: DD447D29917A6267BE1753E8BD5BFFA3;2338.
  ) 
 Here is how much of TeX's memory you used:
- 22991 strings out of 476677
- 429550 string characters out of 5808165
+ 22992 strings out of 476677
+ 429561 string characters out of 5808165
  1874484 words of memory out of 5000000
- 43027 multiletter control sequences out of 15000+600000
+ 43028 multiletter control sequences out of 15000+600000
  534393 words of font info for 134 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,15n,89p,519b,488s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on infogeo.dvi (43 pages, 248616 bytes).
+Output written on infogeo.dvi (44 pages, 255264 bytes).

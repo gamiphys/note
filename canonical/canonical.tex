@@ -1,0 +1,159 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{密度行列演算子を用いたカノニカル分布の導出}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+中間レポートの焼き直し。\\
+\section{カノニカル分布}
+\subsection{定義}
+密度演算子を用いたカノニカル分布の定義は以下の通りである。
+\begin{itembox}[l]{\textbf{Def:カノニカル分布}}
+    カノニカル分布は、
+    \begin{align}
+      \hat{\rho} = \frac{e^{-\beta \mathcal{H}}}{Z} \label{eq:canonical}
+    \end{align}
+    で定義される。ただし、$Z$は規格化定数であり、
+    \begin{align}
+      Z = \Tr[e^{-\beta \mathcal{H}}]
+    \end{align}
+    である。ただし、$\beta = \frac{1}{kT}$であり、$T$は系の温度であり、$k$はボルツマン定数である。また、$\mathcal{H}$は系のハミルトニアンである。
+  \end{itembox}
+  ここで、$\beta = \frac{1}{k_B T}$であり、$T$は系の温度である。\\
+
+\subsection{仮定}
+カノニカル分布を導出するうえで以下を仮定する。
+\begin{itembox}[l]{\textbf{仮定}}
+  \begin{enumerate}
+    \item 全系は孤立系であり、ミクロカノニカル分布により記述される。
+    \item 熱浴は、その詳細に依らず、温度によりのみ特徴づけられる。
+    \item 熱浴は十分に大きい。
+    \item 系と熱浴は弱く相互作用している。
+  \end{enumerate}
+\end{itembox}
+
+\subsection{カノニカル分布の導出}
+  注目する部分系 $S$ と熱浴 $B$ が弱く相互作用しているとする。(仮定4)全系のハミルトニアンは
+  \begin{equation}
+  \mathcal{H} = \mathcal{H}_S + \mathcal{H}_B + \mathcal{H}_{\text{int}}.
+  \end{equation}
+  ここで、相互作用のオーダーは、$O(V^\frac{2}{3})$なので、無視できるとする。\footnote{相互作用の大きさは系の面積に比例するのに対して、各系のハミルトニアンは体積に比例するため。}全系の状態$\ket{\Psi_k}$は $S$ の状態$\psi_{i}$を表す Hilbert 空間と $B$ の状態$\phi{j}$ を表すHilbert 空間の直積で表され
+  \begin{equation}
+  \mathcal{H}\ket{\Psi_k} = (\mathcal{H}_S + \mathcal{H}_B)\ket{\psi_i}\ket{\phi_j} = E_k \ket{\Psi_k}
+  \end{equation}
+  である。ただし、\(\ket{\psi_i} \ket{\phi_j}\) は \(\mathcal{H}_S \ket{\psi_i} = E^S_i \ket{\psi_i}\) と \(\mathcal{H}_B \ket{\phi_j} = E^B_j \ket{\phi_j}\) を満たす系 \(S\) と熱浴 \(B\) の固有状態で、\(E_k = E^S_i + E^B_j\), \(\ket{\Psi_k} = \ket{\psi_i} \ket{\phi_j}\) である。全系がミクロカノニカル分布で記述されるとすると(仮定1)、熱浴の体積を$V_B$として、
+  \begin{equation}
+  \hat{\rho}_{U, V_B \delta} = \frac{1}{W(U, V_B \delta)} \sum_{U-V_B \delta \leq E_k \leq U} \ket{\Psi_k} \bra{\Psi_k}.
+  \end{equation}
+  である。ここで \(W(U,V_B \delta)\) は \([U-V_B \delta, U]\) にある固有状態数である。熱浴について部分トレースをとることで、
+  \begin{align}
+  \hat{\rho}^S &= \text{Tr}_B \hat{\rho}_{U, V_B \delta} \\
+  &= \frac{1}{W(U, V_B \delta)} \sum_{U-V_B \delta \leq E_k \leq U} \sum_l \bra{\phi_l} \ket{\Psi_k} \bra{\Psi_k} \ket{\phi_l} \quad (\because \text{部分トレースの定義})\\
+  &= \frac{1}{W(U, V_B \delta)} \sum_i \ket{\psi_i} \bra{\psi_i}  \sum_{U - V_B \delta -E_i^S \leq  E_j^B \leq U-E_i^s} 1 \\
+  &= \frac{1}{W(U, V_B \delta)} \sum_i W_B(U - E_i^S, V_B \delta) \ket{\psi_i} \bra{\psi_i}.
+  \end{align}  となる。ただし、$W_B$は、
+  \begin{equation}
+  W_B(U - E_i^S, V_B \delta) = \Omega_B(U - E_i^S) - \Omega_B(U - E_i^S - V_B \delta)
+  \end{equation}
+  である。このとき、
+  \begin{align}
+    W(U, V_B \delta) &= \sum_i W_B(U - E_i^S, V_B \delta)\\
+    &= \sum_i \Omega_B(U - E_i^S) - \Omega_B(U - E_i^S - V_B \delta)\\
+  \end{align}
+  である。ここで、熱浴が十分大きいことから(仮定3)、熱浴の状態数を、
+\begin{equation}
+  \Omega_{B} (U) = \exp(V_{B}\sigma \left(\frac{U}{V_{B}},\frac{N_{B}}{V_{B}}\right))
+\end{equation}
+と書くことができる。\footnote{詳細は付録3.2に従う。}
+$\tilde{U} = U - E_i$とおくと、
+\begin{align}
+  \frac{\Omega(\tilde{U}) - V_{B}\delta}{\Omega(\tilde{U})} 
+  &= \exp(V_{B}\{\sigma(\tilde{u}-\delta ,\rho) - \sigma(\tilde{u},\rho)\} + o(\delta))\\
+  &= \exp(-V_{B}\left(\pdv{\tilde{u}}\sigma(\tilde{u},\rho)\delta + o(\delta^2)\right)+ o(V_B\delta))\ll 1
+\end{align}
+と書くことができる。したがって、
+\begin{align}
+  W_B(U - E_i^S, V_B \delta) &\simeq \Omega_B(U - E_i^S) 
+\end{align}
+となる。したがって、縮約された密度演算子は、
+\begin{align}
+  \hat{\rho}^S &\approx \frac{1}{ \sum_j \Omega_B(U - E_j^S)} \sum_i \Omega_B(U - E_i^S) \ket{\psi_i} \bra{\psi_i} \\
+  &= \frac{\Omega_B(U - E_i^S)}{\Omega_B(U)} \frac{\Omega_B(U)}{\sum_j \Omega_B(U - E_j^S)} \sum_i \ket{\psi_i} \bra{\psi_i} 
+\end{align}
+となる。ここで、$u = U/V_B$, $\rho = N_B/V_B$とおくと、
+\begin{align}
+  \log \frac{\Omega_{B}(U-E_i)}{\Omega_{B}(U)} &= \log \Omega_{B}(U-E_i) - \log \Omega_{B}(U)\\
+  &= -E_{i}\pdv{U}\log \Omega_{B}(U) + \frac{E_{i}^2}{2}\pdv[2]{U} \log \Omega_{B}(U) + \cdots\\
+  &= -\frac{E_{i}}{V_{B}}\pdv{u}\{V_B\sigma(u,\rho) + o(V_B)\} + \frac{E_{i}^2}{2V_{B}^2}\pdv[2]{u}\{V_B\sigma(u,\rho) + o(V_B)\} + \cdots\quad \\
+  &= -E_{i}\pdv{u}\sigma(u,\rho) + \frac{1}{V_{B}}\frac{E_{i}^2}{2}\pdv[2]{u}\sigma(u,\rho) +\cdots +\frac{o(V_B)}{V_{B}}\\
+  &\simeq -\beta(u,\rho)E_{i} \quad \because \text{$V_{B}$が十分大きい(仮定3)}
+\end{align}
+となる。ここで、$\beta(u,\rho) = \pdv{u}\sigma(u,\rho)=\pdv{U}\log \Omega_{B}(U)$である。これにより、
+\begin{align}
+  \frac{\Omega_{B}(U-E_i)}{\Omega_{B}(U)} &= \exp(-\beta(u,\rho)E_{i})
+\end{align}
+と書くことができる。したがって、規格化を考慮して、
+\begin{align}
+  \rho^S &\simeq \sum_i e^{-\beta E_i^S} \ket{\psi_i} \bra{\psi_i}\\
+  &= \frac{e^{-\beta \mathcal{H}_S}}{\Tr [e^{-\beta \mathcal{H}_S}]}
+\end{align}
+となる。
+パラメータ$\beta$の物理的な意味を考える。理想気体における状態数を温度計として使うため、熱浴を理想気体とすると、$\beta$の定義から、
+\begin{align}
+  \beta(u,\rho) &= \pdv{u}\sigma(u,\rho)\\
+  &= \pdv{u}(\rho \log (\alpha u^{3/2}\rho^{-5/2}))\\
+  &= \frac{3\rho}{2u}\\
+  &= \frac{3}{2}\frac{N_B}{U}\\
+  &\simeq \frac{3}{2}\frac{N_B}{U_{B}} \quad \because \text{熱浴が十分大きい(仮定3)}
+\end{align}
+となる。ただし、$\sigma$の関数形は付録3.1より従う。ところで、熱力学の知見より、系の内部エネルギーは、
+\begin{align}
+  U_B = \frac{3}{2}N_B kT
+\end{align}
+である。ただし、$k$はボルツマン定数、$N_B$は熱浴の粒子数、$T$は熱浴の温度である。したがって、
+\begin{align}
+  \beta = \frac{1}{kT}
+\end{align}
+となる。この$\beta$は逆温度と呼ばれる。このとき、仮定4より、系と熱浴は平衡状態にあるから、この温度は系の温度と等しい。このとき、$T$と$\beta$の関係は、熱浴が理想気体で構成される場合に限らず、一般的に成立しなくてはならない。というのも、カノニカル分布は、熱浴がどんなものであろうとも$\beta$の値さえ同じであれば、系の平衡状態は同じである。\footnote{熱浴自体についての仮定は、熱浴が大きいことしか設定していないことに注意されたい。}また、
+仮定2より、温度$T$が等しければ、熱浴は同じ働きをするからである。\\
+以上より、系がカノニカル分布(\ref{eq:canonical})で記述されることが示された。\\
+
+\end{document}

@@ -1693,7 +1693,47 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
 \end{itembox}
 \textbf{Prf}\\
 
+\section{統計物理学への応用}
+\subsection{最大エントロピー原理}
+指数型分布族において、$k=1$とし、$F_1(\omega) = -H(\omega)$とする。そして、$\theta = 0$で一様分布
+\begin{equation}
+    u = \qty(\frac{1}{n},\cdots,\frac{1}{n})
+\end{equation}
+を通る1次元指数型分布族($\nabla^{e}$-測地線)を考える。このとき、この測地線は、
+\begin{align}
+    p_{\theta}(\omega) &= \exp\left[ -\theta H(\omega) - \psi(\theta) \right]
+\end{align}
+となる。このとき、この測地線と、
+\begin{equation}
+    \Gamma_{\eta} = \{q \in \mathcal{S}; E_q[-H] = \eta \}
+\end{equation}
+は直交する。
 
+\begin{itembox}[l]{\textbf{Recall}}
+    $M$と$\Gamma_{\eta}$が共有点を持つならば、その点において、$M$と$\Gamma_{\eta}$は直交する。また、このときの$M$と$\Gamma_{\eta}$の共有点はただ一つに定まる。
+\end{itembox}
+
+このとき、一般化Pythagorasの定理より、
+\begin{align}
+    P_{\theta_*} &= \underset{q \in \Gamma_\eta}{\text{argmin}} \qty{D^e(u||q)} \\
+    &= \underset{q \in \Gamma_\eta}{\text{argmin}} \qty{D^m(q||u)}\\
+    &= \underset{q \in \Gamma_\eta}{\text{argmin}} \sum_{\omega \in \Omega} q(\omega) \log \frac{q(\omega)}{u(\omega)}\\
+    &= \underset{q \in \Gamma_\eta}{\text{argmin}} \{\log n -S(q)\}\\
+    &= \underset{q \in \Gamma_\eta}{\text{argmax}} \{S(q)\}
+\end{align}
+となる。これは、確率変数$F_1(\omega) = -H$の期待値が一定であるもとで、Shanonエントロピー$S(q)$を最大にする確率分布は、
+$\Gamma_{\eta}$から測地線に下した垂線の足$P_{\theta_*}$に一致することを示している。ところで、
+\begin{align}
+    \log Z(\theta) &= \Psi(\theta)\\
+    \beta &= \theta_{*}
+\end{align}
+とおくと、
+\begin{align}
+    \underset{\ev{H} = \text{const}}{\text{argmax}} \{S(q)\} &= p_{\beta}(\omega)\\
+    &= \exp\left[ -\beta H(\omega) - \psi(\beta) \right]\\
+    &= \frac{1}{Z(\beta)} \exp\left[ -\beta H(\omega) \right]
+\end{align}
+となる。これは、エネルギー期待値が一定の下で、エントロピーを最大にする分布がカノニカル分布であることを表している。
 
 
 
