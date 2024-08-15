@@ -1,0 +1,127 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{熱力学的不確定性関係}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{熱力学的不確定性関係}
+\subsection{Main Claim}
+\textbf{記号}\\
+$\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$:jからiへの確率流を時間積分したもの\\
+$\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$:一般の物理量のカレントを時間積分したもの\\
+
+例:熱流の場合は$d_{ij} = E_i - E_j$とすればよい\\
+
+また、jump quantityとしては以下のように定義される\\
+\begin{align}
+    \hat{J}_{ij}(t) &= R_{ij}p_j(t) - R_{ji}p_i(t)\\
+    \hat{J}_{d}(t) &= \sum_{(i,j)} d_{ij} \hat{J}_{ij}(t)
+\end{align}
+
+このとき、以下の定理が成り立つことが知られている:
+
+\begin{itembox}[l]{\textbf{Thm:熱力学的不確定性関係}}
+    定常Markov過程が局所詳細つり合いを満たすとき、以下の関係が成り立つことが知られている:
+    \begin{align}
+        \frac{\text{Var}(\mathcal{J}_d)}{(\mathcal{J}_d^{\text{ss}})^2} \sigma \geq 2
+    \end{align}
+    ただし、
+    \begin{align}
+        \text{Var}(\mathcal{J}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
+    \end{align}
+    である。
+\end{itembox}
+
+
+\begin{itembox}[l]{\textbf{Def:Fisher情報量}}
+    パラメータ$\theta$についての確率分布$P_{\theta}(x)$が与えられたとき、Fisher情報量$F(\theta)$は以下のように定義される:
+    \begin{align}
+        F(\theta) = -\ev{\pdv[2]{\theta} \log P_{\theta}(x)} =\ev{\qty(\pdv{\theta} \log P_{\theta}(x))^2}
+    \end{align}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def:不偏推定量}}
+    $g(x)$がパラメータ$f(\theta)$の不偏推定量であるとは、
+    \begin{align}
+        f(\theta) = \ev{g(x)} = \int \dd{x} g(x)P_{\theta}(x)
+    \end{align}
+    が成り立つことをいう。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm:一般化クラメール-ラオの不等式}}
+    $g(x)$がパラメータ$f(\theta)$の不偏推定量であるとき、
+    \begin{align}
+        \text{Var}_{\theta}(g(x)) \geq \frac{(f'(\theta))^2}{F(\theta)}
+    \end{align}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+    \text{Var}_{\theta}g(x)F(\theta) &= \qty(\int \dd{x} (g(x) - f(\theta))^2 P_{\theta}(x))\qty(\int \dd{x} \qty(\pdv{\theta} \log P_{\theta}(x))^2 P_{\theta}(x))\\
+    &\geq \qty(\int \dd{x} (g(x) - f(\theta)) \pdv{\theta} (\ln P_{\theta}(x)) P_{\theta}(x))^2 \quad \because \text{Cauchy-Schwarz の不等式}\\
+    &= \qty(\int \dd{x} g(x) \pdv{\theta} P_{\theta}(x) - \int \dd{x} f(\theta) \pdv{\theta} P_{\theta}(x))^2\\
+    &= \qty(\pdv{\theta} \int \dd{x} g(x) P_{\theta}(x) )^2\quad \because \text{第二項の積分は規格化条件より0}\\
+    &= \qty(\pdv{\theta} f(\theta))^2
+\end{align}
+\qed
+
+\begin{itembox}[l]{\textbf{Cor:クラメール-ラオの不等式}}
+    $g(x)$がパラメータ$\theta$の不偏推定量であるとき、
+    \begin{align}
+        \text{Var}_{\theta}(g(x)) \geq \frac{1}{F(\theta)}
+    \end{align}
+    が成り立つ。
+
+\end{itembox}
+\textbf{Prf}\\
+$f(\theta) = \theta$として、$f'(\theta) = 1$とすればよい。\\
+\qed
+
+\textbf{Prf(熱力学的不確定性関係)}\\
+\begin{align}
+    R_{ij}^{\theta} &= R_{ij}e^{\theta Z_{ij}} \quad i \neq j\\
+    R_{ii}^{\theta} &= -\sum_{j \neq i} R_{ij}^{\theta}e^{\theta Z_{ij}}\\
+\end{align}
+とおく。このとき、
+
+
+
+\end{document}

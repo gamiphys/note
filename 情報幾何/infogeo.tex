@@ -1694,8 +1694,67 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
 \textbf{Prf}\\
 
 \section{統計物理学への応用}
+\subsection{統計力学}
+以下では、物理の話が出てくるため、ちょっとした事項たちを確認しておく。
+
+\subsubsection{エントロピー}
+統計力学における系のエントロピーは、状態のランダムネスを表す量である。また、熱力学においては、状態の遷移可能性を特徴づける量である。
+\subsubsection{エントロピー最大原理}
+\begin{itembox}[l]{\textbf{Thm:エントロピー最大原理}}
+    マクロ変数の期待値についての制約条件のもとで、エントロピーが最大となる確率分布が平衡状態にある系の確率分布である。
+\end{itembox}
+
+\subsubsection{カノニカル分布}
+エネルギーを一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
+\begin{align}
+  \tilde{S}= -k_B\sum_{i}p_i\log p_i -\lambda\left(\sum_{i}p_i - 1\right)-\rho\left(\sum_{i}p_iE_i - U\right)  
+\end{align}
+である。ここで、$\lambda$と$\rho$は未定乗数である。微小な確率変分を考えると、
+\begin{align}
+  \delta \tilde{S} &= -k_B\sum_{i}(p_i + \delta p_i)\log (p_i + \delta p_i) -\lambda\left(\sum_{i}(p_i + \delta p_i)- 1\right) -\rho\left(\sum_{i}(p_i + \delta p_i)E_i - U\right)-\tilde{S}\\
+  &= -k_B\sum_{i}\left(\delta p_i\log p_i + (p_i + \delta p_i)\log \left(1 + \frac{\delta p_i}{p_i}\right)\right)  -\lambda\left(\sum_{i}\delta p_i\right)-\rho\left(\sum_{i}\delta p_iE_i\right)
+\end{align}
+となる。ここで、$\log(1+x) = x + O(x^2)$であることを用いて、
+\begin{align}
+  \delta \tilde{S} &= -k_B\sum_{i}\left(\delta p_i\log p_i + \delta p_i\right)  -\lambda\left(\sum_{i}\delta p_i\right)-\rho\left(\sum_{i}\delta p_iE_i\right)\\
+  &= \sum_{i}\delta p_i\left(-k_B\log p_i - k_B - \lambda - \rho E_i\right) + O(\delta p_i^2)
+\end{align}
+となる。したがって、
+\begin{align}
+  -k_B\log p_i - k_B - \lambda - \rho E_i = 0
+\end{align}
+である。これを変形して、
+\begin{align}
+  p_i = \exp(-1-\frac{\lambda}{k_B}-\frac{\rho E_i}{k_B})
+\end{align}
+したがって、
+\begin{align}
+  p_i \propto \exp(-\beta E_i)
+\end{align}
+となる。ここで、$\beta = \frac{1}{k_B T}$である。($\rho = \frac{1}{T}$)\\
+あとは、規格化条件から、
+\begin{align}
+    p_i &= \frac{1}{Z} \exp(-\beta E_i)\\
+    Z &= \sum_{i} \exp(-\beta E_i)
+\end{align}
+であることがわかる。これがカノニカル分布である。\\
+
 \subsection{最大エントロピー原理}
-指数型分布族において、$k=1$とし、$F_1(\omega) = -H(\omega)$とする。そして、$\theta = 0$で一様分布
+情報幾何の視点から最大エントロピー原理について考える。統計物理でよく用いられる分布は、カノニカル分布などの指数型分布族であった。
+
+\begin{itembox}[l]{\textbf{Recall:指数型分布族}}
+    $\Omega$上の関数$C(\omega),F_1(\omega),\cdots,F_k(\omega)$及び$\mathbb{R}^k$上の領域$\Theta$上を動く$k$次元パラメータ$\theta = (\theta^1,\cdots,\theta^k) \in \Theta$を用いて
+    \begin{equation}
+        p_{\theta}(\omega) = \exp\left[ C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) - \psi(\theta) \right]
+    \end{equation}
+    と表される確率分属族$\{p_{\theta;\theta \in \Theta}\}$を指数型分布族という。ただし、$\psi(\theta)$は、
+    \begin{equation}
+        \psi(\theta) = \log \left[ \sum_{\omega \in \Omega} \exp\left[ C(\omega) + \sum_{i=1}^{k} \theta^i F_i(\omega) \right] \right]
+    \end{equation}
+    で定義される。
+\end{itembox}
+
+カノニカル分布の形を思い出しつつ、指数型分布族において、$k=1$とし、$F_1(\omega) = -H(\omega)$とする。そして、$\theta = 0$で一様分布
 \begin{equation}
     u = \qty(\frac{1}{n},\cdots,\frac{1}{n})
 \end{equation}
@@ -1703,7 +1762,7 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
 \begin{align}
     p_{\theta}(\omega) &= \exp\left[ -\theta H(\omega) - \psi(\theta) \right]
 \end{align}
-となる。このとき、この測地線と、
+となる。\footnote{$\theta = 0$で一様分布になってほしいので、$C(\omega)=0$とする。}このとき、この測地線と、
 \begin{equation}
     \Gamma_{\eta} = \{q \in \mathcal{S}; E_q[-H] = \eta \}
 \end{equation}
@@ -1713,16 +1772,26 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
     $M$と$\Gamma_{\eta}$が共有点を持つならば、その点において、$M$と$\Gamma_{\eta}$は直交する。また、このときの$M$と$\Gamma_{\eta}$の共有点はただ一つに定まる。
 \end{itembox}
 
-このとき、一般化Pythagorasの定理より、
+したがって、一般化Pythagorasの定理より、
 \begin{align}
-    P_{\theta_*} &= \underset{q \in \Gamma_\eta}{\text{argmin}} \qty{D^e(u||q)} \\
+    p_{\theta_*} &= \underset{q \in \Gamma_\eta}{\text{argmin}} \qty{D^e(u||q)} \\
     &= \underset{q \in \Gamma_\eta}{\text{argmin}} \qty{D^m(q||u)}\\
     &= \underset{q \in \Gamma_\eta}{\text{argmin}} \sum_{\omega \in \Omega} q(\omega) \log \frac{q(\omega)}{u(\omega)}\\
     &= \underset{q \in \Gamma_\eta}{\text{argmin}} \{\log n -S(q)\}\\
     &= \underset{q \in \Gamma_\eta}{\text{argmax}} \{S(q)\}
 \end{align}
 となる。これは、確率変数$F_1(\omega) = -H$の期待値が一定であるもとで、Shanonエントロピー$S(q)$を最大にする確率分布は、
-$\Gamma_{\eta}$から測地線に下した垂線の足$P_{\theta_*}$に一致することを示している。ところで、
+$\Gamma_{\eta}$から測地線に下した垂線の足$P_{\theta_*}$に一致することを示している。
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{entropy.png}
+    \end{center}
+    \caption{エネルギー期待値が一定の面の中で一様分布に最も近い分布が$p_{\theta_*}$である。}
+    \label{fig:one}
+\end{figure}
+
+ところで、
 \begin{align}
     \log Z(\theta) &= \Psi(\theta)\\
     \beta &= \theta_{*}
@@ -1733,8 +1802,56 @@ $\Gamma_{\eta}$から測地線に下した垂線の足$P_{\theta_*}$に一致す
     &= \exp\left[ -\beta H(\omega) - \psi(\beta) \right]\\
     &= \frac{1}{Z(\beta)} \exp\left[ -\beta H(\omega) \right]
 \end{align}
-となる。これは、エネルギー期待値が一定の下で、エントロピーを最大にする分布がカノニカル分布であることを表している。
+となり、見慣れたカノニカル分布の形になる。\\
+以上をまとめると、最大エントロピー原理は、情報幾何の立場では、拘束条件のもとで、一様分布分布との距離のようなもの(KLダイバージェンス)を最小しようという話になる。\\
 
-
+また、測地線の式の両辺の対数をとって、$p_{\theta}$に関する期待値をとると、
+\begin{align}
+    \Psi(\theta) &= S(p_{\theta}) - \theta E_{p_{\theta}}[H]
+\end{align}
+となる。このとき、$\mathcal{S}$の任意の確率分布$r$と、カノニカル分布$p_{\beta}$とのKLダイバージェンスは、
+\begin{align}
+    D(r||p_{\beta}) &= \sum_{\omega \in \Omega} r(\omega) \log \frac{r(\omega)}{p_{\beta}(\omega)}\\
+    &= -S(r) \beta E_r[H] + \Psi(\beta)\\
+    &= -(S(r) - \beta E_r[H]) + (S(p_{\beta}) - \beta E_{p_{\beta}}[H])
+\end{align}
+となる。したがって、ダイバージェンスの正値性から、
+\begin{align}
+    S(p_{\beta}) - \beta E_{p_{\beta}}[H] \geq S(r) - \beta E_r[H]
+\end{align}
+となる。ここで、
+\begin{align}
+    F(r) = E_r[H] - \frac{1}{\beta}S(r)
+\end{align}
+とおくと、
+\begin{align}
+    p_{\beta} = \underset{r}{\text{argmin}} F(r)
+\end{align}
+となる。これは、自由エネルギーの最小化原理である。注意されたいこととして、自由エネルギーを最小化するという立場では、拘束条件は特にない。\\
+こうして、拘束条件の下での最小化問題を、拘束条件なしでの最小化問題に言い換えられたわけだが、この議論で鍵になったのはKLダイバージェンスの正値性であった。ところで、ダイバージェンスの正値性はルジャンドル変換と結びついていた。したがって、エントロピーと自由エネルギーとの関係がルジャンドル変換によって表されるのではないかと考えられる。\footnote{物理の人はルジャンドル変換を最初から用いることが多い。}\\
+今、ダイバージェンスの正値性と同等なルジャンドル変換の関係式は、
+\begin{align}
+    \psi(\theta_\beta) = \max_{r \in \mathcal{S}}\{\theta^i(p_\beta)\eta_i(r) - \varphi(\eta(r))\}
+\end{align}
+であった。いま、
+\begin{align}
+    \theta^1(p_\beta) &= \beta\\
+    \theta^n(p_\beta) &= 0 \quad (n\geq 2)\\
+    \eta_1(r) &= -E_r[H]\\
+    \phi(\eta(r)) &= -S(r)
+\end{align}
+であるから、
+\begin{align}
+    \log Z(\theta(p_\beta)) = \max_{r \in \mathcal{S}}\{-\beta E_r[H] + S(r)\}
+\end{align}
+となる。とくに$\beta >0$のとき、
+\begin{align}
+    -\frac{1}{\beta}\log Z(\theta(p_\beta)) = \min_{r \in \mathcal{S}}\{E_r[H] - \frac{1}{\beta}S(r)\}
+\end{align}
+となる。この右辺は自由エネルギーであり、とくに$r = p_\beta$のとき最小値をとる。したがって、
+\begin{align}
+    -\frac{1}{\beta}\log Z(\theta(p_\beta)) = F(p_\beta)
+\end{align}
+となる。これは統計物理においてよく知られた関係式である。\\
 
 \end{document}
