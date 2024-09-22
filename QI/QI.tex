@@ -1,0 +1,547 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{量子情報}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{はじめに}
+量子情報科学入門、堀田量子などを参考に量子情報周りの話をまとめておく。
+
+\section{量子状態/量子操作}
+\subsection{量子状態}
+\subsubsection{密度演算子}
+一般的な量子力学において、量子状態は以下のように与えられる。
+\begin{itembox}[l]{\textbf{Axiom.}}
+    量子系には複素ヒルベルト空間$\mathcal{H}$が対応しており、系の状態は$\mathcal{H}$の単位ベクトルによって表される。
+    物理量は$\mathcal{H}$上のエルミート演算子によって表され、測定値はその固有値で与えられる。物理量$A$を測定するとき、測定値$a$が得られる確率は、
+    \begin{align}
+        \Pr(a) = \bra{\psi}P_a\ket{\psi}
+    \end{align}
+    で与えられる。ただし、$P_a$は$A$の固有値$a$に対応する射影演算子である。
+\end{itembox}
+ただし、これは、「実現可能な状態は、ヒルベルト空間の単位ベクトルでのみ表現される」ということまでは意味していない。実際、単位ベクトルのみではあらわすことができない状態が存在する。\\
+例えば、確率$\frac{1}{2}$で状態$\ket{0}$が、確率$\frac{1}{2}$で状態$\ket{1}$が得られる状態を考える。このとき、適当な基底測定$\ket{\phi_0}, \ket{\phi_1}$を考えると、測定値が$j$となる確率は、
+\begin{align}
+    \Pr(j) &= \Pr((j \cap \ket{0}) \cup (j \cap \ket{1}))\\
+    &= \Pr(j \cap \ket{0}) + \Pr(j \cap \ket{1})\\
+    &= \Pr(j|\ket{0})\Pr(0) + \Pr(j|1)\Pr(\ket{1})
+\end{align}
+で与えられる。ここで、$\Pr(j|\ket{0}) = \abs{\braket{\phi_j}{0}}^2,\quad \Pr(j|\ket{1}) = \abs{\braket{\phi_j}{1}}^2$である。したがって、
+\begin{align}
+    \Pr(j) &= \frac{1}{2}\abs{\braket{\phi_j}{0}}^2 + \frac{1}{2}\abs{\braket{\phi_j}{1}}^2\\
+    &= \frac{1}{2}
+\end{align}
+となる。すなわち、この状態は、任意の基底測定に対して測定値が確率的に決まる状態である。これは、基底ベクトルのみで表される状態ではありえない。このような状態を\textbf{混合状態}という。また、単位ベクトルのみで表される状態を\textbf{純粋状態}という。
+このときの混合状態の起源は、系に関する情報の不足に由来している。\\
+混合状態も含めて量子状態を表現するために、密度行列を導入する。一般の状態$s= \{ p_i, \ket{\psi_i} \}$(確率$p_i$で状態$\ket{\psi_i}$が得られる状態)に対して、密度行列$\rho$は、以下のように定義される。
+\begin{align}
+    \rho = \sum_i p_i\ket{\psi_i}\bra{\psi_i}
+\end{align}
+このとき、物理量$A$の測定値が$a$である確率は、
+\begin{align}
+    \Pr(a) = \Tr(P_a\rho)
+\end{align}
+で与えられる。実際、\\
+%TODO あとで書く
+とくに、密度行列は、以下の性質を持つ。
+\begin{enumerate}
+    \item $\rho \geq 0$ 
+    \item $\Tr(\rho) = 1$ 
+\end{enumerate}
+実際、任意のベクトル$\ket{\xi} \in \mathcal{H}$に対して、
+\begin{align}
+    \bra{\xi}\rho\ket{\xi} &= \sum_i p_i\abs{\braket{\xi}{\psi_i}}^2\\
+    &\geq 0
+\end{align}
+である。また、
+\begin{align}
+    \Tr(\rho) = \sum_i p_i\braket{\psi_i}{\psi_i} = 1
+\end{align}
+である。\\
+これらの性質を踏まえて、密度演算子を以下のように再定義する。
+
+\begin{itembox}[l]{\textbf{Def.密度演算子}}
+    量子系の状態を表す密度演算子$\rho$は、以下の性質を持つエルミート演算子である。
+    \begin{enumerate}
+        \item $\rho \geq 0$
+        \item $\Tr(\rho) = 1$
+    \end{enumerate}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:混合状態の混合は混合状態}}
+    混合状態$\rho_1, \rho_2$に対して、
+    \begin{align}
+        \rho = p\rho_1 + (1-p)\rho_2
+    \end{align}
+    は、密度演算子である。
+\end{itembox}
+\textbf{Prf.}\\
+密度演算子の性質を確認する。
+\begin{enumerate}
+    \item $\rho \geq 0$\\
+    $\rho_1, \rho_2 \geq 0$であるから、$p\rho_1 + (1-p)\rho_2 \geq 0$である。
+    \item $\Tr(\rho) = 1$\\
+    $\Tr(\rho) = p\Tr(\rho_1) + (1-p)\Tr(\rho_2) = p + (1-p) = 1$
+\end{enumerate}
+したがって、$\rho$は密度演算子である。\qed\\
+とくに$p \in(0,1)$について、このように用意された状態を\textbf{非自明な確率混合}によって用意された状態という。\\
+
+\begin{itembox}[l]{\textbf{Def.状態空間}}
+    密度演算子の集合
+    \begin{align}
+        \mathcal{S}(\mathcal{H}) = \{ \rho \in \mathcal{L}(\mathcal{H}) | \rho \geq 0, \Tr(\rho) = 1 \}
+    \end{align}
+    を\textbf{状態空間}という。
+\end{itembox}
+このとき、前の命題から、状態空間は凸集合であることがわかる。\\
+
+\begin{itembox}[l]{\textbf{Thm.純粋状態の特徴づけ}}
+    $\rho$を$\mathcal{H}$上の密度演算子とする。このとき、以下の(1)-(5)は同値である。
+    \begin{enumerate}
+        \item $\rho$は純粋状態である。
+        \item $\rho^2 = \rho$
+        \item $\Tr(\rho^2) = 1$
+        \item $\rank(\rho) = 1$
+        \item $\rho$は$\mathcal{S}(\mathcal{H})$の端点である。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1)$\Rightarrow$(2),(2)$\Rightarrow$(3)は明らかである。\\
+(3)$\Rightarrow$(4)$\Rightarrow$(1)\\
+$\Tr(\rho^2) = 1$であるから、$\sum_i p_i^2 = 1$である。したがって、ある$i$に対して$p_i = 1$であり、他の$p_j = 0$である。すなわち、rank$(\rho) = 1$である。またこのとき、
+\begin{align}
+    \rho = \ketbra{i}{i}
+\end{align}
+である。したがって、$\rho$は純粋状態である。\\
+(1)$\Rightarrow$(5)\\
+
+(5)$\Rightarrow$(1)\\
+hoge\qed\\
+
+これを踏まえて、混合状態と純粋状態を以下のように再定義する。
+\begin{itembox}[l]{\textbf{Def.純粋状態/混合状態}}
+    非自明な確率混合により用意できる状態を混合状態をいい、用意できない状態を純粋状態という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:純粋度}}
+    $\Tr(\rho^2)$を状態$\rho$の\textbf{純粋度}といい、
+    \begin{align}
+        \frac{1}{d} \leq \Tr(\rho^2) \leq 1
+    \end{align}
+    である。ただし、$d$は$\mathcal{H}$の次元である。
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+    \Tr(\rho^2) = \sum_i p_i^2 \leq \sum_i p_i = 1
+\end{align}
+である。また、等号が成立するのは、$\rho$が純粋状態のときである。また、左側の不等式は、ラグランジュの未定乗数法を用いて示すことができる。\qed\\ %TODO あとで書く
+とくに、左の等号が成立するような状態を、\textbf{全混合状態}という。\\
+
+\subsubsection{Blochベクトル}
+
+\subsubsection{縮約状態}
+確率混合以外の量子状態の拡張を考える。ここでは、合成系から、その部分系を導くことを考える。\\
+着目している系を$S$, それ以外の系(環境系)を$E$とし、それに付随するヒルベルト空間を$\mathcal{H}_S, \mathcal{H}_E$とする。また、合成系に付随するヒルベルト空間を$\mathcal{H}_{SE} = \mathcal{H}_S \otimes \mathcal{H}_E$とする。\\
+縮約状態を考えるうえで、以下の数学的操作を考える。
+\begin{itembox}[l]{\textbf{Def.部分トレース}}
+    E上の部分トレースとは、以下で定義される$\mathcal{L}(\mathcal{H}_{SE})$から$\mathcal{L}(\mathcal{H}_S)$への線形写像である。
+    \begin{align}
+        C = \sum_{j} A_j \otimes B_j \mapsto \Tr_E(C) = \sum_j \Tr(B_j)A_j
+    \end{align}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.部分トレースの性質}}
+    \begin{enumerate}
+        \item 部分トレースの定義は以下と等価である：任意の $C \in \mathcal{L}(\mathcal{H}_S \otimes \mathcal{H}_E)$ に対して、
+        $\Tr_E C \in \mathcal{L}(\mathcal{H}_S)$は、
+        \begin{align}
+        \forall \phi, \psi \in \mathcal{H}_S, \quad (\psi|(\Tr_E C) \phi) := \sum_k \bra{\psi \otimes e_k } C \ket{ \phi \otimes e_k} 
+        \end{align}
+        で定義される線形演算子である。ただし、$\{ e_k \}$ は $\mathcal{H}_E$ の任意の正規直交基底。
+    
+        \item 任意の $A \in \mathcal{L}(\mathcal{H}_S), C \in \mathcal{L}(\mathcal{H}_S \otimes \mathcal{H}_E)$ に対して、
+        \begin{align}
+        \Tr(A \otimes \mathbb{I}_E)C = \Tr(A (\Tr_E C)).
+        \end{align}
+    
+        \item 任意の正値演算子 $C \in \mathcal{L}(\mathcal{H}_S \otimes \mathcal{H}_E)$ に対して、$\Tr_E C$ は正値演算子である。
+    
+        \item 
+        \begin{align}
+        \Tr_E(\alpha C_1 + \beta C_2) = \alpha (\Tr_E C_1) + \beta (\Tr_E C_2)
+        \end{align}
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+面倒なので後で書く\qed\\
+
+\begin{itembox}[l]{\textbf{Def.縮約状態}}
+    系$S$の状態を表す密度演算子$\rho_S$は、合成系$SE$の状態を表す密度演算子$\rho_{SE}$に対して、
+    \begin{align}
+        \rho_S = \Tr_E(\rho_{SE})
+    \end{align}
+    で定義される。このような$\rho_S$が表す状態を系$S$の\textbf{縮約状態}という。また、この$\rho_S$を$\rho_{SE}$の\textbf{縮約密度演算子}という。
+\end{itembox}
+ここでは、縮約状態の定義を与えたが、実際には、縮約状態を「系$S$の任意の物理量の測定値の確率分布を与えるもの」と定義すると、縮約密度演算子が縮約状態を与えることを示すことができる。
+\footnote{
+    $\sigma_S$が系$S$の縮約状態であるとすると、
+    \begin{align}
+        \Pr(a|A,\sigma_S) &= \Tr(P_a \otimes \mathbb{I}_E \rho_{SE})\\
+        &= \Tr(P_a (\Tr_E \rho_{SE})) \quad (\because \text{Thm.部分トレースの性質(2)})\\
+        &= \Tr(P_a \rho_S) \quad (\because \text{縮約密度演算子の定義})
+    \end{align}
+    である。したがって、縮約密度演算子は、系$S$の物理量の測定値の確率分布を与えるものである。
+}
+
+次に、あらゆる混合状態は、合成系の純粋状態の縮約状態として表現できることを示す。
+\begin{itembox}[l]{\textbf{Thm.純粋化}}
+    系$S$の任意の密度演算子$\rho_S$は、適当な補助系$A$を用いて、合成系$SA$のある純粋状態の縮約状態密度演算子として表現できる。
+\end{itembox}
+\textbf{Prf.}\\
+$\mathcal{H}_A$を$\mathcal{H}_S$と同じ次元dを持つヒルベルト空間とし、$\mathcal{H}_{A}$に付随する量子系Aを考える。このとき、
+$\rho_S = \sum_i q_i \ket{s_i}\bra{s_i}$を$\rho_S$の固有分解と、$\{\ket{a_i}\}$を$\mathcal{H}_A$の正規直交基底とする。このとき、
+\begin{align}
+    \ket{\psi} = \sum_i \sqrt{q_i}\ket{s_i}\otimes\ket{a_i}
+\end{align}
+とすると、$\ket{\psi}$は$\mathcal{H}_{SA}$の単位ベクトルとなる。実際、
+\begin{align}
+    \braket{\psi}{\psi} &= \sum_{i,j} \sqrt{q_iq_j}\braket{s_i}{s_j}\braket{a_i}{a_j}\\
+    &= \sum_i q_i\braket{s_i}{s_i}\braket{a_i}{a_i}\\
+    &= \sum_i q_i = 1
+\end{align}
+である。したがって、$\rho_{SA} = \ket{\psi}\bra{\psi}$は$\mathcal{H}_{SA}$の純粋状態である。また、
+\begin{align}
+    \Tr_A(\rho_{SA}) &= \sum_{i,j} \sqrt{q_iq_j}(\Tr_A\ket{a_i}\bra{a_j})\ket{s_i}\bra{s_j}\\
+    &= \sum_i q_i\ket{s_i}\bra{s_i} = \rho_S
+\end{align}
+である。したがって、$\rho_S$は$\rho_{SA}$の縮約状態である。\qed\\
+
+このことから、全系が純粋状態であっても、部分系が混合状態になりうることがわかる。以下に見るように、この混合状態の由来は、状態の「相関」に由来している。
+
+\begin{itembox}[l]{\textbf{Def.相関}}
+
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.相関と縮約状態}}
+    合成系S$+$Eの状態$\rho_{SE}$に対して、縮約状態が純粋状態であるならば、系Sと系Eは無相関である。
+\end{itembox}
+\textbf{Prf.}\\
+一般性を失うことなく、$\rho_{SE}$を純粋状態にとることができる。\footnote{必要に応じて純粋化すればよい。}
+よって、$\ket{\psi}\in \mathcal{H}_{SE}$を単位ベクトルとして、
+\begin{align}
+    \rho_{SE} = \ket{\psi}\bra{\psi}
+\end{align}
+とする。このとき、Schmidt分解により、
+\begin{align}
+    \ket{\psi} = \sum_i \sqrt{p_i}\ket{s_i}\otimes\ket{e_i}
+\end{align}
+と書ける。ただし、$\{\ket{s_i}\}, \{\ket{e_i}\}$はそれぞれ系S, 系Eの正規直交基底である。このとき、
+\begin{align}
+    \rho_{S} &= \Tr_E(\rho_{SE})\\
+    &= \sum_{i,j} \sqrt{p_ip_j}\ket{s_i}\bra{s_j}(\Tr\ket{e_i}\bra{e_j})\\
+    &= \sum_i p_i\ket{s_i}\bra{s_i}(\Tr\ket{e_i}\bra{e_i})\\
+    &= \sum_i p_i\ket{s_i}\bra{s_i}
+\end{align}
+である。いま、縮約状態が純粋状態であるから、ある$i$に対して$p_i = 1$であり、他の$p_j = 0$である。したがって、
+\begin{align}
+    \rho_{SE} = \ket{s_i}\bra{s_i}\otimes\ket{e_i}\bra{e_i}
+\end{align}
+である。したがって、密度演算子が積状態で書けていることから、系Sと系Eは無相関である。\qed\\
+
+これの対偶より、系Sと系Eが相関を持つとき、縮約状態は混合状態であることがわかる。例えば、純粋エンタングル状態の部分系は、混合状態である。\\
+
+\subsubsection{測定}
+あらゆる測定が満たすべき条件として、以下のようなものがある。\footnote{ここでいう測定は物理量の測定に限らないらしいが、物理量以外に何があるのかわからん。}
+\begin{align}
+    \Pr(m | M, p\rho_1 + (1-p)\rho_2) = p\Pr(m | M, \rho_1) + (1-p)\Pr(m | M, \rho_2)
+\end{align}
+$\because$
+\begin{align}
+    \Pr(m | M, p\rho_1 + (1-p)\rho_2) &= \Pr(m \cap \rho_1| M) + \Pr(m \cap \rho_2| M)\\
+    &= p\Pr(m | M, \rho_1) + (1-p)\Pr(m | M, \rho_2)
+\end{align} 
+\qed\\
+すなわち、\textbf{任意の測定はアフィン性を持つ}。ところで、このような性質を持つ測定は、以下で見るように、\textbf{POVM測定}として一般化される。
+
+\begin{itembox}[l]{\textbf{Def.POVM/POVM測定}}
+    $\mathcal{H}$上の線形演算子がPOVM(Positive Operator Valued Measure)であるとは、$\{E_m \in \mathcal{L}(\mathcal{H})\}_{m \in \mathcal{M}}$が、
+    \begin{enumerate}
+        \item $E_m \geq 0$
+        \item $\sum_m E_m = \mathbb{I}$
+    \end{enumerate}
+    を満たすことをいう。また、POVM測定とは、状態$\rho$の下で、測定値$m \in \mathcal{M}$が得られる確率が、あるPOVM$\{E_m\}$によって、
+    \begin{align}
+        \Pr(m) = \Tr(E_m\rho)
+    \end{align}
+    で与えられる測定をいう。
+\end{itembox}
+このとき、$\Tr(E_m\rho)$は確率分布となっている。実際、
+\begin{align}
+    \Tr(E_m\rho) &= \sum_{i}q_i\bra{\phi_i}E_m\ket{\phi_i}\\
+    &\geq 0
+\end{align}
+であり、
+\begin{align}
+    \sum_m \Tr(E_m\rho) &= \sum_i q_i\sum_m \bra{\phi_i}E_m\ket{\phi_i}\\
+    &= \sum_i q_i\braket{\phi_i}{\phi_i} = 1
+\end{align}
+である。$\Tr$の線形性から、POVM測定はアフィン性を持つことがわかる。しかも、以下に示されるように、任意のアフィン性を持つ測定は、POVM測定として表現できる。
+
+\begin{itembox}[l]{\textbf{Thm.}}
+    アフィン性を持つ任意の測定は、POVM測定として表現できる。
+\end{itembox}
+\textbf{Prf.}\\
+
+また、物理的な操作として、あらゆるPVOM測定は\textbf{間接測定}として表現できる。すなわち、POVM測定は、量子系において最も一般的な測定である。
+\begin{itembox}[l]{\textbf{Def.間接測定}}
+    系$S$の初期状態を$\rho$とし、系$S$と相関がないように用意した補助系$A$を、初期状態を$\sigma$として用意する。このとき、全体系の初期状態は、
+    \begin{align}
+        \rho_S \otimes \sigma_A
+    \end{align}
+    である。全系をユニタリ発展させて、補助系の物理量$B$(\textbf{メータ物理量})を測定する。この一連の操作によって、メータ物理量の測定値$m$が得られる確率は、
+    \begin{align}
+        \Pr(m|M,\rho) = \Tr_{SA}(\mathbb{I}_S \otimes P_m U (\rho \otimes \sigma)U^\dagger)
+    \end{align}
+    となる。これを系$S$の\textbf{間接測定}という。
+\end{itembox}
+このとき、系$S$に関する間接測定$M$は、補助系のヒルベルト空間$\mathcal{H}_A$,初期状態$\sigma \in \mathcal{S}(\mathcal{H}_A)$,時間発展演算子$U \in \mathcal{L}(\mathcal{H}_A)$,補助系のメータ物理量$B \in \mathcal{L}(\mathcal{H}_A)$によって特徴づけられる。\\
+間接測定はアフィン性を満たすので、(トレースの線形性から)POVM測定として表現できる。実際、$E_m = \Tr_A(\mathbb{I}_S \otimes \sigma U^\dagger \mathbb{I}_S \otimes P_m U)$とすると、
+\begin{align}
+    \Pr(m|M,\rho) &=  \Tr_{SA}(\mathbb{I}_S \otimes P_m U (\rho \otimes \sigma)U^\dagger)\\
+    &= \Tr_{SA}((\rho \otimes \sigma)U^\dagger (\mathbb{I}_S \otimes P_m)U)\\
+    &= \Tr_{SA}(\rho \otimes \mathbb{I}_A)(\mathbb{I}_S \otimes \sigma)U^\dagger (\mathbb{I}_S \otimes P_m)U\\
+    &= \Tr_{S}(\rho \Tr_A(\mathbb{I}_S \otimes P_m U^\dagger \mathbb{I}_S \otimes \sigma U))\\
+    &= \Tr_{S}(\rho E_m)
+\end{align}
+である。さらに、ユニタリ発展は演算子の正値性を保つので、\footnote{
+    \begin{align}
+    \bra{\psi}(UAU^\dagger)\ket{\psi} = \bra{\psi}U^\dagger A U^\dagger\ket{\psi} \geq 0
+    \end{align}
+}
+$E_m \geq 0$である。さらに、
+\begin{align}
+    \sum_m E_m &= \sum_m \Tr_A(\mathbb{I}_S \otimes \sigma U^\dagger \mathbb{I}_S \otimes P_m U)\\
+    &= \Tr_A(\mathbb{I}_S \otimes \sigma U^\dagger \mathbb{I}_S \otimes \mathbb{I}_A U)\\
+    &= \Tr_A(\mathbb{I}_S \otimes \sigma U^\dagger U)\\
+    &= \mathbb{I}_S
+\end{align}
+である。したがって、間接測定はPOVM測定である。\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+    任意のPOVM測定は、ある間接測定で実現することができる。とくに、補助系の初期状態は純粋状態から選ぶことができる。
+\end{itembox}
+\textbf{Prf.}\\
+任意のPOVM$\{E_m\}_{m \in \mathcal{M}}$を固定する。このとき、
+\begin{align}
+    \Tr_{S}(E_m\rho) &= \Tr_{SA}(\mathbb{I}_S \otimes P_m (U \rho \otimes \sigma)U^\dagger) \quad \forall m =1,2,\cdots,n
+\end{align}
+となるような$(\mathcal{H}_A, \sigma, U,B = \sum_{m=1}^n mP_m)$が存在することを示せばよい。\\
+hoge
+
+\subsection{時間発展}
+純粋系の量子力学において、閉じた系の時間発展はユニタリ演算子によって記述されるのであった。しかし、例えば測定を行ったり、外部系との相互作用を入れたりすると、非ユニタリな時間発展が生じる。このような時間発展も含めて、一般の時間発展を考える。\\
+ここでは、系の時間発展を記述する際、入力と出力の量子状態が必ずしも同じ系の状態である必要はないとする。\footnote{例えば、光子Aを入力として電子Bにぶつけて、電子Bを観測するとき、入力と出力の系は異なる。}量子状態の時間発展は、時間発展写像
+\begin{align}
+    \Lambda : \mathcal{S}(\mathcal{H_A}) &\to \mathcal{S}(\mathcal{H_B})\\
+    \rho &\mapsto \Lambda(\rho)
+\end{align}
+によって記述される。ここで、$\mathcal{H_A}, \mathcal{H_B}$はそれぞれ入力系、出力系のヒルベルト空間である。また、$\Lambda$はアフィン性を満たす。すなわち、
+\begin{align}
+    \Lambda(p\rho + (1-p)\sigma) = p\Lambda(\rho) + (1-p)\Lambda(\sigma)
+\end{align}
+である。\\
+hogehoge
+%CP写像の定義と性質を書く
+
+%時間発展演算子を\mathcal{L}(H_A)から\mathcal{L}(H_B)への線形写像まで拡張する議論を書く
+
+% \begin{itembox}[l]{\textbf{Thm.CP写像の特徴づけ}}
+%     線形写像$\lambda : \mathcal{L}(\mathcal{H_A}) \to \mathcal{L}(\mathcal{H_B})$がCP写像であることと、以下の3つの条件は同値である。
+%     \begin{enumerate}
+%         \item $\lambda$が$d_A$-正写像である。
+%         \item hoge
+%         \item hoge
+%     \end{enumerate}
+% \end{itembox}
+% \textbf{Prf.}\\
+% hoge\qed\\
+
+%時間発展演算子を\mathcal{L}(H_A)から\mathcal{L}(H_B)への線形写像まで拡張する議論を書く
+
+%Kraus表現の話をする
+
+また、物理的な側面から、時間発展演算子がCP写像になることを説明できる。例えば、系$A,B$以外にn準位系をもつ系を考えると、
+\begin{align}
+    \Lambda \otimes \mathcal{I}_n :\mathcal{L}(\mathcal{H_A}) \otimes \mathbb{C}^n \to \mathcal{L}(\mathcal{H_B}) \otimes \mathbb{C}^n
+\end{align}
+なる時間発展を考えることができる。ところで、上の議論により、この時間発展演算子も正値性を持つことになる。いま、$n$が任意であることを踏まえると、時間発展演算子はCP写像である。\\
+以上の議論より、\textbf{任意の時間発展はTPCP写像によって記述される}。
+
+%stinespring表現の話をする
+
+\subsection{一般の測定}
+\subsubsection{一般の測定過程}
+前に触れたPOVM測定は、測定値の確率分布を一般に記述するためのものであるが、測定後の状態を記述するわけではない。ここでは、測定後の状態の変化まで考える。\\
+測定過程は(1)\textbf{選択測定}と(2)\textbf{非選択測定}に分けられる。\\
+(1)選択測定は、測定値の情報を持つ測定であり、
+\begin{align}
+    \rho \mapsto \rho_m
+\end{align}
+を記述する。また、(2)非選択測定は、測定値の情報を持たない測定であり、測定後の状態を確率混合で記述する。すなわち、
+\begin{align}
+    \rho \mapsto \rho' = \sum_{m \in \mathcal{M}} \Pr(m|M,\rho)\rho_m
+\end{align}
+を記述する。\\
+選択測定の測定後の状態$\rho_m$は、測定$M$の後に新しい測定$N$を行ったときの確率分布$P(n|N,\rho_m)$を定めることになる。このような、複数の測定を順番に測定する測定を\textbf{継続測定}という。例えば、測定$M$を行って測定値$m$を得たのち、測定$N$を行うという操作を考える。
+このもとで、測定値$n$を得る確率は、
+\begin{align}
+    \Pr(m,n|M \to N, \rho) = \Pr(n|N,\rho_m)\Pr(m|M,\rho)
+\end{align}
+である。ところで、測定$N$については測定後の状態に興味がないのでPOVM測定として記述できる。したがって、
+\begin{align}
+    \Pr(n|N,\rho_m) = \Tr(E_n\rho_m)
+\end{align}
+である。\\
+さて、測定前後の状態を結ぶ写像を考える。このとき、
+\begin{align}
+    \rho'_m = \Pr(m|M,\rho)\rho_m
+\end{align}
+を用いて、
+\begin{align}
+    \rho \mapsto \Lambda_m(\rho) = \rho'_m
+\end{align}
+とする。このような写像を構成すると、これはアフィン性を持つ。実際、
+\begin{align}
+    \Pr(m,n|M \to N, \rho) &= \Tr(E_n\rho'_m)\\
+    &= \Tr(E_n\Lambda_m(\rho))
+\end{align}
+であるから、
+\begin{align}
+    \Lambda_m(p\rho_1 + (1-p)\rho_2) &= p\Lambda_m(\rho_1) + (1-p)\Lambda_m(\rho_2)
+\end{align}
+である。したがって、$\Lambda_m$はアフィン性を持つ。\\
+このとき、写像$\Lambda_m$には測定値を得る確率についての情報も含まれている。実際、上の二式より、
+\begin{align}
+    \Pr(m|M,\rho) = \Tr(\Lambda_m(\rho))
+\end{align}
+である。また、測定後の状態は、
+\begin{align}
+    \rho_m = \frac{\Lambda_m(\rho)}{\Tr(\Lambda_m(\rho))}
+\end{align}
+である。これによって、選択測定が記述できた。\\
+また、非選択測定については、測定後の状態が$\sum_{m \in \mathcal{M}} \Tr(\Lambda_m(\rho))\rho_m$であることから、新しい写像
+\begin{align}
+    \Lambda(\rho) = \sum_{m \in \mathcal{M}} \Lambda_m(\rho)
+\end{align}
+を導入することで、
+\begin{align}
+    \rho \mapsto \rho' = \Lambda(\rho)
+\end{align}
+を記述できる。
+
+このとき、$\Lambda_{m}$はCP写像となる。実際、正値性については、$A \in \mathcal{L}(\mathcal{H})$に対して、
+\begin{align}
+    a &= \Tr A\\
+    A &= a\rho\\
+    \rho &= \frac{A}{a}
+\end{align}
+とすると、
+\begin{align}
+    \Lambda'_m(A) &= a\Lambda_m(\rho)\\
+    &\geq 0
+\end{align}
+である。また、CP正については、時間発展のときと同様ほかの系を導入することで示すことができる。\\
+しかし、$\Lambda_m$はトレース保存性は満たさない。他方、$\Lambda$はトレース保存性を満たす。実際、
+\begin{align}
+    \Tr(\Lambda(\rho)) &= \sum_{m \in \mathcal{M}} \Tr(\Lambda_m(\rho))\\
+    &= \sum_{m \in \mathcal{M}} \Pr(m|M,\rho)\\
+    &= 1
+\end{align}
+である。したがって、$\Lambda$はTPCP写像である。\\
+このように、各$m \in \mathcal{M}$に対して、$\Lambda_m$がCP写像であり、$\Lambda$がTPCP写像であるとき、組$\{\Lambda_m\}_{m \in \mathcal{M}}$を\textbf{CP-インストルメント}という。
+以上の議論により、\textbf{任意の測定はCP-インストルメントによって記述できる}。\\
+ところで、CP写像はクラウス表現を持つのであった。すなわち、CP-インストルメント$\{\Lambda_m\}_{m \in \mathcal{M}}$は、
+ある演算子$V_{k}^{(m)} : \mathcal{H_A} \to \mathcal{H_B}\quad (k = 1,2,\cdots,l_m)$によって、
+\begin{align}
+    \Lambda_m(A) = \sum_{k}V_{k}^{(m)}AV_{k}^{(m)\dagger}
+\end{align}
+と表現できる。とくに、$\Lambda$はトレース保存性を持つので、
+\begin{align}
+    \sum_{m}\sum_{k}V_{k}^{(m)\dagger}V_{k}^{(m)} = \mathbb{I}
+\end{align}
+である。\\
+特別な場合として、各$m$に対応する測定演算子が一つだけの場合、すなわち$l_m = 1$の場合を考える。このとき、選択測定は、
+\begin{align}
+    \Pr(m|M,\rho) &= \Tr(V_m^\dagger V_m \rho)\\
+    \rho_m &= \frac{V_m\rho V_m^\dagger}{\Tr(V_m^\dagger V_m \rho)}
+\end{align}
+で記述される。このような測定過程の具体例をみていく。\\
+\textbf{Ex.射影測定}\\
+$\{P_m\}_{m \in \mathcal{M}}$を$\mathcal{H}$上の射影演算子の集合とする。このとき、
+\begin{align}
+    P_m = P_m^\dagger = P_m^2
+\end{align}
+かつ
+\begin{align}
+    \sum_{m \in \mathcal{M}}P_m = \mathbb{I}
+\end{align}
+であるから、これは測定演算子の集合である。このとき、選択測定は、
+\begin{align}
+    \Pr(m|M,\rho) &= \Tr(P_m\rho)\\
+    \rho_m &= \frac{P_m\rho P_m}{\Tr(P_m\rho)}
+\end{align}
+で記述される。これは、閉じた系の純粋状態の量子力学における射影測定に一致する。\\
+\textbf{Ex.POVM測定}\\
+このとき、
+\begin{align}
+    \sum_{m \in \mathcal{M}}E_m = \sum_{m \in \mathcal{M}} (\sqrt{E_m})^\dagger\sqrt{E_m} = \mathbb{I}
+\end{align}
+であるから、これは$\{\sqrt{E_m}\}$が測定演算子の集合である。このとき、選択測定は、
+\begin{align}
+    \Pr(m|M,\rho) &= \Tr(E_m\rho)\\
+    \rho_m &= \frac{\sqrt{E_m}\rho \sqrt{E_m}}{\Tr(E_m\rho)}
+\end{align}
+で記述される。\\
+
+\subsubsection{測定の物理的実現}
+
+
+\end{document}  

@@ -526,4 +526,277 @@ $\tilde{U} = U - E_i$とおくと、
   p_i &= \frac{\exp(-\beta(u,\rho)E_{i})}{Z(\beta)}
 \end{align}
 
+\section{超伝導集中講義メモ}
+穴埋めの答えを書く。\\
+\subsection{London理論}
+\noindent
+(a)電子密度$n$のうち、数密度$n_s$の電子が超電導に寄与し、残りの電子$(n-n_s)$は超電導に寄与しないと考えるモデル。\\
+(b)$0$\\
+(c)連続的に増加する\\
+(d)0\\
+(e)1\\
+(f)$ \tau \to \infty$\\
+(g)
+\begin{align}
+  m^{*} \dv{v}{t} = -{e^{*}}\vb{E} - \frac{m^*}{\tau}\vb{v}
+\end{align}
+このとき、仮定より、第二項を無視することができる。\\
+(h)
+\begin{align}
+  \vb{j}_s = n(-e^{*})\vb{v}
+\end{align}
+(i)
+\begin{align}
+  \dv{\vb{j}_s}{t} = \frac{ne^{*2}}{m^*}\vb{E}
+\end{align}
+(j)
+\begin{align}
+  \pdv{t}\qty(\nabla \times \Lambda_{L}\vb{j}_s) = -\pdv{\vb{B}}{t}
+\end{align}
+(k)
+\begin{align}
+  \pdv{t}\qty(\nabla \times \Lambda_{L}\vb{j}_s + \vb{B}) = 0
+\end{align}
+(l)
+\begin{align}
+  -\Lambda_{L}\nabla \times \vb{j}_s
+\end{align}
+(m)
+\begin{align}
+  -\frac{\Lambda_{L}}{\mu_0}\nabla \times (\nabla \times \vb{B})
+\end{align}
+(n)
+\begin{align}
+  \frac{\Lambda_{L}}{\mu_0}\nabla^2 \vb{B}
+\end{align}
+(o)
+\begin{align}
+  \vb{B} = \frac{\Lambda_{L}}{\mu_0}\nabla^2 \vb{B}
+\end{align}
+より、一次元系なので、
+\begin{align}
+  \pdv[2]{B}{x} = \frac{\mu_0}{\Lambda_{L}}B
+\end{align}
+となる。この微分方程式を解けばよい。便宜のために、
+\begin{align}
+  \lambda^2_L = \frac{\Lambda_{L}}{\sqrt{\mu_0}}
+\end{align}
+とおくと、一般解は、
+\begin{align}
+  B(x) = B_1\exp(-\frac{x}{\lambda_L}) + B_2\exp(\frac{x}{\lambda_L})
+\end{align}
+となる。境界条件より、$x\to \infty$で$B(x) \to 0$であるから、$B_2 = 0$である。
+また、$x =0$で$B(x) = B_a$であるから、$B_1 = B_a$である。したがって、
+\begin{align}
+  B(x) = B_a\exp(-\frac{x}{\lambda_L})
+\end{align}
+となる。このとき、$x \to \infty$で$B(x) \to 0$であるから、これは、マイスナー効果を説明する。また、このときの$\lambda_L$を侵入長という。\\
+%TODO:図を挿入する
+(p, q)\\
+\begin{align}
+  \nabla \times \vb{B} = \mu_0\vb{j}_s  
+\end{align}
+である。左辺について、
+\begin{align}
+  \nabla \times \vb{B} = 
+  \begin{pmatrix}
+    0\\
+    -\pdv{B}{x}\\
+    0
+  \end{pmatrix}
+\end{align}
+である。すなわち、電流は$y$成分のみを持つ。
+\begin{align}
+  \mu_0j_{s,y} &= -\pdv{B}{x}\\
+  &= \frac{B_a}{\mu_0\lambda_L}\exp(-\frac{x}{\lambda_L})
+\end{align}
+である。これは、超伝導体の表面付近にのみ電流が流れることを表している。\\
+%TODO:図を挿入する
+(r)
+\begin{align}
+  \nabla \times \Lambda_L\vb{j}_s + \nabla \times \vb{A} = 0
+\end{align}
+\begin{align}
+  \nabla \times (\Lambda_L\vb{j}_s + \vb{A}) = 0
+\end{align}
+となることから、
+\begin{align}
+  \vb{j_s} = -\frac{1}{\Lambda_L}\vb{A}
+\end{align}
+となる。(Londonゲージ)\\
+(s)
+\begin{align}
+  -n_se^{*}\vb{v} = -\frac{n_se^{*}}{m^*}\vb{p}^* -\frac{n_se^{*2}}{m^*}\vb{A}
+\end{align}
+となる。このときの第一項が常磁性電流、第二項が反磁性電流である。とくに、超伝導体内では、ロンドン方程式の条件から、第一項が0になることがわかる。\\
+(t)
+\begin{align}
+  \frac{1}{2m}(p_1 + p_2)(p_1 - p_2) = \frac{1}{m}p(p_1-p_2)
+\end{align}
+となる。($p_1 \sim p_2 \sim p$)\\
+(u)
+\begin{align}
+  \Delta p \sim \frac{k_B T_{c}}{v_F}
+\end{align}
+(v)
+\begin{align}
+  \Delta r \sim \frac{\hbar v_F}{k_B T_{c}}
+\end{align}
+
+\subsection{GL理論}
+\noindent
+(a)時間反転対称性\\
+(b)$T \geq T_C$で$M=0$に極小を持つ$F(T,M)$が$T < T_C$で$M\neq 0$に極小をもてばよい。\\
+(c)ある温度$T_C$で符号を変える。\\
+(d)
+\begin{align}
+  A(T-T_C)
+\end{align}
+(e)正の定数\\
+(f)$B \geq 0$\\
+(g)
+\begin{align}
+  \pdv{F}{M} &= 2a_2(T)M + 4a_4(T)M^3=0
+\end{align}
+(h)
+\begin{align}
+  (A(T-T_C) + 2BM^2)M=0
+\end{align}
+(i)
+\begin{align}
+  2a_2(T)M + 4a_4(T)M^3 = H
+\end{align}
+(j)
+\begin{align}
+  \pdv[2]{F}{M}^{-1}
+\end{align}
+(k)
+\begin{align}
+  \pdv[2]{F}{M} = 2a_2(T) + 12a_4(T)M^2
+\end{align}
+
+\subsection{GL理論2}
+\noindent
+(a)超伝導電子の局所的な密度$n_s(\vb{r})$\\
+(b)
+\begin{align}
+  \alpha' \frac{T-T_{C}}{T_C}
+\end{align}
+(c)
+\begin{align}
+  \delta|\psi|^2 &= |\psi + \delta\psi|^2 - |\psi|^2\\
+  &= (\psi + \delta\psi)(\psi^* + \delta\psi^*) - \psi\psi^*\\
+  &= \psi\psi^* + \psi\delta\psi^* + \psi^*\delta\psi + \delta\psi\delta\psi^* - \psi\psi^*\\
+  &\simeq \psi\delta\psi^* + \psi^*\delta\psi 
+\end{align}
+(d)\\
+\begin{align}
+  \delta |\psi|^4 &= |\psi + \delta\psi|^4 - |\psi|^4\\
+  &= 2|\psi|^2(\psi\delta\psi^* + \psi^*\delta\psi) 
+\end{align}
+(e)\\
+\begin{align}
+  \delta f_s &= \alpha(T)\delta|\psi|^2 + \frac{1}{2}\beta(T)\delta|\psi|^4 + \cdots\\
+  &= (\alpha(T) + \beta |\psi|^2)(\psi\delta\psi^* + \psi^*\delta\psi)\\
+  &= (\alpha(T) + \beta |\psi|^2)\psi\delta\psi^* + (\alpha(T) + \beta |\psi|^2)\psi^*\delta\psi
+\end{align}
+(f)\\
+\begin{align}
+  -\frac{1}{2}\mu_0\vb{H_c}^2
+\end{align}
+(g)\\
+\begin{align}
+  \xi^2\qty(\dv{f}{x})^2 = \frac{1}{2}(1-f^2)^2
+\end{align}
+(h)\\
+\begin{align}
+  \dv{f}{x} = \frac{1-f^2}{\sqrt{2}\xi}
+\end{align}
+(i)\\
+$f \neq \pm 1$より、
+\begin{align}
+  \int \frac{df}{1-f^2} = \int \frac{dx}{\sqrt{2}\xi}
+\end{align}
+となる。これを計算すると、
+\begin{align}
+  \frac{1}{2}\log\left|\frac{1+f}{1-f}\right| = \frac{x}{\sqrt{2}\xi} + C
+\end{align}
+いま、$x = 0$で$f = 0$であるから、
+\begin{align}
+  \frac{1+f}{1-f} = \exp(\frac{2x}{\sqrt{2}\xi})
+\end{align}
+となる。したがって、
+\begin{align}
+  f = \tanh(\frac{x}{\sqrt{2}\xi})
+\end{align}
+となる。\\
+(j)\\
+\begin{align}
+  \vb{j}_s(\vb{r}) = -\frac{e^{*2}}{m^*}| \psi(\vb{r})|^2\vb{A}(\vb{r})
+\end{align}
+(k)\\
+\begin{align}
+  \nabla \times \vb{j}_s &= -\frac{e^{*2}}{m^*}| \psi(\vb{r})|^2\nabla \times \vb{A}\\
+  &= -\frac{e^{*2}}{m^*}| \psi(\vb{r})|^2\vb{B}
+\end{align}
+(l)\\
+\begin{align}
+  \qty(\frac{m^*}{\mu_0e^{*2}| \psi(\vb{r})|^2})^{1/2} = \frac{m^* \beta}{\mu_0e^{*2}\alpha'}\qty(1-\frac{T}{T_C})^{-1/2}
+\end{align}
+(m)\\
+\begin{align}
+  \kappa &= \frac{(2m^*|\alpha|)^{1/2}}{\hbar} \qty(\frac{\mu_0e^{*2}|\alpha|}{m^*\beta})^{1/2} \lambda^2\\
+  &= \sqrt{\frac{2\mu_0e^{*2}|\alpha|}{m^*\beta}}\lambda^2\\
+  &= \frac{\sqrt{2}\mu_0e^{*}H_C}{\hbar}\lambda^2\\
+  &= \frac{2\pi}{\Phi_0}\sqrt{2}\mu_0e^{*}H_C\lambda^2
+\end{align}
+
+\subsection{GL理論3}
+(a)\\
+\begin{align}
+  \frac{1}{\kappa^2}\dv[2]{\psi}{x}+ (1-A_y^2)\psi - \psi^3 = 0
+\end{align}
+ここで、$\psi$を実数に取る。\\
+(b)\\
+\begin{align}
+  \dv[2]{\vb{A}}{x} = -\psi^2\vb{A}
+\end{align}
+(c)\\
+\begin{align}
+  \frac{1}{\kappa^2}\dv[2]{\psi}{x} + \psi - \psi^3 = 0
+\end{align}
+(d)\\
+\begin{align}
+  \frac{1}{2}\mu_0 H_C^2 \frac{4\sqrt{2}}{3\kappa} (>0)
+\end{align}
+(e)境界が少ないほうがエネルギー利得が大きい。\\
+(f)境界が多いほうがエネルギー利得が大きい。\\
+(g)\\
+\begin{align}
+  \frac{1}{m^*}(\vb{p}-e^{*}\vb{A}) = \frac{1}{m^*}(-i\hbar\nabla - e^{*}\vb{A})
+\end{align}
+(h)\\
+\begin{align}
+  e^{*}\psi^*\vb{v}\psi = \frac{e^{*}}{m^*}(\hbar\nabla\theta - e^{*}\vb{A})
+\end{align}
+(i)\\
+\begin{align}
+  \int_{C} \nabla \theta \cdot d\vb{l} = \theta_2 - \theta_1 = 2\pi N \quad N \in \mathbb{Z}
+\end{align}
+(j)\\
+\begin{align}
+  \int_{C} \vb{A} \cdot d\vb{l} = \int \nabla \times \vb{A} \cdot d\vb{S} = \Phi
+\end{align}
+(k)\\
+\begin{align}
+  \frac{\hbar}{e^{*}}2\pi N = N\Phi_0
+\end{align}
+(l)\\
+\begin{align}
+  H_{C2} = \sqrt{2}\kappa H_{C1}
+\end{align}
+
+
+
+
 \end{document}

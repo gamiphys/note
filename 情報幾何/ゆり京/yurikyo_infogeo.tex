@@ -1,0 +1,329 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{情報幾何班1-2}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{双対アフィン接続の幾何}
+狭い意味での情報幾何学として、双対アフィン接続の幾何を考える。\\
+\subsection{双対アフィン接続}
+\begin{itembox}[l]{\textbf{Def:双対アフィン接続}}
+    アフィン接続を持つRiemann多様体$(M,g)$に対して、双対アフィン接続$\nabla ^*$を、
+    \begin{equation}
+        Xg(Y,Z) = g(\nabla_X Y,Z) + g(Y,\nabla^*_X Z) \quad (X,Y,Z \in \mathfrak{X}(M))
+    \end{equation}
+    により定める。
+\end{itembox}
+例えば、Riemann接続の双対アフィン接続は、Riemann接続が計量的であることから、
+\begin{equation}
+    Xg(Y, Z) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z) \quad (X, Y, Z \in \mathfrak{X}(M))
+\end{equation}
+となり、$\nabla^* = \nabla$である。(自己双対)\\
+このとき、双対アフィン接続は、一意に定まることを示すことができる。また、共変微分の公理を満たすことも示される。\\
+
+\begin{itembox}[l]{\textbf{Def:双対構造}}
+    Riemann多様体$(M,g)$に対して、計量$g$に対する双対性を満たすアフィン接続のペア$(\nabla,\nabla^*)$が与えられたとき、$(g,\nabla,\nabla^*)$をMの双対構造という。
+\end{itembox}
+計量的であるような接続以外にも、双対構造をもつ接続は存在する。(ここでは例を挙げないが、後に統計多様体の例が挙げられる)このとき、平行移動に対して内積が保存されることはないが、双対接続の定義が計量的であることに似ている。
+したがって、内積の保存性を以下のように拡張することができる。
+
+\begin{itembox}[l]{\textbf{Thm:双対平行移動に対する内積の不変性}}
+    なめらかな曲線$C = \{p(t) ; t \in [a,b]\}$に沿った$\nabla$および$\nabla^*$の平行移動をそれぞれ$\Pi_C,\Pi_C^*$とする。このとき、任意の$\vb{v},\vb{w} \in T_{p(a)}M$に対して、
+    \begin{equation}
+        g_{p(b)}(\Pi_C \vb{v},\Pi_C^* \vb{w}) = g_{p(a)}(\vb{v},\vb{w})
+    \end{equation}
+    が成り立つ。すなわち、二つの接ベクトルのうち、片方を$\nabla$で平行移動し、もう片方を$\nabla^*$で平行移動したとき、内積は不変である。
+\end{itembox}
+\textbf{Prf}\\
+双対アフィン接続の定義式に対して、ベクトル場$X$を$\dv{t}$として代入すると、
+\begin{align}
+    \dv{t}g(Y,Z) =g(\nabla_{\dv{t}}Y,Z) + g(Y,\nabla^*_{\dv{t}}Z)=0
+\end{align}
+を得る。ただし、平衡の条件$\nabla_{\dv{t}}Y=0,\nabla^*_{\dv{t}}Z=0$を用いた。
+よって、$g(Y,Z)$は$C$に沿って平行移動しても不変である。\hfill\qedsymbol
+
+\begin{itembox}[l]{\textbf{Thm:曲率}}
+    $\nabla$-曲率が0であることと、$\nabla^*$-曲率が0であることは同値である。すなわち
+    \begin{equation}
+        R = 0 \Leftrightarrow R^* = 0
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf.(厳密でない版)}\\
+$C$の始点と終点が一致していて閉曲線である時を考える。このとき、$R=0$であることは、
+\begin{align}
+    \Pi_C \vb{v} = \vb{v} 
+\end{align}
+を意味する。このとき、内積の保存性から、
+\begin{align}
+    g_{p(a)}(\vb{v},\vb{w}) = g_{p(a)}(\Pi_C \vb{v},\Pi_C^* \vb{w}) = g_{p(a)}(\vb{v},\Pi_C^* \vb{w})
+\end{align}
+となる。これが任意の$\vb{v}$について成り立つことから、
+\begin{align}
+    \Pi_C^* \vb{w} = \vb{w}
+\end{align}
+が成り立つ。これが任意の$\vb{w}$について成り立つことから、$\nabla^*$-曲率が0であることが示される。\hfill\qedsymbol
+
+捩率については、曲率のような関係が成り立たないことが知られている。
+
+\subsection{双対平坦な多様体の幾何}
+上で定義した双対接続を用いて、双対平坦な多様体の幾何を考える。特に、統計多様体においては、片方の接続が指数型分布族、もう片方の接続が混合型分布族に対応する。\\
+\begin{itembox}[l]{\textbf{Def:双対平坦な多様体}}
+    双対構造$(g,\nabla,\nabla^*)$を持つ多様体$(M,g)$が双対平坦であるとは、$\nabla$-曲率と$\nabla^*$-曲率がどちらも0かつ、$\nabla$-捩率と$\nabla^*$-捩率がどちらも0であることをいう。
+\end{itembox}
+今回は二つの接続について考えているため、それぞれの接続について局所アフィン座標系をとることができる。さらに、それぞれのアフィン座標系が、アフィン変換に対する任意性を持つことを用いると、以下の定理を示すことができる。
+\begin{itembox}[l]{\textbf{Thm:局所アフィン座標系の存在}}
+    双対構造$(g,\nabla,\nabla^*)$に関して平坦な多様体$M$では、各点の周りで
+    \begin{equation}
+        g(\partial_i,\partial_j) = \delta_{ij}
+    \end{equation}
+    を満たす、局所$\nabla$-アフィン座標系$(x^i)$および局所$\nabla^*$-アフィン座標系$(y^i)$の組$\{x^i,y^i\}$をとることができる。このような組$\{x^i,y^i\}$を双対アフィン座標系という。 
+\end{itembox}
+    \textbf{Prf}\\
+    まず、$p_0 \in M$を任意にとり、$\nabla$に関するアフィン座標近傍$(U;\xi^i)$と、$\nabla^*$に関するアフィン座標近傍$(V;\eta^i)$を、互いに無関係に取る。そして、
+    \begin{equation}
+        (G_0)_{ij} = g_{p_0}\qty(\qty(\pdv{\xi^i})_{p_0},\qty(\pdv{\eta^j})_{p_0})
+    \end{equation}
+    とおく。このとき、$g_{p_0}$は正定値であるから、det$(G_0) > 0$である。したがって、$G_0$は正則である。そして、
+    \begin{align}
+        x^i &= \xi^i,\quad y^i = \sum_{j} (G_0)_{ij} \eta^j
+    \end{align}
+    とおくと、これが求めるものとなる。実際、前の章の定理より、新たに作った座標系はアファイン座標系である。また、
+    \begin{align}
+        \pdv{\xi^i}= \pdv{x^i}\\
+        \pdv{\eta^i} = \sum_{j} (G_0)_{kj} \pdv{y^k}
+    \end{align}
+    であるから、
+    \begin{align}
+        (G_0)_{ij} &= g_{p_0}\qty(\qty(\pdv{\xi^i})_{p_0},\qty(\pdv{\eta^j})_{p_0}) \\
+        &= \sum_{k} g_{p_0}\qty(\qty(\pdv{x^i})_{p_0},\qty(\pdv{y^k})_{p_0}) (G_0)_{kj} \\
+    \end{align}
+    であるから、
+    \begin{equation}
+        g_{p_0}\qty(\qty(\pdv{x^i})_{p_0},\qty(\pdv{y^k})_{p_0}) = \delta_{ik}
+    \end{equation}
+    が成り立つ。また、任意の$X \in \mathfrak{X}(U \cap V)$に対して、
+    \begin{align}
+        Xg\qty(\pdv{x^i},\pdv{x^j}) =g\qty(\nabla_X \pdv{x^i},\pdv{x^j}) + g\qty(\pdv{x^i},\nabla^*_X \pdv{x^j}) = 0\\
+        \qty(\because \text{アフィン座標系の性質から}\nabla_X \pdv{x^i} = \nabla^*_X \pdv{x^j} = 0) \notag 
+    \end{align}
+    となることから、任意の$X \in \mathfrak{X}(U \cap V)$に対して、直交性が成り立つ。したがって、求める座標系は存在する。\hfill\qedsymbol
+    
+    以下では、双対 affine 座標系を用いた局所的な話に限定するため、\( U \cap V \) 自身を多様体 \( M \) とみなし、直交性をみたす大域的な \( \nabla \)-affine 座標系を \((\theta^i)\)、 \( \nabla^*\)-affine 座標系を \((\eta_j)\) で表し、それぞれ \(\theta\)-座標系、 \(\eta\)-座標系とよぶことにする。また、対応するベクトル場を
+    \begin{equation}
+    \partial_i := \frac{\partial}{\partial \theta^i}, \quad \partial^j := \frac{\partial}{\partial \eta_j} \tag{4.40}
+    \end{equation}
+    と書くことにする。また、直交性は
+    \begin{equation}
+    g(\partial_i, \partial^j) = \delta_i^j 
+    \end{equation}
+    と表すことにする。\\
+    以下、4つの補題を用いて、ダイバージェンスを定義する。
+    
+    \begin{itembox}[l]{\textbf{Lem1}}
+        双対アフィン座標系$\{(\theta)^i,(\eta)_i\}$に関する計量$g$の成分を、
+        \begin{equation}
+            g_{ij} = g(\partial_i,\partial_j) \quad g^{ij} = g(\partial^i,\partial^j)
+        \end{equation}
+        とおくと、
+        \begin{equation}
+            g_{ij} = \partial_i \eta_j = \partial_j \eta_i \quad g^{ij} = \partial^i \theta^j = \partial^j \theta^i \quad g_{ij}g^{jk} = \delta_i^k
+        \end{equation}
+        が成り立つ。
+    \end{itembox}
+    \textbf{Prf}\\
+    座標変換則$\partial_i = \pdv{\eta_k}{\theta^i}\partial^k$を用いると、
+    \begin{align}
+        g_{ij} &= g(\partial_i,\partial_j) \\
+        &= g\qty(\pdv{\eta_k}{\theta^i}\partial^k,\partial_j) \\
+        &= \pdv{\eta_k}{\theta^i}g(\partial^k,\partial_j) \\
+        &= \pdv{\eta_k}{\theta^i}\delta_j^k \\
+        &= \pdv{\eta_j}{\theta^i}
+    \end{align}
+    となるから、$g_{ij} = \partial_i \eta_j$が成り立つ。計量の添え字に対する対称性から、$g_{ij} = \partial_j \eta_i$も成り立つ。また、$g^{ij}$についても同様にして、
+    \begin{align}
+        g^{ij} = \pdv{\theta ^i}{\eta^j}
+    \end{align}
+    が成立する。これらを合わせて、
+    \begin{align}
+        g_{ij}g^{jk} = \pdv{\eta_i}{\theta^j}\pdv{\theta^j}{\eta^k} = \delta_i^k
+    \end{align}
+    もいうことができる。\hfill\qedsymbol
+    
+    
+    \begin{itembox}[l]{\textbf{Lem2}}
+        ある$C^{\infty}$関数の組$\{\psi(\theta^1,\cdots,\theta^n),\varphi(\eta_1,\cdots,\eta_n)\}$が存在して、
+        \begin{equation}
+            \eta_i = \partial_i \psi \quad \theta^i = \partial^i \varphi \quad \psi(\theta^1,\cdots,\theta^n) + \varphi(\eta_1,\cdots,\eta_n) - \theta^i\eta_i = 0
+        \end{equation}
+        が成り立つ。
+    \end{itembox}
+    \textbf{Prf}\\
+    一つ前の補題より、$\partial_i \eta_j = \partial_j \eta_i$であるから、これは、$\eta_i = \partial_i \psi$と書ける。同様に、$\theta^i = \partial^i \varphi$と書ける。また、
+    \begin{align}
+        \dd (\psi + \varphi - \theta^i\eta_i) &= \dd \psi + \dd \varphi - (\dd \theta^i)\eta_i - \theta^i(\dd \eta_i) \\
+        &=(\partial_i \psi )\dd \theta^i + (\partial^i \varphi)\dd \eta_i - \eta_i \dd \theta^i - \theta^i \dd \eta_i \\
+        &=0
+    \end{align}
+    となるから、$\psi + \varphi - \theta^i\eta_i$は定数関数となり、特に積分定数をうまく選ぶと、その値は0となる。\hfill\qedsymbol
+    
+    \begin{itembox}[l]{\textbf{Lem3}}
+        一つ前の補題で定めた関数の組は、計量gと、
+        \begin{equation}
+            g_{ij} = \partial_i \partial_j \psi \quad g^{ij} = \partial^i \partial^j \varphi
+        \end{equation}
+        により関連付けられる。とくに、$\psi,\varphi$は狭義凸関数である。
+    \end{itembox}
+    \textbf{Prf}\\
+    上の二つの補題と、$g_{ij}$の正定値性を用いると示される。\hfill\qedsymbol
+    
+    \begin{itembox}[l]{\textbf{Lem4}}
+        点$p \in M$の$\theta$-座標と、$\eta$-座標をそれぞれ、
+        \begin{equation}
+            \theta(p) = (\theta^1(p),\cdots,\theta^n(p)) \quad \eta(p) = (\eta_1(p),\cdots,\eta_n(p))
+        \end{equation}
+        と表すことにすると、二つ上で定めた関数の組は、互いにLegendre変換の関係にある。すなわち、
+        \begin{align}
+            \varphi(\eta(p)) = \underset{q \in M}{\max} \left\{ \theta^i(q)\eta_i(p) - \psi(\theta(q)) \right\}\\
+            \psi(\theta(p)) = \underset{q \in M}{\max} \left\{ \eta_i(q)\theta^i(p) - \varphi(\eta(q)) \right\}
+        \end{align}
+        が成り立つ。
+    \end{itembox}
+    \textbf{Prf}\\
+    点 \(p\) を固定し、関数 \(q \mapsto \theta^i(q) \eta_i(p) - \psi(\theta(q))\) を微分してみると、
+    \begin{align}
+    d \left( \theta^i(q) \eta_i(p) - \psi(\theta(q)) \right) &= (\eta_i(p) - \partial_i \psi(\theta(q))) d\theta^i(q) \notag \\
+    &= (\eta_i(p) - \eta_i(q)) d\theta^i(q)
+    \end{align}
+    だから上の式の右辺のmax は、すべての \(i\) で \(\eta_i(p) = \eta_i(q)\)、すなわち \(p = q\) のときかつそのときに限り達成されて、その最大値は
+    \begin{align}
+    \theta^i(p) \eta_i(p) - \psi(\theta(p)) = \varphi(\eta(p))
+    \end{align}
+    となる。ここで上の補題の最後の等式を用いた。これで上の式が証明された。下の式の証明も全く同様である。 \hfill\qedsymbol
+    
+    
+    以上の準備のもと、ダイバージェンスを定義する。
+    \begin{itembox}[l]{\textbf{Def:ダイバージェンス}}
+        $M$を、双対構造$(g,\nabla,\nabla^*)$に関する双対平坦多様体であるとする。このとき、二点$p,q \in M$に対して、定まる量
+        \begin{equation}
+            D(p||q) = \psi(\theta(p)) + \varphi(\eta(q)) - \theta^i(p)\eta_i(q)
+        \end{equation}
+        を$\nabla$-ダイバージェンスという。ただし、$\{(\theta ^i),(\eta_i)\}$は$M$の大域的な双対アフィン座標系である。
+    \end{itembox}
+    定義にアフィン座標系を用いているが、結局、座標の取り方に依らないことが示される。(ここでは省略)\\
+    
+    $\nabla$と$\nabla^*$の役割を入れ替えると、$D(p||q)$における$\theta$と$\eta$、$\psi$と$\varphi$の役割も入れ替わる。したがって、
+    \begin{equation}
+        D(p||q) = D^*(q||p)
+    \end{equation}
+    が成り立つ。また、Lem3の二本目の式と比較することで、
+    \begin{equation}
+        D(p||q) \geq 0
+    \end{equation}
+    かつ、
+    \begin{equation}
+        D(p||q) = 0 \Leftrightarrow p = q
+    \end{equation}
+    が成り立つ。したがって、$D(p||q)$は、$M$上の距離のような役割を持つと考えられるが、実際には、対称性$D(p||q) = D(q||p)$は成り立たないし、三角不等式も成り立たない。したがって、$D(p||q)$は、距離の公理を満たさない。\\
+    
+    \textbf{ex:Euclid空間}\\
+    Euclid空間においては、$\nabla = \nabla^*$である。したがって、双対平坦性はただの平坦性と帰着する。このとき、ポテンシャルは、
+    \begin{align}
+        \psi(z) = \varphi(z) = \frac{1}{2}\sum_{i=1}^{n} (z^i)^2
+    \end{align}
+    となる。したがって、ダイバージェンスは、
+    \begin{align}
+        D(p||q) = \frac{1}{2}\sum_{i=1}^{n} (z^i(p))^2 + \frac{1}{2}\sum_{i=1}^{n} (z^i(q))^2 - \sum_{i=1}^{n} z^i(p)z^i(q) = \frac{1}{2}\sum_{i=1}^{n} (z^i(p) - z^i(q))^2
+    \end{align}
+    となる。これは、Euclid空間における距離の二乗に一致する。\\
+    ところで、Euclid空間において、距離の二乗と結びつく定理として、Pythagorasの定理がある。これは、双対平坦な多様体へ拡張することができる。
+    
+    \begin{itembox}[l]{\textbf{Thm:拡張Pythagorasの定理}}
+        双対平坦多様体$(M,g,\nabla,\nabla^*)$において、点$p,q$を結ぶ$\nabla$-測地線と$q,r$を結ぶ$\nabla^*$-測地線が計量$g$に関して直交しているなら、
+        \begin{equation}
+            D(p||r) = D(p||q) + D(q||r)
+        \end{equation}
+        が成り立つ。
+    \end{itembox}
+    \textbf{Prf}\\
+    測地線は一次元自己平行部分多様体であったから、$\nabla$-測地線は、$\theta$座標系を用いて表現することができ、また、$\theta$座標系はアフィン座標系であるから接続係数は0である。したがって、測地線の方程式を思い出すと、
+    $\theta$座標系において、測地線は直線で表すことができる。また、$\nabla^*$-測地線も同様に直線で表すことができる。\\
+    このことから、$q,p$を結ぶ$\nabla$-測地線
+    \begin{equation}
+        C_1 =\{p(t) ; t \in [0,1] \quad p(0) = q, p(1) = p\}
+    \end{equation}
+    を$p(t)=(\theta^1(t),\cdots,\theta^n(t))$と表すと、
+    \begin{equation}
+        \theta^i(t) = \theta^i(0) + t(\theta^i(1) - \theta^i(0))
+    \end{equation}
+    となる。同様に、$q,r$を結ぶ$\nabla^*$-測地線
+    \begin{equation}
+        C_2 =\{q(t) ; t \in [0,1] \quad q(0) = q, q(1) = r\}
+    \end{equation}
+    を$q(t)=(\eta_1(t),\cdots,\eta_n(t))$と表すと、
+    \begin{equation}
+        \eta_i(t) = \eta_i(0) + t(\eta_i(1) - \eta_i(0))
+    \end{equation}
+    となる。これを用いて、点$q$におけるそれぞれの曲線の接ベクトルを計算すると、
+    \begin{align}
+        \vb{v} &= \dot{p}(0) = \qty(\dv{\theta^i}{t}(0))(\partial_i)_q = (\theta^i(1) - \theta^i(0))(\partial_i)_q =(\theta^i(p) - \theta^i(q))(\partial_i)_q\\
+        \vb{w} &= \dot{q}(0) = \qty(\dv{\eta_i}{t}(0))(\partial^i)_q = (\eta^i(1) - \eta^i(0))(\partial^i)_q =(\eta^i(r) - \eta^i(q))(\partial^i)_q
+    \end{align}
+    となる。これらが直交しているという仮定から、
+    \begin{align}
+        0 &= g(\vb{v},\vb{w}) \\
+        &= g((\theta^i(p) - \theta^i(q))(\partial_i)_q,(\eta^j(r) - \eta^j(q))(\partial^j)_q) \\
+        &= (\theta^i(p) - \theta^i(q))(\eta^j(r) - \eta^j(q))g(\partial_i,\partial^j) \\
+        &= (\theta^i(p) - \theta^i(q))(\eta^i(r) - \eta^i(q))
+    \end{align}
+    となる。したがって、
+    \begin{align}
+        D(p||q) + D(q||r) - D(p||r) &= \psi(\theta(p)) + \varphi(\eta(q)) - \theta^i(p)\eta_i(q) \\
+        &+ \psi(\theta(q)) + \varphi(\eta(r)) - \theta^i(q)\eta_i(r) \\
+        &- \psi(\theta(p)) - \varphi(\eta(r)) + \theta^i(p)\eta_i(r) \\
+        &= \psi(\theta(q)) + \varphi(\eta(q)) - \theta^i(p)\eta_i(q) -\theta^i(q)\eta_i(r) + \theta^i(p)\eta_i(r) \\
+        &= \theta^i(q)\eta_i(q) - \theta^i(p)\eta_i(q) -\theta^i(q)\eta_i(r) + \theta^i(p)\eta_i(r) \\
+        &\because \text{lem2} \\
+        &= (\theta^i(p)-\theta^i(q))(\eta_i(r) - \eta_i(q))\\
+        &= 0
+    \end{align}
+    となる。したがって、示された。\hfill\qedsymbol
+\end{document}

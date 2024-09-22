@@ -1,11 +1,12 @@
 # Fdb version 4
-["dvipdf"] 1722570416 "memo.dvi" "memo.pdf" "memo" 1722570419 0
-  "memo.dvi" 1722570415 256596 18a180da7a93a14c81c982828ea9e44c "latex"
+["dvipdf"] 1725100857 "memo.dvi" "memo.pdf" "memo" 1725100859 0
+  "memo.dvi" 1725100857 435080 db7fa7b0d52065283fafe498ffd0aa53 "latex"
   (generated)
   "memo.pdf"
   (rewritten before read)
-["latex"] 1722570409 "memo.tex" "memo.dvi" "memo" 1722570419 0
+["latex"] 1725100853 "memo.tex" "memo.dvi" "memo" 1725100859 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681536317 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -205,10 +206,12 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "memo.aux" 1722570415 6717 31ada4657826f36746c1e76a5fb193ca "latex"
-  "memo.out" 1722570415 2769 6e5128902eab67b75cce6e3f5ff40050 "latex"
-  "memo.tex" 1722570405 83399 6dd7ec00b72fcfe9053ca092ceb8b89b ""
-  "memo.toc" 1722570415 3420 00ae62bcbf85f07a3b8c319ce4165380 "latex"
+  "memo.aux" 1725100857 9421 bb06ac679c67c870d1bf79caf8c3378c "latex"
+  "memo.out" 1725100857 3399 b8cfc6c7d6cbc02d6e2018ca6ba1e7c5 "latex"
+  "memo.tex" 1725100846 139546 b17d3a6e97374424875b4b2cface3969 ""
+  "memo.toc" 1725100857 4952 2bbdebd6d214855513d9bf890349a4c2 "latex"
+  "set.png" 1723045145 65125 ac6905d58d4896cb8a6541645318c778 ""
+  "set2.png" 1723045262 67427 7c41101dc38389ec441eff61a59620a1 ""
   (generated)
   "memo.aux"
   "memo.dvi"

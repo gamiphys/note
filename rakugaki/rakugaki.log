@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  31 JUL 2024 15:01
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  11 SEP 2024 17:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -723,20 +723,20 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
  [5] [6]
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 379.
- [7] [8] [9] [10] [11] [12] [13] (./rakugaki.aux)
+ [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] (./rakugaki.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `rakugaki.out' has not changed.
-(rerunfilecheck)             Checksum: FA9A9EE6C189A75A3D29DFC1D1BF4CF8;1298.
+(rerunfilecheck)             Checksum: 02CAADBABFED2D11C7886B0A9EFB096B;1763.
  ) 
 Here is how much of TeX's memory you used:
- 22952 strings out of 476677
- 428985 string characters out of 5808165
+ 22953 strings out of 476677
+ 428996 string characters out of 5808165
  1862484 words of memory out of 5000000
- 42998 multiletter control sequences out of 15000+600000
+ 42999 multiletter control sequences out of 15000+600000
  532170 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,14n,89p,472b,465s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,14n,89p,472b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on rakugaki.dvi (13 pages, 61164 bytes).
+Output written on rakugaki.dvi (19 pages, 84092 bytes).

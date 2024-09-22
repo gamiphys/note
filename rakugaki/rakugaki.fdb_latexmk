@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1722405686 "rakugaki.dvi" "rakugaki.pdf" "rakugaki" 1722405688 0
-  "rakugaki.dvi" 1722405686 61164 4f8e7e1d453d84f85f45a7d6ee431150 "latex"
+["dvipdf"] 1726042529 "rakugaki.dvi" "rakugaki.pdf" "rakugaki" 1726042531 0
+  "rakugaki.dvi" 1726042528 84092 ee610b3cda0ce4bb126631b0c1debdbd "latex"
   (generated)
   "rakugaki.pdf"
   (rewritten before read)
-["latex"] 1722405682 "rakugaki.tex" "rakugaki.dvi" "rakugaki" 1722405688 0
+["latex"] 1726042524 "rakugaki.tex" "rakugaki.dvi" "rakugaki" 1726042531 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -191,9 +191,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "rakugaki.aux" 1722405686 2840 6b143698a0d03bcbf7a432b05dd8fdb3 "latex"
-  "rakugaki.out" 1722405686 1298 fa9a9ee6c189a75a3d29dfc1d1bf4cf8 "latex"
-  "rakugaki.tex" 1722405680 24928 872a59e47815c4dd7f641ab5d3a3aa07 ""
+  "rakugaki.aux" 1726042528 3435 ea783eb4a38e4019392f7bbbc567c5c1 "latex"
+  "rakugaki.out" 1726042528 1763 02caadbabfed2d11c7886b0a9efb096b "latex"
+  "rakugaki.tex" 1726042522 32658 fcfb8905060bf1b9f01245e9794df93a ""
   (generated)
   "rakugaki.aux"
   "rakugaki.dvi"

@@ -45,7 +45,7 @@
 \tableofcontents
 \newpage
 
-\section[0]{はじめに}
+\section{はじめに}
 \begin{itembox}[l]{\textbf{Thm:逆写像定理}}
 点$\vb{a}=(a_1,\cdots,a_n)$を含む領域$D \subset \mathbb{R}^n$から$\mathbb{R}^n$への$C^1$級写像
 \begin{equation}
@@ -748,6 +748,12 @@ $M$を局所的に$(x^1,\cdots,x^m,0,\cdots,0)$で表す$N$の座標近傍$(U;x^
     \end{equation}
     により定める。
 \end{itembox}
+例えば、Riemann接続の双対アフィン接続は、
+\begin{equation}
+    Xg(Y, Z) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z) \quad (X, Y, Z \in \mathfrak{X}(M))
+\end{equation}
+より、$\nabla^* = \nabla$である。(自己双対)\\
+
 このとき、双対アフィン接続は上の定義で一意に定まる。\\
 $\because$\\
 二つの双対アフィン接続$\nabla^*$と$\tilde{\nabla}^*$が定まると仮定すると、
@@ -803,8 +809,10 @@ $\because$\\
 \end{align}
 となる。一方、右辺について、
 \begin{align}
-    XYg(Z,W) - YXg(Z,W) &= g(\nabla_X \nabla_Y Z,W) + g(\nabla_Y Z,\nabla_X^* W) + g(\nabla_X Z,\nabla_Y^* W) + g(Z,\nabla^*_X \nabla_Y^* W) \\
-    &\quad - g(\nabla_Y \nabla_X Z,W) - g(\nabla_X Z,\nabla_Y^* W) - g(\nabla_Y Z,\nabla_X^* W) - g(Z,\nabla^*_Y \nabla_X^* W) \\
+    XYg(Z,W) - YXg(Z,W) &= g(\nabla_X \nabla_Y Z,W) + g(\nabla_Y Z,\nabla_X^* W) \\
+    &\quad+ g(\nabla_X Z,\nabla_Y^* W) + g(Z,\nabla^*_X \nabla_Y^* W) \\
+    &\quad - g(\nabla_Y \nabla_X Z,W) - g(\nabla_X Z,\nabla_Y^* W) \\
+    &\quad- g(\nabla_Y Z,\nabla_X^* W) - g(Z,\nabla^*_Y \nabla_X^* W) \\
     &= g([\nabla_X,\nabla_Y]Z,W) + g(Z,[\nabla_X^*,\nabla_Y^*]W)
 \end{align}
 となる。%TODO:ここ少し自信ない。こんな感じで展開してしまってよいのか
@@ -1470,7 +1478,10 @@ $\because$
 \begin{align}
     &\lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{\Pi^{(m)t}_{0} (Y_{p_t} p_t(\omega)) - Y_{p_0} p_0(\omega)}{t} \right) (Z_{p_0}\log p_0(\omega))\\
     &= \lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} p_t(\omega) - Y_{p_0} p_0(\omega)}{t} \right) (Z_{p_0}\log p_0(\omega)) \quad \because \text{m-平行移動の定義}\\
-    &= \sum_{\omega \in \Omega} (XYp(\omega))(Z\log p(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\%TODOここよくわからない
+    &= \sum_{\omega \in \Omega} \dv{Y_{p_t} p_t(\omega)}{t} (Z_{p_0}\log p_0(\omega)) \left.\right|_{p=p_0} \\
+    &= \sum_{\omega \in \Omega} \dv{x_i}{t} \pdv{Y_{p_t} p_t(\omega)}{x_i} (Z_{p_0}\log p_0(\omega)) \left.\right|_{p=p_0} \\
+    &= \sum_{\omega \in \Omega} v^i \pdv{Y_{p_t} p_t(\omega)}{x_i} (Z_{p_0}\log p_0(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\
+    &= \sum_{\omega \in \Omega} (XYp(\omega))(Z\log p(\omega)) \left.\right|_{p=p_0}\\
     &= g(\nabla_X^{m} Y,Z)_{p_0} \because (\ref{eq:3})
 \end{align}
 となる。したがって、示された。\\
@@ -1478,13 +1489,13 @@ $\because$
 次に、e-表現について考える。\\
 \begin{align}
     &\lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{\Pi^{(e)t}_{0} (Y_{p_t} \log p_t(\omega)) - Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega))\\
-    &= \lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -E_{p_0}[Y_{p_t} \log p_t(\omega)]- Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \quad \because \text{e-平行移動の定義}\\
-    &= \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\
-    &= \sum_{\omega \in \Omega} (XY\log p(\omega))(Zp(\omega)) \left.\right|_{p=p_0} \\
+    &= \lim_{t \to 0} \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -E_{p_0}[Y_{p_t} \log p_t(\omega)]- Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \\
+    &\quad \because \text{e-平行移動の定義}\\
+    &= \sum_{\omega \in \Omega} \left( \frac{Y_{p_t} \log p_t(\omega) -Y_{p_0} \log p_0(\omega)}{t} \right) (Z_{p_0}p_0(\omega)) \left.\right|_{p=p_0} \\
+    &= \sum_{\omega \in \Omega} (XY\log p(\omega))(Zp(\omega)) \left.\right|_{p=p_0} \quad \because p_t \text{がベクトル場$X$に沿って動く}\\
     &= g(\nabla_X^{e} Y,Z)_{p_0} \because (\ref{eq:3})
 \end{align}
 となる。したがって、示された。\hfill\qedsymbol\\
-%TODO上の証明は改めて追う。
 
 \subsection{$\mathcal{S}_{n-1}$の双対微分幾何}
 
@@ -1693,6 +1704,7 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
 \end{itembox}
 \textbf{Prf}\\
 
+\newpage
 \section{統計物理学への応用}
 \subsection{統計力学}
 以下では、物理の話が出てくるため、ちょっとした事項たちを確認しておく。
@@ -1700,12 +1712,12 @@ $\nabla^{m}$-アフィン座標系についても同様のことができる。\
 \subsubsection{エントロピー}
 統計力学における系のエントロピーは、状態のランダムネスを表す量である。また、熱力学においては、状態の遷移可能性を特徴づける量である。
 \subsubsection{エントロピー最大原理}
-\begin{itembox}[l]{\textbf{Thm:エントロピー最大原理}}
+\begin{itembox}[l]{\textbf{要請:エントロピー最大原理}}
     マクロ変数の期待値についての制約条件のもとで、エントロピーが最大となる確率分布が平衡状態にある系の確率分布である。
 \end{itembox}
 
 \subsubsection{カノニカル分布}
-エネルギーを一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
+エネルギー期待値を一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
 \begin{align}
   \tilde{S}= -k_B\sum_{i}p_i\log p_i -\lambda\left(\sum_{i}p_i - 1\right)-\rho\left(\sum_{i}p_iE_i - U\right)  
 \end{align}
@@ -1853,5 +1865,260 @@ $\Gamma_{\eta}$から測地線に下した垂線の足$P_{\theta_*}$に一致す
     -\frac{1}{\beta}\log Z(\theta(p_\beta)) = F(p_\beta)
 \end{align}
 となる。これは統計物理においてよく知られた関係式である。\\
+
+\subsection{磁性}
+統計物理の応用として、磁性について考える。磁性は、スピンが持つ磁気モーメントによって引き起こされる現象である。簡単なモデルとして、一次元Isingリングを考える。
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{isin.png}
+    \end{center}
+    \caption{一次元Isingリング}
+    \label{fig:ring}
+\end{figure}
+リングの各点で、スピンと呼ばれる物理量が定義されており、スピンは$\{-1,1\}$の値をとる。このスピンが磁場を感じることで、エネルギーが変化する。
+このとき、ハミルトニアン(エネルギー)は、
+\begin{align}
+    H = H(\{S_{\xi}\}) = -h\sum_{\xi=1}^{N} S_{\xi} -J\sum_{\xi=1}^{N} S_{\xi}S_{\xi+1} \quad J>0
+\end{align}
+となると仮定する(Ising模型)。これによると、スピンが値1をとるとき、エネルギーが低くなる。また、隣り合うスピンがそろうとき、エネルギーが低くなる。
+
+\subsection{平均場近似}
+ハミルトニアン
+\begin{align}
+    H = H(\{S_{\xi}\}) = -h\sum_{\xi=1}^{N} S_{\xi} -J\sum_{\xi=1}^{N} S_{\xi}S_{\xi+1} \quad J>0
+\end{align}
+をもつIsingリングを考える。ここで、確率変数$S_{\xi} = \{-1,1\}$であり、インデックス$\xi +1$はNを法として計算する。このとき、対応するカノニカル分布を、
+\begin{align}
+    q =q(\{S_{\xi}\}) = \exp(-\beta H - \tilde{\psi}(h,J))
+\end{align}
+とする。ここで、$\beta $は逆温度であり、$\tilde{\psi}(h,J)$は規格化定数である。この確率分布は、幾何的には、$2^N-1$次元統計多様体上の点となる。\footnote{次元が1つ減っているのは確率の規格化のためである。}
+
+N個のスピン全体を隣り合うn個のスピンごとに分解してみる。このとき、クラスターの数をmとすると、
+\begin{align}
+    N = m\times n
+\end{align}
+となる。もともとのリングにける第$\xi$番目のスピンが、$\lambda$番目の第$i$番目のスピンであるとすると、
+\begin{align}
+    &S_{i}^{\lambda} = S_{\xi}\\
+    &\xi = (\lambda -1)n + i
+\end{align}
+以下、各クラスターが統計的に独立であると仮定したうえで、カノニカル分布を最もよく近似する$n$スピン状態を探し出す。ここで、$n$スピン系の確率分布は、以下の形で書けると仮定する:
+\begin{align}
+    \exp(\sum_{l=1}^{n} \sum_{1 \leq i_1 < i_2 < \cdots < i_l \leq n} \theta_{i_1 i_2 \cdots i_l} S_{i_1}S_{i_2}\cdots S_{i_l}-\psi(\theta))
+\end{align}
+ここで、$\theta$は実数パラメータであり、$\psi(\theta)$は規格化定数である。要するに、この形は各スピン同士の考え得る相互作用をすべて考慮したような形になっている。
+省略した記法
+\begin{align*}
+S_{ \{ i_1 i_2 \dots i_t \} } := S_{i_1} S_{i_2} \dots S_{i_t}
+\end{align*}
+を用いれば、nスピン系の確率分布は
+\begin{align}
+\exp\left[ \theta^a S_a - \psi(\theta) \right]
+\end{align}
+と書くことができる。ここに添字 $a$ は多重インデックス全体の集合
+\begin{align*}
+I := \bigcup_{l=1}^{n} I_l, \quad I_l := \{ (i_1 i_2 \dots i_l); 1 \leq i_1 < i_2 < \dots < i_l \leq n \}
+\end{align*}
+を走るものとする。ここで、確率変数 $\{ S_a \}_{a \in I}$ 全体に定数関数 1 を加えた $2^n$ 個の関数全体は 1 次独立であることに注意。したがって i.i.d. 拡張された $m$ 個のクラスターの確率分布
+\begin{align}
+    p_{\theta}:= p_{\theta} (\{ \xi_{\lambda} \}) := \prod_{\lambda=1}^{m} \exp\left[ \theta^a S_a^{(\lambda)} - \psi(\theta) \right]
+\end{align}
+全体の集合 $\mathcal{M}_n$ は，$\theta = (\theta^a)_{a \in I}$ を座標系とする $P_N$ の $(2^n - 1)$-次元部分多様体と見なせる。以下では，各確率分布 $p_\theta$ をクラスター状態と呼ぶことにする。\\
+あるクラスター状態 $p_\theta \in \mathcal{M}_n$ でカノニカル分布 $q$ を近似する問題を数学的に定式化するため，次の KLダイバージェンスを考える:
+\begin{align}
+D(p_\theta \| q) = E_{p_\theta} \left[ \log \frac{p_\theta}{q} \right]
+\end{align}
+前節で見たように，
+\begin{align}
+D(p_\theta \| q) = \beta \left[ F(p_\theta) - F(q) \right]
+\end{align}
+と書き直すことができる。したがって、自由エネルギーを最小化する問題を、KLダイバージェンスを最小化する問題に言い換えることができる。また、一般化Pythagorasの定理より、これはqから部分多様体$\mathcal{M}_n$に下した$\nabla^e$-射影を求める問題となる。\\
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{ising.png}
+    \end{center}
+    \caption{カノニカル分布$q$とクラスター状態$p_{\theta}$の関係}
+    \label{fig:a}
+\end{figure}
+
+\begin{itembox}[l]{\textbf{Thm:}}
+    クラスターの大きさは $n \geq 2$ とし，$\mathcal{M}_n$ 上の関数 $\theta \mapsto D(p_\theta \| q)$ を最小化する点を $\hat{\theta}$ とする．このとき
+
+\begin{align}
+\hat{\theta}^{\langle 1 \rangle} &= \hat{\theta}^{\langle n \rangle} \\
+\hat{\theta}^{\langle 2 \rangle} &= \hat{\theta}^{\langle 3 \rangle} = \dots = \hat{\theta}^{\langle n-1 \rangle} = \beta h \\
+\hat{\theta}^{\langle 12 \rangle} &= \hat{\theta}^{\langle 23 \rangle} = \dots = \hat{\theta}^{\langle n-1,n \rangle} = \beta J
+\end{align}
+
+であり，他のパラメータ値はすべてゼロである．そして，唯一残っている未知パラメータ $\hat{\theta}^{\langle 1 \rangle}$ は次の方程式を満たす．
+
+\begin{align}
+\hat{\theta}^{\langle 1 \rangle} = \beta \left( h + J E_{p_{\hat{\theta}}} \left[ S_1 \right] \right)
+\end{align}
+\end{itembox}
+これをもとのハミルトニアンと見比べてみると、$\theta^{\langle 1 \rangle}、\theta^{\langle n \rangle}$以外は、もとのハミルトニアンの形をそのまま遺伝させたものになっている。
+
+\textbf{Prf}\\
+いま、
+\begin{align}
+    \log p_{\theta} &= \sum_{\lambda=1}^{m} l^{(\lambda)}\\
+    l^{(\lambda)} &= \theta^a S_a^{(\lambda)} - \psi(\theta) \label{eq:logp}
+\end{align}
+とおく。このとき、
+\begin{align}
+    E_{p_{\theta}}[\partial_{\theta^a} l^{(\lambda)}] &= E_{p_{\theta}}[S_a^{(\lambda)}] - \partial_{\theta^a} \psi(\theta)\\
+    &= E_{p_{\theta}}[S_a^{(\lambda)}] - E_{p_{\theta}}[S_a^{(\lambda)}]\\
+    &= 0
+\end{align}
+となる。Fisher計量$g = (g_{ab})$は、
+\begin{align}
+    g_{ab} &= E_{p_{\theta}}[\partial_{\theta^a} \log p_{\theta} \partial_{\theta^b} \log p_{\theta}]\\
+    &= E_{p_{\theta}}\qty[\partial_{\theta^a} \qty(\sum_{\lambda=1}^{m} l^{(\lambda)}) \partial_{\theta^b} \qty(\sum_{\lambda=1}^{m} l^{(\lambda)})]\\
+    &= \sum_{\lambda=1}^{m} E_{p_{\theta}}\qty[\partial_{\theta^a} l^{(\lambda)} \partial_{\theta^b} l^{(\lambda)}] \quad \because \text{異なるクラスターは独立}\\
+    &= m E_{p_{\theta}}\qty[\partial_{\theta^a} l^{(1)} \partial_{\theta^b} l^{(1)}] \quad \because \text{クラスターの等価性}
+\end{align}
+となる。$\theta = (\theta^a)$ の双対座標系 $\eta = (\eta_a)$ は
+\begin{align*}
+\eta_a := \partial_a \psi(\theta) = E_{p_\theta} \left[ S_a^{(\lambda)} \right]
+\end{align*}
+で定義され、これは等式
+\begin{align}
+\partial_a \ell^{(\lambda)} = S_a^{(\lambda)} - \eta_a 
+\end{align}
+を満たす。\\
+
+さて、
+\begin{align}
+\partial_a D(p_\theta \| q) &= \partial_a \sum_{\{ \xi \}} p_\theta \left( \log p_\theta - \log q \right) \quad \because \text{KLダイバージェンスの定義}\\
+&= \sum_{\{ \xi \}} \partial_a p_\theta \left( \log p_\theta - \log q \right) + p_\theta \frac{\partial_a p_\theta}{p_\theta} \\
+&= \sum_{\{ \xi \}} p_\theta \left( \partial_a \log p_\theta \right) \left( \log p_\theta - \log q \right) \quad \because \text{第二項は規格化により消える}\\
+\end{align}
+であるから、関数 $\theta \mapsto D(p_\theta \| q)$ が最小値をとるのは、
+\begin{align}
+E_{p_\theta} \left[ (\log p_\theta - \log q) \left( \partial_a \log p_\theta \right) \right] = 0 \quad (\forall a \in I) \label{eq:orthogonality}
+\end{align}
+が成り立つときに限られる。ここで、補助的な変数 $x = (x^a)_{a \in I}$ および $y = (y^a)_{a \in I}$ を以下のように導入する:
+\begin{align}
+    x^a &= 
+\begin{cases}
+\theta^{\langle i \rangle} - h & a = \langle i \rangle \\
+\theta^{\langle ij \rangle} - J & a = \langle ij \rangle \text{ かつ  } j = i + 1 \\
+\theta^{\langle ij \rangle} & a = \langle ij \rangle \text{ かつ  } j > i + 1 \\
+\theta^{\langle i_1 i_2 \dots i_\ell \rangle} & a = \langle i_1 i_2 \dots i_\ell \rangle \text{ かつ  } \ell \geq 3
+\end{cases}\\
+y^a &= 
+\begin{cases}
+\eta_{\langle n \rangle} & a = \langle 1 \rangle \\
+\eta_{\langle 1 \rangle} & a = \langle n \rangle \\
+0 & その他
+\end{cases}
+\end{align}
+
+\begin{itembox}[l]{\textbf{Lem.1}}
+    (\ref{eq:orthogonality}) 式は、以下の方程式と同値である:
+\begin{align}
+    x^a = Jy^a \quad (\forall a \in I)
+\end{align}
+\end{itembox}
+
+\textbf{Prf.(Lem.1)}\\
+いま、
+\begin{align}
+\log q &= h \sum_{\xi=1}^{N} S_{\xi} + J \sum_{\xi=1}^{N} S_{\xi} S_{\xi+1} - \tilde{\psi}(h, J) \\
+&= \sum_{\lambda=1}^{m} \left\{ h \sum_{i=1}^{n} S_{i}^{(\lambda)} + J \sum_{i=1}^{n-1} S_{i}^{(\lambda)} S_{i+1}^{(\lambda)} + J S_{n}^{(\lambda)} S_{1}^{(\lambda+1)} \right\} - \tilde{\psi}(h, J)
+\end{align}
+ここに上つき添字 $\lambda+1$ は $m$ を法として考える。したがって、
+\begin{align}
+\log p_{\theta} - \log q &= \sum_{\lambda=1}^{m} \left\{ \sum_{i=1}^{n} \left( \theta^{\langle i \rangle} - h \right) S_{i}^{(\lambda)} + \sum_{i=1}^{n-1} \left( \theta^{\langle i,i+1 \rangle} - J \right) S_{i,i+1}^{(\lambda)} \right. \\
+&\quad - J S_{n}^{(\lambda)} S_{1}^{(\lambda+1)} + \sum_{j > i+1} \theta^{\langle ij \rangle} S_{ij}^{(\lambda)} + \sum_{|b| \geq 3} \theta^b S_b^{(\lambda)} \Bigg\} \\
+&\quad - m \psi(\theta) + \tilde{\psi}(h, J) \\
+&= \sum_{\lambda=1}^{m} \left\{ L^{(\lambda)} - J S_{n}^{(\lambda)} S_{1}^{(\lambda+1)} \right\} - m \psi(\theta) + \tilde{\psi}(h, J)
+\end{align}
+を得る。ただし、
+\begin{align}
+    L^{(\lambda)} &:= \sum_{i=1}^{n} \left( \theta^{\langle i \rangle} - h \right) S_{i}^{(\lambda)} + \sum_{i=1}^{n-1} \left( \theta^{\langle i,i+1 \rangle} - J \right) S_{i,i+1}^{(\lambda)} \\
+    &\quad + \sum_{j > i+1} \theta^{\langle ij \rangle} S_{ij}^{(\lambda)} + \sum_{|b| \geq 3} \theta^b S_b^{(\lambda)}
+\end{align}
+である。したがって、
+\begin{align}
+    E_{p_\theta} \left[ \left( \sum_{\lambda=1}^{m} L^{(\lambda)} \right) \left( \sum_{\mu=1}^{m} \partial_a \ell^{(\mu)} \right) \right] = E_{p_\theta} \left[ \left( \sum_{\lambda=1}^{m} J S_{n}^{(\lambda)} S_{1}^{(\lambda+1)} \right) \left( \sum_{\mu=1}^{m} \partial_a \ell^{(\mu)} \right) \right]
+\end{align}    
+さて，異なるクラスターに属する確率変数は独立であることから、クロスタームは消える。したがって、これは、
+\begin{align}
+    \sum_{\lambda=1}^{m} E_{p_\theta} \left[ L^{(\lambda)} \partial_a \ell^{(\lambda)} \right] = J \sum_{\lambda=1}^{m} E_{p_\theta} \left[ S_{n}^{(\lambda)} S_{1}^{(\lambda+1)} \left( \partial_a \ell^{(\lambda)} + \partial_a \ell^{(\lambda+1)} \right) \right] 
+\end{align}
+と同値である。右辺を計算すると、
+\begin{align}
+    (\text{右辺}) &= J \sum_{\lambda=1}^{m} E_{p_\theta} \left[ \left( \partial_{\langle n \rangle} \ell^{(\lambda)} + \eta_{\langle n \rangle} \right) \left( \partial_{\langle 1 \rangle} \ell^{(\lambda)} + \partial_{\langle n \rangle} \ell^{(\lambda+1)} + \eta_{\langle 1 \rangle} \right) \left( \partial_a \ell^{(\lambda)} + \partial_a \ell^{(\lambda+1)} \right) \right] \\
+    &\because (\ref{eq:logp}) \text{より} \notag \\
+    &= J \sum_{\lambda=1}^{m} \left\{ E_{p_\theta} \left[ \left( \partial_{\langle n \rangle} \ell^{(\lambda)} + \eta_{\langle n \rangle} \right) \left( \partial_a \ell^{(\lambda)} \right) \right] E_{p_\theta} \left[ \left( \partial_{\langle 1 \rangle} \ell^{(\lambda+1)} + \eta_{\langle 1 \rangle} \right) \right] \right. \notag \\
+    &\quad + E_{p_\theta} \left[ \partial_{\langle n \rangle} \ell^{(\lambda)}+ \eta_{\langle n \rangle} \right] E_{p_\theta} \left[ \left( \partial_{\langle 1 \rangle} \ell^{(\lambda+1)} + \eta_{\langle 1 \rangle} \right) \left( \partial_a \ell^{(\lambda+1)} \right) \right] \Bigg\} \\
+    &= J\sum_{\lambda=1}^{m} \left\{ E_{p_\theta} \left[ \left( \partial_{\langle n \rangle} \ell^{(\lambda)}\right) \left( \partial_a \ell^{(\lambda)} \right) \right] E_{p_\theta} \left(\eta_{\langle 1 \rangle} \right) \right. \notag \\
+    &\quad + \left.E_{p_\theta} \left( \eta_{\langle n \rangle} \right) E_{p_\theta} \left(\left( \partial_{\langle 1 \rangle} \ell^{(\lambda+1)}\right) \left( \partial_a \ell^{(\lambda+1)} \right) \right) \right\} \quad (\because E_{p_\theta} \left[ \partial_{a} \ell^{(\lambda)} \right] = 0) \\
+    &= J \left( g_{a \langle n \rangle} \eta_{\langle 1 \rangle} + g_{a \langle 1 \rangle} \eta_{\langle n \rangle} \right) \\
+    &= J g_{ab} y^b \quad (y\text{の定義より})
+\end{align}
+を得る。左辺は次のように計算される。    
+\begin{align}
+    (\text{左辺}) &=\sum_{\lambda=1}^{m} \left(E_{p_\theta}\left( \sum_{i=1}^{n} \left( \theta^{\langle i \rangle} - h \right) S_{i}^{(\lambda)} + \sum_{i=1}^{n-1} \left( \theta^{\langle i,i+1 \rangle} - J \right) S_{i,i+1}^{(\lambda)}\right.\right. \\
+    &\quad \left. \left.+ \sum_{j > i+1} \theta^{\langle ij \rangle} S_{ij}^{(\lambda)} + \sum_{|b| \geq 3} \theta^b S_b^{(\lambda)}\right) \left( \partial_a \ell^{(\lambda)} \right) \right)\\
+    &=\sum_{\lambda=1}^{m} \left(E_{p_\theta}\left( \sum_{i=1}^{n} \left( \theta^{\langle i \rangle} - h \right) (\partial_{a} \ell^{(\lambda)} + E_{p_\theta}(S)) + \sum_{i=1}^{n-1} \left( \theta^{\langle i,i+1 \rangle} - J \right) (\partial_{a} \ell^{(\lambda)} + E_{p_\theta}(S))\right.\right. \\
+    &\quad \left. \left.+ \sum_{j > i+1} \theta^{\langle ij \rangle} (\partial_{a} \ell^{(\lambda)} + E_{p_\theta}(S)) + \sum_{|b| \geq 3} \theta^b (\partial_{a} \ell^{(\lambda)} + E_{p_\theta}(S))\right)\left( \partial_a \ell^{(\lambda)} \right) \right)\\
+    &=\sum_{i=1}^{n} g_{a \langle i \rangle} \left( \theta^{\langle i \rangle} - h \right) + \sum_{i=1}^{n-1} g_{a \langle i,i+1 \rangle} \left( \theta^{\langle i,i+1 \rangle} - J \right) \\
+    &\quad + \sum_{j > i+1} g_{a \langle ij \rangle} \theta^{\langle ij \rangle} + \sum_{|b| \geq 3} g_{ab} \theta^b\\
+    &= g_{ab} x^b
+\end{align}
+
+以上まとめると、
+\begin{align}
+g_{ab} x^b = J g_{ab} y^b \quad (\forall a \in I)
+\end{align}
+と同値であることが分かる。さて、計量 $g$ は正定値であるから、上式はさらに
+\begin{align}
+x^a = J y^a \quad (\forall a \in I)
+\end{align}
+と同値であることが分かり、補題が証明された。
+\qed
+
+補題より、(\ref{eq:orthogonality}) 式を満たすとき、
+\begin{align}
+\hat{\theta}^{\langle 1 \rangle} &= h + J \hat{\eta}_{\langle n \rangle} \\
+\hat{\theta}^{\langle n \rangle} &= h + J \hat{\eta}_{\langle 1 \rangle} \\
+\hat{\theta}^{\langle 2 \rangle} &= \hat{\theta}^{\langle 3 \rangle} = \dots = \hat{\theta}^{\langle n-1 \rangle} = h \\
+\hat{\theta}^{\langle 12 \rangle} &= \hat{\theta}^{\langle 23 \rangle} = \dots = \hat{\theta}^{\langle n-1,n \rangle} = J
+\end{align}
+であって、他のパラメータ値はすべてゼロであることが結論される。
+
+\begin{itembox}[l]{\textbf{Lem.2}}
+    連立方程式
+\begin{align}
+    \begin{cases}
+        \theta^{\langle 1 \rangle}  = h + J \eta_{\langle n \rangle} \\
+        \theta^{\langle n \rangle}  = h + J \eta_{\langle 1 \rangle} \\
+    \end{cases}
+\end{align}
+は、$J>0$のもとで、ただ一つの対称解
+\begin{align}
+    \theta^{\langle 1 \rangle} = \theta^{\langle n \rangle} 
+\end{align}
+を持つ。
+\end{itembox}
+\textbf{Prf.(Lem2)}\\
+連立方程式より
+\begin{align}
+\theta^{\langle 1 \rangle} - \theta^{\langle n \rangle} &= -J \left( \eta_{\langle 1 \rangle} - \eta_{\langle n \rangle} \right) = -J \left( \frac{\partial}{\partial \theta^{\langle 1 \rangle}} - \frac{\partial}{\partial \theta^{\langle n \rangle}} \right) \psi(\theta)
+\end{align}
+となるので，座標変換 $(\theta^{\langle 1 \rangle}, \theta^{\langle n \rangle}) \to (X,Y) := (\theta^{\langle 1 \rangle} - \theta^{\langle n \rangle}, \theta^{\langle 1 \rangle} + \theta^{\langle n \rangle})$ を施すと，上の式は
+\begin{align}
+X = -2J \frac{\partial \psi}{\partial X} \label{eq:X}
+\end{align}
+と同値である。関数 $\psi(\theta)$ は $\theta$ に関して狭義凸であるから，$\partial^2 \psi / \partial X^2 > 0$ であり，従って $X \mapsto \partial \psi / \partial X$ は単調増加関数である。しかも，関数 $\psi(\theta)$ は $\theta^{\langle 1 \rangle}$ と $\theta^{\langle n \rangle}$ について対称であるので，
+\begin{align}
+\frac{\partial \psi}{\partial X} \bigg|_{X=0} = 0
+\end{align}
+を満たす。従って、各 $Y$ に対し、方程式 (\ref{eq:X})は唯一の解 $X = 0$ を持つ。
+\qed\\
+以上の二つの補題を合わせて、Thm.が証明される。
+\qed
 
 \end{document}

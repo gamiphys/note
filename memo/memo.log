@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  2 AUG 2024 12:46
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  31 AUG 2024 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -694,13 +694,13 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 1.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 9.
+(Font)              scaled to size 6.47278pt on input line 4.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 9.
+(Font)              scaled to size 4.62341pt on input line 4.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 9.
+(Font)              scaled to size 6.47278pt on input line 4.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 9.
+(Font)              scaled to size 4.62341pt on input line 4.
  [1
 
 ])
@@ -728,50 +728,66 @@ LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 103.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 103.
- [4] [5] [6] [7]
+ [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 256.
- [8] [9] [10] [11]
+(Font)              scaled to size 5.5481pt on input line 865.
+ [18] [19] [20] [21] [22]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
+(Font)              scaled to size 8.32214pt on input line 1079.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
+(Font)              scaled to size 8.32214pt on input line 1079.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 461.
- [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
+(Font)              scaled to size 8.32214pt on input line 1079.
+ [23] [24] [25] [26] [27] [28] [29] [30] [31]
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 789.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 1407.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 789.
+(Font)              scaled to size 6.47278pt on input line 1407.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 789.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 1407.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 789.
+(Font)              scaled to size 6.47278pt on input line 1407.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 789.
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 1407.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 789.
+(Font)              scaled to size 5.5481pt on input line 1407.
 LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 789.
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 1407.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 789.
- [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34]
-[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
-Overfull \hbox (1.08173pt too wide) detected at line 1671
+(Font)              scaled to size 5.5481pt on input line 1407.
+ [32] [33] [34]
+[35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55]
+Overfull \hbox (1.08173pt too wide) detected at line 2289
 []
  []
 
-[46] [47] (./memo.aux)
+[56] [57] [58] [59] [60]
+Underfull \hbox (badness 10000) detected at line 2417
+[]$[]$[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 2421
+[]$[]$[]
+ []
+
+[61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+File: set.png Graphic file (type bmp)
+<set.png>
+ [75]
+File: set2.png Graphic file (type bmp)
+<set2.png>
+ [76] [77] [78] [79] (./memo.aux)
 Package rerunfilecheck Info: File `memo.out' has not changed.
-(rerunfilecheck)             Checksum: 6E5128902EAB67B75CCE6E3F5FF40050;2769.
+(rerunfilecheck)             Checksum: B8CFC6C7D6CBC02D6E2018CA6BA1E7C5;3399.
  ) 
 Here is how much of TeX's memory you used:
- 23361 strings out of 476677
- 437806 string characters out of 5808165
- 1866484 words of memory out of 5000000
- 43386 multiletter control sequences out of 15000+600000
- 537917 words of font info for 149 fonts, out of 8000000 for 9000
+ 23384 strings out of 476677
+ 438092 string characters out of 5808165
+ 1885484 words of memory out of 5000000
+ 43402 multiletter control sequences out of 15000+600000
+ 538252 words of font info for 150 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,17n,89p,477b,884s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,21n,89p,477b,884s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on memo.dvi (47 pages, 256596 bytes).
+Output written on memo.dvi (79 pages, 435080 bytes).

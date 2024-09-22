@@ -1,0 +1,27 @@
+\contentsline {section}{\numberline {1}はじめに}{3}{section.1}%
+\contentsline {section}{\numberline {2}多様体のアフィン接続}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}ベクトル場の共変微分}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}アフィン接続}{5}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}曲率}{7}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}捩率}{9}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}平坦な多様体とアフィン座標系}{10}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Riemann接続}{13}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}部分多様体}{16}{subsection.2.7}%
+\contentsline {section}{\numberline {3}双対アフィン接続の幾何}{20}{section.3}%
+\contentsline {subsection}{\numberline {3.1}双対アフィン接続}{20}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}双対平坦な多様体の幾何}{22}{subsection.3.2}%
+\contentsline {section}{\numberline {4}確率分布空間の幾何構造}{30}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Chentsovの定理}{30}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Fisher計量と$\alpha $-接続}{33}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}指数型接続と混合型接続}{35}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}$\mathcal {S}_{n-1}$の双対微分幾何}{39}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}自己平行部分多様体}{42}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}双対葉層構造}{44}{subsection.4.6}%
+\contentsline {section}{\numberline {5}統計物理学への応用}{46}{section.5}%
+\contentsline {subsection}{\numberline {5.1}統計力学}{46}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}エントロピー}{46}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}エントロピー最大原理}{46}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}カノニカル分布}{46}{subsubsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.2}最大エントロピー原理}{47}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}磁性}{50}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}平均場近似}{51}{subsection.5.4}%
