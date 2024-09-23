@@ -763,7 +763,7 @@ $\tau := \sigma (i,j)$とする。このとき、
   \begin{pmatrix}
       \vb{b}_{1} \\
       \vdots \\
-      \vb{b}_{nj}
+      \vb{b}_{n}
   \end{pmatrix}
   =
   \begin{pmatrix}
@@ -810,6 +810,156 @@ $\tau := \sigma (i,j)$とする。このとき、
 \end{align}
 が示された。\hfill\qedsymbol\\
 
+\subsection{ベクトル空間}
+\subsubsection{基底間の関係}
+\begin{itembox}[l]{\textbf{Thm.基底の変換}}
+  基底ベクトル間の変換は、2つの基底を$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ と $\vb{b}_1, \vb{b}_2, \dots, \vb{b}_n$ とすると、ある正則行列 $P$ によって 
+  \begin{align}
+    \vb{b}_j = \sum_{i=1}^{n} P_{ij} \vb{a}_i
+  \end{align}
+  と表される。行列表記すると、
+  \begin{align}
+    \begin{pmatrix}
+      \vb{b}_1 & \vb{b}_2 & \dots & \vb{b}_n
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      \vb{a}_1 & \vb{a}_2 & \dots & \vb{a}_n
+    \end{pmatrix}
+    P
+  \end{align}
+  となる。
+\end{itembox}
+\textbf{Prf.}\\
+hoge\hfill\qedsymbol\\
+
+このもとで、成分の変化を見る。今、
+\begin{align}
+  y_1\vb{b}_1 + y_2\vb{b}_2 + \dots + y_n\vb{b}_n &=
+  \begin{pmatrix}
+    \vb{b}_1 & \vb{b}_2 & \dots & \vb{b}_n
+  \end{pmatrix}
+  \begin{pmatrix}
+    y_1\\
+    y_2\\
+    \vdots\\
+    y_n
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \vb{a}_1 & \vb{a}_2 & \dots & \vb{a}_n
+  \end{pmatrix}
+  P
+  \begin{pmatrix}
+    y_1\\
+    y_2\\
+    \vdots\\
+    y_n
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \vb{a}_1 & \vb{a}_2 & \dots & \vb{a}_n
+  \end{pmatrix}
+  \begin{pmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+  \end{pmatrix}
+\end{align}
+となる。したがって、
+\begin{align}
+  \begin{pmatrix}
+    y_1\\
+    y_2\\
+    \vdots\\
+    y_n
+  \end{pmatrix}
+  = P^{-1}
+  \begin{pmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+  \end{pmatrix}
+\end{align}
+を得る。
+
+\subsubsection{線形写像の行列表現}
+線形写像の行列表現を考える。$V$を$n$次元ベクトル空間、$W$を$m$次元ベクトル空間とし、$V$の基底を$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$、$W$の基底を$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_m$とする。このとき、線形写像$f:V \to W$について、
+\begin{align}
+  f(\vb{a}_j) = \sum_{i=1}^{m} A_{ij} \vb{b}_i
+\end{align}
+により行列$A$を定義する。このとき、
+\begin{align}
+  f
+  \begin{pmatrix}
+    \vb{a}_1 & \vb{a}_2 & \dots & \vb{a}_n
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    \vb{b}_1 & \vb{b}_2 & \dots & \vb{b}_m
+  \end{pmatrix}
+  A
+\end{align}
+が成り立つ。この行列$A$を線形写像$f$の行列表現という。このもとで、
+\begin{align}
+  f(\vb{x}) &=f(x_1\vb{a}_1 + x_2\vb{a}_2 + \dots + x_n\vb{a}_n)\\
+  &=f\qty(\sum_{j=1}^{n} x_j\vb{a}_j)\\
+  &=\sum_{j=1}^{n} x_j f(\vb{a}_j)\\
+  &=\sum_{j=1}^{n} x_j \sum_{i=1}^{m} A_{ij} \vb{b}_i\\
+  &=\sum_{i=1}^{m} \qty(\sum_{j=1}^{n} A_{ij}x_j) \vb{b}_i\\
+  &=\sum_{i=1}^{m} y_i \vb{b}_i
+\end{align}
+となる。したがって、
+\begin{align}
+  \begin{pmatrix}
+    y_1\\
+    y_2\\
+    \vdots\\
+    y_m
+  \end{pmatrix}
+  = A
+  \begin{pmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+  \end{pmatrix}
+\end{align}
+となる。
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $f: V \to W$ を線形写像とする。$V$ の基底 $\vb{a}_1, \dots, \vb{a}_n$ と $W$ の基底 $\vb{b}_1, \dots, \vb{b}_m$ に関する $f$ の表現行列を $A$ とし、$V$ の基底 $\vb{a}_1', \dots, \vb{a}_n'$ と $W$ の基底 $\vb{b}_1', \dots, \vb{b}_m'$ に関する $f$ の表現行列を $B$ とする。また、基底変換の行列をそれぞれ $P, Q$ とする。すなわち、
+  
+  \begin{align}
+      (\vb{a}_1', \dots, \vb{a}_n') &= (\vb{a}_1, \dots, \vb{a}_n) P, \\
+      (\vb{b}_1', \dots, \vb{b}_m') &= (\vb{b}_1, \dots, \vb{b}_m) Q,
+  \end{align}
+  とおく。このとき、
+  \begin{align}
+  B = Q^{-1} A P
+  \end{align}
+  が成り立つ。
+  \end{itembox}
+  \textbf{Prf.}\\
+  表現行列と基底の変換の行列の定義より
+  \begin{align}
+  (f(\vb{a}_1'), \dots, f(\vb{a}_n')) &= (f(\vb{a}_1), \dots, f(\vb{a}_n)) B = (\vb{b}_1', \dots, \vb{b}_m') QB
+  \end{align}
+  また、線形性から、
+  \begin{align}
+  (f(\vb{a}_1'), \dots, f(\vb{a}_n')) &= (f(\vb{a}_1), \dots, f(\vb{a}_n)) P = (\vb{b}_1, \dots, \vb{b}_m) AP
+  \end{align}
+  であるから、
+  \begin{align}
+  (\vb{b}_1, \dots, \vb{b}_m) QB = (\vb{b}_1, \dots, \vb{b}_m) AP
+  \end{align}
+  が得られる。$\vb{b}_1, \dots, \vb{b}_m$ は一次独立だから、定理 6.4.8 より $QB = AP$ が成り立つ。$Q$ は正則だから、
+  \begin{align}
+  B = Q^{-1} A P
+  \end{align}
+\qed
 
 \subsection{その他}
 \begin{itembox}[l]{\textbf{Thm:}}
@@ -1408,16 +1558,21 @@ $\epsilon =\frac{1}{n}$とする。このとき、
 \end{itembox}
 このことを用いて、以下の要請を考える。\\
 
-\begin{itembox}[l]{\textbf{Post:典型性}}
-  ある系の平衡状態がもつ性質は、"許された状態"のうち、典型的な状態が共通に持つ性質のことである。\\
-  また、非平衡状態か平衡状態に緩和するとは、"許された状態"のうち、典型的でないものが、典型的なものに遷移することである。
+このとき、マクロな量子系について、ある平衡状態に対応する「許される量子状態」のほとんどすべてが、マクロ物理量の測定により区別不可能である。このような状態を「典型的な状態」と呼ぶ。
+
+\begin{itembox}[l]{\textbf{Def:典型的(統計力学)}}
+  ある性質が、"許された状態"のうち、ほとんどの状態に対して成り立つとき、その性質は典型的であるという。
 \end{itembox}
-このとき、我々は、典型的な状態のほうが、非典型的な状態よりも圧倒的に多く存在すると考える。\\
 
+このもとで、平衡状態と典型性が以下の要請によって結びつく。\\
+
+\begin{itembox}[l]{\textbf{要請:典型性と平衡状態}}
+  "許された状態"のうちから、ランダムに状態を選んでくると、ほとんど確実に平衡状態が選ばれる。すなわち、典型的な状態は、平衡状態である。
+\end{itembox}
+以上の要請を踏まえると、ある系の持つ平衡状態の持つ性質は、"許された状態"のうち、典型的な状態が共通に持っている性質のことであると言える。\\
 典型性の要請から、系の状態を何らかの方法で平均すると、期待値として平衡状態における値が返ってくるはずである。我々が統計力学を組み立てていくうえですべき残りのことは、
-状態を、適当な重みづけにより混合することで確率分布を構成し、その確率分布が平衡状態を記述するうえでふさわしいことを確かめることである。後者は特に、示量変数の密度のゆらぎが十分に小さいことを確かめればよい。
+状態を適当な重みづけにより混合することで確率分布を構成し、その確率分布が平衡状態を記述するうえでふさわしいことを確かめることである。後者は特に、示量変数の密度のゆらぎが十分に小さいことを確かめればよい。
 以下、特に熱力学の知見との対応をとりやすいような混合の仕方を見ていく。\\
-
 \subsection{ミクロカノニカル分布}
 一番シンプルな重みづけの方法として、すべての状態を等確率に混ぜ合わせる手法が考えられる。
 
@@ -2278,7 +2433,7 @@ $\tilde{U} = U - E_i$とおくと、
 である。これがカノニカル分布である。\\
 
 \textbf{シャノンエントロピーを、拘束条件のもと最大化する方法}\\
-エネルギーを一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
+エネルギー期待値を一定に保った時の、シャノンエントロピー最大化問題を考える。シャノンエントロピーは確率分布関数の汎関数であるから、変分によって停留点を探す。
 \begin{align}
   \tilde{S}= -k_B\sum_{i}p_i\log p_i -\lambda\left(\sum_{i}p_i - 1\right)-\rho\left(\sum_{i}p_iE_i - U\right)  
 \end{align}
@@ -2300,16 +2455,18 @@ $\tilde{U} = U - E_i$とおくと、
 \begin{align}
   p_i = \exp(-1-\frac{\lambda}{k_B}-\frac{\rho E_i}{k_B})
 \end{align}
-ここで、
+したがって、
 \begin{align}
-  &Z = \exp(1 + \frac{\lambda}{k_B})\\
-  &\beta = \frac{\rho}{k_B}
+  p_i \propto \exp(-\beta E_i)
 \end{align}
-とおくと、
+となる。ここで、$\beta = \frac{1}{k_B T}$である。($\rho = \frac{1}{T}$)\\
+あとは、規格化条件から、
 \begin{align}
-  p_i = \frac{\exp(-\beta E_i)}{Z}
+    p_i &= \frac{1}{Z} \exp(-\beta E_i)\\
+    Z &= \sum_{i} \exp(-\beta E_i)
 \end{align}
-となる。
+であることがわかる。これがカノニカル分布である。\\
+
 
 \subsection{典型性に関する追記}
 
