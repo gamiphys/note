@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1727067171 "LA.dvi" "LA.pdf" "LA" 1727067172 0
-  "LA.dvi" 1727067171 81660 9ba08ca1b64eacde9e55234b4402dd07 "latex"
+["dvipdf"] 1727068770 "LA.dvi" "LA.pdf" "LA" 1727068771 0
+  "LA.dvi" 1727068770 85028 7e8b26070836433e280c7313fee2da55 "latex"
   (generated)
   "LA.pdf"
   (rewritten before read)
-["latex"] 1727067170 "LA.tex" "LA.dvi" "LA" 1727067172 0
-  "LA.aux" 1727067171 1917 54b0ee3d883972bedb65203b6f0f551a "latex"
-  "LA.out" 1727067171 411 ea0dd1082074736b4f34a0b5cace3837 "latex"
-  "LA.tex" 1727067167 25990 7b4670481e6db67d9fe393201dbadcbf ""
+["latex"] 1727068768 "LA.tex" "LA.dvi" "LA" 1727068771 0
+  "LA.aux" 1727068770 2034 f6fa8098ab0d21bcead05300638d7694 "latex"
+  "LA.out" 1727068770 489 773d2ea54b95bba02ff86e50b2143fc2 "latex"
+  "LA.tex" 1727068766 26905 5439fbac9ac5822fa997a401d884c9b4 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
