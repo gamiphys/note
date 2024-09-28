@@ -1,0 +1,287 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta, math, matrix} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{統計力学と母関数}
+\author{大上由人}
+\date{\today}
+\maketitle
+\section{数学的準備}
+\subsection{母関数}
+\begin{itembox}[l]{\textbf{Def:モーメント母関数/キュムラント母関数}}
+    確率分布$p(x)$のモーメント母関数は、以下で定義される。
+    \begin{align}
+      M(t) &= \expval{e^{tx}} = \int e^{tx} p(x) dx \label{eq:moment}\\
+      &= \sum_{n=0}^{\infty} \frac{M_n}{n!} t^n
+    \end{align}
+    このとき、$M_n$をモーメントという。\\
+    また、キュムラント母関数は、以下で定義される。
+    \begin{align}
+      K(t) &= \log M(t) = \log \expval{e^{tx}} \label{eq:cumulant}\\
+      &= \sum_{n=0}^{\infty} \frac{C_n}{n!} t^n
+    \end{align}
+    このとき、$C_n$をキュムラントという。
+  \end{itembox}
+例えば、モーメント母関数から一次のモーメントを求めるには以下のようにすればよい。
+\begin{align}
+  \pdv{M(t)}{t}\left.\right|_{t=0} &= \left.\int x e^{tx} p(x) dx\right|_{t=0} = \int x p(x) dx = \expval{x}
+\end{align}
+一方、最右辺を計算することで、
+\begin{align}
+  M_1 = \expval{x}
+\end{align}
+となっていることが確認できる。\\
+確率分布と母関数は一対一に対応している。母関数から確率分布を求めることも、ラプラス逆変換を施すことで可能である。比喩的には、母関数は、確率分布の情報の辞書のようなものであり、$e^tx$などの量は
+情報を取り出しやすくするための見出しのようなものである。また、$t$で微分することが辞書を引くことに対応しており、例えば、一階微分することで一次のモーメントが取り出せる。\\
+
+また、同様に計算をすることで以下の関係式がわかる。
+  \begin{itembox}[l]{\textbf{Prop:モーメントとキュムラントの関係}}
+    モーメントとキュムラントは以下のように関係する。
+    \begin{align}
+      &C_1 = M_1\\
+      &C_2 = M_2 - M_1^2\label{eq:cumulant2}\\
+      &C_3 = M_3 - 3M_1M_2 + 2M_1^3
+    \end{align}
+  \end{itembox}
+  \textbf{Prf}\\
+  キュムラント母関数を展開すると、
+  \begin{align}
+    \ln \left\langle e^{s\hat{X}} \right\rangle &= \ln \left\langle 1 + \frac{1}{1!}s\hat{X} + \frac{1}{2!}s^2\hat{X}^2 + \frac{1}{3!}s^3\hat{X}^3 + O(s^4) \right\rangle \nonumber \\
+    &= \frac{1}{1!} \left\langle \hat{X} \right\rangle s + \left( \frac{1}{2!} \left\langle \hat{X}^2 \right\rangle - \frac{1}{2} \left\langle \hat{X} \right\rangle^2 \right) s^2 \\
+    &+ \left( \frac{1}{3!} \left\langle \hat{X}^3 \right\rangle - \frac{1}{2} \cdot 2 \left\langle \hat{X} \right\rangle \cdot \frac{1}{2!} \left\langle \hat{X}^2 \right\rangle + \frac{1}{3!} \left\langle \hat{X} \right\rangle^3 \right) s^3 + O(s^4) \nonumber \\
+    &= \frac{\left\langle \hat{X} \right\rangle}{1!} s + \left( \frac{\left\langle \hat{X}^2 \right\rangle - \left\langle \hat{X} \right\rangle^2}{2!} \right) s^2 + \left( \frac{\left\langle \hat{X}^3 \right\rangle - 3 \left\langle \hat{X} \right\rangle \left\langle \hat{X}^2 \right\rangle + 2 \left\langle \hat{X} \right\rangle^3}{3!} \right) s^3 + O(s^4)
+  \end{align}
+  となることから、示された。\hfill\qedsymbol\\
+  
+  上の関係からわかるように、キュムラント母関数を二階微分することで分散が出てくる。
+  
+  \subsection{大偏差原理}
+  \begin{itembox}[l]{\textbf{Def:大偏差原理}}
+    確率分布$P_N(x)$について、レート関数と呼ばれる関数$I(x)$が存在して、
+    \begin{align}
+      \lim_{N \to \infty} -\frac{1}{N} \log P_N(x) = I(x)
+    \end{align}
+    を任意の$x$に対して満たすとき、大偏差原理が成り立つという。
+  \end{itembox}
+  
+  \begin{itembox}[l]{\textbf{Thm:ガートナー・エリスの定理}}
+    確率変数密度$x$に対するスケールされたキュムラント母関数$q(k)$が存在し、それが実数$k \in \mathbb{R}$で微分可能であるとする。
+    このとき、$x$は大偏差原理を満たし、そのレート関数は以下のルジャンドル変換で与えられる。
+    \begin{align}
+      I(x) = \sup_{k} \{kx - q(k)\}
+    \end{align}
+    また、逆ルジャンドル変換により、
+    \begin{align}
+      q(k) = \sup_{b} \{kb - I(b)\}
+    \end{align}
+    が成り立つ。
+  \end{itembox}
+  \textbf{Prf}\\
+  気が向いたら書く。
+
+\section{統計力学}
+\subsection{ルジャンドル変換}
+統計力学の例を考える。
+あるエネルギー幅に収まる状態密度は、
+\begin{align}
+  w = \sum_{U-\delta \leq E_i \leq U}\delta(E-E_{i})
+\end{align}
+である。このとき、ミクロカノニカル分布とは、
+\begin{align}
+  p_i &= \frac{1}{W} \\
+  W &= \int_{0}^{\infty} w \dd E
+\end{align}
+で与えられる分布である。このとき、
+\begin{align}
+  S = k \log W
+\end{align}
+である。これらを書き換えると、
+\begin{align}
+  p_i &= \exp(-\frac{S}{k}) = \exp(-V \frac{s}{k})
+\end{align}
+となる。ただし、$s$はエントロピー密度。したがって、体積を大きくする極限を考えると、この分布のレート関数は$\frac{s}{k}$である。\\
+次に、カノニカル分布を考える。カノニカル分布は、
+\begin{align}
+  p_i &= \frac{1}{Z} \exp(-\beta E_i)
+\end{align}
+
+
+また、分配関数は、
+\begin{align}
+  Z_{V,N}(\beta) &= \int_{0}^{\infty}\dd E w e^{-\beta E}
+\end{align}
+これと、モーメント母関数の定義(\ref{eq:moment})式を見比べてみると、分配関数は、$w$を確率密度とみなしたときの(すなわち、$W$を確率とみなしたときの)、エネルギーのモーメント母関数になっていることがわかる。\footnote{ただし、状態密度が確率分布でないから、本当にモーメント母関数であるとはいえないのだが。}\\
+モーメント母関数が求まったので、キュムラント母関数も求まる。キュムラント母関数の定義(\ref{eq:cumulant})式を見ると、
+\begin{align}
+  \frac{1}{k}\Phi = \log Z_{V,N}(\beta)
+\end{align}
+なる量がキュムラント母関数である。ここで、左辺の$k$はボルツマン定数、$\Phi$はマシュー関数である。要するに、キュムラント母関数は、完全な熱力学関数に対応する。\\
+% キュムラント母関数は、ゆらぎと対応していたのであった。試しに、$k\Phi$を$\beta$で微分してみると、
+% \begin{align}
+%   \pdv[2] {\Phi}{\beta} &= k\sigma^2
+% \end{align}
+% となる。これの両辺$\beta^2$をかけると、
+% \begin{align}
+%   \beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
+% \end{align}
+% となり、比熱が出てくる。\footnote{この左辺は見慣れないかもしれないが、
+% \begin{align}
+%   C(T,V,N) = -T\pdv[2]{F}{T}
+% \end{align}
+% のマシュー関数版である。実際、
+% \begin{align}
+%   \pdv[2]{T} &= k^2\beta^2\pdv{\beta}\left(\beta^2 \pdv{\beta}\right)
+% \end{align}
+% を用いると、
+% \begin{align}
+%   C(T,V,N) &= -T\pdv[2]{F}{T}\\
+%   &=\beta\pdv{\beta}\left(\beta^2\pdv{\beta}\right)\left(\frac{\Phi}{\beta}\right)\\
+%   &=\beta^2\pdv[2]{\Phi}{\beta}
+% \end{align}
+% となる。}\\
+
+また、キュムラント母関数とレート関数はルジャンドル変換によって結ばれているのであった。すなわち、
+\begin{align}
+  \phi = s - \frac{u}{T}
+\end{align}
+である。これは、エントロピーとマシュー関数がルジャンドル変換で結ばれていることをに対応する。\\
+
+
+以上より、
+\begin{center}
+  \begin{tikzpicture}
+    \matrix (m) [matrix of math nodes, row sep=4em, column sep=6em, minimum width=2em]
+    {
+        W & S \\
+        Z & \Phi \\
+        \Xi & Q \\
+    };
+
+    % Labels above nodes
+    \node[font=\footnotesize,above=of m-1-1] {モーメント母関数};
+    \node[font=\footnotesize,above=of m-1-2] {キュムラント母関数};
+
+    \path[-stealth]
+      (m-1-1) edge [->] node [font=\small, above] {$\log$} (m-1-2)
+      (m-1-1) edge [<->] node [font=\small, left] {ラプラス変換} (m-2-1)
+      (m-2-1) edge [->] node [font=\small, above] {$\log$} (m-2-2)
+      (m-1-2) edge [<->] node [font=\small, right] {ルジャンドル変換} (m-2-2)
+      (m-2-2) edge [<->] node [font=\small, right] {ルジャンドル変換} (m-3-2)
+      (m-3-2) edge [<-] node [font=\small, below] {$\log$} (m-3-1)
+      (m-2-1) edge [<->] node [font=\small, left] {ラプラス変換} (m-3-1);
+  \end{tikzpicture}
+\end{center}
+とも書くことができる。\\
+
+\subsection{母関数としての役割}
+カノニカル分布を考える。カノニカル分布を再掲すると、
+\begin{align}
+  p_i = \frac{e^{-\beta E_i}}{Z(\beta)}
+\end{align}
+である。このとき、モーメント母関数は、
+\begin{align}
+  M(t) &= \sum_{i}\frac{e^{-(\beta - t)E_i}}{Z(\beta)}\\
+  &= \frac{Z(\beta - t)}{Z(\beta)}
+\end{align}
+とかくことができる。これを用いて、n次のモーメントは、
+\begin{align}
+  \expval{E^n} &= \pdv[n]{M(t)}{t}\Big|_{t=0}\\
+  &= \frac{1}{Z(\beta)}\pdv[n]{Z(\beta - t)}{t}\Big|_{t=0}\\
+  &= (-1)^n\frac{1}{Z(\beta)}\pdv[n]{Z(\beta-t)}{t}\Big|_{t=0}\\
+  &= (-1)^n\frac{Z^{(n)}(\beta)}{Z(\beta)}
+\end{align}
+となる。ここで、$Z^{(n)}(\beta)$は、$n$階微分である。とくに、1次のモーメントは、
+\begin{align}
+  \expval{E} &= -\frac{1}{Z(\beta)}\pdv{Z(\beta - t)}{t}\Big|_{t=0}\\
+  &= -\pdv{\beta}\log Z(\beta)
+\end{align}
+となる。\\
+この母関数との関連を見ることで、分配関数から熱力学量が出てくる理由が見えてくる。
+モーメント母関数を用いて計算したときは最後に$t=0$としたわけだが、逆に、$\frac{e^{-\beta E_i}}{Z(\beta)}$は、はじめから$t=0$としたモーメント母関数であると考えることができる。すなわち、
+\begin{align}
+  M(\beta) = \frac{e^{-\beta E_i}}{Z(\beta)}
+\end{align}
+のように考えることができる。ただし、このときのモーメント関数は、すでに$k=0$としているので、最後に値を代入する作業は必要ない。また、$\beta$微分に分配関数が巻き込まれないように、分配関数を外に出してから計算する必要がある。すなわち、
+\begin{align}
+  \sum_{i} e^{-\beta E_i} &= Z(\beta) \label{eq:zmoment}
+\end{align}
+を微分して情報をとりだしてから、分配関数で割ってやるという手順が必要である。このとき、(\ref{eq:zmoment})式は、モーメント母関数とみなすことができる。\\
+実際にn次のモーメントを計算すると、
+\begin{align}
+  \expval{E^n} &= \frac{1}{Z(\beta)}\pdv[n]{Z(\beta)}{\beta}\\
+  &= \frac{1}{Z(\beta)}(-1)^nZ^{(n)}(\beta)
+\end{align}
+となる。特に、1次のモーメントは、
+\begin{align}
+  \expval{E} &= -\frac{1}{Z(\beta)}\pdv{Z(\beta)}{\beta}\\
+  &= -\pdv{\beta}\log Z(\beta)
+\end{align}
+となる。\\
+また、分配関数をモーメント母関数とみなすということは、$\log Z$をキュムラント母関数とみなすことにもなる。実際、
+\begin{align}
+  \pdv[2]{\log Z}{\beta} &= \sigma^2(\beta)
+\end{align}
+である。((\ref{eq:cumulant2})式を参照)\\
+このしきは、マシュー関数を用いて書き換えることで、
+\begin{align}
+  \pdv[2] {\Phi}{\beta} &= k\sigma^2
+\end{align}
+となる。これの両辺$\beta^2$をかけると、
+\begin{align}
+  \beta^2\pdv[2] {\Phi}{\beta} &= k\beta^2\sigma^2 =C_{V}
+\end{align}
+となり、比熱が出てくる。\footnote{この左辺は見慣れないかもしれないが、
+\begin{align}
+  C(T,V,N) = -T\pdv[2]{F}{T}
+\end{align}
+のマシュー関数版である。実際、
+\begin{align}
+  \pdv[2]{T} &= k^2\beta^2\pdv{\beta}\left(\beta^2 \pdv{\beta}\right)
+\end{align}
+を用いると、
+\begin{align}
+  C(T,V,N) &= -T\pdv[2]{F}{T}\\
+  &=\beta\pdv{\beta}\left(\beta^2\pdv{\beta}\right)\left(\frac{\Phi}{\beta}\right)\\
+  &=\beta^2\pdv[2]{\Phi}{\beta}
+\end{align}
+となる。}\\
+
+まとめると、分配関数は、エネルギーのモーメント母関数とみなすことができ、確率分布の情報を取り出すことができるのである。\\ 
+
+
+\end{document}

@@ -334,6 +334,11 @@ T(fX, gY) &= \nabla_{fX}(gY) - \nabla_{gY}(fX) - [fX, gY] \\
     多様体$M$にアフィン接続$\nabla$が与えられているとする。$M$の座標近傍$(U;x^1,\cdots,x^n)$において、接続係数$\{\Gamma_{ij}^k\}$がすべて恒等的に0であるとき、
     この座標近傍を$\nabla$-アフィン座標近傍といい、局所座標系$(x^i)$を$\nabla$-アフィン座標系という。
 \end{itembox}
+このとき、(\ref{eq:parallel_condition})は、
+\begin{equation}
+    \dot{Z}^k = 0
+\end{equation}
+と書くことができる。したがって、$\nabla$-アフィン座標系における平行移動とは、基底ベクトルが一定となるような移動のことであり、これは斜向座標における平行移動に対応していると考えられる。
 
 \textbf{Rem}\\
 平坦であるという性質は(曲率や捩率がテンソルで定義されているのだから)座標の取り方に依らないが、アフィン座標系かどうかは座標の取り方に依存する。\\\\
@@ -454,7 +459,7 @@ T(fX, gY) &= \nabla_{fX}(gY) - \nabla_{gY}(fX) - [fX, gY] \\
     $M$上で定義された(0,2)型テンソル場$g$であって、各点$p \in M$で、$g_p$が内積を定めるとき、$g$を$M$上のRiemann計量という。このとき、$(M,g)$をRiemann多様体という。
     ここで、
     \begin{equation}
-        g_{ij} = g(\partial{i},\partial{j})
+        g_{ij} = g(\partial_{i},\partial_{j})
     \end{equation}
     は正定値対称行列となる。
 \end{itembox}

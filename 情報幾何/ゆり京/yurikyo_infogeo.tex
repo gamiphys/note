@@ -88,6 +88,7 @@
     が成り立つ。
 \end{itembox}
 \textbf{Prf.(厳密でない版)}\\
+$(\Rightarrow)$を示す。
 $C$の始点と終点が一致していて閉曲線である時を考える。このとき、$R=0$であることは、
 \begin{align}
     \Pi_C \vb{v} = \vb{v} 
@@ -100,7 +101,7 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
 \begin{align}
     \Pi_C^* \vb{w} = \vb{w}
 \end{align}
-が成り立つ。これが任意の$\vb{w}$について成り立つことから、$\nabla^*$-曲率が0であることが示される。\hfill\qedsymbol
+が成り立つ。これが任意の$\vb{w}$について成り立つことから、$\nabla^*$-曲率が0であることが示される。逆も同様。\hfill\qedsymbol
 
 捩率については、曲率のような関係が成り立たないことが知られている。
 
@@ -158,7 +159,7 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
     と表すことにする。\\
     以下、4つの補題を用いて、ダイバージェンスを定義する。
     
-    \begin{itembox}[l]{\textbf{Lem1}}
+    \begin{itembox}[l]{\textbf{Lem.1}}
         双対アフィン座標系$\{(\theta)^i,(\eta)_i\}$に関する計量$g$の成分を、
         \begin{equation}
             g_{ij} = g(\partial_i,\partial_j) \quad g^{ij} = g(\partial^i,\partial^j)
@@ -189,7 +190,7 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
     もいうことができる。\hfill\qedsymbol
     
     
-    \begin{itembox}[l]{\textbf{Lem2}}
+    \begin{itembox}[l]{\textbf{Lem.2}}
         ある$C^{\infty}$関数の組$\{\psi(\theta^1,\cdots,\theta^n),\varphi(\eta_1,\cdots,\eta_n)\}$が存在して、
         \begin{equation}
             \eta_i = \partial_i \psi \quad \theta^i = \partial^i \varphi \quad \psi(\theta^1,\cdots,\theta^n) + \varphi(\eta_1,\cdots,\eta_n) - \theta^i\eta_i = 0
@@ -205,7 +206,7 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
     \end{align}
     となるから、$\psi + \varphi - \theta^i\eta_i$は定数関数となり、特に積分定数をうまく選ぶと、その値は0となる。\hfill\qedsymbol
     
-    \begin{itembox}[l]{\textbf{Lem3}}
+    \begin{itembox}[l]{\textbf{Lem.3}}
         一つ前の補題で定めた関数の組は、計量gと、
         \begin{equation}
             g_{ij} = \partial_i \partial_j \psi \quad g^{ij} = \partial^i \partial^j \varphi
@@ -215,7 +216,7 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
     \textbf{Prf}\\
     上の二つの補題と、$g_{ij}$の正定値性を用いると示される。\hfill\qedsymbol
     
-    \begin{itembox}[l]{\textbf{Lem4}}
+    \begin{itembox}[l]{\textbf{Lem.4}}
         点$p \in M$の$\theta$-座標と、$\eta$-座標をそれぞれ、
         \begin{equation}
             \theta(p) = (\theta^1(p),\cdots,\theta^n(p)) \quad \eta(p) = (\eta_1(p),\cdots,\eta_n(p))
@@ -255,12 +256,14 @@ $C$の始点と終点が一致していて閉曲線である時を考える。�
         D(p||q) = D^*(q||p)
     \end{equation}
     が成り立つ。また、Lem3の二本目の式と比較することで、
-    \begin{equation}
-        D(p||q) \geq 0
-    \end{equation}
+    \begin{align}
+        D(p||q) &= \psi(\theta(p)) + \varphi(\eta(q)) - \theta^i(p)\eta_i(q) \\
+        &= \underset{r \in M}{\max} \left\{ \eta_i(r)\theta^i(p) - \varphi(\eta(r)) \right\} + \varphi(\eta(q)) - \theta^i(p)\eta_i(q) \\
+        &\geq 0
+    \end{align}
     かつ、
     \begin{equation}
-        D(p||q) = 0 \Leftrightarrow p = q
+        D(p||q) = 0 \Leftrightarrow p = q \quad \because \text{Lem2}
     \end{equation}
     が成り立つ。したがって、$D(p||q)$は、$M$上の距離のような役割を持つと考えられるが、実際には、対称性$D(p||q) = D(q||p)$は成り立たないし、三角不等式も成り立たない。したがって、$D(p||q)$は、距離の公理を満たさない。\\
     
