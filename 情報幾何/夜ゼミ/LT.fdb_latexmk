@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1727593657 "LT.dvi" "LT.pdf" "LT" 1727593659 0
-  "LT.dvi" 1727603708 18536 723de8d9af1d3ccd697abecd92accf3b "latex"
+["dvipdf"] 1727603810 "LT.dvi" "LT.pdf" "LT" 1727603813 0
+  "LT.dvi" 1727603810 38760 00dcda25d890b4fb407b3335864ba410 "latex"
   (generated)
   "LT.pdf"
   (rewritten before read)
-["latex"] 1727603702 "LT.tex" "LT.dvi" "LT" 1727603708 2
-  "LT.aux" 1727603708 858 07c40756779ad16f000c38be43ba4246 "latex"
-  "LT.out" 1727603708 276 b7b944f62da33000fdc09a25b2109a24 "latex"
-  "LT.tex" 1727603701 15743 d794d068ff77fc2ca9f76c6a642815b5 ""
+["latex"] 1727603804 "LT.tex" "LT.dvi" "LT" 1727603813 0
+  "LT.aux" 1727603810 1778 51c92b811ae45503a58c59127f1111dd "latex"
+  "LT.out" 1727603810 618 257a61094cbafd2f725d61728a5d881d "latex"
+  "LT.tex" 1727603796 15756 b77db4de59d07d210f3a496a557b3d6b ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -56,7 +56,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm" 1681537339 1116 25a7bf822c58caf309a702ef79f4afbb ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""

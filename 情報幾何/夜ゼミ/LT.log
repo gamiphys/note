@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  29 SEP 2024 18:55
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  29 SEP 2024 18:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -707,37 +707,15 @@ LaTeX Font Info:    Trying to load font information for U+euf on input line 52.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [1
 
-] [2] [3]
-
-LaTeX Warning: Reference `eq:Fisher1' on page 4 undefined on input line 172.
-
-
-LaTeX Warning: Reference `eq:Fisher2' on page 4 undefined on input line 172.
-
-
-Overfull \hbox (21.08173pt too wide) detected at line 229
+] [2] [3] [4]
+Overfull \hbox (1.08173pt too wide) detected at line 229
 []
  []
 
+[5] [6]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 266.
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 266.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 266.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 266.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 266.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 266.
-LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
-(Font)              Font shape `JT2/mc/m/n' tried instead on input line 266.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 266.
-LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
-(Font)              Font shape `JY2/mc/m/n' tried instead on input line 266.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 266.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 279.
@@ -749,22 +727,17 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 287.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 287.
-
-./LT.tex:292: LaTeX Error: \begin{minipage} on input line 171 ended by \end{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.292 \end{document}
-                     
+ [7] (./LT.aux)
+Package rerunfilecheck Info: File `LT.out' has not changed.
+(rerunfilecheck)             Checksum: 257A61094CBAFD2F725D61728A5D881D;618.
+ ) 
 Here is how much of TeX's memory you used:
- 23003 strings out of 476677
- 429752 string characters out of 5808165
- 1868484 words of memory out of 5000000
- 43033 multiletter control sequences out of 15000+600000
- 537019 words of font info for 145 fonts, out of 8000000 for 9000
+ 22997 strings out of 476677
+ 429514 string characters out of 5808165
+ 1861484 words of memory out of 5000000
+ 43027 multiletter control sequences out of 15000+600000
+ 536321 words of font info for 143 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,15n,89p,466b,606s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,89p,466b,464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on LT.dvi (3 pages, 18536 bytes).
+Output written on LT.dvi (7 pages, 38760 bytes).
