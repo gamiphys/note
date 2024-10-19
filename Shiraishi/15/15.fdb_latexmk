@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1726016003 "15.dvi" "15.pdf" "15" 1726016006 0
-  "15.dvi" 1726016003 32016 6a814ede7533957253156fe4edf5962e "latex"
+["dvipdf"] 1728305158 "15.dvi" "15.pdf" "15" 1728305160 0
+  "15.dvi" 1728305158 41940 ed50b877cec0974b1e8c4f05a7c5d0a2 "latex"
   (generated)
   "15.pdf"
   (rewritten before read)
-["latex"] 1726015999 "15.tex" "15.dvi" "15" 1726016006 0
-  "15.aux" 1726016003 1055 0a321bbc5c8fd17499a4f38573f5e0f4 "latex"
-  "15.out" 1726016003 486 8a17771af891c6c4aebec512356e5aa2 "latex"
-  "15.tex" 1726015997 12455 afc8bfc69e917dae618d10d42b0a0d0e ""
+["latex"] 1728305156 "15.tex" "15.dvi" "15" 1728305160 0
+  "15.aux" 1728305158 1358 cfc67947fa8b7701a16e8c3e2777ab4a "latex"
+  "15.out" 1728305158 660 55ea3ec432921764440224bd42c1b577 "latex"
+  "15.tex" 1728305153 16373 83af2f03b650d5162996c4c9a2a41d9a ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -43,6 +43,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1681537339 1300 b62933e007d01cfd073f79b963c01526 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
@@ -195,6 +196,7 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
+  "endoreversible.png" 1728013766 18126 522451804baa80b2b52585130a307dde ""
   (generated)
   "15.aux"
   "15.dvi"

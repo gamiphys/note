@@ -796,7 +796,33 @@ $f \neq \pm 1$より、
   H_{C2} = \sqrt{2}\kappa H_{C1}
 \end{align}
 
+\section{非平衡ゼミの計算}
+\begin{align}
+  \dot{W} &= \frac{Q_{H} - Q_{L}}{t_{H} + t_{L}}
+\end{align}
+$x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L}$とすると、
+\begin{align}
+  Q_{H} &= \kappa_{H}t_{H}(T_{H}-T'_{H}) = \kappa_{H}t_{H}x\\
+  Q_{L} &= \kappa_{L}t_{L}(T'_{L}-T_{L}) = \kappa_{L}t_{L}y
+\end{align}
+である。したがって、
+\begin{align}
+  t_{H} = \frac{Q_{H}}{\kappa_{H}x},\quad t_{L} = \frac{Q_{L}}{\kappa_{L}y}
+\end{align}
+である。これを代入すると、
+\begin{align}
+  \dot{W} &= \frac{Q_{H} - Q_{L}}{\frac{Q_{H}}{\kappa_{H}x} + \frac{Q_{L}}{\kappa_{L}y}}\\
+  &= \frac{1-\frac{Q_{L}}{Q_{H}}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{Q_{L}}{Q_{H}}}}\\
+  &= \frac{1-\frac{T_{L}'}{T_{H}'}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{T_{L}'}{T_{H}'}}}\\
+  &= \frac{1-\frac{T_{L}+y}{T_{H}-x}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{T_{L}+y}{T_{H}-x}}}\\
+  &= \frac{\kappa_{H}\kappa_{L}xy(T_{H}-x)-\kappa_{H}\kappa_{L}xy(T_{L}+y)}{\kappa_{L}y(T_{H}-x)+\kappa_{H}x(T_{L}+y)}\\
+  &= \frac{(T_H + T_L - x - y)\kappa_H \kappa_L xy}{\kappa_L T_H y + \kappa_H T_L x + (\kappa_H - \kappa_L) xy}
+\end{align}
 
-
+\begin{align}
+  1-\frac{T_{L}+y}{T_{H}-x} &= 1-\frac{T_L + \frac{T_{L}\qty(\sqrt{\frac{T_{H}}{T_{L}}}-1)}{1+\sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}}{T_H - \frac{T_H\qty(1-\sqrt{\frac{T_{H}}{T_{L}}})}{1+\sqrt{\frac{\kappa_{H}}{\kappa_{L}}}}}\\
+  &= 1-\frac{T_L}{T_H} \frac{\sqrt{\frac{T_H}{T_L}} + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}{\sqrt{\frac{T_L}{T_H}} + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}} } \frac{1 + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}}}{1 + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}\\
+  &= 1 - \frac{T_L \sqrt{\kappa_H} \sqrt{\frac{T_H}{T_L}} + \sqrt{\kappa_L}}{T_H \sqrt{\kappa_L} \sqrt{\frac{T_L}{T_H}} + \sqrt{\kappa_H}}
+\end{align}
 
 \end{document}

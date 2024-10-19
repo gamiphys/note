@@ -44,8 +44,14 @@
 \setcounter{section}{14}
 
 \section{最大仕事率のもとでのエンジンの効率}
-\subsection{}
+有限時間における熱力学を考える。従来の熱力学において、熱機関の最高効率はカルノーサイクルによって達成され、以下のように表される。
+\begin{align}
+  \eta_{\text{C}} = 1 - \frac{T_{\text{L}}}{T_{\text{H}}}
+\end{align}
+ただし、$T_{\text{L}}$は低温熱浴の温度、$T_{\text{H}}$は高温熱浴の温度である。しかし、この効率は、どの操作も準静的に行うため、1サイクル回すのには無限の時間がかかる。
+したがって、この熱機関の仕事率は0となってしまう。現実の世界に熱機関を適応するうえでは仕事率もある程度高くあってほしい。そこで、この章では、仕事率を最大にしたときの効率について考える。とくに、サイクルを回すのにかかる時間は有限である。
 
+\subsection{エンドリバーシブル過程とカーゾン-アルボーン効率}
 \begin{itembox}[l]{\textbf{Def. Endoreversible 熱力学}}
   Endoreversible熱力学とは、温度$T$の熱浴に接触した等温過程で、以下の性質を満たすものである。
   \begin{itemize}
@@ -58,6 +64,15 @@
     \item 系の温度$T'$はその系のエネルギー$E$,体積$V$,粒子数$N$の組$(E,V,N)$にのみ依存する。
   \end{itemize}
 \end{itembox}
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=100mm]{endoreversible.png}
+    \end{center}
+    \caption{Endoreversible熱力学の模式図}
+    \label{fig:endoreversible}
+\end{figure}
+
 この枠組みでの熱機関のサイクル過程を考える。この過程において、系は高温熱浴(温度$T_{H}$)と低温熱浴(温度$T_{L}$)との間でエネルギーをやり取りする。
 我々は、断熱過程は可逆であるが、等温過程に比べて圧倒的に素早く行われると仮定する。また、等温過程において、高温(低温)熱浴と接しているとき、系の温度は$T'_H$($T'_L$)で一定であると仮定する。このとき、
 以下の定理を示すことができる。
@@ -80,13 +95,29 @@ $Q_{H}$を高温熱浴から系に流れ込む熱量、$Q_{L}$を系から低温
 \begin{equation}
   \Delta S = \frac{Q_{H}}{T'_{H}} = \frac{Q_{L}}{T'_{L}}
 \end{equation}
-となる。このとき、仕事率は、
+となる。このとき、仕事率は、断熱過程にかかる時間を十分小さいとして、
 \begin{align}
-  \dot{W} &= \frac{Q_{H} - Q_{L}}{t_{H} + t_{L}}\\
-  & x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L} \quad \text{とすると、}\\
+  \dot{W} &= \frac{Q_{H} - Q_{L}}{t_{H} + t_{L}}
+\end{align}
+$x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L}$とすると、
+\begin{align}
+  Q_{H} &= \kappa_{H}t_{H}(T_{H}-T'_{H}) = \kappa_{H}t_{H}x\\
+  Q_{L} &= \kappa_{L}t_{L}(T'_{L}-T_{L}) = \kappa_{L}t_{L}y
+\end{align}
+である。したがって、
+\begin{align}
+  t_{H} = \frac{Q_{H}}{\kappa_{H}x},\quad t_{L} = \frac{Q_{L}}{\kappa_{L}y}
+\end{align}
+である。これを代入すると、
+\begin{align}
+  \dot{W} &= \frac{Q_{H} - Q_{L}}{\frac{Q_{H}}{\kappa_{H}x} + \frac{Q_{L}}{\kappa_{L}y}}\\
+  &= \frac{1-\frac{Q_{L}}{Q_{H}}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{Q_{L}}{Q_{H}}}}\\
+  &= \frac{1-\frac{T_{L}'}{T_{H}'}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{T_{L}'}{T_{H}'}}}\\
+  &= \frac{1-\frac{T_{L}+y}{T_{H}-x}}{\frac{1}{\kappa_{H}x} + \frac{1}{\kappa_{L}y\frac{T_{L}+y}{T_{H}-x}}}\\
+  &= \frac{\kappa_{H}\kappa_{L}xy(T_{H}-x)-\kappa_{H}\kappa_{L}xy(T_{L}+y)}{\kappa_{L}y(T_{H}-x)+\kappa_{H}x(T_{L}+y)}\\
   &= \frac{(T_H + T_L - x - y)\kappa_H \kappa_L xy}{\kappa_L T_H y + \kappa_H T_L x + (\kappa_H - \kappa_L) xy}
 \end{align}
-となる。%TODOもう少し式変形を書く
+となる。
 これを最大化するために、$\dot{W}$を$x$と$y$で偏微分し、それが0になる条件を求めると、かなり面倒な計算の末、
 \begin{align}
   \kappa_L T_H y^*(T_H + T_L - x^* - y^*) - (\kappa_L T_H y^* + \kappa_H T_L x^* + (\kappa_H - \kappa_L) x^* y^*) x^* &= 0\\
@@ -106,24 +137,48 @@ $Q_{H}$を高温熱浴から系に流れ込む熱量、$Q_{L}$を系から低温
   \eta_{\text{MP}} &= \frac{Q_H - Q_L}{Q_H} = 1 - \frac{T_L + y^*}{T_H + x^*} = 1 - \frac{T_L \sqrt{\kappa_H} \sqrt{\frac{T_H}{T_L}} + \sqrt{\kappa_L}}{T_H \sqrt{\kappa_L} \sqrt{\frac{T_L}{T_H}} + \sqrt{\kappa_H}} = 1 - \sqrt{\frac{T_L}{T_H}}
 \end{align}
 となる。このことと、一般にカルノーサイクルが効率最大のサイクルであることから、目的の不等式が得られる。\qed\\
+(計算)\\
+\begin{align}
+  1-\frac{T_{L}+y}{T_{H}-x} &= 1-\frac{T_L + \frac{T_{L}\qty(\sqrt{\frac{T_{H}}{T_{L}}}-1)}{1+\sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}}{T_H - \frac{T_H\qty(1-\sqrt{\frac{T_{H}}{T_{L}}})}{1+\sqrt{\frac{\kappa_{H}}{\kappa_{L}}}}}\\
+  &= 1-\frac{T_L}{T_H} \frac{\sqrt{\frac{T_H}{T_L}} + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}{\sqrt{\frac{T_L}{T_H}} + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}} } \frac{1 + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}}}{1 + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}\\
+  &= 1 - \frac{T_L \sqrt{\kappa_H} \sqrt{\frac{T_H}{T_L}} + \sqrt{\kappa_L}}{T_H \sqrt{\kappa_L} \sqrt{\frac{T_L}{T_H}} + \sqrt{\kappa_H}}
+\end{align}
+
 
 \subsection{Onsagar行列によるアプローチ}
-時間反転対称性を持つような、定常系を考える。\\
+時間反転対称性を持つような定常系を考える。\\
 \textbf{記号}\\
 \begin{itemize}
-  \item $X_{1}$: 適当な力学的変数
-  \item $J_{1}$: 熱流($J_{2}$)によって駆動される流れ
-  \item $X_{2}$:二つの熱浴の逆温度の差
+  \item \( X_1 \) :$J_{2}$によって駆動される熱力学的な力(エントロピーの自然な変数)
+  \item \( X_2 \) ：二つの熱浴の逆温度差
   \begin{align}
-    X_{2} = \frac{1}{T_{L}} - \frac{1}{T_{H}}
+      X_2 := \frac{1}{T_L} - \frac{1}{T_H}
   \end{align}
-  \item $J_{2}$:熱流
+  
+  \item \( J_1 \) ：熱流 \( X_1 \) に対応）
+  \item \( J_2 \) ：熱流（二つの熱浴の間で流れる）
+  
+  \item \( T_H \) ：高温側の熱浴の温度
+  \item \( T_L \) ：低温側の熱浴の温度
+  \item \( T \) ：\( T_H \) と \( T_L \) が近い場合の平均温度
+  （線形応答体制では \( T_L \approx T_H \approx T \) と仮定）
+  
+  \item パワー \( \dot{W} \) :次のように定義される
+  \begin{align}
+      \dot{W} := - X_1 J_1 T
+  \end{align}
+  
+  \item 効率 \( \eta \) ：次のように定義される
+  \begin{align}
+      \eta := - \frac{X_1 J_1 T}{J_2}
+  \end{align}
+  
+  \item カルノー効率 \( \eta_C \)
+  \begin{align}
+      \eta_C := 1 - \frac{T_L}{T_H} = \frac{\Delta T}{T} 
+  \end{align}
+  ここで、\( \Delta T := T_H - T_L \)
 \end{itemize}
-いま、線形応答の枠組みで考えるため、
-\begin{align}
-  T_{H} \simeq T_{L} \simeq T
-\end{align}
-とする。hogehoge%TODOあとで書く
 
 
 線形応答理論を適応するため、揺動散逸定理のあたりで出てきたOnsagar行列を用いる。この行列は、
@@ -131,7 +186,7 @@ $Q_{H}$を高温熱浴から系に流れ込む熱量、$Q_{L}$を系から低温
     J_1 &= L_{11} X_1 + L_{12} X_2\\
     J_2 &= L_{21} X_1 + L_{22} X_2
 \end{align}
-ただし、Onsagarの相反定理により、$L_{12} = L{21}$である。また、このとき、熱力学第二法則から、
+ただし、Onsagarの相反定理により、$L_{12} = L_{21}$である。また、このとき、熱力学第二法則から、
 \begin{align}
     \dot{S} := J_1 X_1 + J_2 X_2 \geq 0
 \end{align}
@@ -155,7 +210,7 @@ $Q_{H}$を高温熱浴から系に流れ込む熱量、$Q_{L}$を系から低温
 \end{align}
 を満たすことを意味する。このもとで、熱効率が以下の不等式を満たすことが知られている。
 
-\begin{itembox}[l]{\textbf{Thm.線形応答のもとでの定常系の効率}}
+\begin{itembox}[l]{\textbf{Thm.線形応答の範囲での定常系の効率}}
   上で述べたような系について、Onsagar行列および$X_2$が固定されていて、$X_1$が制御可能なパラメータであると仮定する。このとき、最大仕事率のもとでの熱機関の効率は以下の不等式を満たす。
   \begin{align}
     \eta_{\text{MP}} \leq \frac{\eta_C}{2} 
@@ -181,11 +236,14 @@ $Q_{H}$を高温熱浴から系に流れ込む熱量、$Q_{L}$を系から低温
   &= \frac{\eta_C}{2}
 \end{align}
 したがって、目的の不等式が得られる。\qed\\
-hogehoge
+このセットアップの偉いところは、Curzon-Ahlbornのセットアップとは異なり、線形応答の範囲の定常系であれば適応できる点である。
+ただし、Curzon-Ahlbornのセットアップの方が良いところもある。それは、Curzon-Ahlbornのセットアップは、系と熱浴の温度差が小さいと仮定しているだけであり、熱浴の温度差については仮定していない点である
 
 \subsection{速度による展開}
+外部から制御できる唯一のパラメータとして、操作速度$u$を導入する。ここでは、高温熱浴と低温熱浴での等温過程の操作速度の比が一定であると仮定する。
 \begin{itembox}[l]{\textbf{Thm.}}
-外部から操作されるサイクル型の熱機関を考える。その動作速度はパラメータ $u$ によって特徴付けられ、この $u$ は操作可能なパラメータとする。熱機関が $u \to 0$ の極限で最大効率 $\eta_{\text{max}}$ を達成すると仮定する。また、各電流に伴う単位時間あたりの散逸量は $u$ の増加に伴って増加するものと仮定する。すると、$u$ に関して線形応答の範囲内では、
+外部から操作される熱機関を考える。その動作速度はパラメータ $u$ によって特徴付けられ、この $u$ は操作可能なパラメータとする。熱機関が $u \to 0$ の極限で最大効率 $\eta_{\text{max}}$ を達成すると仮定する。
+また、各カレントに伴う単位時間あたりの散逸量は $u$ の増加に伴って増加するものと仮定する。すると、$u$ に関して線形応答の範囲内では、
 \begin{align}
     \frac{\eta_{\text{max}}}{2} \leq \eta_{\text{MP}} \leq \frac{1}{2 - \eta_{\text{max}}}
 \end{align}
@@ -198,37 +256,38 @@ hogehoge
 \end{align}
 が成立する。また、Curzon-Ahlborn効率 $\eta_{\text{CA}} := 1 - \sqrt{\frac{T_L}{T_H}}$ は $\eta_{\text{max}} = 1 - \frac{T_L}{T_H}$ を用いて式(15.22)を満たす。
 
-\textbf{Prf.} \ 熱流 $J_Q$ と単位時間あたりに取り出される仕事量 $J_W$ をそれぞれ高温浴からの熱流とする。$J_W$ と $J_Q$ を $u$ で展開する：
+\textbf{Prf.} $J_Q,J_W$ をそれぞれ高温熱浴からの熱流と単位時間あたりに取り出される仕事量とする。$J_W$ と $J_Q$ を $u$ で展開する:
 \begin{align}
     J_W(u) &= a_1 u - a_2 u^2 + \cdots \\
     J_Q(u) &= b_1 u - b_2 u^2 + \cdots
 \end{align}
 
-これらの展開には定数項が存在しない。なぜなら、準静的な極限 ($u \to 0$) では $J_W = J_Q = 0$ だからである。効率が準静的な極限で最大効率 $\eta_{\text{max}}$ に近づくため、以下が成り立つ：
+ただし、$u \to 0$でカレントが0になるため、定数項は現れない。効率が準静的な極限で最大効率 $\eta_{\text{max}}$ に近づくため、以下が成り立つ:
 \begin{align}
     \frac{a_1}{b_1} = \eta_{\text{max}}
 \end{align}
 
-仕事の取り出しにおける散逸項 $a_2 u^2$ は、冷浴への熱流における対応する散逸項である $b_2 u^2$ と等しいため、$a_2 \geq b_2 \geq 0$ が成立する。
+仕事の取り出しにおける散逸項 $a_2 u^2$ は、低温熱浴への熱流における対応する散逸項である $b_2 u^2$ と等しいため、$a_2 \geq b_2 \geq 0$ が成立する。
+%TODO怪しい
 
-From Eq.~(15.24)、$J_W$は次で最大化される：
+今、仕事率$J_W$は、
 \begin{align}
     u^* = \frac{a_1}{2 a_2}
 \end{align}
-
-$u = u^*$と設定すると、EMPは次のように表される：
+において最大化される。このとき、効率は
 \begin{align}
     \eta_{\text{MP}} := \frac{J_W(u^*)}{J_Q(u^*)} &= \frac{a_1 - a_2 \frac{a_1}{2a_2}}{b_1 \left( 1 - \frac{b_2}{b_1} \frac{a_1}{2a_2} \right)} = \frac{\eta_{\text{max}}}{2} \frac{1}{1 - \eta_{\text{max}} \frac{b_2}{2a_2}}
 \end{align}
 $\mathcal{O}(u^*)$ まで。この式に $0 \leq \frac{b_2}{a_2} \leq 1$ を代入すると、所望の不等式(15.22)が得られる。 \hfill $\Box$
 
-ここで2つの注意を述べる。まず、もし高温浴からの熱流の損失と冷浴への損失が等しい場合、$a_2 = 2 b_2$ が成立し、この場合のEMPは次のように書ける
+ここで2つの注意を述べる。まず、もし高温熱浴からの熱流の損失と低温熱浴への損失が等しい場合、$a_2 = 2 b_2$ が成立し、この場合のEMPは次のように書ける
 \begin{align}
-    \eta_{\text{MP}} := \frac{\eta_{\text{max}}}{2} \frac{1}{1 - \frac{\eta_{\text{max}}}{4}} = \frac{\eta_{\text{max}}}{2} - \frac{\eta_{\text{max}}^2}{8} + \mathcal{O}(\eta_{\text{max}}^3)
+    \eta_{\text{MP}} := \frac{\eta_{\text{max}}}{2} \frac{1}{1 - \frac{\eta_{\text{max}}}{4}} = \frac{\eta_{\text{max}}}{2} + \frac{\eta_{\text{max}}^2}{8} + {O}(\eta_{\text{max}}^3)
 \end{align}
 
 この式は、左右対称性を持つ普遍的な2次の係数 $1/8$ を回復する。
 
-次に、最大効率がカルノー効率 $\eta_{\text{max}} = \eta_C$ であると仮定していない点に留意する。上述の定理は、一般的に、準静的極限 $u \to 0$ で熱漏れがない場合、EMPが最大効率の半分に等しいことを示している。したがって、有限サイズの熱浴を持つ熱機関にこの定理を適用すると、たとえば、エクセルギーに関してEMPが効率の半分であることが示される。
+次に、最大効率がカルノー効率 $\eta_{\text{max}} = \eta_C$ であると仮定していない点に留意する。
+上述の定理は、一般的に、準静的極限 $u \to 0$ で熱の散逸がない場合、EMPが最大効率の半分に等しいことを示している。したがって、有限サイズの熱浴を持つ熱機関にこの定理を適用すると、たとえば、エクセルギーに関してEMPが効率の半分であることが示される。
 
 \end{document}
