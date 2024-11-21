@@ -1,0 +1,124 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{解析}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+小平解析ゼミの内容を可能な限り簡潔にまとめたい。
+
+\subsection{数列の極限}
+\begin{itembox}[l]{\textbf{Def.数列の極限}}
+    数列$\{a_n\}$がある実数$\alpha$に収束するとは、任意の正の実数$\varepsilon$に対応して、ある自然数$n_0(\varepsilon)$が定まって
+    \begin{align}
+        n > n_0(\varepsilon) \Rightarrow |a_n - \alpha| < \varepsilon
+    \end{align}
+    が成り立つことである。また、このとき$\alpha$を数列$\{a_n\}$の極限といい、
+    \begin{align}
+        \lim_{n \to \infty} a_n = \alpha
+    \end{align}
+    と書く。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+    数列$\{a_n\}$が実数$\alpha$に収束するための必要十分条件は、$\rho<\alpha<\sigma$なる実数$\rho,\sigma$が任意に与えられたとき、不等式
+    \begin{align}
+        \rho < a_n < \sigma \quad (n=1,2,3,\cdots)
+    \end{align}
+    が有限個の自然数$n$を除いて成立することである。
+\end{itembox}
+\textbf{Prf.}\\
+$(\Rightarrow)$\\
+$\{a_n\}$が$\alpha$に収束すると仮定する。$\rho<\alpha<\sigma$なる実数$\rho,\sigma$が任意に与えられたとする。$\min\{\alpha-\rho,\sigma-\alpha\} = \varepsilon$とおくと、
+\begin{align}
+    \rho \leq \alpha - \varepsilon \leq \sigma
+\end{align}
+が成り立つ。仮定により、$n > n_0(\varepsilon)$のとき、$|a_n - \alpha| < \varepsilon$である。すなわち、
+\begin{align}
+    \alpha - \varepsilon < a_n < \alpha + \varepsilon
+\end{align}
+が成り立つ。したがって、有限個の自然数$n$を除いて、
+\begin{align}
+    \rho \leq \alpha - \varepsilon < a_n < \alpha + \varepsilon \leq \sigma
+\end{align}
+が成り立つ。\\
+$(\Leftarrow)$\\
+正の実数$\varepsilon$が任意に与えられたとする。このとき、条件より、有限個の自然数$n$を除いて、
+\begin{align}
+    \alpha - \varepsilon < a_n < \alpha + \varepsilon
+\end{align}
+が成り立つ。\footnote{条件より、今みたいに都合よく$\rho,\sigma$を$\alpha-\varepsilon,\alpha+\varepsilon$と取れる。}したがって、この有限個の自然数のうち最大のものを$n_0(\varepsilon)$とおくと、
+\begin{align}
+    n > n_0(\varepsilon) \Rightarrow |a_n - \alpha| < \varepsilon
+\end{align}
+が成り立つ。したがって、$\{a_n\}$は$\alpha$に収束する。\qed
+
+\begin{itembox}[l]{\textbf{Cor.極限の一意性}}
+    数列$\{a_n\}$がある実数$\alpha$に収束するとき、その極限は一意的である。
+\end{itembox}
+\textbf{Prf.}\\
+背理法により示す。$\{a_n\}$が異なる実数$\alpha$と$\beta$に収束すると仮定し、$\alpha < \beta$とする。このとき、有理数の稠密性から、$\alpha < r < \beta$なる有理数$r$が存在する。
+このとき、前の定理より、有限個の自然数$n$を除いて、$a_n < r$が成り立つ。また、有限個の自然数$n$を除いて、$a_n > r$が成り立つ。これは矛盾である。したがって、$\alpha = \beta$である。\qed
+
+\begin{itembox}[l]{\textbf{Thm.Cauthyの収束条件}}
+    数列$\{a_n\}$が収束するための必要十分条件は、任意の正の実数$\varepsilon$に対応して一つの自然数$n_0(\varepsilon)$が定まって、
+    \begin{align}
+        m,n > n_0(\varepsilon) \Rightarrow |a_m - a_n| < \varepsilon
+    \end{align}
+    が成り立つことである。
+\end{itembox}
+\textbf{Prf.}\\
+$(\Rightarrow)$\\
+$\{a_n\}$が$\alpha$に収束すると仮定する。任意に与えられた正の実数$\varepsilon$に対して、$0 <a < \varepsilon$となるような有理数$a$をとる。(これが存在することは、有理数の稠密性から明らか。)
+このとき、仮定より、
+\begin{align}
+    n > n_0(\varepsilon) \Rightarrow |a_n - \alpha| < \frac{a}{2}
+\end{align}
+なる自然数$n_0(\varepsilon)$が定まる。(有理数にしか割り算が定まっていないのでこのように抑えている。)このとき、$m,n > n_0(\varepsilon)$とすると、
+\begin{align}
+    |a_m - a_n| \leq |a_m - \alpha| + |\alpha - a_n| < \frac{a}{2} + \frac{a}{2} = a < \varepsilon
+\end{align}
+が成り立つ。\\
+$(\Leftarrow)$\\
+hoge(実数の連続性からわかる。)\qed
+
+
+
+\end{document}

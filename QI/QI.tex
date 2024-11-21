@@ -139,12 +139,20 @@
         \item $\rho$は純粋状態である。
         \item $\rho^2 = \rho$
         \item $\Tr(\rho^2) = 1$
-        \item $\rank(\rho) = 1$
+        \item $\rho$は固有値1と$d-1$個の固有値0を持つ。
         \item $\rho$は$\mathcal{S}(\mathcal{H})$の端点である。
     \end{enumerate}
 \end{itembox}
 \textbf{Prf.}\\
-(1)$\Rightarrow$(2),(2)$\Rightarrow$(3)は明らかである。\\
+(1)$\Rightarrow$(2)
+$\rho$が純粋状態であるとき、$\rho = \ketbra{\psi}{\psi}$と表すことができる。\footnote{密度行列をスペクトル分解することを考える。純粋状態とは、ある射影測定によりその測定値が確率1で得られる状態のことであった。いま、$\hat{P}= \ketbra{\psi}{\psi}$による射影測定によってそれが満たされるとすると、Bornの確率解釈と見比べて、$\rho = \ketbra{\psi}{\psi}$と表すことができる。}
+したがって、
+\begin{align}
+    \rho^2 = \ketbra{\psi}{\psi}\ketbra{\psi}{\psi} = \ketbra{\psi}{\psi} = \rho
+\end{align}
+である。\\
+(2)$\Rightarrow$(3)\\
+$\Tr(\rho^2) = \Tr(\rho) = 1$である。\\
 (3)$\Rightarrow$(4)$\Rightarrow$(1)\\
 $\Tr(\rho^2) = 1$であるから、$\sum_i p_i^2 = 1$である。したがって、ある$i$に対して$p_i = 1$であり、他の$p_j = 0$である。すなわち、rank$(\rho) = 1$である。またこのとき、
 \begin{align}
@@ -152,9 +160,38 @@ $\Tr(\rho^2) = 1$であるから、$\sum_i p_i^2 = 1$である。したがって
 \end{align}
 である。したがって、$\rho$は純粋状態である。\\
 (1)$\Rightarrow$(5)\\
-
+$\rho = \ketbra{\psi}{\psi}$であるとする。仮に、$\rho = p\rho_1 + (1-p)\rho_2\quad (0 < p < 1)$と表せるとする。
+両辺を$\ket{\psi}$で作用させると、
+\begin{align}
+    1 = \bra{\psi}\rho\ket{\psi} = p\bra{\psi}\rho_1\ket{\psi} + (1-p)\bra{\psi}\rho_2\ket{\psi}
+\end{align}
+となる。ここで、$0<p<1$であるから、$\bra{\psi}\rho_1\ket{\psi} = \bra{\psi}\rho_2\ket{\psi} = 1$である。
+ここで、密度演算子の固有値展開
+\begin{align}
+    \rho = \sum_i q_i\ketbra{\phi_i}{\phi_i}
+\end{align}
+を代入すると、
+\begin{align}
+    1 = \sum_i q_i\abs{\braket{\psi}{\phi_i}}^2
+\end{align}
+となる。Schwarzの不等式から、
+\begin{align}
+    \sum_i q_i \abs{\braket{\psi}{\phi_i}}^2 \leq \sum_i q_i \braket{\psi}{\psi}\braket{\phi_i}{\phi_i} = 1
+\end{align}
+である。したがって、任意の$i$について、
+\begin{align}
+    \abs{\braket{\psi}{\phi_i}}^2 = 1
+\end{align}
+である。したがって、$\ket{\phi_i} = e^{i\theta_i}\ket{\psi}$である。したがって、
+\begin{align}
+    \rho_1 = \ketbra{\psi}{\psi}
+\end{align}
+であり、これは、$\rho_1 \neq \rho$に反する。したがって、$\rho$は$\mathcal{S}(\mathcal{H})$の端点である。\\
 (5)$\Rightarrow$(1)\\
-hoge\qed\\
+対偶を示す。$\rho$が純粋状態でないとする。したがって、$\rho$の少なくとも1つの固有値$p$は$0<p<1$を満たす。$\rho$の固有値を$p_1 = p,p_2,\cdots,p_d$と並べ、$\sum_{i=1}^{d} p_i\ket{\psi_i}\bra{\psi_i}$とスペクトル分解する。
+$\rho_1 := \ket{\psi_1}\bra{\psi_1}, \rho_2 := \frac{1}{1-p} \sum_{i=2}^{d} p_i\ket{\psi_i}\bra{\psi_i}$とすると、これらはともに密度演算子であり、$\rho \neq \rho_1,\rho_2$である。
+(実際に計算してみればわかる。)
+このとき、$\rho = p \rho_1 + (1-p)\rho_2$と書くことができるので、$\rho$は端点ではない。したがって、$\rho$は純粋状態である。\qed\\
 
 これを踏まえて、混合状態と純粋状態を以下のように再定義する。
 \begin{itembox}[l]{\textbf{Def.純粋状態/混合状態}}
@@ -176,6 +213,64 @@ hoge\qed\\
 とくに、左の等号が成立するような状態を、\textbf{全混合状態}という。\\
 
 \subsubsection{Blochベクトル}
+量子bit系における量子状態の表現の仕方として、密度演算子を用いる方法とは別に、Blochベクトルを用いる方法がある。
+
+\begin{itembox}[l]{\textbf{Def.Blochベクトル}}
+    量子bit系の密度演算子$\rho$に対応するBlochベクトル$\vb{b}$は、
+    \begin{align}
+        \vb{b} = (b_1,b_2,b_3)^{\top} = (\Tr(\sigma_x\rho), \Tr(\sigma_y\rho), \Tr(\sigma_z\rho))^{\top}
+    \end{align}
+    で定義される。ただし、$\sigma_x, \sigma_y, \sigma_z$はパウリ行列である。
+\end{itembox}
+すなわち、スピンの期待値を成分に持つベクトルである。\\
+このとき、Blochベクトル全体からなる空間と、状態空間は同型となる。すなわち、上の定義での、密度演算子とBlochベクトルの対応
+\begin{align}
+    f: \rho \mapsto (b_1,b_2,b_3)^{\top} = (\Tr(\sigma_x\rho), \Tr(\sigma_y\rho), \Tr(\sigma_z\rho))^{\top} = \vb{b}
+\end{align}
+は、全射かつ単射である。\\
+全射性は明らかである。単射性は、
+$\vb{b_1} = \vb{b_2}$とすると、
+\begin{align}
+    \Tr(\sigma_x\rho_1) - \Tr(\sigma_x\rho_2) &= \Tr \sigma_x(\rho_1 - \rho_2) \\
+    &= \Tr \sigma_x \Tr(\rho_1 - \rho_2)\\
+    &= 0
+\end{align}
+である。したがって、$\rho_1 = \rho_2$である。このことから、Blochベクトルから状態空間への同型写像が存在することがわかる。\\
+このとき、逆写像は
+\begin{align}
+    f^{-1}: \vb{b} \mapsto \frac{1}{2}(\mathbb{I} + \vb{b}\cdot\bm{\sigma}) = \rho
+\end{align}
+で与えられる。\\
+
+Blochベクトル全体からなる集合をもう少し掘り下げる。上の対応において、$\Tr \rho =1$はすでに満たされている。もう一つの条件である、
+$\rho \geq 0$が課す条件について考える。ところで、$\rho\geq 0 \Leftrightarrow \Tr \rho \geq 0 and (\Tr \rho)^2 - \Tr \rho^2 \geq 0$である。
+\footnote{hoge}
+$\Tr \rho =1$なので、後者の条件のみを考える。このとき、
+\begin{align}
+    \Tr \rho^2 &= \frac{1}{4}(\Tr(\mathbb{I} + \vb{b}\cdot\bm{\sigma})^2)\\
+    &= \frac{1}{2}(1 + |\vb{b}|^2)
+\end{align}
+である。したがって、
+\begin{align}
+    &\frac{1}{2}(1 + |\vb{b}|^2) \leq 1\\
+    \Leftrightarrow &|\vb{b}|^2 \leq 1
+\end{align}
+である。したがって、Blochベクトル全体からなる集合は、半径1の球である。この球を\textbf{Bloch球}という。
+このとき、Bloch球の表面上の点は、純粋状態に対応し、Bloch球の内部の点は、混合状態に対応する。すなわち、
+\begin{align}
+    \rho = p\rho_1 + (1-p)\rho_2 \mapsto p\vb{b}_1 + (1-p)\vb{b}_2 = \vb{b}
+\end{align}
+なる対応関係になる。\\
+
+以上をまとめると、量子bit系において、状態空間はBloch球と同型であり、その対応は、
+\begin{align}
+    \rho \mapsto \vb{b} = (\Tr(\sigma_x\rho), \Tr(\sigma_y\rho), \Tr(\sigma_z\rho))^{\top}
+\end{align}
+で与えられる。また、逆写像は、
+\begin{align}
+    \vb{b} \mapsto \frac{1}{2}(\mathbb{I} + \vb{b}\cdot\bm{\sigma}) = \rho
+\end{align}
+で与えられる。\\
 
 \subsubsection{縮約状態}
 確率混合以外の量子状態の拡張を考える。ここでは、合成系から、その部分系を導くことを考える。\\

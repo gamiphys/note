@@ -1,0 +1,85 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{幾何学B}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{接触空間}
+\begin{itembox}[l]{\textbf{Def.接触空間}}
+    $(X,A)$を位相空間対とし、$Y$を位相空間とする。また、$\phi: A \to Y$を連続写像とする。このとき、
+    \begin{align}
+        Y &\sqcup_{\phi} X := (X \sqcup Y) / \sim\\
+        a & \sim \phi(a) \quad (\forall a \in A)
+    \end{align}
+    で定まる位相空間を、$X$と$Y$の接触空間という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def.1点に潰した空間}}
+    $(X,A)$を位相空間対とする。$A$上の点をすべて同一視する同値関係を$\sim$で定める。このとき、
+    \begin{align}
+        X/A \simeq \{p\}\sqcup_{\phi} X
+    \end{align}
+    を、$A$を一点に潰した空間という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:}}
+    \begin{align}
+        X/A \simeq \{p\}\sqcup_{\phi} X
+    \end{align}
+    が成り立つ。ただし、$\phi: A \to \{p\}$は定値写像である。
+\end{itembox}
+\textbf{Prf.}\\
+略\qed\\
+
+\textbf{ex.}\\
+$D^2/\partial D^2 \simeq \{p\}\sqcup_{\phi} D^2 \simeq S^2$\\
+TODO: 図を挿入する。
+
+\section{胞体複体}
+$i$胞体$e^i$: $D^i \backslash \partial D^i = \text{Int}D^i$と同相なもの。\\
+閉セル$\bar{e}^i$: $D^i$と同相なもの。\\
+TODO: 図を挿入する。
+
+
+
+
+
+\end{document}

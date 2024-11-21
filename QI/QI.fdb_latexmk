@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1726372399 "QI.dvi" "QI.pdf" "QI" 1726372402 0
-  "QI.dvi" 1726372399 73224 62cea1620cad628b88b8162fa8ce3b84 "latex"
+["dvipdf"] 1731844580 "QI.dvi" "QI.pdf" "QI" 1731844583 0
+  "QI.dvi" 1731844580 87044 39e58db986b848570e70a4ce6a9f4935 "latex"
   (generated)
   "QI.pdf"
   (rewritten before read)
-["latex"] 1726372395 "QI.tex" "QI.dvi" "QI" 1726372402 0
-  "QI.aux" 1726372399 1913 52f323ca02c4ac1b839347cf225f7c9d "latex"
-  "QI.out" 1726372399 437 e6be58fd922b707885b07c9c2987f4de "latex"
-  "QI.tex" 1726372388 28841 8e69b286db90aa16d3522605365468cc ""
+["latex"] 1731844577 "QI.tex" "QI.dvi" "QI" 1731844583 0
+  "QI.aux" 1731844580 1914 ad110436aa6bc9d152d80c6325a52750 "latex"
+  "QI.out" 1731844580 437 e6be58fd922b707885b07c9c2987f4de "latex"
+  "QI.tex" 1731844573 34664 60e33481ea61d2fde765641a5137023a ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""

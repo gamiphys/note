@@ -1,14 +1,16 @@
 # Fdb version 4
-["dvipdf"] 1727068770 "LA.dvi" "LA.pdf" "LA" 1727068771 0
-  "LA.dvi" 1727068770 85028 7e8b26070836433e280c7313fee2da55 "latex"
+["dvipdf"] 1731853032 "LA.dvi" "LA.pdf" "LA" 1731853034 0
+  "LA.dvi" 1731853032 245336 e323558cc6931d53edf4ff86624b59a6 "latex"
   (generated)
   "LA.pdf"
   (rewritten before read)
-["latex"] 1727068768 "LA.tex" "LA.dvi" "LA" 1727068771 0
-  "LA.aux" 1727068770 2034 f6fa8098ab0d21bcead05300638d7694 "latex"
-  "LA.out" 1727068770 489 773d2ea54b95bba02ff86e50b2143fc2 "latex"
-  "LA.tex" 1727068766 26905 5439fbac9ac5822fa997a401d884c9b4 ""
+["latex"] 1731853030 "LA.tex" "LA.dvi" "LA" 1731853034 0
+  "LA.aux" 1731853032 3479 626f62da217a1fe7b746767a51395753 "latex"
+  "LA.out" 1731853032 800 889dd2b3ee8af0e40ccab4057c2d3fff "latex"
+  "LA.tex" 1731853026 81406 8a7061021dd27f7d26f5052a38e50d35 ""
+  "LA.toc" 1731853032 1984 05b94412928651c5f19d95f8798aebeb "latex"
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681536317 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -47,6 +49,8 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1681537339 768 1321e9409b4137d6fb428ac9dc956269 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -199,4 +203,5 @@
   "LA.dvi"
   "LA.log"
   "LA.out"
+  "LA.toc"
   (rewritten before read)

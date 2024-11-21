@@ -1,0 +1,354 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{大偏差原理}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{大偏差原理}
+\subsection{大偏差原理の定義}
+\begin{itembox}[l]{\textbf{Def.大偏差原理} }
+    $A_n$を、集合$B$からとってきた確率変数として、その確率を$P(A_n)$とする。このとき、大偏差原理が成立するとは、
+    \begin{align}
+        \lim_{n \to \infty} -\frac{1}{n} \ln P(A_n) =I_B
+    \end{align}
+    なる$I_B$が存在することをいう。このとき、$I_B$を、集合$B$に対するレート関数という。
+\end{itembox}
+すなわち、$P(A_n)$の支配的なふるまいが、$n \to \infty$で$e^{-nI_B}$に漸近することをいう。とくに、$I_B$は、その減衰のスピードを特徴づける量となる。とくに定義の式は、
+\begin{align}
+    -\ln P(A_n) = nI_B + o(n)
+\end{align}
+と書ける。また、同じことではあるが、
+\begin{align}
+    -\frac{1}{n} \ln P(A_n) = I_B + o(1)
+\end{align}
+とも書ける。
+
+大偏差原理に従わないような確率分布も存在する。例えば、$P(A_n) $が、$e^{-na} (a>0)$よりも素早く減衰する場合、超指数関数的に(Super-exponentially)減衰するといい、$ I = \infty$と書く。
+また、逆に、$P(A_n) $が、$e^{-na} (a>0)$よりも遅く減衰する場合、部分指数関数的に(Sub-exponentially)減衰するといい、$ I = 0$と書く。
+
+また、上の定義は確率分布についてのものであるが、確率密度についても取り扱うことができる。これは、
+\begin{align}
+    P(S_n \in [s, s+\dd{s}]) = p(s) \dd{s}
+\end{align}
+を用いてあげることで、
+\begin{align}
+    P(S_n \in [s, s+\dd{s}]) \sim e^{-nI_B(s)} \dd{s}
+\end{align}
+と書ける。とくに、これの対数をとることで、
+\begin{align}
+    \lim_{n \to \infty} -\frac{1}{n} \ln P(S_n \in [s, s+\dd{s}]) = I_B(s) + \lim_{n \to \infty} \frac{1}{n} \ln \dd{s} = I_B(s)
+\end{align}
+となる。
+
+\subsection{数学的注意}
+上のような大偏差原理の特徴づけは、数学的にはすこし雑なものである。とくに、注意すべきケースについては、次のようなものがある。
+\begin{enumerate}
+  \item 大偏差原理の定義式における極限が存在しない場合\\
+  このとき、一般には大偏差原理が成り立たない。しかし、$P(A_n\in B) $の上界や下界が存在する場合については、
+  \begin{align}
+      e^{-nI_B^{-}} \leq P(A_n) \leq e^{-nI_B^{+}}
+  \end{align}
+  という関係が成り立つ。すなわち、レート関数$I_B$の上下による大偏差原理が成り立つ。ただし、これ以降の議論では、基本的に確率分布の極限が存在することを仮定し、$I_B^{-} = I_B^{+} = I_B$として議論を進める。
+  \item 離散変数と連続変数の取り扱い\\
+  大偏差原理は、離散変数に対しても連続変数に対しても成り立つ。ただし、離散変数を用いているときは、$n \to \infty$とすることで、連続変数として取り扱うことができる。
+\end{enumerate}
+
+\subsection{レート関数の計算}
+大偏差原理を実用するうえでは、以下の二点について考えなくてはならない。
+\begin{enumerate}
+  \item 特定のランダム変数に対して、確率分布が大偏差原理を満たすことを確認する。
+  \item レート関数$I_B$を計算する。
+\end{enumerate}
+この二点目について、レート関数を具体的に求める方法は、大きく分けて以下の二つがある。
+\begin{enumerate}
+  \item 確率分布を直接計算し、この分布に対してスターリングの公式などの漸近公式を利用する。
+  \item G\"{a}rtner-Ellisの定理を用いる。\footnote{初めて\"{a}を打った。} 
+\end{enumerate}
+一つ目の方法では難しい場合があるため、二つ目の方法を用いることが多い。
+
+\begin{itembox}[l]{\textbf{Def.スケーリングキュムラント母関数}}
+    確率変数$A_n$に対して、そのスケーリングキュムラント母関数を、
+    \begin{align}
+        \lambda(k) = \lim_{n \to \infty} \frac{1}{n} \ln \expval{e^{nkA_n}}
+    \end{align}
+    と定義する。ただし、
+    \begin{align}
+        \expval{A_n} = \int_{\mathbb{R}} e^{nka} P(A_n \in \dd{a})
+    \end{align}
+    である。
+\end{itembox}
+スケーリングキュムラント母関数は、確率変数$A_n$の大偏差原理におけるレート関数$I_B$と関係がある。具体的には、以下の定理が成り立つ。
+\begin{itembox}[l]{\textbf{Thm. G\"{a}rtner-Ellisの定理}}
+    確率変数$A_n$に対して、そのスケーリングキュムラント母関数$\lambda(k)$が存在し、$k \in \mathbb{R}$で微分可能であるとする。このとき、$A_n$は大偏差原理を満たし、そのレート関数は以下のルジャンドル変換で与えられる。
+    \begin{align}
+        I(a) = \sup_{k} \{ka - \lambda(k)\}
+    \end{align}
+    が成り立つ。
+\end{itembox}
+すなわち、$\lambda(k)$が微分可能なとき、そのルジャンドル-フェンシェル変換によって、レート関数$I$が求まる。\\
+ただし、これですべてのレート関数が求まるわけでもないことに注意されたい。実際、$\lambda(k)$が存在するにもかかわらず、その$I(a)$が求まらない場合も存在する(らしい、後で扱われるはず)。
+
+G\"{a}rtner-Ellisの定理の直感的な理解を試みる。$A_n$に対して大偏差原理が成り立つと仮定すると、
+\begin{align}
+    P(A_n \in \dd a) \asymp e^{-nI(a)} \dd a
+\end{align}
+となる。このとき、
+\begin{align}
+    \expval{e^{nkA_n}} &= \int_{\mathbb{R}} e^{nka} e^{-nI(a)} \dd a\\
+    &\sim \exp(n\sup_{a} \{ka - I(a)\}) \quad \because \text{鞍点法}
+\end{align}
+したがって、
+\begin{align}
+    \lambda(k) = \lim_{n \to \infty} \frac{1}{n} \ln \expval{e^{nkA_n}} = \sup_{a} \{ka - I(a)\}
+\end{align}
+となる。とくに、$\lambda(k)$が微分可能な時、逆ルジャンドル・フェンシェル変換によって
+\begin{align}
+    I(a) = \sup_{k} \{ka - \lambda(k)\}
+\end{align}
+が得られる。
+
+\subsection{クラメールの定理}
+i.i.dな確率変数$X_i$について、考える。G\"{a}rtner-Ellisの定理を標本平均
+\begin{align}
+    S_n = \frac{1}{n} \sum_{i=1}^{n} X_i
+\end{align}
+に適用する。このとき、スケーリングキュムラント母関数は、
+\begin{align}
+    \lambda(k) &= \lim_{n \to \infty} \frac{1}{n} \ln \expval{e^{nkS_n}}\\
+    &= \lim_{n \to \infty} \frac{1}{n} \ln \expval{e^{k\sum_{i=1}^{n} X_i}}\\
+    &= \lim_{n \to \infty} \frac{1}{n} \ln \prod_{i=1}^{n} \expval{e^{kX_i}}\\
+    &= \ln \expval{e^{kX}}
+\end{align}
+この式が意味することは、一つの確率変数$X$に対して、そのスケーリングキュムラント母関数を求めれば、標本平均のスケーリングキュムラント母関数が求まり、そのレート関数も求まるということである。
+
+\textbf{ex.Gauss標本平均} \\
+hogehoge
+
+\textbf{ex.指数標本平均} \\
+hogehoge
+
+\subsection{$\lambda$と$I$の関係}
+\subsubsection{k=0における値}
+\begin{itembox}[l]{\textbf{Prop.}}
+    スケーリングキュムラント母関数$\lambda(k)$の$k=0$における値は、以下の特徴を満たす。
+    \begin{align}
+        \lambda(0) &= 0\\
+        \lambda'(0) &= \lim _{n \to \infty} \ev{A_n} \\
+        \lambda''(0) &= \lim _{n \to \infty} n \text{Var}(A_n)
+    \end{align}
+
+\end{itembox}
+\textbf{Prf.}\\
+$\lambda(k)$の定義より、
+\begin{align}
+    \lambda(0) &= \lim_{n \to \infty} \frac{1}{n} \ln \ev{e^{n \cdot 0 \cdot A_n}}\\
+    &= \lim_{n \to \infty} \frac{1}{n} \ln \ev{1}\\
+    &= \lim_{n \to \infty} \frac{1}{n} \ln 1\\
+    &= 0
+\end{align}
+次に、
+\begin{align}
+    \lambda'(k) &= \lim_{n \to \infty} \frac{1}{n} \frac{\ev{e^{nkA_n} nA_n}}{\ev{e^{nkA_n}}}\\
+    &= \lim_{n \to \infty} \frac{\ev{A_n e^{nkA_n}}}{\ev{e^{nkA_n}}}\\
+    &\underset{k\to 0}{\longrightarrow} \lim_{n \to \infty} \frac{\ev{A_n}}{1}\\
+    &= \lim_{n \to \infty} \ev{A_n}
+\end{align}
+最後に、
+\begin{align}
+    \lambda''(k) &= \pdv{k} \lim_{n \to \infty} \frac{\ev{A_n e^{nkA_n}}}{\ev{e^{nkA_n}}}\\
+    &= \lim_{n \to \infty} n \frac{\ev{A_n^2 e^{nkA_n}}\ev{e^{nkA_n}}-\ev{A_n e^{nkA_n}}^2}{\ev{e^{nkA_n}}^2}\\
+    &= \underset{k\to 0}{\longrightarrow} \lim_{n \to \infty} n \frac{\ev{A_n^2} - \ev{A_n}^2}{1}\\
+    &= \lim_{n \to \infty}n \text{Var}(A_n)
+\end{align}
+よって、示された。\qed
+
+\subsubsection{凸性}
+$\lambda(k)$が凸関数であることは、H\"{o}lderの不等式を用いて示すことができる。H\"{o}lderの不等式は、
+\begin{align}
+  \sum_i \abs{y_i z_i} &\leq \left( \sum_i \abs{y_i}^{1/p} \right)^{p} \left( \sum_i \abs{z_i}^{1/q} \right)^{q},
+\end{align}
+である。\footnote{ここではこの不等式の証明は行わない。初頭的な証明は以下で確認できる:\url{https://www.u-tokai.ac.jp/uploads/sites/12/2021/03/PP94-99.pdf}}ここで \(0 \leq p, q \leq 1\) かつ \(p + q = 1\) である。この不等式を \(\lambda(k)\) に適用すると、
+\begin{align}
+  \alpha \ln \langle e^{n k_1 A_n} \rangle + (1 - \alpha) \ln \langle e^{n k_2 A_n} \rangle &\geq \ln \left\langle e^{n [\alpha k_1 + (1 - \alpha) k_2] A_n} \right\rangle
+\end{align}
+となる。($p = \alpha, q = 1 - \alpha,y_i = e^{n k_1 A_n\alpha} p_i^{\alpha},z_i = e^{n k_2 A_n(1 - \alpha)} p_i^{1 - \alpha}$とおけばよい。)\\
+したがって、
+\begin{align}
+  \alpha \lambda(k_1) + (1 - \alpha) \lambda(k_2) &\geq \lambda(\alpha k_1 + (1 - \alpha) k_2).
+\end{align}
+を得る。これは、\(\lambda(k)\)が凸関数であることを示している。
+
+\subsubsection{ルジャンドル・フェンシェル双対性}
+特に、上の例で見たような、$\lambda(k)$が微分可能かつ凸関数である場合には、
+\begin{align}
+    I(a) &= k(a) a - \lambda(k(a))\\
+    a &= \lambda'(k)
+\end{align}
+が成り立つ。\\
+とくに、$\lambda(k)$が狭義凸関数である場合には、$\lambda'(k)$は単調増加関数であり、$\lambda'(k(a)) = a$を満たす関数$k(a)$が一意に存在する。すなわち、$I'(a) = k(a)$が成り立つ。
+また、このときは、$\lambda$の傾きが$I$の傾きと一対一に対応する。($a = \lambda '(k),k = I'(a)$は、その対応の式である。)この性質を、ルジャンドル双対性という。
+ただし、$\lambda(k)$が狭義凸関数でない場合にはそうなるとは限らない。
+
+\textbf{ex.}\\
+hoge
+
+\subsubsection{Varadhanの定理}
+実は、G\"{a}rtner-Ellisの定理の汎関数版が存在する。
+\begin{itembox}[l]{\textbf{Thm. Varadhanの定理}}
+    確率変数$A_n$および$A_n$の関数$f$に対して、そのスケーリングキュムラント母関数$\lambda(f)$が存在し、
+    \begin{align}
+        \lambda(f) = \lim_{n \to \infty} \frac{1}{n} \ln \ev{e^{nf(A_n)}} = \sup_{a} \{f(a) - I(a)\}
+    \end{align}
+    が成り立つ。ただし、$I(a)$は、$A_n$のレート関数である。
+\end{itembox}
+ここではこの証明は行わない。
+Varadhanの定理は、$f(a)-I(a)$が複数の極大値を持つときにも成り立つことが知られている。
+
+\subsection{レート関数の正値性}
+\begin{itembox}[l]{\textbf{Prop.}}
+    スケーリングキュムラント母関数$\lambda(k)$が狭義凸関数であるとき、レート関数$I(a)$は、正値性を持つ。
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+    \lambda(0) &= \sup_{a} \{0 - I(a)\} \\
+    &= -\inf_{a} I(a)\\
+    &=0
+\end{align}
+であるから、$\inf_{a} I(a) = 0$である。したがって、$I(a)$は正値性を持つ。\qed
+
+\subsubsection{レート関数の凸性}
+\begin{itembox}[l]{\textbf{Prop.}}
+    $\lambda(k)$が狭義凸関数かつ微分可能な時、レート関数$I(a)$は、凸関数である。
+\end{itembox}
+\textbf{Prf.}\\
+ルジャンドル変換の一般論より、
+\begin{align}
+    I''(a) \lambda''(k) = 1
+\end{align}
+が成り立つ。
+\footnote{
+    \begin{align}
+        I'(a) &= k(a)\\
+        \lambda'(k) &= a
+    \end{align}
+    であるから、
+    \begin{align}
+        1 &= \pdv{a}\lambda '(k)\\
+        &= \lambda''(k) \pdv{k(a)}{a}\\
+        &= \lambda''(k) I''(a)
+    \end{align}
+    となる。 
+}
+$\lambda(k)$が狭義凸関数であるとき、$\lambda''(k) > 0$であるから、$I''(a) > 0$となり、$I(a)$は凸関数である。\qed
+
+とくに、i.i.dな確率変数$X_i$の標本平均$S_n$に対しては、
+\begin{align}
+    I''(a = \mu) = \frac{1}{\sigma^2}
+\end{align}
+が成り立つ。ただし、$\mu$は$X_i$の平均、$\sigma^2$は$X_i$の分散である。
+
+\subsubsection{大数の法則}
+$I(a)$が最小値0をとる点$a^*$が存在すると、
+\begin{align}
+    a^* = \lambda'(0) = \lim_{n \to \infty} \ev{A_n}
+\end{align}
+が成り立つ。\footnote{これは、$I(a)$が最小値0をとる点で微分可能な場合は自明。微分不可能な場合についても、$I'(a)$のグラフをひっくり返したものが$\lambda'(k)$に対応することを考えれば、同様の結果が得られる。}
+また、$I(a)$が$a^*$で微分可能であるならば、
+$I'(a^*) = k(a^*) = 0$が成り立つ。
+
+$I(a)$が0となる点は、$n\to \infty$としたときに確率分布が減衰しない点である。したがって、
+\begin{align}
+    P(A_n \in \dd a^*) = \lim_{n \to \infty} P(A_n \in [a^*, a^* + \dd a^*]) = 1
+\end{align}
+が成り立つ。これは、大数の弱法則に対応し、$ A_n \to a^*$を意味する。
+
+ここで大事なこととして、大数の法則とは異なり、大偏差原理は、$A_n$が$a^*$に収束する速度についての情報も持っていることである。正確に述べると、
+$A_n \in B$に対して、
+\begin{align}
+    \lim_{n \to \infty} P(A_n \in B) = \int_B P(A_n \in \dd a \asymp \int_{B} e^{-nI(a)} \dd a \asymp e^{-n\inf_{a \in B} I(a)}
+\end{align}
+が成り立つ。したがって、$a^* \notin B$の場合には、$P(A_n \in B) \to 0$となり、$a^* \in B$の場合には、$P(A_n \in B) \to 1$となる。
+
+\subsubsection{中心極限定理}
+中心極限定理は、大偏差理論において、凸レート関数$I(a)$が唯一の最小値をもち、最小値0をとる点で二階微分可能な時に成り立つ。最小値まわりでのレート関数は、
+\begin{align}
+    I(a) \approx \frac{1}{2} I''(a^*) (a-a^*)^2
+\end{align}
+となる。ただし、$a^*$は$I(a)$の最小値をとる点である。このとき、確率分布$P(A_n)$は、
+\begin{align}
+    P(A_n\in \dd a) &\approx e^{-nI(a)}\\
+    &\approx \exp \left( -\frac{n}{2} I''(a^*) (a-a^*)^2 \right)\dd a
+\end{align}
+となる。したがって、たしかにガウス型になってくれる。とくに、i.i.dな確率変数$A_n$の標本平均$S_n$に対しては、$I''(a^*) = \frac{1}{\sigma^2}$であり、$a^* = \mu$であるから、
+\begin{align}
+    P(S_n \in \dd s) \approx \exp \left( -\frac{n}{2\sigma^2} (s-\mu)^2 \right)\dd s
+\end{align}
+となる。これは、中心極限定理として知られているものである。\\
+大偏差原理の優れている点は、レート関数がキュムラント母関数と結びついていることからもわかるように、高次のゆらぎについても情報を持っていることである。
+
+\subsection{収束原理}
+他のレート関数の知識から新しいレート関数を求める方法として、収束原理がある。
+\begin{itembox}[l]{\textbf{Thm. 収束原理}}
+    ランダム変数$A_n$のレート関数$I_A(a)$がが与えられていたとする。このとき、$A_n$の関数である$B_n = h(A_n)$の確率分布$P(B_n)$を考える。ただし、$h$は連続関数であるとする。
+このとき、$B_n$のレート関数$I_B(b)$は、
+\begin{align}
+    I_B(b) = \inf_{a: h(a) = b} I_A(a)
+\end{align}
+となる。また、$h(a) = b$なる$a$が存在しない場合には、$I_B(b) = \infty$とする。
+\end{itembox}
+収束原理の直感的な説明を試みる。いま、
+\begin{align}
+    P(B_n \in \dd{b}) &= \int_{a: h(a) = b} P(A_n \in \dd{a})\\
+    &\sim \int_{a: h(a) = b} e^{-nI_A(a)} \dd{a}\\
+    &\sim \exp({-n\inf_{a: h(a) = b} I_A(a)}) \dd{b}
+\end{align}
+となる。したがって、
+\begin{align}
+    I_B(b) = \inf_{a: h(a) = b} I_A(a)
+\end{align}
+が成り立つ。
+
+
+
+
+
+
+\end{document}

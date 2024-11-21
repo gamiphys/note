@@ -47,6 +47,7 @@
 
 \part{数学}
 \section{位相空間}
+\subsection{定義など}
 見返しそうな定義などをまとめる。\\
 \begin{itembox}[l]{\textbf{Def:位相空間}}
   集合$X$とその部分集合族$\mathfrak{O}$が以下の条件を満たすとき、$(X,\mathfrak{O})$を位相空間という。\\
@@ -213,6 +214,26 @@ $(\because) \quad (\mathfrak{O}_Y$が位相となること)\\
 である。したがって、$\bigcup_{i} O_i \in \mathfrak{O}_Y$である。以上より、示された。\hfill\qedsymbol\\
 
 このとき、$Y$に商位相を入れれば、$f:X \to Y$は連続写像となる。\\
+
+\subsection{その他}
+\textbf{最大元と極大元の例}\\
+\textbf{ex.}\\
+\((x,y) \in \mathbb{R}^2\)に対して、
+\begin{align}
+  (x_1,y_1) \leq (x_2,y_2) \Leftrightarrow x_1 \leq x_2 \quad\text{and} \quad y_1 \leq y_2
+\end{align}
+と定義する。このとき、
+\begin{align}
+A = \{(0,0),(0,1),(0,2),(1,0),(1,1),(2,0)\}
+\end{align}
+について、
+\begin{align}
+  (0,0) &\leq (0,1) \leq (0,2)\\
+  (0,0) &\leq (1,0) \leq (1,1)\\
+  (0,0) &\leq (2,0)  
+\end{align}
+となり、極大元は3つ存在し、最大限は存在しない。\\
+
 
 \section{線形代数}
 \subsection{行列の積}
@@ -811,6 +832,394 @@ $\tau := \sigma (i,j)$とする。このとき、
 が示された。\hfill\qedsymbol\\
 
 \subsection{ベクトル空間}
+\subsubsection{部分空間}
+\begin{itembox}[l]{\textbf{Def.部分空間}}
+  ベクトル空間 $V$ の部分集合 $W$ が次の条件を満たすとき、$W$ を $V$ の部分空間という。
+  \begin{itemize}
+    \item $\vb{0} \in W$
+    \item $\vb{a}, \vb{b} \in W \Rightarrow \vb{a} + \vb{b} \in W$
+    \item $\vb{a} \in W, c \in \mathbb{R} \Rightarrow c\vb{a} \in W$
+  \end{itemize}
+\end{itembox}
+すなわち、$V$における和とスカラー倍の演算によって閉じている部分集合が部分空間である。\\
+
+\textbf{ex.生成される空間}\\
+\begin{align}
+  S[\vb{a_1}, \vb{a_2}, \dots, \vb{a_r}] = \left\{ c_1\vb{a_1} + c_2\vb{a_2} + \dots + c_r\vb{a_r} \mid c_1, c_2, \dots, c_r \in \mathbb{R} \right\}
+\end{align}
+のことを、$\vb{a_1}, \vb{a_2}, \dots, \vb{a_r}$ によって生成される部分空間という。このとき、$S[\vb{a_1}, \vb{a_2}, \dots, \vb{a_r}]$ は$V$の部分空間である。(証明略)\\
+
+\textbf{ex.解空間}\\
+$A$を$m \times n $行列とするとき、
+\begin{align}
+  W = \left\{ \vb{x} \in \mathbb{R}^n \mid A\vb{x} = \vb{0} \right\}
+\end{align}
+のことを、$A$の解空間という。このとき、$W$は$\mathbb{R}^n$の部分空間である。(証明略)\\
+
+\subsubsection{線形写像}
+\begin{itembox}[l]{\textbf{Def.線形写像}}
+  ベクトル空間 $V, W$ に対して、写像 $f: V \rightarrow W$ が次の2つの条件を満たすとき、$f$ を $V$ から $W$ への線形写像という。
+  \begin{itemize}
+    \item $f(\vb{a} + \vb{b}) = f(\vb{a}) + f(\vb{b}) \quad  (\forall \vb{a}, \vb{b} \in V)$
+    \item $f(c\vb{a}) = cf(\vb{a}) \quad (\forall \vb{a} \in V, c \in \mathbb{R})$
+  \end{itemize}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def.像空間/核空間}}
+  $V, W$ をベクトル空間、$f: V \rightarrow W$ を線形写像とする。このとき、
+  \begin{align}
+    \text{Im}f = \left\{ f(\vb{x}) \mid \vb{x} \in V \right\}
+  \end{align}
+  を $f$ の像空間という。また、
+  \begin{align}
+    \text{Ker}f = \left\{ \vb{x} \in V \mid f(\vb{x}) = \vb{0} \right\}
+  \end{align}
+  を $f$ の核空間という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $V, W$ をベクトル空間、$f: V \rightarrow W$ を線形写像とする。このとき、
+  \begin{enumerate}
+    \item $\text{Im}f$ は $W$ の部分空間である。
+    \item $\text{Ker}f$ は $V$ の部分空間である。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1)\\
+$\vb{0} \in \text{Im}f$ であるから、$\text{Im}f$ は空でない。\\
+また、任意の$\lambda, \mu \in \mathbb{R}$に対して、$f(\vb{a}), f(\vb{b}) \in \text{Im}f$ とすると、
+\begin{align}
+  \lambda f(\vb{a}) + \mu f(\vb{b}) = f(\lambda \vb{a} + \mu \vb{b}) \in \text{Im}f
+\end{align}
+であるから、$\text{Im}f$ は和とスカラー倍に対して閉じている。したがって、$\text{Im}f$ は$W$の部分空間である。\\
+(2)\\
+$\vb{0} \in \text{Ker}f$ であるから、$\text{Ker}f$ は空でない。\\
+また、任意の$\lambda, \mu \in \mathbb{R}$に対して、$\vb{x}, \vb{y} \in \text{Ker}f$ とすると、
+\begin{align}
+  f(\lambda \vb{x} + \mu \vb{y}) = \lambda f(\vb{x}) + \mu f(\vb{y}) = \vb{0}
+\end{align}
+であるから、$\text{Ker}f$ は和とスカラー倍に対して閉じている。したがって、$\text{Ker}f$ は$V$の部分空間である。\hfill\qedsymbol\\
+
+\subsubsection{1次独立と1次従属}
+\begin{itembox}[l]{\textbf{Def.1次独立}}
+  ベクトル $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が次の条件を満たすとき、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立であるという。
+  \begin{align}
+    c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n = \vb{0}
+  \end{align}
+  となるとき、$c_1 = c_2 = \dots = c_n = 0$ である。\\
+  また、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が1次独立でないとき、1次従属であるという。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトル $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ について、以下の条件は同値である。
+  \begin{enumerate}
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ の線形結合で表される元の表し方は一意である。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1)$\Rightarrow$(2)\\
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n = d_1\vb{a}_1 + d_2\vb{a}_2 + \dots + d_n\vb{a}_n
+\end{align}
+とする。このとき、
+\begin{align}
+  (c_1-d_1)\vb{a}_1 + (c_2-d_2)\vb{a}_2 + \dots + (c_n-d_n)\vb{a}_n = \vb{0}
+\end{align}
+である。$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立であるから、$c_1=d_1, c_2=d_2, \dots, c_n=d_n$ である。したがって、線形結合で表される元の表し方は一意である。\\
+(2)$\Rightarrow$(1)\\
+$c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n = \vb{0}$ とする。このとき、仮定より、$c_1=c_2=\dots=c_n=0$以外の方法で$\vb{0}$を表すことはできない。したがって、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトルの組$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が1次従属であることと、その組のうち、1つのベクトルが残りのベクトルの線形結合で表されることは同値である。
+\end{itembox}
+\textbf{Prf.}\\
+$\vb{a}_1$が他の残りのベクトルの線形結合で表されるとする。すなわち、
+\begin{align}
+  \vb{a}_1 = c_2\vb{a}_2 + \dots + c_n\vb{a}_n
+\end{align}
+とする。このとき、
+\begin{align}
+  \vb{a}_1 - c_2\vb{a}_2 - \dots - c_n\vb{a}_n = \vb{0}
+\end{align}
+であるから、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次従属である。\\
+逆に、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が1次従属であるとする。このとき、
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n = \vb{0}
+\end{align}
+となる。$c_1 \neq 0$ とすると、
+\begin{align}
+  \vb{a}_1 = -\frac{c_2}{c_1}\vb{a}_2 - \dots - \frac{c_n}{c_1}\vb{a}_n
+\end{align}
+となるから、$\vb{a}_1$ は残りのベクトルの線形結合で表される。したがって、示された。\hfill\qedsymbol\\
+
+上の定理の対偶を考えることで、ベクトルの組$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が1次独立であることと、その組のうち、1つのベクトルが残りのベクトルの線形結合で表されないことは同値であることがわかる。\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトルの組$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ について、
+  \begin{enumerate}
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_m (m < n)$ が1次従属であれば、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ も1次従属である。
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が1次独立であれば、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_m (m < n)$ も1次独立である。(上の対偶)
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1)\\
+$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_m$ が1次従属であるとする。このとき、自明でない関係式
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_m\vb{a}_m = \vb{0}
+\end{align}
+が存在する。これより、
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_m\vb{a}_m + 0\vb{a}_{m+1} + \dots + 0\vb{a}_n = \vb{0}
+\end{align}
+という自明でない関係式が存在する。したがって、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次従属である。\\
+(2)\\
+(1)の対偶である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトルの組$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$が1次独立で、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n, \vb{a}$ が1次従属であるとき、$\vb{a}$ は$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ の線形結合で表される。
+\end{itembox}
+\textbf{Prf.}\\
+仮定より、自明でない関係式
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n + c\vb{a} = \vb{0}
+\end{align}
+が存在する。ここで、$c =0$とすると、1次独立の仮定と矛盾する。よって、$c \neq 0$である。したがって、
+\begin{align}
+  \vb{a} = -\frac{c_1}{c}\vb{a}_1 - \frac{c_2}{c}\vb{a}_2 - \dots - \frac{c_n}{c}\vb{a}_n
+\end{align}
+であるから、$\vb{a}$ は$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ の線形結合で表される。また、一意性も簡単に示せる。\hfill\qedsymbol\\
+
+\subsubsection{行列式と1次独立性の関係}
+\begin{itembox}[l]{\textbf{Thm.}}
+  $A$を$n$次正方行列、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ を$A$の行ベクトル、$\vb{a}_1', \vb{a}_2', \dots, \vb{a}_n'$ を$A$の列ベクトルとする。このとき、次の条件は同値である。
+  \begin{enumerate}
+    \item $\det A \neq 0$
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。
+    \item $\vb{a}_1', \vb{a}_2', \dots, \vb{a}_n'$ は1次独立である。
+  \end{enumerate} 
+\end{itembox}
+\textbf{Prf.}\\
+(1)$\Rightarrow$(3)\\
+$\det A \neq 0$ であるとする。このとき、$A$は正則であるから、$A\vb{x} = \vb{0}$ の解は$\vb{x} = \vb{0}$ のみである。したがって、
+\begin{align}
+  x_1\vb{a}_1' + x_2\vb{a}_2' + \dots + x_n\vb{a}_n' = \vb{0}
+\end{align}
+となるとき、$x_1 = x_2 = \dots = x_n = 0$ である。したがって、$\vb{a}_1', \vb{a}_2', \dots, \vb{a}_n'$ は1次独立である。\\
+(3)$\Rightarrow$(1)\\
+対偶で示す。$\det A = 0$ であるとする。このとき、$A\vb{x} = \vb{0}$ は非自明な解をもつ。したがって、
+\begin{align}
+  x_1\vb{a}_1' + x_2\vb{a}_2' + \dots + x_n\vb{a}_n' = \vb{0}
+\end{align}
+となる非自明な解が存在する。したがって、$\vb{a}_1', \vb{a}_2', \dots, \vb{a}_n'$ は1次従属である。\\
+(1)$\Leftrightarrow(2)$は、上の議論を転置行列に対して行えばよい。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $n+1$個の$n$項数ベクトルは1次従属である。
+\end{itembox}
+\textbf{Prf.}\\
+$n+1$個の$n$項数ベクトル$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_{n+1}$ に対して、
+\begin{align}
+  \begin{pmatrix}
+    a_{11} & a_{12} & \dots & a_{1n} & 0\\
+    a_{21} & a_{22} & \dots & a_{2n} & 0\\
+    \vdots & \vdots & \ddots & \vdots & \vdots\\
+    a_{n+1,1} & a_{n+1,2} & \dots & a_{n+1,n} & 0
+  \end{pmatrix}
+  = 0
+\end{align}
+であることから、$(a_{11}, a_{12}, \dots, a_{1n}, 0), (a_{21}, a_{22}, \dots, a_{2n}, 0), \dots, (a_{n+1,1}, a_{n+1,2}, \dots, a_{n+1,n}, 0)$ は1次従属である。したがって、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_{n+1}$ は1次従属である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $r>n$とするとき、$r$個の$n$項数ベクトルは1次従属である。
+\end{itembox}
+\textbf{Prf.}\\
+一つ前の定理から$r=n+1$の場合が示せる。また、このことと、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_m (m < n)$ が1次従属であれば、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ も1次従属であること(前のほうの定理)から、$r>n$の場合も示される。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $r<s$とするとき、ベクトル空間の$s$個のベクトル$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_s$がすべて$r$個のベクトル$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r$の線形結合で表されるとき、$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_s$は1次従属である。
+\end{itembox}
+\textbf{Prf.}\\
+$s=r+1$の場合について示せば十分である。仮定より、
+\begin{align}
+  \vb{b}_j = \sum_{i=1}^{r} c_{ij}\vb{a}_i
+\end{align}
+となる$c_{ij}$が存在する。これを行列で書くと、
+\begin{align}
+  (\vb{b}_1, \vb{b}_2, \dots, \vb{b}_{r+1}) = (\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r)C
+\end{align}
+となる行列$C$が存在する。このとき、$C$は$r+1 \times r$行列であるから、$r+1$個の行ベクトルは1次従属である。したがって、
+\begin{align}
+  \sum_{j=1}^{r+1} d_jc_{ij} = 0
+\end{align}
+となる$d_1, d_2, \dots, d_{r+1}$で、少なくとも一つが0でないものが存在する。
+ここで、
+\begin{align}
+  \vb{d} = 
+  \begin{pmatrix}
+    d_1\\
+    d_2\\
+    \vdots\\
+    d_{r+1}
+  \end{pmatrix}
+\end{align}
+とおくと、
+\begin{align}
+  C\vb{d} = \vb{0}
+\end{align}
+であるから、
+\begin{align}
+  d_1\vb{b}_1 + d_2\vb{b}_2 + \dots + d_{r+1}\vb{b}_{r+1} &=
+  (\vb{b}_1, \vb{b}_2, \dots, \vb{b}_{r+1})\vb{d}\\
+  &= (\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r)C\vb{d}\\
+  &= \vb{0}
+\end{align}
+となる。したがって、$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_{r+1}$ は1次従属である。\hfill\qedsymbol\\
+
+\subsubsection{ベクトル空間の基底}
+\begin{itembox}[l]{\textbf{Def.ベクトル空間の基底}}
+  ベクトル空間 $V$ のベクトルの組 $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ が次の2つの条件を満たすとき、$V$の基底という。
+  \begin{itemize}
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。
+    \item 任意のベクトル $\vb{x} \in V$ は $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ の線形結合で表される。すなわち、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は$V$を生成する。
+  \end{itemize}
+\end{itembox}
+\textbf{ex.}\\
+$\mathbb{R}^3$において、ベクトルの組
+\begin{align}
+  \vb{a}_1 = 
+  \begin{pmatrix}
+    1\\
+    1\\
+    0
+  \end{pmatrix}
+  ,\quad
+  \vb{a}_2 =
+  \begin{pmatrix}
+    0\\
+    1\\
+    1
+  \end{pmatrix}
+  ,\quad
+  \vb{a}_3 =
+  \begin{pmatrix}
+    1\\
+    0\\
+    1
+  \end{pmatrix}
+\end{align}
+は$\mathbb{R}^3$の基底である。\\
+\textbf{Prf.}\\
+(1)\\
+\begin{align}
+  c_1\vb{a}_1 + c_2\vb{a}_2 + c_3\vb{a}_3 = \vb{0}
+\end{align}
+とする。これを計算すると、
+\begin{align}
+  c_1+c_3 &= 0\\
+  c_1+c_2 &= 0\\
+  c_2+c_3 &= 0
+\end{align}
+となる。これを解くと、$c_1=c_2=c_3=0$である。したがって、$\vb{a}_1, \vb{a}_2, \vb{a}_3$は1次独立である。\\
+(2)\\
+任意のベクトル$\vb{b} \in \mathbb{R}^3$に対して、
+\begin{align}
+  \vb{b} = c_1\vb{a}_1 + c_2\vb{a}_2 + c_3\vb{a}_3
+\end{align}
+となる$c_1, c_2, c_3$が存在することを示す。これは、
+\begin{align}
+  \begin{pmatrix}
+    1 & 0 & 1\\
+    1 & 1 & 0\\
+    0 & 1 & 1
+  \end{pmatrix}
+  \begin{pmatrix}
+    c_1\\
+    c_2\\
+    c_3
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    b_1\\
+    b_2\\
+    b_3
+  \end{pmatrix}
+\end{align}
+を解けばよい。このとき、
+\begin{align}
+  \det
+  \begin{pmatrix}
+    1 & 0 & 1\\
+    1 & 1 & 0\\
+    0 & 1 & 1
+  \end{pmatrix}
+  = 2 \neq 0
+\end{align}
+であるから、逆行列が存在する。したがって、$c_1, c_2, c_3$が存在する。したがって、$\vb{a}_1, \vb{a}_2, \vb{a}_3$は$\mathbb{R}^3$を生成する。\qed \\
+
+\subsubsection{ベクトル空間の次元}
+ベクトル空間の次元を定義するために、2つの補題を示す。
+\begin{itembox}[l]{\textbf{Lem.1}}
+  $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r$, $\vb{b}_1, \vb{b}_2, \dots, \vb{b}_s$が共に1次独立なベクトルの組で、それぞれの生成する部分空間が一致するならば、$r=s$である。
+\end{itembox}
+\textbf{Prf.}\\
+仮定より、各$\vb{a}_i$は$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_s$の線形結合で表される。ところで、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r$は1次独立であるから、前の前の定理の対偶より、$r \leq s$である。同様に、$s \leq r$であるから、$r=s$である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Lem.2}}
+  ベクトル空間$V$の基底に含まれるベクトルの個数は、基底の取り方によらず一定である。
+\end{itembox}
+\textbf{Prf.}\\
+$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_r$と$\vb{b}_1, \vb{b}_2, \dots, \vb{b}_s$が共に$V$の基底であるとする。
+このとき、それぞれ1次独立であり、かつ$V$を生成する。したがって、前の定理より、$r=s$である。\hfill\qedsymbol\\
+
+以上の補題から、ベクトル空間の次元を定義することができる。
+
+\begin{itembox}[l]{\textbf{Def.ベクトル空間の次元}}
+  ベクトル空間$V$に対して、$V$の基底に含まれるベクトルの個数を$V$の次元といい、$\dim V$ と書く。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトル空間$V$と、その部分空間$U$について、$\dim U \leq \dim V$ である。また、
+  \begin{align}
+    U=V \Leftrightarrow \dim U = \dim V
+  \end{align}
+  が成り立つ。
+\end{itembox}
+\textbf{Prf.}\\
+$U$の基底$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_m$は$V$のベクトルからなり、一次独立であるから、$\dim U \leq \dim V$ である。\\
+また、$\dim U = \dim V$ であるとする。このとき、$U$の基底$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_m$は$V$の1次独立なベクトルであり、
+$\dim U = \dim V$ であるから、これらは$V$の基底である。したがって、$(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_m)$は$V$を生成する。したがって、$U=V$である。
+逆は自明。\hfill\qedsymbol
+
+\begin{itembox}[l]{\textbf{Thm.基底の条件1}}
+  ベクトル空間$V$について、次の条件は同値である。
+  \begin{enumerate}
+    \item $\dim V = n$
+    \item $V$のベクトル$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ があって、$V$の任意のベクトル$\vb{a}$ は、
+    \begin{align}
+      \vb{a} = c_1\vb{a}_1 + c_2\vb{a}_2 + \dots + c_n\vb{a}_n
+    \end{align}
+    と一意に表される。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1)$\Rightarrow$(2)\\
+ベクトル空間$V$の一つの基底を$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ とする。このとき、$V$の任意のベクトル$\vb{a}$ は、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ の線形結合で一意に表される。\\
+(2)$\Rightarrow$(1)\\
+仮定より、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は$V$を生成し、さらに一次結合の表し方が一意であることから、$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。したがって、$\dim V = n$ である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.基底の条件2}}
+  $V$を$n$次元ベクトル空間とする。$V$の$n$個のベクトル$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ について、以下の3条件は同値である。
+  \begin{enumerate}
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は$V$の基底である。
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は1次独立である。
+    \item $\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ は$V$を生成する。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+hoge\hfill\qedsymbol\\
+
+
 \subsubsection{基底間の関係}
 \begin{itembox}[l]{\textbf{Thm.基底の変換}}
   基底ベクトル間の変換は、2つの基底を$\vb{a}_1, \vb{a}_2, \dots, \vb{a}_n$ と $\vb{b}_1, \vb{b}_2, \dots, \vb{b}_n$ とすると、ある正則行列 $P$ によって 
@@ -961,6 +1370,458 @@ hoge\hfill\qedsymbol\\
   \end{align}
 \qed
 
+\subsubsection{ベクトル空間の同型}
+
+\begin{itembox}[l]{\textbf{Def.同型写像/同型}}
+  ベクトル空間$V$からベクトル空間$W$への線形写像$f:V \to W$が全単射であるとき、$f$を同型写像といい、$V$と$W$は同型であるという。\footnote{群の場合と異なり、全単射しか定義に入れていないのは、もともとそれぞれのベクトル空間に演算が入っているからである。}\\
+  このとき、$V$と$W$は同型であるとき、$V \simeq W$と書く。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトル空間の間の同型写像は、一次独立、一次従属、基底といった性質を保つ。
+\end{itembox}
+\textbf{Prf.}\\
+$f:V \to W$を同型写像とする。$V$の一次独立なベクトル$\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n$に対して、一次関係$a_1f(\vb{v}_1) + a_2f(\vb{v}_2) + \dots + a_nf(\vb{v}_n) = 0$が成り立つとすると、
+\begin{align}
+  f(a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n) = 0
+\end{align}
+である。ところで、$f$は単射であるから、
+\begin{align}
+  a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n = 0
+\end{align}
+である。したがって、$a_1 = a_2 = \dots = a_n = 0$である。また、一次従属性については、そもそも一般の線形写像について成り立つ。\\
+基底について、$f$が全射なので、任意の$\vb{w} \in W$について、ある$\vb{v} \in V$が存在して、$f(\vb{v}) = \vb{w}$となる。
+$\vb{v} = a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n$と書けるとき、
+\begin{align}
+  \vb{w} = f(\vb{v}) = a_1f(\vb{v}_1) + a_2f(\vb{v}_2) + \dots + a_nf(\vb{v}_n)
+\end{align}
+である。したがって、$f(\vb{v}_1), f(\vb{v}_2), \dots, f(\vb{v}_n)$は$W$を生成する。
+また、前半の証明から、$f(\vb{v}_1), f(\vb{v}_2), \dots, f(\vb{v}_n)$は一次独立である。したがって、$f(\vb{v}_1), f(\vb{v}_2), \dots, f(\vb{v}_n)$は$W$の基底である。
+\qed
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  ベクトル空間$V, W$が同型であるための必要十分条件は、
+  \begin{align}
+    \dim V = \dim W
+  \end{align}
+  である。
+\end{itembox}
+\textbf{Prf.}\\
+($\Rightarrow$)\\
+$f:V \to W$を同型写像とする。このとき、同型写像は基底を保つから、$\dim V = \dim W$である。\\
+($\Leftarrow$)\\
+$\dim V = \dim W$であるとする。$V,W$の基底を一組ずつ取り、それぞれの基底を$\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n$、$\vb{w}_1, \vb{w}_2, \dots, \vb{w}_n$とする。
+このとき、$V$の任意のベクトル$\vb{x}$は、
+\begin{align}
+  \vb{x} = a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n
+\end{align}
+と書ける。そこで、
+\begin{align}
+  f(\vb{x}) = a_1\vb{w}_1 + a_2\vb{w}_2 + \dots + a_n\vb{w}_n
+\end{align}
+と定義する。このとき、$f$は線形写像となる。実際、
+\begin{align}
+  f(c_1\vb{x}_1 + c_2\vb{x}_2) &= f(c_1(a_{11}\vb{v}_1 + a_{12}\vb{v}_2 + \dots + a_{1n}\vb{v}_n) + c_2(a_{21}\vb{v}_1 + a_{22}\vb{v}_2 + \dots + a_{2n}\vb{v}_n))\\
+  &= f((c_1a_{11} + c_2a_{21})\vb{v}_1 + (c_1a_{12} + c_2a_{22})\vb{v}_2 + \dots + (c_1a_{1n} + c_2a_{2n})\vb{v}_n)\\
+  &= (c_1a_{11} + c_2a_{21})\vb{w}_1 + (c_1a_{12} + c_2a_{22})\vb{w}_2 + \dots + (c_1a_{1n} + c_2a_{2n})\vb{w}_n\\
+  &= c_1(a_{11}\vb{w}_1 + a_{12}\vb{w}_2 + \dots + a_{1n}\vb{w}_n) + c_2(a_{21}\vb{w}_1 + a_{22}\vb{w}_2 + \dots + a_{2n}\vb{w}_n)\\
+  &= c_1f(\vb{x}_1) + c_2f(\vb{x}_2)
+\end{align}
+である。以後、$f$が全単射であることを示す。\\
+($f$が単射であること)\\
+$\vb{x}=a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n$と$\vb{y}=b_1\vb{v}_1 + b_2\vb{v}_2 + \dots + b_n\vb{v}_n$に対して、$f(\vb{x}) = f(\vb{y})$とすると、
+\begin{align}
+  a_1\vb{w}_1 + a_2\vb{w}_2 + \dots + a_n\vb{w}_n = b_1\vb{w}_1 + b_2\vb{w}_2 + \dots + b_n\vb{w}_n
+\end{align}
+である。したがって、
+\begin{align}
+  (a_1 - b_1)\vb{w}_1 + (a_2 - b_2)\vb{w}_2 + \dots + (a_n - b_n)\vb{w}_n = 0
+\end{align}
+である。$\vb{w}_1, \vb{w}_2, \dots, \vb{w}_n$は一次独立であるから、$a_1 = b_1, a_2 = b_2, \dots, a_n = b_n$である。したがって、$f$は単射である。\\
+($f$が全射であること)\\
+$W$の任意のベクトル$\vb{w}$は$a_1\vb{w}_1 + a_2\vb{w}_2 + \dots + a_n\vb{w}_n$と書ける。したがって、
+\begin{align}
+  f(a_1\vb{v}_1 + a_2\vb{v}_2 + \dots + a_n\vb{v}_n) = a_1\vb{w}_1 + a_2\vb{w}_2 + \dots + a_n\vb{w}_n
+\end{align}
+となるので、$f$は全射である。したがって、$f$は同型写像である。\qed
+
+したがって、抽象的な$n$次元ベクトル空間と、その例として考えられる$\mathbb{R}^n$は、同型である。\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $V, W$を$n$次元ベクトル空間とし、$V, W$の基底をそれぞれ$\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n$、$\vb{w}_1, \vb{w}_2, \dots, \vb{w}_m$とする。
+  ここで、$n = \dim V, m = \dim W$とする。線形写像$f:V \to W$に対して、上記基底に対する$f$の行列表現をそれぞれ$A$とするとき、以下は同値である。
+  \begin{enumerate}
+    \item $f$が同型写像である。
+    \item $n=m$であり、$A$は正則行列である。さらに、$A$の逆行列$A^{-1}$は、$f$の逆写像$f^{-1}$に対応する行列である。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+($1 \Rightarrow 2$)\\
+$f$が同型写像であるとする。このとき、前の定理より、$\dim V = \dim W$である。したがって、$n = m$である。また、$f^{-1}:W \to V$の表現行列を$B$とすると、
+\begin{align}
+  AB = E = BA
+\end{align}
+である。したがって、$A$は正則行列であり、$A^{-1} = B$である。\\
+($2 \Rightarrow 1$)\\
+$n=m$であり、$A$は正則行列であるとする。このとき、$A$の逆行列$A^{-1}$は$f$の逆写像$f^{-1}$に対応する行列である。したがって、$f$は同型写像である。\qed
+
+\subsection{固有値・固有ベクトル}
+\begin{itembox}[l]{\textbf{Def.線形変換の固有値/固有ベクトル}}
+  ベクトル空間$V$の元$\vb{v} \neq 0_{V}$と、スカラー$\alpha\in \mathbb{C}$に対して、
+  \begin{align}
+    f(\vb{v}) = \alpha \vb{v}
+  \end{align}
+  となるものが存在するとき、$\alpha$を$f$の固有値、$\vb{v}$を$f$の固有ベクトルという。\\
+  また、$V$の部分集合
+  \begin{align}
+    V_{\alpha} = \qty{\vb{u} \in V | f(\vb{u}) = \alpha \vb{u}}
+  \end{align}
+  を固有値$\alpha$に対する固有空間という。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Lem.}}
+  $f$の固有値$\alpha$に対する固有空間$V_{\alpha}$は、$V$の部分空間である。
+
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  f(c_1\vb{u}_1 + c_2\vb{u}_2) &= c_1f(\vb{u}_1) + c_2f(\vb{u}_2)\\
+  &= c_1\alpha\vb{u}_1 + c_2\alpha\vb{u}_2\\
+  &= \alpha(c_1\vb{u}_1 + c_2\vb{u}_2)
+\end{align}
+であるから、$V_{\alpha}$は部分空間である。\hfill\qedsymbol\\
+
+とくに、$V = \mathbb{C}^n$のとき、線形変換は$n$次複素正方行列$A$によって
+\begin{align}
+  f(\vb{v}) = A\vb{v}
+\end{align}
+と表される。このとき、$f$の固有値$\alpha$と固有ベクトル$\vb{v}$は、
+\begin{align}
+  A\vb{v} = \alpha\vb{v}
+\end{align}
+となる。
+
+\begin{itembox}[l]{\textbf{Prop:}}
+  $P$を$n$次正則行列、$A$を$n$次正方行列とする。このとき、$P^{-1}AP$の固有値全体の集合は、$A$の固有値全体の集合と一致する。 
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \det(tE_n - P^{-1}AP) &= \det(P^{-1}(tE_n - A)P)\\
+  &= \det(P^{-1})\det(tE_n - A)\det(P)\\
+  &= \det(tE_n - A)
+\end{align}
+であるから、固有値は一致する。\hfill\qedsymbol\\
+一般のベクトル空間$V$の線形変換$T$に対して、固有値と固有ベクトルを求めるには、まず、$V$の基$(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)$を取り、
+$T$の表現行列$A$を求める。そして、$A$の固有値を求め、それに対応する固有ベクトル$\vb{x}$を求める。
+$A$の各固有値は$f$の固有値となり、
+\begin{align}
+  \vb{u} &= (\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n) \vb{x} 
+\end{align}
+が固有値$\alpha$に対する固有ベクトルである。\\
+実際、
+\begin{align}
+  f(\vb{u}) &= f(x_1\vb{u}_1 + x_2\vb{u}_2 + \dots + x_n\vb{u}_n)\\
+  &=(f(\vb{u}_1), f(\vb{u}_2), \dots, f(\vb{u}_n))\vb{x}\\
+  &=(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)A\vb{x}\\
+  &=(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)\alpha\vb{x}\\
+  &=\alpha\vb{u}
+\end{align}
+となる。\\
+
+\begin{itembox}[l]{\textbf{Prop.}}
+  どのような基をとって上の計算を行っても、固有値全体の集合とその固有空間は変化しない。
+\end{itembox}
+\textbf{Prf.}\\
+基を$(\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n)$に取り換えた場合、基底変換の行列を$P$とする。このとき、
+\begin{align}
+  (\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n) = (\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)P
+\end{align}
+である。このとき、$f$の表現行列は$P^{-1}AP$である。ここで、$P^{-1}AP$と$A$の固有値全体の集合は同じである。したがって、
+$A\vb{x} = \alpha\vb{x}$であることと、$P^{-1}AP(P\vb{x'}) = \alpha P\vb{x'}\quad (\vb{x'} = P^{-1}\vb{x})$であることは同値であり、
+\begin{align}
+  (\vb{v}_1, \vb{v}_2, \dots, \vb{v}_n) \vb{x'} &= (\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n) PP^{-1}\vb{x} \\
+  &= (\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n) \vb{x}
+\end{align}
+であるから、固有ベクトルも変わらない。\hfill\qedsymbol\\
+
+\subsection{対角化}
+\begin{itembox}[l]{\textbf{Thm.}}
+  $f$を、ベクトル空間$V$における線形変換とする。このとき、$f$の相異なる固有値の固有ベクトルは一次独立である。
+\end{itembox}
+\textbf{Prf.}\\
+略。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def.対角化可能}}
+  複素$n$次正方行列$A$が対角化可能であるとは、ある正則行列$P$が存在して、
+  \begin{align}
+    P^{-1}AP = D
+  \end{align}
+  となることである。このとき、$D$は対角行列であり、$A$は$P$によって対角化されるという。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  $n$次正方行列$A$に対して、以下の3条件は同値である。
+  \begin{enumerate}
+    \item $A$は対角化可能である。
+    \item $A$の固有ベクトルからなる$\mathbb{C}^n$の基底が存在する。
+    \item $A$の各固有値$\alpha_i$に対する固有空間の次元の和が$n$である。
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+(1) $\Rightarrow$ (2)\\
+$A$が対角化可能であるとする。このとき、
+\begin{align}
+  P^{-1}AP &= D\\
+  &=
+  \begin{pmatrix}
+    \alpha_1 & 0 & \dots & 0\\
+    0 & \alpha_2 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & \alpha_n
+  \end{pmatrix}
+\end{align}
+となる。このとき、$P$は正則なので、$P$の列ベクトルを$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n$とすると、これらは一次独立である。さらに、これらは$A$の固有ベクトルである。実際、
+\begin{align}
+  A \vb{u}_i &= (PDP^{-1})\vb{u}_i\\
+  &= PD\vb{e}_i \\
+  &= P\alpha_i\vb{e}_i\\
+  &= \alpha_i P\vb{e}_i\\
+  &= \alpha_i(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)\vb{e}_i\\
+  &= \alpha_i\vb{u}_i
+\end{align}
+であるから、$\vb{u}_i$は$\alpha_i$に対する固有ベクトルである。\\
+$\dim (\mathbb{C}^n) = n$で、$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n$は一次独立であるから、これは$\mathbb{C}^n$の基底である。\\
+(2) $\Rightarrow$ (3)\\
+$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n$を、$A$の固有ベクトルからなる$\mathbb{C}^n$の基底とする。このとき、
+各$\vb{u}_i$の固有値を$\alpha_i$とし、$A$の固有値全体の集合を$\qty{\alpha_1, \alpha_2, \dots, \alpha_n}$を、重複する元をはずして整理して、
+$\qty{\alpha_{k_1}, \alpha_{k_2}, \dots, \alpha_{k_m}}$とする。このとき、各$\alpha_{k_i}$に対して、
+$\alpha_{k_i}$の固有空間に属する$(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)$の個数を$n_{ki}$とし、$\alpha_{k_i}$の固有空間の次元を$d_{ki}$とする。このとき、$(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)$は一次独立であるから、
+\begin{align}
+  n_{ki} \leq  d_{ki}
+\end{align}
+である。したがって、
+\begin{align}
+  n = \sum_{i=1}^{m} n_{ki} \leq \sum_{i=1}^{m} d_{ki}
+\end{align}
+である。一方、異なる固有値に属する固有ベクトルは一次独立であるから、
+\begin{align}
+  \sum_{i=1}^{m} d_{ki} \leq n
+\end{align}
+である。したがって、
+\begin{align}
+  \sum_{i=1}^{m} d_{ki} = n
+\end{align}
+である。\\
+(3) $\Rightarrow$ (1)\\
+固有値$\alpha_i$の固有空間の基を成すベクトルをとると、仮定より、$n$個のベクトル$\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n$が得られる。
+異なる固有値の固有ベクトルは一次独立なので、これらは$\mathbb{C}^n$の基底である。このとき、
+\begin{align}
+  P = (\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)
+\end{align}
+とすると、
+\begin{align}
+  P^{-1}AP &= P^{-1}A(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)\\
+  &= P^{-1}(\alpha_1\vb{u}_1, \alpha_2\vb{u}_2, \dots, \alpha_n\vb{u}_n)\\
+  &= P^{-1}(\vb{u}_1, \vb{u}_2, \dots, \vb{u}_n)
+  \begin{pmatrix}
+    \alpha_1 & 0 & \dots & 0\\
+    0 & \alpha_2 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & \alpha_n
+  \end{pmatrix}\\
+  &=
+  \begin{pmatrix}
+    \alpha_1 & 0 & \dots & 0\\
+    0 & \alpha_2 & \dots & 0\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & \dots & \alpha_n
+  \end{pmatrix}
+\end{align}
+となる。したがって、$A$は対角化可能である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Cor.}}
+  $n$次正方行列$A$の固有方程式が重根を持たないとき、$A$は対角化可能である。  
+
+\end{itembox}
+\textbf{Prf.}\\
+固有方程式が重根を持たないとき、異なる固有値に対する固有空間の次元の和は$n$であるから、$A$は対角化可能である。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def.上三角行列}}
+  $i>j$ならば、$a_{ij} = 0$であるような行列を上三角行列という。
+\end{itembox}
+対角行列は上三角行列である。また、上三角行列の行列式は対角成分の積である。\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+  複素ベクトル空間$V$上の任意の線形変換$f$は、ある$V$の基に関する表現行列が上三角行列になえい、その対角成分に$f$の固有方程式の解が重複度を含めてすべて現れる。
+\end{itembox}
+\textbf{Prf.}\\
+$V$の次元に関する帰納法で示す。\\
+$n=1$のとき、明らか。\\
+$n-1$まで成立すると仮定する。線形変換$f$に対して、少なくとも一つの固有値$\alpha$が存在するので、その固有値に関する固有ベクトル$\vb{v_1}$をとり、それを含む基底を$\vb{v_1}, \vb{v_2,} \dots, \vb{v_n}$とする。
+このとき、$\vb{v_1}$は$f$の固有ベクトルであるから、$f(\vb{v_1}) = \alpha\vb{v_1}$であり、この基底に関する$f$の表現行列は
+\begin{align}
+  \begin{pmatrix}
+    \alpha & a_{12} & \dots & a_{1n}\\
+    0 & a_{22} & \dots & a_{2n}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    0 & a_{n2} & \dots & a_{nn}
+  \end{pmatrix}
+\end{align}
+となる。\\
+$W$を、$\vb{v_2}, \vb{v_3,} \dots, \vb{v_n}$で張られる部分空間とし、$V$から$W$への線形写像$\text{pr}$を、
+\begin{align}
+  \text{pr}: V \ni b_1\vb{v_1} + b_2\vb{v_2} + \dots + b_n\vb{v_n} \mapsto b_2\vb{v_2} + \dots + b_n\vb{v_n} \in W
+\end{align}
+とする。ここで、合成写像$f \circ \text{pr}: V \to W$を$W$に制限することにより、$\text{pr}\circ f |_{W}: W \to W$を得る。\\
+帰納法の仮定より、$W$の基底$\vb{w_2},\dots , \vb{w_n}$で、$\text{pr}\circ f |_{W}$のその基底に関する表現行列が上三角行列になるようなものが存在する。
+$\vb{v_1}, \vb{w_2}, \dots, \vb{w_{n}}$
+は$V$の基底となり、その基底に関する$f$の表現行列は上三角行列になる。\\
+$f$の固有方程式は、この上三角行列$U$により表現行列の固有方程式
+\begin{align}
+  \det(tE_n - U) = 0
+\end{align}
+となる。その解は、$U$の対角成分に一致する。したがって、$f$の固有方程式の解は、重複度を含めてすべて現れる。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def.正方行列の最小多項式}}
+  正方行列$A$に対して、最高次係数1の多項式
+  \begin{align}
+    F(t) = t^m + \sum_{k=0}^{m-1} c_kt^k
+  \end{align}
+  で、
+  \begin{align}
+    F(A) = A^m + \sum_{k=1}^{m-1} c_kA^k + c_0E = O
+  \end{align}
+  となるもののうち、次数が最小のものを$A$の最小多項式という。
+\end{itembox}
+ 
+$n$次正方行列全体$M(n, \mathbb{C})$は、$\$\mathbb{C}^n$上の$n^1$次元ベクトル空間なので、
+ $(n^1+1)$個の行列の集合$\{E, A, A^2, \dots, A^{n^2}\}$は線形従属である。したがって、
+  \begin{align}
+      F(A) = A^{m} + \sum_{k=0}^{m-1} c_kA^k + c_0E = O
+  \end{align}
+  となるような最小多項式$F(t)$が存在する。\\
+  また、$n$次正則行列$P$に対して、
+  \begin{align}
+      (P^{-1}AP)^{n} = P^{-1}A^{n}P
+  \end{align}
+  が成り立つので、
+  \begin{align}
+      F(P^{-1}AP) = P^{-1}F(A)P = O
+  \end{align}
+  となる。これは、最小多項式が、基底の選び方に依らないことを示している。\\
+  したがって、最小多項式の定義を、線形写像まで拡張することができる。
+
+  \begin{itembox}[l]{\textbf{Def.線形写像の最小多項式}}
+    $V$を有限次元ベクトル空間、$f: V \to V$を線形写像とする。$f$の最小多項式$F(t)$とは、最高次係数の0の多項式で、
+    \begin{align}
+        F(f) = f^{m} + \sum_{k=0}^{m-1} c_kf^{k} + c_0I = O
+    \end{align}
+    となるようなもののうち、次数が最小のものをいう。
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Thm.ケーリーハミルトンの定理}}
+    線形変換$f: V \to V$に対して、$f$の固有多項式$F_f(t)$に対して、$F_f(f) = O$が成り立つ。
+\end{itembox}
+\textbf{Prf.}\\
+hoge\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+    線形変換$f: V \to V$に対する固有多項式$F(t)$とし、固有方程式$F_f(t) = 0$の相異なる解を$\lambda_1, \lambda_2, \dots, \lambda_r$とする。
+    このとき$f$の最小多項式$M_f(t)$は、$(t-\lambda_0)(t-\lambda_2)\dots(t-\lambda_r)$で割り切れ、$F_f(t)$を割り切る。
+\end{itembox}
+\textbf{Prf.}\\
+$t$の多項式$F(t)$に対して$F(f) = O$ならば、$f$の固有値$\lambda$は$F(\lambda) = 0$を満たすことを示す。\\
+$f$の$\lambda$固有ベクトルを$\vb{v}$とする。$F(t) = t^n + \sum_{k=1}^{n-1} c_kt^k + c_0$に対して、
+\begin{align}
+    \vb{0} &= o(\vb{v})\\
+    &= F(f)(\vb{v})\quad (\because F(f) = O)\\
+    &= f^{n}(\vb{v}) + \sum_{k=1}^{n-1} c_kf^{k}(\vb{v}) + c_0\vb{v}\\
+    &= \lambda^{n}\vb{v} + \sum_{k=1}^{n-1} c_k\lambda^{k}\vb{v} + c_0\vb{v}\\
+    &= F(\lambda)\vb{v}
+\end{align}
+であるから、$F(\lambda) = 0$である。よって、$M_f(t)$は$f$の固有値を解とする。\\
+次に、$F_f(t)$が$M_f(t)$で割り切れることを示す。$F_f(t)$を$M_f(t)$で割った余りを$R(t)$とすると、
+\begin{align}
+    F_f(t) = q(t)M_f(t) + R(t)
+\end{align}
+となる。ただし、$q(t),R(t) \in \mathbb{C}[t]$で、$\deg R(t) < \deg M_f(t)$である。\\
+個の両辺の$t$に$f$を代入すると、左辺は$O$であるから、右辺も$O$である。また、$M_f(f) = O$なので、$R(f) = O$である。\\
+最小多項式は次数が最小で最高次係数が1であるから、$R(t) = 0$でなくてはならない。($M(t)$より次数が小さいのはまずい。)よって、$R(t) = 0$であり、$F_f(t)$は$M_f(t)$で割り切れる。\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Def.広義固有空間}}
+  線形変換$f: V \to V$の相異なる固有値全体を$\lambda_1, \lambda_2, \dots, \lambda_f$とし、
+  $f$の最小多項式を、
+  \begin{align}
+      M_f(t) = (t-\lambda_1)^{d_1}(t-\lambda_2)^{d_2}\dots(t-\lambda_f)^{d_f}
+  \end{align}
+  とする。このとき、$f$の固有値$\lambda_k$の広義固有空間$V_{\lambda_k,d_k}$を、
+  \begin{align}
+      V_{\lambda_k,d_k} = \ker (f-\lambda_kI)^{d_k}
+  \end{align}
+  と定義する。すなわち、
+  \begin{align}
+      (f-\lambda_kI)^{d_k}(\vb{v}) = \vb{0}
+  \end{align}
+  となるベクトル$\vb{v}$からなる部分空間を$V_{\lambda_k,d_k}$とする。
+\end{itembox}
+気持ちとしては、広義固有空間に含まれる一般化固有ベクトルは、1解$(f-\lambda_kI)$を作用させても$0$にならないかもしれないが、少なくとも$d_k$回作用させると$0$になるということを意味する。
+とくに、1回作用させただけで$0$になる固有ベクトルは、通常の固有ベクトルと呼ばれる。\\
+
+\begin{itembox}[l]{\textbf{Thm.}}
+    線形変換$f: V \to V$の固有値$\lambda_k$の広義固有空間$V_{\lambda_k,d_k}$は、
+    \begin{align}
+        f(V_{\lambda_k,d_k}) \subset V_{\lambda_k,d_k}
+    \end{align}
+    を満たす$f$の不変部分空間であり、$V$はこれらの部分空間の直和
+    \begin{align}
+        V = V_{\lambda_1,d_1} \oplus V_{\lambda_2,d_2} \oplus \dots \oplus V_{\lambda_f,d_f}
+    \end{align}
+    と同型である。
+\end{itembox}
+\textbf{Prf.}\\
+hoge\hfill\qedsymbol\\
+
+\begin{itembox}[l]{\textbf{Cor.}}
+  線形変換$f: V \to V$に対して、以下の3条件は同値である。
+  \begin{enumerate}
+    \item $V$の基底で、$f$の表現行列が対角行列になるものが存在する。
+    \item $f$の相異なる固有値$\lambda_1, \lambda_2, \dots, \lambda_f$に対して、
+    \begin{align}
+      (f-\lambda_1I)(f-\lambda_2I)\dots(f-\lambda_fI) = O
+    \end{align}
+    が成り立つ。
+    \item $f$の最小多項式は、重根を持たない。
+    \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+hoge\hfill\qedsymbol\\
+
+
+
+
+\subsection{ランク}
+\begin{itembox}[l]{\textbf{Def.ランク}}
+    $m \times n$ 行列 $A$ に対して、$A$ のランクとは、
+    \begin{align}
+        \text{rank} A = \text{dim} \text{Im} A
+    \end{align}
+    で定義される。
+\end{itembox}
+ 
+\begin{itembox}[l]{\textbf{Thm.ランクの特徴づけ}}
+  $m \times n$ 行列 $A$ に対して、以下の(1) 〜 (5) の数は一致する。
+  \begin{enumerate}
+      \item $A$ のランク
+      \item $A$ の列ベクトルのうち一次独立な最大個数
+      \item $A$ の行ベクトルのうち一次独立な最大個数
+      \item $A$ の$t$次の小行列式の中には$0$でないものがあり、$t+1$ 次以上の小行列式はすべて $0$ であるような最大の $t$
+      \item $A$ の行ベクトルが生成する部分空間の次元
+  \end{enumerate}
+\end{itembox}
+\textbf{Prf.}\\
+
+
+
 \subsection{その他}
 \begin{itembox}[l]{\textbf{Thm:}}
   実$n$次元数ベクトル空間$\mathbb{R}^n$の任意の部分ベクトル空間$W_1, W_2$に対して、
@@ -976,10 +1837,15 @@ hoge\hfill\qedsymbol\\
 \textbf{Prf}\\
 %後で書く。\\
 
+
+
+
 \section{微分積分学}
 
 
 \section{確率統計}
+\subsection{確率分布のまとめ}
+取り扱った確率分布をまとめる。\\
 \begin{itembox}[l]{\textbf{Def.正規分布}}
   平均を$\mu$、分散を$\sigma^2$とする。確率分布関数が以下で与えられるとき、正規分布という。
   \begin{align}
@@ -992,6 +1858,72 @@ hoge\hfill\qedsymbol\\
   と書く。
 \end{itembox}
 
+\begin{itembox}[l]{\textbf{Prop:正規分布の標本平均}}
+  正規分布に従う確率変数$X_1, X_2, \dots, X_n$の標本平均$S_n = \frac{1}{n}\sum_{i=1}^{n}X_i$は、正規分布に従う。
+\end{itembox}
+\textbf{Prf}\\
+\begin{align}
+  p(S_n = s) &= \int_{\{\vb*{x} \in \mathbb{R}^n : S_n(\vb*{x}) = s\}} p(\vb*{x}) \dd{\vb*{x}} \\
+  &= \int_{\mathbb{R}^n} \delta(S_n(\vb*{x}) - s) p(\vb*{x}) \dd{\vb*{x}} \\
+  &= \int_{\mathbb{R}^n} \int_{-\infty}^{\infty} \frac{1}{2\pi} \exp(ik(S_n-s)) p(\vb*{x}) \dd{\vb*{x}} \dd{k} \\
+  &= \int_{-\infty}^{\infty} \frac{1}{2\pi} e^{-iks} \qty(\Pi \int_{-\infty}^{\infty} e^{ikS_n} p(\vb*{x}) \dd{\vb*{x}}) \dd{k} \\
+  &= \int_{-\infty}^{\infty} \frac{1}{2\pi} e^{-iks} \qty(\phi\qty(\frac{k}{n}))^n \dd{k} \\
+  &= \int_{-\infty}^{\infty} \frac{1}{2\pi} e^{-iks} \exp(i\mu \frac{k}{n} - \frac{\sigma^2 k^2}{2n^2})^n \dd{k} \\
+  &= \int_{-\infty}^{\infty} \frac{1}{2\pi} \exp(-\frac{\sigma^2 }{2n}\qty(k - n\frac{s-\mu}{\sigma^2})^2 - \frac{n(s-\mu)^2}{2\sigma^2}) \dd{k} \\
+  &= \sqrt{\frac{n}{{2\pi \sigma^2}}} \exp(-\frac{n(s-\mu)^2}{2\sigma^2})
+\end{align}
+であるから、$S_n$は正規分布$N(\mu, \frac{\sigma^2}{n})$に従う。\hfill\qedsymbol\\
+
+TODOここに$n$変数ガウス分布についての記述を追加する。\\
+
+\begin{itembox}[l]{\textbf{Def.指数分布}}
+  指数分布とは、(0, $\infty$)に台を持つ確率分布で、確率密度関数が以下で与えられるものである。
+  \begin{align}
+    p(x) = \lambda \exp(-\lambda x)
+  \end{align}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Def.アーラン分布}}
+  アーラン分布とは、(0, $\infty$)に台を持つ確率分布で、確率密度関数が以下で与えられるものである。
+  \begin{align}
+    p(x) = \frac{1}{\Gamma(k)}\lambda^k x^{k-1} \exp(-\lambda x)
+  \end{align}
+\end{itembox}
+
+\begin{itembox}[l]{\textbf{Prop:指数分布とアーラン分布}}
+  n個の独立な確率変数$X_1, X_2, \dots, X_n$が指数分布に従うとき、その和$Y = X_1 + X_2 + \dots + X_n$はアーラン分布に従う。
+\end{itembox}
+\textbf{Prf}\\
+数学的帰納法により示す。\\
+(1)$n=1$のとき\\
+このとき、
+\begin{align}
+  p(y) = \lambda \exp(-\lambda y)
+\end{align}
+であるから、指数分布に一致し、示された。\\
+(2)$n=2$のとき\\
+\begin{align}
+  p_Y(y) &= \int_0^y p_{X_1}(x) p_{X_2}(y - x) \, dx \\
+  &= \int_0^y \lambda e^{-\lambda x} \cdot \lambda e^{-\lambda (y - x)} \, dx \\
+  &= \int_0^y \lambda^2 e^{-\lambda y} \cdot e^{-\lambda x} \cdot e^{\lambda x} \, dx \\
+  &= \lambda^2 e^{-\lambda y} \int_0^y \, dx \\
+  &= \lambda^2 e^{-\lambda y} \cdot \left[ x \right]_0^y \\
+  &= \lambda^2 y e^{-\lambda y}
+\end{align}
+であるから、アーラン分布に一致し、示された。\\
+(3)$n=k$のとき成立すると仮定する。\\
+\begin{align}
+  p_Y(y) &= \int_0^y p_{X_k}(x) p_{X_{k+1}}(y - x) \, dx \\
+  &= \int_0^y \frac{\lambda^k x^{k-1} e^{-\lambda x}}{(k - 1)!} \cdot \lambda e^{-\lambda (y - x)} \, dx \\
+  &= \frac{\lambda^{k+1}}{(k - 1)!} e^{-\lambda y} \int_0^y x^{k-1} e^{-\lambda x} \cdot e^{\lambda x} \, dx \\
+  &= \frac{\lambda^{k+1} e^{-\lambda y}}{(k - 1)!} \int_0^y x^{k-1} \, dx \\
+  &= \frac{\lambda^{k+1} e^{-\lambda y}}{(k - 1)!} \cdot \left[ \frac{1}{k} x^k \right]_0^y \\
+  &= \frac{\lambda^{k+1} y^k e^{-\lambda y}}{k \cdot (k - 1)!} \\
+  &= \frac{\lambda^{k+1} y^k e^{-\lambda y}}{k!}
+\end{align}
+であるから、$n=k+1$のときも成立する。したがって、示された。\hfill\qedsymbol\\
+
+\subsection{漸近まわりの話}
 \begin{itembox}[l]{\textbf{Thm:Markovの不等式}}
   確率変数$\hat{X}$に対して、任意の正数$\epsilon > 0$に対して、
   \begin{align}
@@ -1093,6 +2025,7 @@ hoge\hfill\qedsymbol\\
   = \frac{1}{N^2} (N\nu + (N^2-N)\mu^2)
 \end{align}
 となる。したがって、
+
 \begin{align}
   \sigma_{\tilde{\vb{p}}}(\hat{m}) = \sqrt{\expval{\frac{\nu - \mu^2}{N}}}
 \end{align}
@@ -1110,17 +2043,16 @@ hoge\hfill\qedsymbol\\
 \end{align}
 が示された。\hfill\qedsymbol\\
 
-\textbf{モーメント母関数/キュムラント母関数}\\
 \begin{itembox}[l]{\textbf{Def:モーメント母関数/キュムラント母関数}}
   確率分布$p(x)$のモーメント母関数は、以下で定義される。
   \begin{align}
-    M(t) = \expval{e^{kx}} = \int e^{kx} p(x) dx \label{eq:moment}\\
+    M(t) &= \expval{e^{tx}} = \int e^{tx} p(x) dx \label{eq:moment}\\
     &= \sum_{n=0}^{\infty} \frac{M_n}{n!} t^n
   \end{align}
   このとき、$M_n$をモーメントという。\\
   また、キュムラント母関数は、以下で定義される。
   \begin{align}
-    K(t) &= \log M(t) = \log \expval{e^{kx}} \label{eq:cumulant}\\
+    K(t) &= \log M(t) = \log \expval{e^{tx}} \label{eq:cumulant}\\
     &= \sum_{n=0}^{\infty} \frac{C_n}{n!} t^n
   \end{align}
   このとき、$C_n$をキュムラントという。
@@ -1155,7 +2087,7 @@ hoge\hfill\qedsymbol\\
   を任意の$x$に対して満たすとき、大偏差原理が成り立つという。
 \end{itembox}
 
-\begin{itembox}[l]{\textbf{Thm:ガートナー・エリスの定理}}
+\begin{itembox}[l]{\textbf{Thm:ゲルトナー・エリスの定理}}
   確率変数密度$x$に対するスケールされたキュムラント母関数$q(k)$が存在し、それが実数$k \in \mathbb{R}$で微分可能であるとする。
   このとき、$x$は大偏差原理を満たし、そのレート関数は以下のルジャンドル変換で与えられる。
   \begin{align}
@@ -1167,7 +2099,24 @@ hoge\hfill\qedsymbol\\
   \end{align}
   が成り立つ。
 \end{itembox}
-\textbf{Prf}\\
+G$\ddot{a}$rtner-Ellisの定理の直感的な理解を試みる。$A_n$に対して大偏差原理が成り立つと仮定すると、
+\begin{align}
+    P(A_n \in \dd a) \asymp e^{-nI(a)} \dd a
+\end{align}
+となる。このとき、
+\begin{align}
+    \expval{e^{nkA_n}} &= \int_{\mathbb{R}} e^{nka} e^{-nI(a)} \dd a\\
+    &\sim \sup_{a} \{ka - I(a)\} \quad \because \text{鞍点法}
+\end{align}
+したがって、
+\begin{align}
+    \lambda(k) = \lim_{n \to \infty} \frac{1}{n} \ln \expval{e^{nkA_n}} = \sup_{a} \{ka - I(a)\}
+\end{align}
+となる。逆ルジャンドル変換によって
+\begin{align}
+    I(a) = \sup_{k} \{ka - \lambda(k)\}
+\end{align}
+が得られる。
 
 \begin{itembox}[l]{\textbf{Thm.中心極限定理}}
   ある集団から$n$個の標本を取り出し、その平均を$\hat{X}$とする。このとき、$n$が十分大きいとき、$\hat{X}$は、平均$\mu$、分散$\frac{\sigma^2}{n}$の正規分布に従う。すなわち、
@@ -1264,6 +2213,83 @@ hoge\hfill\qedsymbol\\
 \end{align}
 により計算できる。\\
 
+\textbf{負の二項定理}
+\begin{align}
+  (1-x)^{-n} = \sum_{k=0}^{\infty} \binom{n+k-1}{n-1} x^k
+\end{align}
+が成り立つことが知られている。\\
+\textbf{Prf.}\\
+(1)$n=1$ のとき\\
+\begin{align}
+  (1-x)^{-1} = \sum_{k=0}^{\infty} x^k
+\end{align}
+が成り立つ。\\
+(2)$n=m$のとき成立すると仮定する。このとき、
+\begin{align}
+  (1-x)^{-m} = \sum_{k=0}^{\infty} \binom{m+k-1}{m-1} x^k
+\end{align}
+が成り立つ。両辺微分することで、
+\begin{align}
+  m(1-x)^{-m-1} = \sum_{k=0}^{\infty} \binom{m+k}{m-1} (k+1) x^k
+\end{align}
+となる。ここで、
+\begin{align}
+  \frac{k+1}{m} \binom{m+k}{m-1} &= \frac{k+1}{m} \frac{(m+k)!}{(k+1)!(m-1)!}\\
+  &= \frac{(m+k)!}{k!m!}\\
+  &= \binom{m+k}{m}
+\end{align}
+であるから、
+\begin{align}
+  (1-x)^{-m-1} = \sum_{k=0}^{\infty} \binom{m+k}{m} x^k
+\end{align}
+が成り立つ。したがって、$n=m+1$のときも成立する。したがって、帰納的に示された。\hfill\qedsymbol\\
+
+\subsection{ルジャンドル変換}
+$f(x)$を$x_{\text{min}} < x < x_{\text{max}}$で定義された下に凸な関数とする。また、
+\begin{align}
+  \alpha_{\text{min}}  &= \lim_{x \to x_{\text{min}}} f'(x)\\
+  \alpha_{\text{max}}  &= \lim_{x \to x_{\text{max}}} f'(x)
+\end{align}
+とする。$\alpha_{\text{min}}<\alpha < \alpha_{\text{max}}$を固定する。任意の$x_0$について、$(x_0,f(x_0))$を通る傾き$\alpha$の直線を考える。直線の方程式は、
+\begin{align}
+  y = \alpha(x-x_0) + f(x_0) = \alpha (x-x_0) + y_0
+\end{align}
+このもとで、$x_0$を動かすことにより、切片の最小値を探す。この最小値は$\alpha$に依ってのみ決まる。この最小値を$y^{*}_{0}$とし、$f^{*} (\alpha) = -y^{*}_{0}$とする。
+このとき、ルジャンドル変換を以下によって定義する。
+\begin{itembox}[l]{\textbf{Def.ルジャンドル変換}}
+  関数$f(x)$のルジャンドル変換は、以下で表される。
+  \begin{align}
+    f^*(\alpha) = -\min_x \{f(x) - \alpha x\} = \max_x \{\alpha x - f(x)\}
+  \end{align}
+\end{itembox}
+すなわち、$f(x)$のグラフに対して、とくに微分可能な場合についてはその接線を引き、その切片としてルジャンドル変換を導入する。また、このルジャンドル変換は接線の傾きの関数となる。\\
+
+\begin{itembox}[l]{\textbf{Thm.ルジャンドル変換の存在}}
+  任意の下に凸な関数$f(x)$に対して、ルジャンドル変換$f^*(\alpha)$が存在する。また、$f^*(\alpha)$は下に凸であり。連続である。\\
+  また、Youngの不等式
+  \begin{align}
+    f(x) + f^*(\alpha) \geq \alpha x
+  \end{align}
+  が成り立つ。
+\end{itembox}
+\textbf{Prf.}\\
+前半の存在性については絵を書けばわかる。実際、微分可能な場合については接線を連続的に動かしていけば良い。また、微分可能な点があっても成り立つ。Gibbs自由エネルギーなどで試すと良い。\\Y
+Youngの不等式は簡単に示せるので示しておく。ルジャンドル変換の定義より、
+\begin{align}
+  f(x) + f^*(\alpha) = \max_{y} \{f(x)+\alpha y - f(y)\} \geq\alpha x
+\end{align}
+が成り立つ。したがって、示された。\hfill\qedsymbol\\
+
+Youngの不等式より、
+\begin{align}
+  f(x)  \geq \alpha x - f^*(\alpha)
+\end{align}
+が成り立つ。また、少なくともどこかで等号が成り立つことから、\footnote{ルジャンドル変換がsupなどではなくmaxで定義されていることに注意。}
+\begin{align}
+  f(x) = \max_{\alpha} \{\alpha x - f^*(\alpha)\}
+\end{align}
+が成り立つ。この関係式は、ルジャンドル変換を二回施すと、元の関数に戻ることを示している。\\
+
 \part{物理}
 \section{古典力学}
 
@@ -1294,7 +2320,6 @@ hoge\hfill\qedsymbol\\
   が成り立つことである。
 
 \end{itembox}
-
 この定義のもと、遷移の公理を以下に示す。\\
 
 \begin{itembox}[l]{\textbf{Axiom2}}
