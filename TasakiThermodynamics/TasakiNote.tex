@@ -1,10 +1,11 @@
 \documentclass[a4paper,11pt]{jsarticle}
 
-
 % 数式
 \usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
 \usepackage{bm}
 \usepackage{mathtools}
+\usepackage{amssymb}
 
 % 表
 \usepackage[utf8]{inputenc}
@@ -21,7 +22,7 @@
 % 図
 \usepackage[dvipdfmx]{graphicx}
 \usepackage{tikz} %図を描く
-\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+\usetikzlibrary{positioning, intersections, calc, arrows.meta, math, matrix} %tikzのlibrary
 
 % ハイパーリンク
 \usepackage[dvipdfm,
@@ -31,8 +32,11 @@
   pdfborder={0 0 0},
   bookmarkstype=toc]{hyperref}
 
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
 
 \begin{document}
+
 
 \title{田崎熱力学ノート}
 \author{大上由人}
@@ -52,17 +56,28 @@
 \end{itembox}
 以上の過程の意味するところは、我々は、熱力学系を詳細に\footnote[1]{例えば、粒子一つ一つの運動状態を知ることができる程度のこと。}知ることはできないが、外から仕事を加えるなどして、系の状態を操作することができ、その操作によって、系の状態を操作することができるということである。\\
 
-\section{要請}
-\subsection{熱力学系に関する要請}
-いくらかの要請を課す。\\
-\begin{itembox}[l]{\textbf{Req2.1:平衡状態}}
+\subsection{ノートの方針}
+基本的に、
+\begin{enumerate}
+    \item 熱力学系に関する公理
+    \item 遷移に関する公理
+\end{enumerate}
+の二つを基本として、熱力学の基本的な理論を展開していく。系に関する公理は(S$\cdot$)と表し、遷移に関する公理は(T$\cdot$)と表す。\\
+
+\section{熱力学系に関する公理}
+
+%TODO平衡状態の定義
+\subsection{平衡状態の記述}
+熱力学的な系、すなわち、マクロな系に関して、経験則から以下の要請を行う。\\
+\begin{itembox}[l]{\textbf{S1-a:平衡状態}}
     ある環境に熱力学系を置き、示量変数を固定したまま十分長い時間が経過した後、系は平衡状態に達する。また、同じ環境に置いた系の平衡状態は、示量変数の組の値だけで完全に決定される。
 \end{itembox}
-\begin{itembox}[l]{\textbf{Req2.2:環境と温度}}
+
+\begin{itembox}[l]{\textbf{S1-b:環境と温度}}
     各々の環境を特徴づける温度という実数の量が存在する。環境に置いた熱力学系の平衡状態を左右するのは環境の温度のみであり、環境の温度以外の詳細によらない。
 \end{itembox}
 以上の二つを組み合わせると、以下のことがわかる。\\
-\begin{itembox}[l]{\textbf{Prop2.3:平衡状態の記述}}
+\begin{itembox}[l]{\textbf{S1:平衡状態の記述}}
     熱力学的な系の平衡状態は、環境の温度と示量変数の組$(T,X)$だけで完全に指定できる。
 \end{itembox}
 すなわち、環境を$T$で、熱力学系を$X$で表すことで、平衡状態を区別しているのである。\\
@@ -70,9 +85,11 @@
 また、以下、熱力学系の状態は、系の形状や、重力による効果を無視して考える。\\
 
 \subsection{断熱系}
-断熱壁に囲まれた系について、以下の要請を行う。
-\begin{itembox}[l]{\textbf{Req2.4:断熱系の平衡状態}}
-    熱力学的な系を断熱壁で囲み、示量変数の組$X$を固定したまま十分長い時間が経過すると、系はある平衡状態(T,X)に達する。ただし、このときの平衡状態の温度Tは系の初めの状況によって決まる。
+例えば、魔法瓶は、外部との熱\footnote{ここでは、経験的な熱という意味で使っている。}のやりとりを可能な限り遮断して、中の液体の温度を保つことができる。これを理想化したものとして、
+外界との相互作用を完全に遮断された系を考える。この制限を、断熱壁という。断熱壁\footnote{壁とは、物質やエネルギーなど、マクロな量の移動に対する制限のこと。}に囲まれた系について、以下の要請を行う。
+\begin{itembox}[l]{\textbf{S2:断熱系の平衡状態}}
+    断熱壁とよばれる、環境との相互作用を完全に遮断する壁が存在する。
+    熱力学的な系を断熱壁で囲み、示量変数の組$X$を固定したまま十分長い時間が経過すると、系はある平衡状態$(T,X)$に達する。ただし、このときの平衡状態の温度Tは断熱壁を囲む直前の温度に等しい。
 \end{itembox}
 ここで注意したいこととしては、断熱壁に囲まれることによって達成される平衡状態$(T,X)$が、環境のもと平衡状態に達した$(T,X)$と同じであることも要請している点である。\\
 
@@ -82,16 +99,17 @@
 \begin{itembox}[l]{\textbf{Def:等温操作}}
     等温操作とは、温度一定の環境下で、ある平衡状態を、別の平衡状態に移すことである。すなわち、
     \begin{equation}
-        (T,X_1) \xrightarrow{i} (T,X_2)
+        (T,X_1) \xrightarrow{\text{i}} (T,X_2)
     \end{equation}
     という操作を等温操作という。
 \end{itembox}
-ここで注意すべきことは、この操作の途中においては、(系が環境のもとにあるならば)どんな操作を行っても良いということである。例えば、途中で断熱壁で囲ってしまうことをしても良い。というのも、操作の途中においては、系は平衡状態とは限らず、系の温度が定義されないからである。\\
+ここで注意すべきことは、この操作の途中においては、(系が環境のもとにあるならば)どんな操作を行っても良いということである。例えば、途中で断熱壁で囲ってしまうことをしても良い。(ただし、終状態までには取り払う必要がある。)というのも、操作の途中においては、系は平衡状態とは限らず、系の温度が定義されないからである。\\
+また、Carnotサイクルのように、途中で熱浴を変える操作は等温操作ではない。環境は一つに固定されている必要がある。\\
 
 \begin{itembox}[l]{\textbf{Def:等温準静操作}}
     等温操作のうち、系がいつも平衡状態にあるような操作を等温準静操作という。これを、
     \begin{equation}
-        (T,X_1) \xrightarrow{iq} (T,X_2)
+        (T,X_1) \xrightarrow{\text{iq}} (T,X_2)
     \end{equation}
     と表す。
 \end{itembox}
@@ -100,11 +118,11 @@
 ただし、すでに両側の平衡状態が釣り合っている場合、壁を引き抜く過程は準静的である。これは、系に対する力学的操作および系の状態の両方を、「平衡状態にある系から壁をゆっくり引き抜く」操作の真逆になっていることに対応する。\footnote{ここは嘘をついている可能性がある。}\\
 
 上の例を見てみると、等温準静操作においては、示量変数の組の動きを完全に逆向きにたどることで、逆向きの等温準静操作を行うことができることがわかる。このとき、系の示量変数の組の動きは、ちょうど時間反転対称性を持つ。\\
-しかし、準静的でない場合については、このような時間反転対称性は成り立たない。というのも、系の示量変数がそもそも定まるかもよくわからないし\footnote{ここ自信ない}、定義できたとしても、非平衡状態なのだから、逆向きの操作を行っても、元の状態に戻るとは限らない。
+しかし、準静的でない場合については、このような時間反転対称性は成り立たない。というのも、系の示量変数がそもそも定まるかもよくわからないし\footnote{ここ自信ない}、定義できたとしても、非平衡状態なのだから、逆向きの操作を行っても、元の状態に戻るとは限らない。\footnote{等温操作についての可逆性について、系だけを見ると、系の時間発展がユニタリ発展じゃない説(ちがうかも)があるので、一般に可逆ではなさそう?わからん}
 
 
 \subsection{Kelvinの原理}
-\begin{itembox}[l]{\textbf{Req:Kelvinの原理}}
+\begin{itembox}[l]{\textbf{T1:Kelvinの原理}}
     任意の温度における任意の等温サイクルについて、系は外部に正の仕事を行うことなく、そのサイクルを完了することはできない。すなわち、
     \begin{equation}
         W_{\text{cyc}} \leq 0
@@ -147,8 +165,8 @@ Kelvinの原理より、
     最大仕事$W_{\text{max}(T;X_1\rightarrow X_2)}$は、等温準静操作において系が外界にする仕事に等しい。
 \end{itembox}
 \textbf{Prf}\\
-ある等温準静操作を、$(T,X_1) \xrightarrow{iq} (T,X_2)$とする。このとき、系が外界にする仕事を$W$とする。以下、この$W$が$W_{\text{max}(T;X_1\rightarrow X_2)}$に等しいことを示す。\\
-準静的とは限らない任意の等温操作$(T,X_1) \xrightarrow{i} (T,X_2)$を考える。このとき、系が外界にする仕事を$W'$とする。このとき、
+ある等温準静操作を、$(T,X_1) \xrightarrow{\text{iq}} (T,X_2)$とする。このとき、系が外界にする仕事を$W$とする。以下、この$W$が$W_{\text{max}(T;X_1\rightarrow X_2)}$に等しいことを示す。\\
+準静的とは限らない任意の等温操作$(T,X_1) \xrightarrow{\text{i}} (T,X_2)$を考える。このとき、系が外界にする仕事を$W'$とする。このとき、
 \begin{equation}
     (T,X_1) \xrightarrow{i} (T,X_2) \xrightarrow{iq} (T,X_1)
 \end{equation}
@@ -165,7 +183,7 @@ Kelvinの原理より、
 \begin{equation}
     W' \leq W
 \end{equation}
-が成り立つ。今、準静的とは限らない等温操作の選び方は任意であったから、最大仕事$W_{\text{max}}(T;X_1\rightarrow X_2)$は、等温準静操作において系が外界にする仕事に等しい。\\
+が成り立つ。今、準静的とは限らない等温操作の選び方は任意であったから、最大仕事$W_{\text{max}}(T;X_1\rightarrow X_2)$は、等温準静操作において系が外界にする仕事に等しい。\qed\\
 
 最大仕事の原理により、準静的操作において系が外界にする仕事を測定することで、最大仕事を求めることができる。\\
 
@@ -182,9 +200,8 @@ Kelvinの原理より、
 あとで書く。\\
 
 \subsection{Helmholtz自由エネルギー}
-\begin{itembox}[l]{\textbf{Def:基準点}}
-    各々の$T$に対して、示量変数の組の適当な値$X_0$を固定し、温度$T$での基準点と呼ぶ。このとき、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X_0$となる。
-\end{itembox}
+    各々の$T$に対して、示量変数の組の適当な値$X_0$を固定し、温度$T$での\textbf{等温操作の基準点}と呼ぶ。このとき、$X_0$が示量的であることから、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X_0$となる。
+
 例えば、系を$\lambda$倍して$N$を$\lambda N$にすると、基準点は、$X_0(T) =(v(TN),N)$から$\lambda X_0(T) = (\lambda v(TN),\lambda N)$になる。\\
 
 \begin{itembox}[l]{\textbf{Def:Helmholtz自由エネルギー}}
@@ -192,8 +209,7 @@ Kelvinの原理より、
     \begin{equation}
         F(T,X) = W_{\text{max}}(T;X_0\rightarrow X)
     \end{equation}
-    と定義する。
-
+    と定義する。すなわち、基準点$X_0$から$X$に至る最大仕事のことをヘルムホルツ自由エネルギーという。
 \end{itembox}
 ここで、最大仕事は、状態の始点と終点および温度を定めることで一意に決まるため、ヘルムホルツ自由エネルギーは、温度と示量変数の組$(T,X)$だけで決まる。(すなわち、ヘルムホルツ自由エネルギーは状態量である。)\\
 
@@ -205,17 +221,18 @@ Kelvinの原理より、
         \item $F(T,X_1)-F(T,X_2)=W_{\text{max}}(T;X_1\rightarrow X_2)$である。
     \end{enumerate}
 \end{itembox}
-とくに、二つ目の性質から、熱力学的な系が等温操作により別の状態に移る時、系が外界に為す仕事の最大値は、二つの状態のヘルムホルツ自由エネルギーの差に等しいことがわかる。\\
+これらは、最大仕事の性質から直接導かれる。
+とくに、二つ目の性質から、熱力学的な系が等温操作により別の状態に移る時、系が外界にする仕事の最大値は、二つの状態のヘルムホルツ自由エネルギーの差に等しいことがわかる。\\
 
 \textbf{ヘルムホルツ自由エネルギーの気持ち}\\
-上で見たように、ヘルムホルツ自由エネルギーの差が、系が外界にする仕事となっている。これと対応する力学的な現象としては、「始状態において粒子が静止しているところに、仕事を加え、終状態においても粒子を静止させる」といった状況に対応する。式として書くと、
+上で見たように、ヘルムホルツ自由エネルギーの差が、系が外界にする最大仕事となっている。これと対応する力学的な現象としては、「始状態において粒子が静止しているところに、仕事を加え、終状態においても粒子を静止させる」といった状況に対応する。\footnote{外界に最大の仕事を取り出したいので、粒子が運動エネルギーを保持しないように、粒子は静止させる。}式として書くと、
 \begin{equation}
-    W_{in} = V(x_2)-V(x_1)
+    W_{\text{in}} = V(x_2)-V(x_1)
 \end{equation}
 といった状況である。ここで、$V(x)$はポテンシャルエネルギーである。\\
 これの仕事の向きを反転させると、
 \begin{equation}
-    W_{out} = V(x_1)-V(x_2)
+    W_{\text{out}} = V(x_1)-V(x_2)
 \end{equation}
 となる。これとヘルムホルツ自由エネルギーの性質2を比較すると、
 \begin{equation}
@@ -229,7 +246,7 @@ Kelvinの原理より、
 体積をわずかに変化させる等温操作に注目して、圧力を導入する。\\
 平衡状態$(T,V,N)$に対して、等温準静操作を施し、体積を$\Delta V$だけ変化させる。すなわち、
 \begin{equation}
-    (T,V,N) \xrightarrow{iq} (T,V+\Delta V,N)
+    (T,V,N) \xrightarrow{\text{iq}} (T,V+\Delta V,N)
 \end{equation}
 を考える。
 この操作の間に系が外界に行う仕事は、最大仕事の原理により、
@@ -239,18 +256,18 @@ Kelvinの原理より、
 である。\\
 また、この仕事は、力学的な仕事としても書くことができ、
 \begin{equation}
-    W_{\text{max}}(T;V\rightarrow V+\Delta V) = P\delta V
+    W_{\text{max}}(T;V\rightarrow V+\Delta V) = P\Delta V + o(\Delta V)
 \end{equation}
 と書くことができる。ここで、$P$は系の圧力である。\\
 したがって、
 \begin{equation}
-    P = -\pdv{F}{V}
+    P = -\left.\pdv{F}{V}\right|_{T,N}
 \end{equation}
 となる。ただし、ここで、$P(T,V,N)$が、任意の状態において正の値をとり、$T,V,N$に関して連続的であることを仮定している。\\
 ここで、圧力が示強性を持つことを示す。\\
 今、ヘルムホルツ自由エネルギーと圧力との関係をもう一度書くと、
 \begin{equation}
-    P(T,V,N) = -\pdv{F}{V}
+    P(T,V,N) = -\left.\pdv{F}{V}\right|_{T,N}
 \end{equation}
 であった。ここで、系のスケールを$\lambda$倍すると、
 \begin{align}
@@ -273,66 +290,66 @@ Kelvinの原理より、
     熱力学的な系が平衡状態$(T,X)$にある。この系を断熱壁で囲み、示量変数の組を$X$から$X'$に変化させる。操作の後、断熱壁で囲ったまま十分長い時間放置すると、系はある平衡状態$(T',X')$に達する。この操作を断熱操作という。
     式で書くと、
     \begin{equation}
-        (T,X) \xrightarrow{a} (T',X')
+        (T,X) \xrightarrow{\text{a}} (T',X')
     \end{equation}
     となる。
 \end{itembox}
-操作の過程においては、断熱壁で系をかこっている限りは、どのような操作を行ってもよい。\\
+操作の過程においては、断熱壁で系を囲んでいる限りは、どのような操作を行ってもよい。\\
 
 \begin{itembox}[l]{\textbf{Prop:断熱準静操作}}
     断熱操作のうち、系がいつも平衡状態にあるような操作を断熱準静操作という。これを、
     \begin{equation}
-        (T,X) \xrightarrow{aq} (T',X')
+        (T,X) \xrightarrow{\text{aq}} (T',X')
     \end{equation}
     と表す。
 \end{itembox}
 等温準静操作のときと同様に、断熱準静操作においては、逆向きの操作を行うことで、逆向きの断熱準静操作を行うことができる。\\
 
 \subsection{断熱操作に関する要請}
-\begin{itembox}[l]{\textbf{Req4.1:温度を上げる断熱操作の存在}}
+\begin{itembox}[l]{\textbf{T2:温度を上げる断熱操作の存在}}
     $(T,X)$を任意の平衡状態とする。$T'>T$を満たす任意の温度$T'$に対して、示量変数の組を変化させずに温度を上げる操作、すなわち、
     \begin{equation}
-        (T,X) \xrightarrow{a} (T',X)
+        (T,X) \xrightarrow{\text{a}} (T',X)
     \end{equation}
-    が存在する。
+    が存在する。ただし、このとき、外部から系にする仕事は必ず正である。
 \end{itembox}
 この要請は非常に現実的な要請である。例えば、手のひらをこすり合わせると、摩擦によって温度が上がるといった経験事実が存在する。\\
 この要請と、断熱準静操作の性質から、以下のことがわかる。\\
-\begin{itembox}[l]{\textbf{Prop4.2:断熱操作の存在}}
+\begin{itembox}[l]{\textbf{Prop:断熱操作の存在}}
     示量変数の組$X$から$X'$へ何らかの操作で移ることが可能であるとすると、$T,T'$を任意の温度としたとき、二つの断熱操作
     \begin{align}
-        (T,X) \xrightarrow{a} (T',X')\\
-        (T',X') \xrightarrow{a} (T,X)
+        (T,X) \xrightarrow{\text{a}} (T',X')\\
+        (T',X') \xrightarrow{\text{a}} (T,X)
     \end{align}
     の少なくとも一つが存在する。
 \end{itembox}
 \textbf{Prf}\\
 まず、$(T,X)$に断熱準静操作を行い、
 \begin{equation}
-    (T,X) \xrightarrow{aq} (T'',X')
+    (T,X) \xrightarrow{\text{aq}} (T'',X')
 \end{equation}
-とする。ここで、$T'\geq T''$とすると、要請4.1より、
+とする。ここで、$T'\geq T''$とすると、T1より、
 \begin{equation}
-    (T'',X') \xrightarrow{a} (T',X')
+    (T'',X') \xrightarrow{\text{a}} (T',X')
 \end{equation}
 という操作が存在する。したがって、
 \begin{equation}
-    (T,X) \xrightarrow{aq} (T'',X') \xrightarrow{a} (T',X')
+    (T,X) \xrightarrow{\text{a}} (T'',X') \xrightarrow{\text{a}} (T',X')
 \end{equation}
 という操作が存在する。\\
 また、$T''\geq T'$のときは、$(T',X') $からスタートすることで、
 \begin{equation}
-    (T',X') \xrightarrow{a} (T'',X') \xrightarrow{aq} (T,X)
+    (T',X') \xrightarrow{\text{a}} (T'',X') \xrightarrow{\text{aq}} (T,X)
 \end{equation}
 という操作が存在する。\\
-以上より、結果4.2が示された。\\
+\qed\\
 
 \subsection{熱力学におけるエネルギー保存則と断熱仕事}
 等温過程においては、系が外部にする仕事は操作の仕方に依存したが、断熱操作においては系の初めと終わりの状態により一意に決まることが知られている。以下我々はこのことを要請として用いる。\\
-\begin{itembox}[l]{\textbf{Req4.3:熱力学におけるエネルギー保存則}}
+\begin{itembox}[l]{\textbf{T3:熱力学におけるエネルギー保存則}}
     任意の断熱操作の間に熱力学的な系が外界に行う仕事は、はじめの平衡状態と最終的な平衡状態だけで決まり、操作方法や過程には依存しない。
 \end{itembox}
-以上の要請を踏まえると、ある断熱操作$(T,X) \xrightarrow{a} (T',X')$において、系が外界に行う仕事は、$(T,X)$と$(T',X')$だけで決まる。この時の仕事を断絶仕事という。\\
+以上の要請を踏まえると、ある断熱操作$(T,X) \xrightarrow{\text{a}} (T',X')$において、系が外界に行う仕事は、$(T,X)$と$(T',X')$だけで決まる。この時の仕事を断熱仕事という。\\
 \begin{itembox}[l]{\textbf{Def:断熱仕事}}
     熱力学的な系が平衡状態$(T,X)$にある。この系を断熱壁で囲み、示量変数の組を$X$から$X'$に変化させる。操作の後、断熱壁で囲ったまま十分長い時間放置すると、系はある平衡状態$(T',X')$に達する。この操作において系が外界に行う仕事を断熱仕事という。\\
     この断熱仕事を、$W_{\text{ad}}((T,X)\rightarrow (T',X'))$と書く。
@@ -352,9 +369,9 @@ Kelvinの原理より、
 
 \subsection{断熱仕事と内部エネルギー}
 最大仕事から、ヘルムホルツ自由エネルギーを導入することができたように、断熱仕事から内部エネルギーを導入することができる。\footnote{ただし、最大仕事のときは、準静操作を用いて定義していたのに対し、今回は準静的とは限らない断熱操作を用いて定義するので、結果4.2の場合分けが必要になってしまう。}\\
-\begin{itembox}[l]{\textbf{Def:基準点}}
-    基準の温度$T^*$と示量変数の組$X^*$を適当うに定め、基準点と呼ぶ。このとき、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X^*$となる。
-\end{itembox}
+
+    基準の温度$T^*$と示量変数の組$X^*$を適当に定め、\text{断熱操作の基準点}と呼ぶ。このとき、系のスケールを$\lambda$倍すると、基準点も$\lambda$倍され、$\lambda X^*$となる。
+
 結果4.2より、任意の温度$T$に対して、$(T,X)\xrightarrow{a} (T^*,X^*)$か$(T^*,X^*)\xrightarrow{a} (T,X)$のどちらかの断熱操作が存在する。このことを用いて内部エネルギーを定める。\\
 \begin{itembox}[l]{\textbf{Def:内部エネルギー}}
 上で述べた操作のうち、一つ目の操作が可能なとき、
@@ -378,14 +395,21 @@ Kelvinの原理より、
     \end{enumerate}
 \end{itembox}
 \textbf{Prf}\\
-あとで書く。\\
+(1)断熱仕事の性質より直ちに従う。\\
+(2)\\
+\begin{align}
+    U(T,X) - U(T',X') &= W_{\text{ad}}((T,X)\rightarrow (T^*,X^*)) - W_{\text{ad}}((T',X')\rightarrow (T^*,X^*))\\
+    &= W_{\text{ad}}((T,X)\rightarrow (T^*,X^*)) + W_{\text{ad}}((T^*,X^*)\rightarrow (T',X'))\\
+    &= W_{\text{ad}}((T,X)\rightarrow (T',X'))
+\end{align}
+\qed\\
 
 \begin{itembox}[l]{\textbf{Prop:エネルギーは温度の増加関数}}
     任意の熱力学的な系において、示量変数の組$X$を固定したとき、エネルギー$U(T,X)$は温度$T$の増加関数である。
 
 \end{itembox}
 \textbf{Prf}\\
-温度を上げる操作について、系が外界にする仕事は負である。\footnote{それはそうという感じではあるが、どこかしらの要請からかっちり言えないんかな}すなわち、
+T2より、示量変数の値を固定したまま温度を上げる断熱操作において、系が外界にする仕事は負である。すなわち、
 \begin{equation}
     W_{\text{ad}}((T,X)\rightarrow (T',X')) \leq 0
 \end{equation}
@@ -402,12 +426,12 @@ Kelvinの原理より、
 \begin{itembox}[l]{\textbf{Def:定積熱容量}}
     熱力学的な系において、温度$T$と示量変数の組$X$が固定されているとき、系に供給された熱量と温度の変化量の比を定積熱容量という。すなわち、
     \begin{equation}
-        C_V(T,X) = \pdv{U(T,X)}{T}
+        C_V(T,X) = \left.\pdv{U(T,X)}{T}\right|_{X}
     \end{equation}
     である。
 
 \end{itembox}
-このとき、定積比熱は示量性を持つ。
+このとき、定積比熱は示強性を持つ。\\
 
 \section{熱とCarnotの定理}
 \subsection{熱}
@@ -415,21 +439,23 @@ Kelvinの原理より、
 \begin{equation}
     W = U(T,X) - U(T',X')
 \end{equation}
-であった。このときは、たしかに仕事は内部エネルギーの変化に等しい。しかし、例えば等温変化を考えてみると、右辺が$0$になるが、左辺は$0$でないことがある。\\
+であった。このときは、たしかに仕事は内部エネルギーの変化に等しい。しかし、右辺が$0$になるが、左辺は$0$でないことがある。(例えば、理想気体における等温膨張)
 以上のことを考えると、仕事以外に、系が環境とのやり取りを行うもう一つのエネルギーの形式が必要であることがわかる。このエネルギーの形式を熱と呼ぶ。\\
 
 \begin{itembox}[l]{\textbf{Def:熱}}
     操作の間に、系が環境から受け取る熱$Q$を、
     \begin{equation}
-        W = U(T,X) - U(T',X') + Q
+        Q = W + U(T',X') - U(T,X)
     \end{equation}
-    を用いて定義する。すなわち、
-    \begin{equation}
-        Q = U(T',X') - U(T,X) - W
-    \end{equation}
-    である。
+    で定義する。ただし、$W$は系が外界にする仕事である。
 \end{itembox}
+とくに、この式を変形すると、
+\begin{align}
+    U(T',X') - U(T,X) &= -W + Q\\
+\end{align}
+となる。これは、系に入ってきたエネルギーが、仕事という力学的に認識できる部分と、環境から受け取る熱という部分に分かれることを示している。\\
 
+特に等温操作について、最大吸熱量を定義することができる。\\
 \begin{itembox}[l]{\textbf{Def:最大吸熱量}}
     等温操作による最大吸熱量を、最大仕事を用いて以下のように定義する。
     \begin{equation}
@@ -471,20 +497,44 @@ Kelvinの原理より、
     \end{enumerate}
 \end{itembox}
 \textbf{Prf}\\
-あとで書く。\\
+最大仕事の性質及び内部エネルギーの性質より直ちに従う。\qed\\
 
 \subsection{Carnotの定理}
 異なる温度における最大吸熱量の比を考える。\\
 \begin{itembox}[l]{\textbf{Thm:Carnotの定理}}
     熱力学的な系が、温度$T$と$T'$の二つの熱浴に接触しているとする。このとき、$Q_{\text{max}}(T;X_0\rightarrow X_1)$と$Q_{\text{max}}(T';X_0'\rightarrow X_1')$を比較することを考える。ただし、$(T,X_0)\xrightarrow{aq}(T',X_0')$かつ$(T,X_1)\xrightarrow{aq}(T',X_1')$であるとする。このとき、
     \begin{equation}
-        \frac{Q_{\text{max}}(T;X_0\rightarrow X_1)}{Q_{\text{max}}(T';X_0'\rightarrow X_1')} = \frac{T}{T'} 
+        \frac{Q_{\text{max}}(T;X_0\rightarrow X_1)}{Q_{\text{max}}(T';X_0'\rightarrow X_1')} = \frac{T}{T'} \label{Carnot}
     \end{equation}
     が成り立つ。
 \end{itembox} 
 この結果は熱力学的系の選び方や、参照点の選び方に依存しない。\\
+
+\begin{itembox}[l]{\textbf{Lem.1:理想気体におけるCarnotの定理}}
+    特に、系が理想気体からなるとき、(\ref{Carnot})は成り立つ。
+\end{itembox}
 \textbf{Prf}\\
-あとで書く。\\
+hoge(理想気体の自由エネルギーを計算して、最大吸熱量を出し、あとは頑張る。)\qed\\
+
+\begin{itembox}[l]{\textbf{Lem.2:Carnotサイクルの存在}}
+    以下を満たすような断熱操作と等温操作からなるサイクルが存在する。
+    \begin{align}
+        (T',X_0') \xrightarrow{\textbf{iq}} (T',X_1) \xrightarrow{\textbf{aq}} (T,X_1) \xrightarrow{\textbf{iq}} (T,X_0) \xrightarrow{\textbf{aq}} (T',X_0')
+    \end{align}
+\end{itembox}
+\textbf{Prf}\\
+2つ目の操作からスタートする。断熱操作の存在に関する命題から、2つ目の操作が可能である。3つ目の操作については、等温曲線上の点が遷移可能なことから\footnote{多分これは案に仮定してある、どっかから示せるかはよくわかんない}
+可能である。4つ目の操作についても、断熱操作の存在に関する命題から可能である。また、1つ目の操作については、等温曲線上の点が遷移可能なことから可能である。\qed\\
+
+このとき、Carnotサイクル一周で系が外界にする仕事は、
+\begin{equation}
+    W_{\text{cyc}} = Q_{\text{max}}(T';X_0'\rightarrow X_1') - Q_{\text{max}}(T;X_0\rightarrow X_1)
+\end{equation}
+である。というのも、系の内部エネルギーはサイクルの初めと終わりで変わらないので、正味の吸収した熱が外界にする仕事に等しいからである。\\
+
+hoge(Carnotの定理の証明)
+
+
 
 \section{エントロピー}
 \subsection{エントロピーの導入}
@@ -514,26 +564,6 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
 ここの議論よくわかんないので一旦飛ばす。\\
 
 また、エントロピーは示量性および相加性を持つ。\\
-以下、エントロピーに対する性質をまとめる。\\
-\begin{itembox}[l]{\textbf{Prop:断熱準静操作とエントロピー}}
-    $(T,X) \xleftrightarrow{aq} (T',X')$のとき、エントロピーの差は不変である。すなわち、
-    \begin{equation}
-        S(T,X) = S(T',X')
-    \end{equation}
-    である。
-\end{itembox}
-
-\begin{itembox}[l]{\textbf{Prop:エントロピーと断熱準静操作}}
-    $X$,$X'$を互いに何らかの操作で移りあうことのできる状態ととし、$T$,$T'$を任意の温度とする。このとき、
-    \begin{equation}
-        S(T,X) = S(T',X')
-    \end{equation}
-    ならば、断熱準静操作
-    \begin{equation}
-        (T,X) \xleftrightarrow{aq} (T',X')
-    \end{equation}
-    が存在する。
-\end{itembox}
 
 \begin{itembox}[l]{\textbf{Prop:エントロピーの温度依存性}}
 エントロピーは温度$T$の増加関数である。つまり、任意の$T<T'$と任意の$X$に対して、
@@ -548,7 +578,7 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
 が成り立つ。
 \end{itembox}
 \textbf{Prf}\\
-三つ目の性質を示す。\footnote{一つ目と二つ目は、後にエントロピー原理としてより一般的な形で示す。ただし、その証明には三つ目の性質が必要である。}$T$と$T'$を、$T < T'$をみたす任意の温度とする。このとき、何らかの操作で結ばれている$X_1$,$X_2$,$X_3$に対して、
+$T$と$T'$を、$T < T'$をみたす任意の温度とする。このとき、何らかの操作で結ばれている$X_1$,$X_2$,$X_3$に対して、
 \begin{equation}
     (T,X_2) \xleftrightarrow{aq} (T',X_1)
 \end{equation}
@@ -572,7 +602,7 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
     が可能であることをいう。ただし、この逆向きの操作は、必ずしももとの断熱操作の途中経過をそのまま逆転したものとは限らない。
 \end{itembox}
 例えば、準静的断熱過程は可逆である。\\
-ここで、不可逆な過程が存在することを示す。\\
+ここで、断熱系において不可逆な過程が存在することを示す。\\
 \begin{itembox}[l]{\textbf{Prop:Planckの原理}}
     任意の$X$ち$T<T'$に対して、示量変数を固定したまま温度を上げる操作
     \begin{equation}
@@ -644,6 +674,55 @@ Carnotの定理をもとに、断熱準静操作における不変量を探る�
     S(T,X) \leq S(T',X')
 \end{equation}
 である。以上より、エントロピー原理が示された。\\
+
+\section{ヘルムホルツ自由エネルギーの変分原理と凸性}
+\subsection{ヘルムホルツ自由エネルギーの変分原理}
+\begin{itembox}[l]{\textbf{Prop:ヘルムホルツ自由エネルギーの変分原理}}
+    $((T,X_1),(T,X_2)) \xrightarrow{i} (T,X)\quad (X_1 + X_2 =X)$なる等温操作が可能であるとする。このとき、
+    \begin{equation}
+        F(T,X) \leq F(T,X_1)+F(T,X_2)
+    \end{equation}
+    が成り立つ。このことを、ヘルムホルツ自由エネルギーの変分原理という。
+\end{itembox}
+\textbf{Prf}\\
+全系が外部にする仕事は0である。他方、最大仕事の原理より、
+\begin{equation}
+    (F(T,X_1)+F(T,X_2)) - F(T,X) \geq W_{{\text{max}}}(((T,X_1),(T,X_2))\rightarrow (T,X)) = 0
+\end{equation}
+であるから、示された。\qed\\
+
+\begin{itembox}[l]{\textbf{Prop:ヘルムホルツ自由エネルギーの凸性}}
+    示量変数について、ヘルムホルツ自由エネルギーは下に凸である。すなわち、任意の$X_1$,$X_2$に対して、
+    \begin{equation}
+        F(T,\lambda X_1 + (1-\lambda)X_2) \leq \lambda F(T,X_1) + (1-\lambda)F(T,X_2)
+    \end{equation}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf}\\
+ヘルムホルツ自由エネルギーの示量性と、変分原理より、直ちに従う。\qed\\
+
+\section{ルジャンドル変換}
+ルジャンドル変換を通して、完全な熱力学関数同士は移りあうことができる。\\
+
+ヘルムホルツ自由エネルギーと内部エネルギーの関係を考える。$T$についてのルジャンドル変換を考えると、
+\begin{align}
+    U(S,V,N) &= \min_{T} \left\{ F(T,V,N) + TS \right\}\\
+\end{align}
+と定義する。\\
+
+ギブス自由エネルギーは、自由エネルギーのルジャンドル変換により、以下のように定義される。
+\begin{align}
+    G(T,P,N) &= \min_{V} \left\{ F(T,V,N) + P(T,V,N)V \right\}\\
+\end{align}
+
+また、内部エネルギーの体積についてのルジャンドル変換によって、エンタルピーが定義される。
+\begin{align}
+    H(S,P,N) &= \min_{V} \left\{ U(S,V,N) + PV \right\}\\
+\end{align}
+
+
+
+
 
 \section{付録}
 \subsection{要請のまとめ}

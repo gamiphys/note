@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  25 NOV 2024 11:21
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  30 NOV 2024 18:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -703,10 +703,15 @@ LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 49.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 80.
+(Font)              scaled to size 6.47278pt on input line 50.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 80.
- [1
+(Font)              scaled to size 4.62341pt on input line 50.
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--51
+[]$\OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 ([]) \OMS/cmsy/m/n/10 ^^@ \OT1/cmr/m/n/10 ([])$(time-
+ []
+
+[1
 
 ]
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
@@ -718,10 +723,10 @@ Package rerunfilecheck Info: File `tur.out' has not changed.
 Here is how much of TeX's memory you used:
  22950 strings out of 476677
  428900 string characters out of 5808165
- 1865484 words of memory out of 5000000
+ 1864484 words of memory out of 5000000
  42996 multiletter control sequences out of 15000+600000
  532309 words of font info for 126 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,18n,89p,467b,487s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tur.dvi (9 pages, 49460 bytes).
+Output written on tur.dvi (9 pages, 49420 bytes).

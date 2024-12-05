@@ -824,59 +824,122 @@ jump quantityの平均値は、
 である。よって、カノニカル分布はマスター方程式の特解である。このことと、既約な$R$についての収束定理から、示された。\qed\\
 なお、非平衡定常状態についても同様の議論ができるが、その場合は具体的な関数形は与えられない。\\
 
-\section{連続空間における確率過程}
-\subsection{数学的基礎}
-最も基本的な連続確率過程として、Wiener過程がある。特に物理的には、Wiener過程は自由ブラウン運動を記述する。
+\section{Langevin系}
+Langevin系の取り扱いを見ていく。
+
+\subsection{Wiener過程}
+
 \begin{itembox}[l]{\textbf{Def.Wiener過程}}
-  Wiener過程 $\widetilde{W}(t)$ は任意の $t, \Delta t$ について次を満たす過程として定義される。
+  Wiener過程$W(t)$とは、遷移確率が以下で与えられるような確率過程である:
+  \begin{align}
+    P(\Delta W) = \frac{1}{\sqrt{2\pi \Delta t}}\exp(-\frac{(\Delta W)^2}{2\Delta t})
+  \end{align}
+  ただし、
+  \begin{align}
+    \Delta W = W(t + \Delta t) - W(t)
+  \end{align}
+  である。
+\end{itembox}
+このとき、Wiener過程は一般に特異点をたくさん含むような、性質のあまりよくない関数となる。
+実際、
+TODOここに説明を追加する。
+
+Wiener過程によって駆動される、以下の微分方程式を考える。
 \begin{align}
-    P(\hat{W}(t + \Delta t) = x | \hat{W}(t) = x') &= \frac{1}{\sqrt{2\pi \Delta t}} e^{-\frac{(x - x')^2}{2\Delta t}}
+  \dd{x} = a(x(t),t)\dd{t} + b((tx,t)\times_{\alpha}\dd{W(t)}
 \end{align}
-初期状態は Dirac のデルタ関数になっている：$P(x,0) = \delta(x)$。
+ここで、$a(x(t),t), b(x(t),t)$は適当な関数である。この右辺第二項について、上述した$W(t)$の性質の悪さから、積のルールに気を付ける必要がある。例えば、Riemann積分のときは、$b$について、短冊のどの点を取っても積分値が変わらないが、Wiener積分のときは、そうはいかない。
+特に、代表的な積のルールとして、Ito積とStratonovich積がある。\\
+
+\begin{itembox}[l]{\textbf{Def.Ito積/Stratonovich積}}
+  Ito積とは、
+  \begin{align}
+   \dd{x}_{\text{I}} = a(x(t),t) \dd{t} + b(x(t),t) \cdot \dd{W(t)} := a(x(t),t) \dd{t} + b(x(t),t)\dd{W(t)}
+  \end{align}
+  である。また、Stratonovich積とは、
+  \begin{align}
+    \dd{x}_{\text{S}} = a(x(t),t)\dd{t} + b(x(t),t) \circ \dd{W(t)} := \frac{1}{2}\qty(b(x(t),t) + b(x(t+\dd{t}),t + \dd{t}))\dd{W(t)}
+  \end{align}
+  である。
 \end{itembox}
 
-Wiener過程が実際に存在することを次のトイモデルで示す。格子幅 $a$ であるような1次元粒子の離散時間ランダムウォークを考える。粒子は $\Delta t$ の時間間隔で隣接する格子に確率 $1/2$ ずつ移動し、これは次の選択列の Markov 連鎖になる。
+いかに見るように、これらは互いに相互変換できる。
+\begin{itembox}[l]{\textbf{Prop.Ito積とStratonovich積の関係}}
+  Ito積とStratonovich積の関係は、
+  \begin{align}
+    \dd{x}_{\text{S}} = \dd{x}_{\text{I}} + \frac{1}{2}b(x(t),t)\pdv{b(x(t),t)}{x}\dd{t}
+  \end{align}
+  である。
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \dd{x}_{\text{S}} &= a(x(t),t)\dd{t} + b(x(t),t) \circ \dd{W(t)}\\
+  &= a(x(t),t)\dd{t} + \frac{1}{2}\qty(b(x(t),t) + b(x(t+\dd{t}),t + \dd{t}))\dd{W(t)}\\
+  &= a(x(t),t)\dd{t} + b(x(t),t)\dd{W(t)} + \frac{1}{2}\qty(b(x(t+\dd{t}),t + \dd{t}) - b(x(t),t))\dd{W(t)}\\  
+  &= a(x(t),t)\dd{t} + b(x(t),t)\dd{W(t)} + \frac{1}{2}\pdv{b(x(t),t)}{x}\dd{x}\dd{W(t)}\quad (\because \dd{W(t)}\dd{t} = 0)\\
+  &= \dd{x}_{\text{I}} + \frac{1}{2}b(x(t),t)\pdv{b(x(t),t)}{x}\dd{t} \quad (\because \dd{x} = a(x(t),t)\dd{t} + b(x(t),t)\times_{\alpha} \dd{W(t)})
+\end{align}
+である。\qed\\
 
+Ito積の性質を調べると、以下のことがわかる。
+\begin{itembox}[l]{\textbf{Prop:Ito rule}}
+  \begin{align}
+    \lim_{N \to \infty}\sum_{i=0}^{N-1}g(x_i,t_i)(\Delta W_i)^2 = \int_0^\tau \dd{t}g(x,t)
+  \end{align}
+  \begin{align}
+    \lim_{N \to \infty}\sum_{i=0}^{N-1}g(x_i,t_i)(\Delta W_i)^n = 0 \quad (n \geq 3)
+  \end{align}
+  が確率1で成立する。すなわち、
+  \begin{align}
+    \dd{W^n} &= \delta_{n,2} \dd{t}\\
+    \dd{W(t)}\dd{t} &= 0
+  \end{align}
+  が確率1で成立する。
+\end{itembox}
+\textbf{Prf.}\\
+($n=2$の場合)\\
+示すべきことは、
 \begin{align}
-    T_{x \to x+a} = T_{x \to x-a} = \frac{1}{2} \quad (\forall t \in \mathbb{R}_{\geq 0}) 
+  \lim_{N \to \infty}\sum_{i=0}^{N-1}g(x_i,t_i)((\Delta W_i)^2 - \Delta t) = 0
 \end{align}
+が確率1で成り立つことを示すことである。すなわち、左辺の期待値と分散がそれぞれ0になればよい。期待値について、
+\begin{align}
+  \ev{\sum_{i=0}^{N-1}g(x_i,t_i)((\Delta W_i)^2 - \Delta t)} &= \sum_{i=0}^{N-1}\ev{g(x_i,t_i)}\ev{(\Delta W_i)^2 - \Delta t} \\
+  &= 0 \quad (\because \ev{(\Delta W_i)^2 }= \Delta t)
+\end{align}
+である。分散について、結局$((\Delta W_i)^2-\Delta t)^2$の期待値を計算すればよく、これは、
+\begin{align}
+  \ev{((\Delta W_i)^2-\Delta t)^2} &= \ev{(\Delta W_i)^4} - 2\Delta t\ev{(\Delta W_i)^2} + \Delta t^2\\
+  &= 3\Delta t^2 - 2\Delta t^2 + \Delta t^2\\
+  &=2\Delta t^2
+\end{align}
+である。二乗のオーダーは無視することで、確率1で示された。\footnote{$N \to \infty$とするのでok}\\
+($n \geq 3$の場合)\\
+上と同様である。\qed\\
 
-初期分布を $P(x, 0) = \delta_{x,0}$ とすることで、$x$ の平均はいつでも 0 となる。拡散係数 (diffusion coefficient) は
-\begin{align}
-    D := \frac{d\langle x^2 \rangle}{dt}
-    &= \sum_x \frac{x^2 P(x, t + \Delta t) - P(x,t)}{\Delta t}  \\
-    &= \sum_x \frac{x^2}{\Delta t} \left[ P_{x-a \to x} P(x-a, t) + P_{x+a \to x} P(x+a, t) - P(x,t) \right] \\
-    &= \sum_x \frac{x^2}{\Delta t} \left[ \frac{1}{2} P(x-a,t) + \frac{1}{2} P(x+a,t) - P(x,t) \right]  \\
-    &= \frac{1}{\Delta t} \left[ \sum_x \frac{x^2}{2} P(x-a,t) + \frac{x^2}{2} P(x+a,t) - \sum_x x^2 P(x,t) \right]  \\
-    &= \frac{1}{\Delta t} \left[ \sum_{x'} \frac{(x'+a)^2 + (x'-a)^2}{2} P(x',t) - x'^2 P(x',t) \right]  \\
-    &= \frac{1}{\Delta t} \left[ \sum_{x'} \frac{(a^2 + a^2)}{2} P(x',t) \right]  \\
-    &= \frac{a^2}{\Delta t} 
-\end{align}
+\begin{itembox}[l]{\textbf{Thm.Fokker-Planck方程式}}
+  Ito型のLangevin方程式
+  \begin{align}
+    \dd{x}_{\text{I}} = a(x(t),t)\dd{t} + b(x(t),t)\dd{W(t)}
+  \end{align}
+  に対して、確率密度関数$P(x,t)$は、
+  \begin{align}
+    \pdv{P(x,t)}{t} = -\pdv{}{x}\qty(a(x,t)P(x,t)) + \frac{1}{2}\pdv[2]{}{x}\qty(b(x,t)^2P(x,t))
+  \end{align}
+  のように時間発展する。この方程式をFokker-Planck方程式(Ito型)という。\\
+  また、Stratonovich型のLangevin方程式
+  \begin{align}
+    \dd{x}_{\text{S}} = a(x(t),t)\dd{t} + b(x(t),t)\circ \dd{W(t)}
+  \end{align}
+  に対して、確率密度関数$P(x,t)$は、
+  \begin{align}
+    \pdv{P(x,t)}{t} = -\pdv{}{x}\qty(a(x,t)P(x,t)) + \frac{1}{2}\pdv{}{x}\qty(b(x,t)\pdv{}{x}\qty(b(x,t)P(x,t)))
+  \end{align}
+  のように時間発展する。この方程式をFokker-Planck方程式(Stratonovich型)という。
+\end{itembox}
+\textbf{Prf.}\\
+Ito型について証明したのち、変換則に従ってStratonovich型についても示す。\\
 
-独立な確率変数$\hat{Y}_1, \hat{Y}_2, \cdots, \hat{Y}_n$ について、$\mathbb{P}(\hat{Y}_i = +a)=\mathbb{P}(\hat{Y}_i = -a)=1/2$ であるとき、
-\begin{align}
-    \ev{\hat{Y}_i} = 0, \quad \ev{\hat{Y}_i^2} = a^2
-\end{align}
-である。このとき、$\hat{W}(t) = \sum_{i=1}^{n} \hat{Y}_i$ となる。このとき、中心極限定理より、$n \to \infty $の極限で、$\hat{W}(t)$ はガウス分布に従う。すなわち、
-\begin{align}
-  P(x,t) &= \mathbb{P}(\hat{W} = x, n \Delta t) \\
-  &= \frac{1}{\sqrt{2 \pi a^2 n}} \exp \left[ - \frac{x^2}{2 a^2 n} \right] \\
-  &\because a^2 / \Delta t = 1, \quad t = n \Delta t \notag\\
-  &\Rightarrow a^2 n = t \notag\\
-  &= \frac{1}{\sqrt{2 \pi t}} \exp \left[ - \frac{x^2}{2 t} \right]
-\end{align}
-である。また、
-\begin{align}
-  P(x, t + \Delta t | x', t) &= P(x, \Delta t | x', 0) \\
-  &= \int dx'' P(x - x', \Delta t | x'', 0) \delta(x'') \\
-  &= \int dx'' P(x - x', \Delta t | x'', 0) P(x'', 0) \\
-  &= P(x - x', \Delta t)
-\end{align}
-∴ ランダムウォーク
-\begin{align}
-  P(x,t) &= \frac{1}{\sqrt{2 \pi \Delta t}} \exp \left[ - \frac{(x - x')^2}{2 \Delta t} \right]
-\end{align}
-である。これは、Wiener過程の確率密度関数である。\\
 
 
 \end{document}

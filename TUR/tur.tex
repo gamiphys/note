@@ -47,7 +47,7 @@
 \textbf{記号}
 \begin{itemize}
     \item $\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$\\
-$\to$ jからiへのjumpが起こった回数$-$iからjへのjumpが起こった回数(time-integrated empirical probability current)\\
+$\to (\text{jからiへのjumpが起こった回数})-(\text{iからjへのjumpが起こった回数})$(time-integrated empirical probability current)\\
     \item $\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$
 $\to$示量変数の積算カレント(cumuulative thermodynamic current)
     \item $d_{ij} = X_i - X_j$(Xは任意の示量変数)
@@ -129,8 +129,7 @@ $P_{\theta}(x)$をパラメータ$\theta$をもつ確率変数$x$の確率分布
 
 \end{itembox}
 \textbf{Prf.}\\
-$f(\theta) = \theta$として、$f'(\theta) = 1$とすればよい。\\
-\qed
+$f(\theta) = \theta$とすればよい。\qed\\
 
 \noindent
 \textbf{Prf(熱力学的不確定性関係)}\\
@@ -301,7 +300,7 @@ $f(\theta) = \theta$として、$f'(\theta) = 1$とすればよい。\\
     & \because t'\text{について展開して、}(1+\theta)\cdot\theta t = \theta t + O(\theta^2) \nonumber \\
     &= R^\theta(t) \vb{p}(t) + \eval{\frac{d}{dt'} \left( R \vb{p}(t') \right)}_{t} \cdot \theta t + O(\theta^2) \quad \because \text{master e.q.} \\
     &= R^\theta(t) \vb{p}((1 + \theta)t) + O(\theta^2) \quad \because R-R^\theta = O(\theta)\\
-    &= R^\theta(t) \vb{p}'(t) + O(\theta^2). \tag{17.26}
+    &= R^\theta(t) \vb{p}'(t) + O(\theta^2)
 \end{align}
 したがって、$\vb{p}'(t)$は、$R^\theta$によって時間発展することがわかり、$R^\theta$によって時間発展する確率分布は、もとの系のタイムスケールを$(1+\theta)$倍にしたものであることがわかる。\\
 これを踏まえると、

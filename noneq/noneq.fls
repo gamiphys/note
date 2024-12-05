@@ -1045,6 +1045,7 @@ INPUT ./set2.png
 INPUT ./set2.png
 INPUT set2.png
 INPUT extractbb -B cropbox -O set2.png
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT noneq.aux
 INPUT ./noneq.out
 INPUT ./noneq.out

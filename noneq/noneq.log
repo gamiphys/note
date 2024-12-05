@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  8 SEP 2024 11:31
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  4 DEC 2024 18:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -738,17 +738,20 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
  [20]
 File: set2.png Graphic file (type bmp)
 <set2.png>
- [21] [22] [23] [24] [25] [26] (./noneq.aux)
+ [21] [22] [23] [24] [25] [26]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 916.
+ [27] [28] (./noneq.aux)
 Package rerunfilecheck Info: File `noneq.out' has not changed.
-(rerunfilecheck)             Checksum: F8E6E7C201911698C5F06D3D93F7C7F7;1922.
+(rerunfilecheck)             Checksum: E4346C626D3949C8E55F695688680262;1894.
  ) 
 Here is how much of TeX's memory you used:
- 22986 strings out of 476677
- 429354 string characters out of 5808165
+ 22987 strings out of 476677
+ 429366 string characters out of 5808165
  1865484 words of memory out of 5000000
- 43021 multiletter control sequences out of 15000+600000
- 533091 words of font info for 129 fonts, out of 8000000 for 9000
+ 43022 multiletter control sequences out of 15000+600000
+ 533200 words of font info for 130 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,21n,89p,469b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on noneq.dvi (26 pages, 133488 bytes).
+Output written on noneq.dvi (28 pages, 141372 bytes).

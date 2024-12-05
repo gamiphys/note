@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1730890301 "manifold.dvi" "manifold.pdf" "manifold" 1730890303 0
-  "manifold.dvi" 1730890301 9392 2c18843474f1e75f983770d0d3f38c3e "latex"
+["dvipdf"] 1733126889 "manifold.dvi" "manifold.pdf" "manifold" 1733126891 0
+  "manifold.dvi" 1733126889 26324 1671a65bff73bcafd9af63a4a1ae8dce "latex"
   (generated)
   "manifold.pdf"
   (rewritten before read)
-["latex"] 1730890297 "manifold.tex" "manifold.dvi" "manifold" 1730890303 0
+["latex"] 1733126884 "manifold.tex" "manifold.dvi" "manifold" 1733126891 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -43,6 +43,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -190,9 +191,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "manifold.aux" 1730890301 632 d4203a6bb0fa96a664df29f610240413 "latex"
-  "manifold.out" 1730890301 78 b414da9f6023d9539a7bfd25b2299051 "latex"
-  "manifold.tex" 1730890295 4261 76fe9eafacfe609023ebb6b0e088bb9c ""
+  "manifold.aux" 1733126889 1237 bc9de908c3a2d68243dad39400604245 "latex"
+  "manifold.out" 1733126889 557 c0857e881c9879b6ec957d509783a125 "latex"
+  "manifold.tex" 1733126879 9289 55b0c425e31141dfec35228478969be2 ""
   (generated)
   "manifold.aux"
   "manifold.dvi"

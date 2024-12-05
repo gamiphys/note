@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  6 NOV 2024 19:51
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  2 DEC 2024 17:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -684,37 +684,59 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 45.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 46.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 46.
+LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 46.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 46.
+LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 46.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 46.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 47.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 46.
+(Font)              scaled to size 6.47278pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 46.
-LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 72.
-LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 72.
-LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 72.
-LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 72.
+(Font)              scaled to size 4.62341pt on input line 47.
  [1
 
-] [2] (./manifold.aux)
+]
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 88.
+ [2] [3] [4]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 189.
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 189.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 189.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 189.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 189.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 189.
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 189.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 189.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 189.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 189.
+ [5] (./manifold.aux)
 Package rerunfilecheck Info: File `manifold.out' has not changed.
-(rerunfilecheck)             Checksum: B414DA9F6023D9539A7BFD25B2299051;78.
+(rerunfilecheck)             Checksum: C0857E881C9879B6EC957D509783A125;557.
  ) 
 Here is how much of TeX's memory you used:
- 22942 strings out of 476677
- 428892 string characters out of 5808165
- 1861484 words of memory out of 5000000
- 42989 multiletter control sequences out of 15000+600000
- 531231 words of font info for 120 fonts, out of 8000000 for 9000
+ 22952 strings out of 476677
+ 429015 string characters out of 5808165
+ 1858484 words of memory out of 5000000
+ 42998 multiletter control sequences out of 15000+600000
+ 532563 words of font info for 126 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,16n,89p,472b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on manifold.dvi (2 pages, 9392 bytes).
+Output written on manifold.dvi (5 pages, 26324 bytes).

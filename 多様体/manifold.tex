@@ -42,6 +42,118 @@
 \date{\today}
 \maketitle
 
+\section{多様体の定義}
+\begin{itembox}[l]{\textbf{Def.多様体}}
+  $m$次元可微分多様体とは、次の条件を満たす位相空間$M$のことである。
+  \begin{enumerate}
+    \item $M$はハウスドルフかつパラコンパクトである。
+    \item 座標近傍と呼ばれる開集合と同相写像の組$(U_i, \varphi_i)$と、その集合でアトラスと呼ばれる集合族$\{(U_i, \varphi_i)\}$が存在し、次の条件を満たす。
+    \begin{enumerate}
+      \item $\bigcup_i U_i = M$
+      \item $\varphi_i: U_i \to \mathbb{R}^m$は同相写像である。
+      \item $\varphi_i \circ \varphi_j^{-1}: \varphi_j(U_i \cap U_j) \to \varphi_i(U_i \cap U_j)$は$C^\infty$級写像である。
+    \end{enumerate}
+  \end{enumerate}
+\end{itembox}
+
+多様体がHaussdorffであるご利益は、以下の命題による。\\
+\begin{itembox}[l]{\textbf{Prop.}}
+  位相空間$M$がハウスドルフ空間であるとする。このとき、$M$の点列が極限点をもてば、その極限点はただ一つである。
+\end{itembox}
+すなわち、ハウスドルフ空間において、極限を定義できるようになる。多様体上での関数の収束や、微分などを考えるときに、この性質は非常に重要である。\\
+
+\section{多様体上の関数/写像}
+
+\begin{itembox}[l]{\textbf{Def.多様体の写像が$C^r$級である}}
+  多様体$M$から多様体$N$への写像
+  \begin{align}
+    f: M \to N
+  \end{align}
+  が、1点$p \in M$において$C^r$級であるとは、$p$の任意の座標近傍$(U, \varphi)$と、$f(p)$の任意の座標近傍$(V, \psi)$が存在して、次の条件を満たすことをいう。
+  \begin{enumerate}
+    \item $f(U) \subset V$
+    \item $\psi \circ f \circ \varphi^{-1}: \varphi(U) \to \psi(V)$が$C^r$級である
+  \end{enumerate}
+  また、$f: M \to N$が$C^r$級であるとは、$f$が$M$の任意の点$p$において$C^r$級であることをいう。
+\end{itembox}
+要するに、一旦座標近傍に引き戻して、
+$\mathbb{R}^m$上の関数として考えることで、$C^r$級性を定義している。\\
+とくに、多様体上の\textbf{関数}とは、$N$が$\mathbb{R}$であるときの写像のことをいう。逆に、$M$が一次元空間$\mathbb{R}$であるとき、
+\begin{align}
+  c: \mathbb{R} \to N
+\end{align}
+を、$N$上の\textbf{曲線}という。
+
+\section{接ベクトル空間}
+\subsection{方向微分}
+多様体$M$上で、点$p$を通るようななめらかな曲線$c: (-\varepsilon, \varepsilon) \to M$を考える。$p$の周りで座標近傍$(U, \varphi)$をとると、曲線の座標表示は、
+\begin{align}
+  c(t) = (x^1(t), x^2(t), \ldots, x^m(t))
+\end{align}
+である。このとき、$t=0$における曲線の速度ベクトルは、
+\begin{align}
+  \dv{t} c(t) = \qty(\dv{x^1}{t}, \dv{x^2}{t}, \ldots, \dv{x^m}{t})
+\end{align}
+である。しかし、この速度ベクトルの表示は、局所座標の取り方に依存してしまう。そこで、速度ベクトルを一般化することを考える。\\
+準備として、$p$の開近傍$U$で定義された$C^r$級関数$f: U \to \mathbb{R}$を考える。このとき、$c$と$f$の合成関数
+\begin{align}
+  f \circ c: (-\varepsilon, \varepsilon) \to \mathbb{R}
+\end{align}
+を作ることができる。この、関数$f$に対してこの微分係数を対応させる対応
+\begin{align}
+  f \mapsto \left.\dv{t} (f \circ c)\right|_{t=0} 
+\end{align}
+を、$c$における$f$の方向微分といい、
+\begin{align}
+  \vb{v}_c = \left.\dv{t} (f \circ c)\right|_{t=0}
+\end{align}
+で表す。このとき、方向微分は以下の性質を持つ。\\
+\begin{itembox}[l]{\textbf{方向微分の性質}}
+  \begin{enumerate}
+    \item $f,g$が点$p$の開近傍$U$で定義された$C^r$級関数で、しかも、$p$のある十分小さな開近傍上で$f=g$であるとする。このとき、
+    \begin{align}
+      \vb{v}_c(f) = \vb{v}_c(g)
+    \end{align}
+    が成り立つ。
+    \item 線形性
+    \begin{align}
+      \vb{v}_c(f + g) = \vb{v}_c(f) + \vb{v}_c(g)
+    \end{align}
+    が成り立つ。
+    \item Leibniz則
+    \begin{align}
+      \vb{v}_c(fg) = f(p) \vb{v}_c(g) + g(p) \vb{v}_c(f)
+    \end{align}
+    が成り立つ。
+  \end{enumerate}
+\end{itembox}
+これらの性質を用いて、方向微分を定義する。\\
+
+\begin{itembox}[l]{\textbf{Def.方向微分}}
+  点$p$における方向微分$\vb{v}$とは、上の1,2,3の性質を満たす写像である。
+\end{itembox}
+このとき、方向微分すべての集合$D(p)$はベクトル空間をなす。
+
+\subsection{接ベクトル空間}
+\begin{itembox}[l]{\textbf{Def.接ベクトル空間}}
+  多様体$M$の点$p$における接ベクトル空間$T_pMとは、$以下のベクトルが張る$D(p)$の部分空間のことをいう。
+  \begin{align}
+    \qty{\qty(\pdv{x^1})_p, \qty(\pdv{x^2})_p, \ldots, \qty(\pdv{x^m})_p}
+  \end{align}  
+\end{itembox}
+このとき、接ベクトル空間が、局所座標の取り方に寄らないことが示される。\\
+
+以上の準備の下、速度ベクトルを一般化する。
+\begin{itembox}[l]{\textbf{Def.速度ベクトル}}
+  $c: (-\varepsilon, \varepsilon) \to M$かつ$c(0) = p$である曲線の$t=0$における速度ベクトルとは、
+  \begin{align}
+    \vb{v}_c = \left.\dv{t} c(t)\right|_{t=0} 
+  \end{align}
+  で定義される接ベクトルである。
+\end{itembox}
+
+
+
 \section{写像の微分}
 $M,N$を多様体、$m,n$次元$C^r$級多様体とし、$f: M \to N$を$C^r$級写像とする。
 点$p \in M$を通るような$M$上の$C^r$級曲線
@@ -74,26 +186,12 @@ $T_pM$の任意の元$\vb{v}$をとる。このとき、$\left.\dv{c}{t}\right|_
   \begin{align}
     (df)_p: T_pM \to T_{f(p)}N
   \end{align}
-  を、$f: M \to N$の$p$における微分という。
+  を、$f: M \to N$の$p$における微分という。\footnote{以降、$f_*$と書くこともある。}
 \end{itembox}
-この写像に"微分"という名前がついていることを納得するために、以下の例を考えてみる。
+この写像に"微分"という名前がついていることを納得するために、以下の例を考えてみる。\\
 \textbf{ex.}\\
 $M = \mathbb{R}$, $N = \mathbb{R}$, $f(x) = x^2$とする。このとき、$p = 1$における$f$の微分$(df)_1$は、
-\begin{align}
-  (df)_1: T_1\mathbb{R} \to T_1\mathbb{R}
-\end{align}
-である。$T_1\mathbb{R}$の元は、$1$における接ベクトルである。$1$における接ベクトルは、$1$を通る曲線の速度ベクトルである。$1$を通る曲線は、$c(t) = 1 + t$である。この曲線を$f$でうつすと、
-\begin{align}
-  f \circ c(t) = f(1 + t) = (1 + t)^2
-\end{align}
-となる。$t=0$におけるこの曲線の速度ベクトルは、
-\begin{align}
-  \left.\dv{t} (f \circ c)\right|_{t=0} = 2
-\end{align}
-である。したがって、$(df)_1$は、
-\begin{align}
-  (df)_1(2) = 2
-\end{align}
+hoge
 
 写像の微分を成分表示する。
 hogehoge
@@ -119,6 +217,7 @@ hogehoge
     v_m
   \end{pmatrix}
 \end{align}
+
 
 
 
