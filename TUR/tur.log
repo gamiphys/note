@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  30 NOV 2024 18:57
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  5 DEC 2024 22:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -714,19 +714,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 49--51
 [1
 
 ]
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <7> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 91.
- [2] [3] [4] [5] [6] [7] [8] [9] (./tur.aux)
+(Font)              scaled to size 6.47278pt on input line 86.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 86.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 86.
+LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
+(Font)              Font shape `JT2/mc/m/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 86.
+LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
+(Font)              Font shape `JY2/mc/m/n' tried instead on input line 86.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 86.
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] (./tur.aux)
 Package rerunfilecheck Info: File `tur.out' has not changed.
 (rerunfilecheck)             Checksum: 15A1A6FC4F2179B68F09EFCC6AACC1B0;716.
  ) 
 Here is how much of TeX's memory you used:
- 22950 strings out of 476677
- 428900 string characters out of 5808165
- 1864484 words of memory out of 5000000
- 42996 multiletter control sequences out of 15000+600000
- 532309 words of font info for 126 fonts, out of 8000000 for 9000
+ 22957 strings out of 476677
+ 428985 string characters out of 5808165
+ 1867484 words of memory out of 5000000
+ 43002 multiletter control sequences out of 15000+600000
+ 533007 words of font info for 128 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,18n,89p,467b,487s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,18n,89p,467b,467s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tur.dvi (9 pages, 49420 bytes).
+Output written on tur.dvi (10 pages, 52844 bytes).

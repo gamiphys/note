@@ -1029,7 +1029,9 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
 OUTPUT tur.dvi
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT tur.aux
 INPUT ./tur.out
 INPUT ./tur.out
