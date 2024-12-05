@@ -61,9 +61,9 @@ $\to$示量変数の積算カレント(cumulative thermodynamic current)
 
 また、jump quantityとしては以下のように定義される\\
 \begin{align}
-    \hat{J}_{ij}(t) &= R_{ij}p_j(t) - R_{ji}p_i(t)\\
-    \hat{J}_{d}(t) &= d_{ij} \hat{J}_{ij}(t)\\
-    J_{d}(t) &= \ev{\hat{J}_{d}(t)} = \sum_{(i,j)} d_{ij} \hat{J}_{ij}(t)
+    {J}_{ij}(t) &= R_{ij}p_j(t) - R_{ji}p_i(t)\\
+    \hat{J}_{d}(t) &= d_{ij} {J}_{ij}(t)\\
+    J_{d}(t) &= \ev{\hat{J}_{d}(t)} = \sum_{(i,j)} d_{ij} {J}_{ij}(t)
 \end{align}
 
 また、以下では、$\ev{\cdot}$で時間積分された量の平均も、jump quantityの平均も表すこととする。ただし、後者は、
@@ -77,11 +77,11 @@ $\to$示量変数の積算カレント(cumulative thermodynamic current)
 \begin{itembox}[l]{\textbf{Thm.熱力学的不確定性関係}}
     定常Markov過程が局所詳細釣り合い条件を満たすとき、以下の関係が成り立つことが知られている:
     \begin{align}
-        \frac{\text{Var}(\mathcal{J}_d)}{(\mathcal{J}_d^{\text{ss}})^2} \sigma \geq 2
+        \frac{\text{Var}(\hat{\mathcal{J}}_d)}{(\hat{\mathcal{J}}_d^{\text{ss}})^2} \sigma \geq 2
     \end{align}
     ただし、
     \begin{align}
-        \text{Var}(\mathcal{J}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
+        \text{Var}(\hat{\mathcal{J}}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
     \end{align}
     である。\footnote{期待値は、経路が選ばれる確率についてとっている。}
 \end{itembox}
@@ -173,20 +173,20 @@ $f(\theta) = \theta$とすればよい。\qed\\
 \end{align}
 と書くことができる。したがって、
 \begin{align}
-    &\eval{\pdv{({\hat{{J}}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} \\
+    &\eval{\pdv{({{{J}}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} \\
     =& \eval{\pdv{\theta} (R_{ij}^\theta p_j^\text{ss} - R_{ji}^\theta p_i^\text{ss})}_{\theta = 0} \\
     =&  R_{ij} Z_{ij} p_j^\text{ss} - R_{ji} Z_{ji} p_i^\text{ss} \\
     =&  Z_{ij} (R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}) \\
     =&  R_{ij}p_j^\text{ss} - R_{ji}p_i^\text{ss} \\
-    =& \hat{J}_{ij}^\text{ss}
+    =& {J}_{ij}^\text{ss}
 \end{align}
 となる。したがって、
 \begin{align}
-    \eval{\pdv{({\hat{J}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} = \hat{J}_{ij}^{\text{ss}}
+    \eval{\pdv{({{J}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} = {J}_{ij}^{\text{ss}}
 \end{align}
 である。両辺$d_{ij}$をかけて和を取ることで、
 \begin{align}
-    \left.\sum_{(i,j)} \pdv{\theta} ({d_{ij}\hat{J}_{ij}})^{\text{ss}}_\theta \right|_{\theta = 0} = \sum_{(i,j)} d_{ij} \hat{J}_{ij}^{\text{ss}}
+    \left.\sum_{(i,j)} \pdv{\theta} ({d_{ij}{J}_{ij}})^{\text{ss}}_\theta \right|_{\theta = 0} = \sum_{(i,j)} d_{ij} {J}_{ij}^{\text{ss}}
 \end{align}
 が成り立つ。すなわち、
 \begin{align}
@@ -276,13 +276,13 @@ $f(\theta) = \theta$とすればよい。\qed\\
 
 \section{TUR-Type Inequalities}
 \subsection{TURの一般化}
-先程は、初期状態も含めて常に系の状態が定常状態であると仮定した。ここでは、遷移レートが固定されていて(すなわち、外部操作がない状況で)系の状態が平衡状態とは限らないときに成り立つTURを考える。\\
-すなわち、緩和過程におけるTURを考える。
+先程は、初期状態も含めて常に系の状態が定常状態であると仮定した。ここでは、遷移レートが固定されていて(すなわち、外部操作がない状況で)系の状態が平衡状態とは限らないときに成り立つTURを考える。
+すなわち、緩和過程におけるTURである。\\
 
 \begin{itembox}[l]{\textbf{Thm.緩和過程におけるTUR}}
     連続時間$(0 \leq t \leq \tau)$におけるMarkov過程について考える。ただし、遷移レートは固定されているとする。このとき、
     \begin{align}
-        \frac{\text{Var}(\mathcal{J}_d)}{(\tau J_{d}(\tau))^2} \sigma \geq 2
+        \frac{\text{Var}(\hat{\mathcal{J}}_d)}{(\tau J_{d}(\tau))^2} \sigma \geq 2
     \end{align}
     が成り立つ。ただし、$J_{d}(\tau)$は、時刻$t=\tau$における平均のカレントである。
 \end{itembox}
