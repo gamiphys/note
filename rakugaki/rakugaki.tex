@@ -824,5 +824,54 @@ $x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L}$とすると、
   &= 1-\frac{T_L}{T_H} \frac{\sqrt{\frac{T_H}{T_L}} + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}{\sqrt{\frac{T_L}{T_H}} + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}} } \frac{1 + \sqrt{\frac{\kappa_{H}}{\kappa_{L}}}}{1 + \sqrt{\frac{\kappa_{L}}{\kappa_{H}}}}\\
   &= 1 - \frac{T_L \sqrt{\kappa_H} \sqrt{\frac{T_H}{T_L}} + \sqrt{\kappa_L}}{T_H \sqrt{\kappa_L} \sqrt{\frac{T_L}{T_H}} + \sqrt{\kappa_H}}
 \end{align}
+\newpage
+\section{斎藤ゆらぎの合わない計算p175-176}
+遷移レート
+\begin{align}
+  W_{x,x'}^{\nu,\theta}&= W_{x,x'}^{\nu}e^{\theta Y_{x,x'}^{\nu}(t)}\\
+  W_{x,x}^{\nu,\theta} &= -\sum_{x'(\neq x)}W_{x',x}^{\theta,\nu} \\
+  Y_{x,x'}^{\nu}(t) &=  \frac{W^{\nu}_{xx'}P(x')-W^{\nu}_{x'x}P(x)}{W^{\nu}_{xx'}P(x')+W^{\nu}_{x'x}P(x)}
+\end{align}
+マスター方程式
+\begin{align}
+  \pdv{t}P^{\theta}(x,t) &= \sum_{x'}W_{x',x}^{\theta}P^{\theta}(x',t)\\
+  W_{x',x}^{\theta} &= \sum_{\nu}W_{x',x}^{\nu,\theta}
+\end{align}
+このもとで、$P^{\theta}(x,t)$を$\theta$の1次まで展開して、
+\begin{align}
+  P^{\theta}(x,t) = P(x,t) + \theta\phi(x,t)
+\end{align}
+とする。このとき、時間発展方程式に代入することで、
+\begin{align}
+  \pdv{t}P(x,t) &= \sum_{x'}W_{x,x'}P(x',t)\\
+  \pdv{t}\phi(x,t) &= \pdv{t}P(x,t) +\sum_{x'}W_{x,x'}\phi(x',t)
+\end{align}
+となるらしい。しかし、実際計算してみると、
+\begin{align}
+  &\pdv{t}P^{\theta}(x,t) = \sum_{x'}W_{x,x'}^{\theta}P^{\theta}(x',t)\\
+  &\Leftrightarrow \pdv{t}(P(x,t) + \theta\phi(x,t)) = \sum_{x'}W_{x,x'}(1+\theta Y_{x,x'})(P(x',t) + \theta\phi(x',t)) +O(\theta^2)\\
+  &\Leftrightarrow \pdv{t}P(x,t) + \theta\pdv{t}\phi(x,t) = \sum_{x'}W_{x,x'}P(x',t) + \theta(\sum_{x'}W_{x,x'}Y_{x',x}P(x',t) + \sum_{x'}W_{x,x'}\phi(x',t)) + O(\theta^2)
+\end{align}
+となるので、
+\begin{align}
+  \pdv{t}P(x,t) &= \sum_{x'}W_{x,x'}P(x',t)\\
+  \pdv{t}\phi(x,t) &=\sum_{x'}W_{x,x'}Y_{x,x'}P(x',t) + \sum_{x'}W_{x,x'}\phi(x',t)
+\end{align}
+となる。二本目の式の第一項が合わなくなる。もしかしたら、
+\begin{align}
+  \sum_{x'}W_{x,x'}Y_{x,x'}P(x',t) = \sum_{x'}W_{x,x'}P(x',t)
+\end{align}
+となるのかもしれないけれど、今のところ計算が合わない。ついでに似た感じで教科書(6.62)式も合わない(よけいな$Y$がでてくる。)
+
+\begin{align}
+  \pdv{t}\phi(x,t) &=\sum_{x'}W_{x,x'}Y_{x,x'}P(x',t) + \sum_{x'}W_{x,x'}\phi(x',t)
+\end{align}
+の解として、
+\begin{align}
+  \phi(x,t) = t(\sum_{x'}W_{x,x'}Y_{x,x'}P(x',t) 
+\end{align}
+
+\section{上の計算の修正}
+
 
 \end{document}

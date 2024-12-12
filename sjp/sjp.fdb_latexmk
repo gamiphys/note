@@ -1,12 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1733582334 "diary.dvi" "diary.pdf" "diary" 1733582336 0
-  "diary.dvi" 1733582334 15736 7f1e3d12e295424365a2dc81869b223d "latex"
+["dvipdf"] 1733496942 "sjp.dvi" "sjp.pdf" "sjp" 1733496945 0
+  "sjp.dvi" 1733496942 7696 0f09808d5193e11a7e2f3a62257d67ae "latex"
   (generated)
-  "diary.pdf"
+  "sjp.pdf"
   (rewritten before read)
-["latex"] 1733582332 "diary.tex" "diary.dvi" "diary" 1733582336 0
+["latex"] 1733496941 "sjp.tex" "sjp.dvi" "sjp" 1733496945 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681536317 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -44,7 +43,6 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
-  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1681537339 768 1321e9409b4137d6fb428ac9dc956269 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -192,12 +190,12 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "diary.aux" 1733582334 520 ef0380f7f472ba76da1ec9145d0e244f "latex"
-  "diary.out" 1733582334 0 d41d8cd98f00b204e9800998ecf8427e "latex"
-  "diary.tex" 1733582327 9324 fcec64de7de0e60743d457e609785af5 ""
+  "sjp.aux" 1733496942 896 d3998514a89307e41002cb2a9452cef3 "latex"
+  "sjp.out" 1733496942 396 2f00e83221d6da5f5113b9f7360dfb4e "latex"
+  "sjp.tex" 1733496940 2937 4bebcc4467976d8556b7c615bb7ff054 ""
   (generated)
-  "diary.aux"
-  "diary.dvi"
-  "diary.log"
-  "diary.out"
+  "sjp.aux"
+  "sjp.dvi"
+  "sjp.log"
+  "sjp.out"
   (rewritten before read)

@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  5 DEC 2024 23:19
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  11 DEC 2024 23:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -508,6 +508,8 @@ File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@math@for@depth=\count308
 \tikz@math@dimen=\dimen328
 \tikz@math@toks=\toks48
+) (c:/texlive/2023/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (c:/texlive/2023/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
  (c:/texlive/2023/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -622,7 +624,11 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./tur.aux)
+) (./tur.aux
+
+LaTeX Warning: Label `eq:2' multiply defined.
+
+)
 \openout1 = `tur.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -732,17 +738,25 @@ LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
 (Font)              Font shape `JY2/mc/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 86.
- [2] [3] [4] [5] [6] [7] [8] [9] [10] (./tur.aux)
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (7.66498pt too wide) detected at line 419
+[]
+ []
+
+[12] [13] [14] [15] [16] [17] [18] [19] [20] [21] (./tur.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `tur.out' has not changed.
-(rerunfilecheck)             Checksum: 15A1A6FC4F2179B68F09EFCC6AACC1B0;716.
+(rerunfilecheck)             Checksum: BE3F5472D1931152844E19456F5E0EF0;788.
  ) 
 Here is how much of TeX's memory you used:
- 22957 strings out of 476677
- 428985 string characters out of 5808165
+ 23013 strings out of 476677
+ 430735 string characters out of 5808165
  1867484 words of memory out of 5000000
- 43002 multiletter control sequences out of 15000+600000
- 533007 words of font info for 128 fonts, out of 8000000 for 9000
+ 43054 multiletter control sequences out of 15000+600000
+ 533312 words of font info for 129 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,18n,89p,467b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,18n,89p,476b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tur.dvi (10 pages, 52676 bytes).
+Output written on tur.dvi (21 pages, 110456 bytes).

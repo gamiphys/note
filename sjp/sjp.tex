@@ -1,0 +1,84 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{物理量(非平衡)}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\section{物理量の分類}
+ゆらぐ系の熱力学においては、基本的に以下の三種類の物理量が考えられる。\\
+\begin{itembox}[l]{\textbf{Def.state quantity/jump quantity/path quantity}}
+    state quantity $\hat{f}$は、状態 $j$に対して、値 $f_j$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{f}}_{\vb{p}} = \sum_{j} f_j p_j
+    \end{align}
+    で定義される。\\
+
+    jump quantity $\hat{g}$は、状態 $j$から状態 $k$に遷移するとき、値 $g_{j\to k}$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{g}}_{\vb{p},R} = \sum_{j,k} R_{kj} p_j g_{j\to k}
+    \end{align}
+    で定義される。\\
+
+    path quantity $\hat{\hat{F}}$は、経路$\Gamma$に対して、値 $F({\Gamma})$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{\hat{F}}}_{\Gamma} = \int \dd{\Gamma} P(\Gamma) F(\Gamma)
+    \end{align}
+    で定義される。
+\end{itembox}
+
+\section{物理量の関係}
+\subsection{state quantityとpath quantityの関係}
+時間に依存するstate quantity $\hat{f}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{f}}(t)$は、経路$\Gamma$に対して、値
+\begin{align}
+    f(\Gamma,t) = f_{\Gamma(t)} = \sum_{m=0}^{n} f_{j_{m}}(t) \chi[t \in [t_{m},t_{m+1}]]
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop:state quantityとpath quantityの関係}}
+    state quantity $\hat{f}(t)$と対応するpath quantity $\hat{\hat{f}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{f}(t)}_{\vb{p}(t)} = \ev{\hat{\hat{f}}(t)}_{\Gamma}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+
+
+
+\end{document}
