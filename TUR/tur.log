@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  20 DEC 2024 21:54
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  20 DEC 2024 22:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -735,7 +735,7 @@ LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 86.
  [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (7.66498pt too wide) detected at line 428
+Overfull \hbox (12.35248pt too wide) detected at line 428
 []
  []
 
@@ -746,10 +746,10 @@ Package rerunfilecheck Info: File `tur.out' has not changed.
 Here is how much of TeX's memory you used:
  23015 strings out of 476677
  430752 string characters out of 5808165
- 1868484 words of memory out of 5000000
+ 1869484 words of memory out of 5000000
  43056 multiletter control sequences out of 15000+600000
  533312 words of font info for 129 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,18n,89p,476b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,18n,89p,476b,541s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tur.dvi (24 pages, 128772 bytes).
+Output written on tur.dvi (24 pages, 129856 bytes).

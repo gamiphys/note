@@ -423,8 +423,8 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \begin{align}
     \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}d_{ij}\phi_j(s) 
     &= \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}d_{ij}s\pdv{p_j(s)}{s} \\
-    &= \left[\sum_{i \neq j}sR_{ij}d_{ij}p_j(s)\right]_0^\tau - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} R_{ij}d_{ij}p_j(s) - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} \pdv{R_{ij}}{s}d_{ij}p_j(s)\\
-    &= \tau J(\tau)- \langle \hat{\mathcal{J}_d} \rangle_0 - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} \pdv{R_{ij}}{s}d_{ij}p_j(s)\\
+    &= \left[\sum_{i \neq j}sR_{ij}d_{ij}p_j(s)\right]_0^\tau - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} R_{ij}d_{ij}p_j(s) - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} s\pdv{R_{ij}}{s}d_{ij}p_j(s)\\
+    &= \tau J_{d}(\tau)- \langle \hat{\mathcal{J}_d} \rangle_0 - \int_{0}^{\tau} \dd{s} \sum_{i \neq j} s\pdv{R_{ij}}{s}d_{ij}p_j(s)\\
 \end{align}
 となる。最後の項については、
 \begin{align}
@@ -453,7 +453,7 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \begin{itemize}
     \item ${\hat{\mathcal{J}_d}}(\Gamma) = \sum_{n=0}^{N-1} d_{\omega_{n+1}\omega_n}$:積算カレント
     \item $J_d^n = \sum_{i,j} d_{ij} T_{ij} p_{j}^{n-1}$:ある時刻におけるカレントの期待値
-    \item $\sigma = \sum_{n=1}^{N} \sum_{i,j} T_{ij} p_{j}^{n-1} \ln \frac{T_{ij} p_{j}^{n-1}}{T_{ji} p_{i}^{n-1}}$:平均エントロピー生成
+    \item $\sigma = \sum_{n=1}^{N} \sum_{i,j} T_{ij} p_{j}^{n-1} \ln \frac{T_{ij} p_{j}^{n-1}}{T_{ji} p_{i}^{n}}$:平均エントロピー生成
 \end{itemize}
 
 \begin{itembox}[l]{\textbf{Thm.Markov連鎖についてのTUR}}
@@ -525,7 +525,10 @@ Cram\'er-Raoの不等式を用いる。すなわち、
 ここで求めた$F(0)$をエントロピー生成で抑えることを考える。Markov jumpのときとは異なり、以下で見るようなmodified entropy productionにより抑えられる。\\
 \textbf{非対角成分}\footnote{$i \neq j$なので、5行目は不等号}
 \begin{align}
-    \sum_{n=1}^{N} \sum_{i\neq j} \ev{(Z_{ij}^n)^2} &= \frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} \frac{(K_{ij}^n - K_{ji}^n)^2}{(K_{ij}^n + K_{ji}^n)^2} \\
+    \sum_{n=1}^{N} \sum_{i\neq j} \ev{(Z_{ij}^n)^2} &= \sum_{n=1}^{N}\sum_{i \neq j} T_{ij}p_{j}Z_{ij}^2 \\
+    &=\frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} \qty(T_{ij} p_j^{n-1} Z_{ij}^2 + T_{ji} p_i^{n-1} Z_{ji}^2)\\
+    &= \frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} Z_{ij}^2 \qty(T_{ij} p_j^{n-1} + T_{ji} p_i^{n-1})\\
+    &=\frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} \frac{(K_{ij}^n - K_{ji}^n)^2}{(K_{ij}^n + K_{ji}^n)} \\
     &\leq \frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} K_{ij}^n \ln \frac{K_{ij}^n}{K_{ji}^n}\\
     &= \frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} T_{ij} p_j^{n-1} \ln \frac{T_{ij} p_j^{n-1} p_i^{n}}{T_{ji} p_i^{n-1} p_j^{n}}\\
     &= \frac{1}{2}\sum_{n=1}^{N} \sum_{i\neq j} \qty(T_{ij} p_j^{n-1} \ln \frac{T_{ij} p_j^{n-1}}{T_{ji} p_i^{n}} + T_{ij} p_j^{n-1} \ln \frac{p_i^{n}}{p_i^{n-1}})\\
@@ -797,11 +800,11 @@ hoge\qed\\
 \end{align}
 一番最後の$\Sigma$について考える。和の$k$番目の項について、
 \begin{align}
-    (\text{第k項}) &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} g_{j_{m-1} \to j_{m}}(t_m) \\
+    (\text{第k項}) &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} g_{j_{k-1} \to j_{k}}(t_k) \\
     &(j^{0}\text{から}j^{k-2}\text{まで計算して、}) \nonumber \\
-    &= \sum_{j_{k-1}, j_k, \cdots, j_N} \prod_{n=k-1}^N T^{j^n j^{n-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m) \\
+    &= \sum_{j_{k-1}, j_k, \cdots, j_N} \prod_{n=k-1}^N T^{j^n j^{n-1}} p^{k-1}_{j^{k-1}} g_{j_{k-1} \to j_{k}}(t_k) \\
     &(j^{k+1}\text{から}j^{N}\text{まで計算すると、規格化条件より}) \nonumber \\
-    &= \sum_{j_{k-1}, j_k} T^{j^k j^{k-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m)
+    &= \sum_{j_{k-1}, j_k} T^{j^k j^{k-1}} p^{k-1}_{j^{k-1}} g_{j_{k-1} \to j_{k}}(t_k)
 \end{align}
 となる。これを連続極限に持っていくことで、
 \begin{align}
