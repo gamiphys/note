@@ -44,13 +44,13 @@
 
 \section{TUR}
 \subsection{Main Claim}
-\textbf{記号}
+\textbf{記号}\footnote{jump quantity,path quantityとしての正確な記述は補足に回す。}
 \begin{itemize}
     \item $\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$\\
 $\to (\text{jからiへのjumpが起こった回数})-(\text{iからjへのjumpが起こった回数})$(time-integrated empirical probability current)\\
     \item $\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$
 $\to$示量変数の積算カレント(cumulative thermodynamic current)
-    \item $d_{ij} = X_i - X_j$(Xは任意の示量変数)
+    \item $d_{ij}\to$添え字に対する反対称性$d_{ij} = -d_{ji}$を満たす物理量
 \end{itemize}
 
 \textbf{ex.熱流}\\
@@ -110,7 +110,7 @@ $P_{\theta}(x)$をパラメータ$\theta$をもつ確率変数$x$の確率分布
     \end{align}
     が成り立つ。
 \end{itembox}
-\textbf{Prf.}\\
+\textbf{Prf.}
 \begin{align}
     \text{Var}_{\theta}g(x)F(\theta) &= \qty(\int \dd{x} (g(x) - f(\theta))^2 P_{\theta}(x))\qty(\int \dd{x} \qty(\pdv{\theta} \log P_{\theta}(x))^2 P_{\theta}(x))\\
     &\geq \qty(\int \dd{x} (g(x) - f(\theta)) \pdv{\theta} (\ln P_{\theta}(x)) P_{\theta}(x))^2 \quad \because \text{Cauchy-Schwarz の不等式}\\
@@ -185,7 +185,7 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
         \sum_{k (\neq j)} R_{kj} e^{\theta Z_{kj}}}_{\theta = 0} \\
         &\quad \because \text{第一項は微分で消える。第二項について、}R_{jj} = -\sum_{k (\neq j)} R_{kj}  \\
     &= \int_0^\tau dt \sum_{k \neq j} R_{kj} p_j(t) Z_{kj}^2 \quad \because \text{微分を実行} \label{eq:ff}\\
-    &= \left\langle \int_0^\tau dt \, \hat{Z}^2 \right\rangle
+    &= \int_0^\tau dt \, \ev{\hat{Z}^2} 
 \end{align}
 と計算できる。\footnote{最初の等号は後の方に書いてある。}
 
@@ -361,13 +361,22 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \begin{align}
     \frac{\text{Var}(\mathcal{J}_d)}{(\tau J_d(\tau))^2} \sigma \geq 2
 \end{align}
-が成り立つ。\qed
+が成り立つ。\qed\\
 
-\textbf{別証明と一般化}\\
+\textbf{別証明と遷移レートが時間変化する場合への一般化}\\
 このあと操作パラメータにより遷移レートが時間変化する場合への一般化を考えるが、白石本の流れで進めてもこの一般化がうまくいかなかったので、上の定理の一部を別証明に差し替え、それをそのまま利用する。具体的には、$\langle \hat{\mathcal{J}_d} \rangle_\theta$の部分を別のものに差し替える。\\
 
+\begin{itembox}[l]{\textbf{Thm.TUR(遷移レートが時間変化する場合)}}
+    連続時間$(0 \leq t \leq \tau)$におけるMarkov過程について考える。また、初期状態が定常状態であることは要求しない。
+    遷移レートが操作パラメータ$\lambda(vt)$によって時間変化するとき、
+    \begin{align}
+        \frac{\operatorname{Var}(\mathcal{J}_d)}{\left(\tau \mathcal{J}_d(\tau) - v \frac{\partial}{\partial v} \expval{\mathcal{J}_d}\right)^2} \sigma \geq 2,
+    \end{align}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf.}\\
 \begin{align}
-    \langle \hat{\mathcal{J}_d} \rangle_\theta &=\int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}^{\theta}d_{ij}p_j^{\theta}(s)\\
+    \langle \hat{\mathcal{J}_d} \rangle_\theta &=\int_0^\tau \dd{s} \sum_{(i,j)} J_{ij}^{\theta}(s)d_{ij}=\int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}^{\theta}d_{ij}p_j^{\theta}(s)\\
 \end{align}
 について考える。$\theta$確率分布は、
 \begin{align}
@@ -388,16 +397,16 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \end{align}
 となる。したがって、
 \begin{align}
-    \pdv{p_{i}}{t} &= \sum{j} R_{ij}p_{j}\\
+    \pdv{p_{i}}{t} &= \sum_{j} R_{ij}p_{j}\\
     \pdv{\phi_{i}}{t} &= \dv{p_{i}}{t} + \sum_{j} R_{ij}\phi_{j}
 \end{align}
 となる。このとき、$\phi$は、
 \begin{align}
     \phi_{i}(t) = t\pdv{p_{i}}{t} 
 \end{align}
-と書くことができる。これをもとに、$f(\theta)$を微分することを考える。
+と書くことができる。これをもとに、$\langle \hat{\mathcal{J}_d} \rangle_\theta$を微分することを考える。
 \begin{align}
-    \pdv{f(\theta)}{\theta} &= \int_0^\tau \dd{s} \sum_{i \neq j} \pdv{R_{ij}^{\theta}}{\theta}d_{ij}p_j^{\theta}(s) + \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}^{\theta}d_{ij}\pdv{p_j^{\theta}(s)}{\theta}\\
+    \pdv{\langle \hat{\mathcal{J}_d} \rangle_\theta}{\theta} &= \int_0^\tau \dd{s} \sum_{i \neq j} \pdv{R_{ij}^{\theta}}{\theta}d_{ij}p_j^{\theta}(s) + \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}^{\theta}d_{ij}\pdv{p_j^{\theta}(s)}{\theta}\\
     &= \int_0^\tau \dd{s} \sum_{i \neq j}Z_{ij} R_{ij}e^{\theta Z_{ij}}d_{ij}p_j^{\theta}(s) + \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}^{\theta}d_{ij}\phi_j(s)\\
     &\underset{\theta \to 0}{\longrightarrow} \int_0^\tau \dd{s} \sum_{i \neq j} Z_{ij}R_{ij}d_{ij}p_j(s) + \int_0^\tau \dd{s} \sum_{i \neq j} R_{ij}d_{ij}\phi_j(s)
 \end{align}
@@ -433,7 +442,7 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \begin{align}
     \pdv{\langle \hat{\mathcal{J}_d} \rangle_\theta}{\theta} \underset{\theta \to 0}{\longrightarrow}  \tau J(\tau)- v\pdv{v}\langle \hat{\mathcal{J}_d} \rangle_0
 \end{align}
-となる。残りは前の証明と同様。\\
+となる。残りは前の証明と同様。\qed\\
 
 
 \subsubsection{Markov chain}
@@ -442,16 +451,16 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 
 \textbf{記号}
 \begin{itemize}
-    \item $\mathcal{J}_d(\Gamma) = \sum_{n=0}^{N-1} d_{\omega_{n+1}\omega_n}$:積算カレント
-    \item $J_d^n = \sum_{i,j} d_{ij} T_{ij} p_{j}^{n-1}$:カレント
-    \item $\sigma = \sum_{n=1}^{N} \sum_{i,j} T_{ij} p_{j}^{n-1} \ln \frac{T_{ij} p_{j}^{n-1}}{T_{ji} p_{i}^{n-1}}$エントロピー生成
+    \item ${\hat{\mathcal{J}_d}}(\Gamma) = \sum_{n=0}^{N-1} d_{\omega_{n+1}\omega_n}$:積算カレント
+    \item $J_d^n = \sum_{i,j} d_{ij} T_{ij} p_{j}^{n-1}$:ある時刻におけるカレントの期待値
+    \item $\sigma = \sum_{n=1}^{N} \sum_{i,j} T_{ij} p_{j}^{n-1} \ln \frac{T_{ij} p_{j}^{n-1}}{T_{ji} p_{i}^{n-1}}$:平均エントロピー生成
 \end{itemize}
 
 \begin{itembox}[l]{\textbf{Thm.Markov連鎖についてのTUR}}
     離散時間離散状態のMarkov連鎖について考える。step数は$N$とし、遷移行列$T$は固定されているとする。また、初期分布は任意に取る。このとき、
     任意のカレント$J_{d}$について、
     \begin{align}
-        \frac{\text{Var}(\hat{J}_{d})}{(NJ_{d}^{N-2})^2} \frac{\tilde{\sigma}}{a} \geq 2    
+        \frac{\text{Var}\qty({\hat{\mathcal{J}_{d}}})}{(NJ_{d}^{N-1})^2} \frac{\tilde{\sigma}}{a} \geq 2    
     \end{align}
     が成り立つ。ただし、modifed entropy production$\tilde{\sigma}$は、
     \begin{align}
@@ -481,7 +490,7 @@ $\theta-$遷移行列を以下のように定義する。
 Cram\'er-Raoの不等式を用いる。すなわち、
 \begin{align}
     \eval{\left( \frac{\partial \langle {\hat{\mathcal{J}}_{d}} \rangle_\theta^{\text{ss}}}{\partial \theta} \right)^2}_{\theta = 0}
-    \leq \mathrm{Var}_{0} (\hat{\mathcal{J}}_{d}) F(0) \label{eq:2}
+    \leq \mathrm{Var}_{0} (\hat{\mathcal{J}}_{d}) F(0) \label{eq:3}
     \end{align}
     を用いる。
 
@@ -607,20 +616,32 @@ Cram\'er-Raoの不等式を用いる。すなわち、
 が成り立つことがわかる。\qed
 
 \subsection{KUR}
-
+TUR型の別の不等式として、KUR(Kinetic Uncertainty Relation)がある。まず、記号を準備する。
 \begin{itembox}[l]{\textbf{Def.Activity}}
     状態の組(i,j)に対するactivityは、
     \begin{align}
-        \hat{A}_{ij} := -\frac{1}{\tau} \sum_{n} \left( 
+        \hat{A}_{ij} := \frac{1}{\tau} \sum_{n} \left( 
     \delta_{w_j \to w_i}(w^{n-1} \to w^n) + \delta_{w_i \to w_j}(w^{n-1} \to w^n) 
     \right)
     \end{align}
     で定義される。また、系のactivityは、
     \begin{align}
-        \hat{A} := \sum_{(i,j)} d_{ij} \hat{A}_{ij}
+        \hat{A} := \sum_{(i,j)}  \hat{A}_{ij}
     \end{align}
     で定義される。
 \end{itembox}
+activityは、二つの状態間の遷移の活発さを表す量である。
+
+\textbf{記号}
+\begin{enumerate}
+    \item $\hat{X}$: jump quantity(jumpに対して値を返すような物理量のこと、値$X_{ij}$を返す)
+    \item $\hat{\hat{X}} := \sum_{n} X_{ij}(\delta_{\omega_j \to \omega_{i}}(\omega^{n-1} \to \omega^{n})) \delta(t-t_n)$\footnote{多分白石ではこれが$\hat{X}$だが、$\delta$関数が抜けている。(おそらく誤植)}
+    : jump quantityに対応するpath quantity\\
+    このとき、 $\ev{\ev{\hat{\hat{X}}}}= \ev{\hat{X}}$が成立する。
+    \item $\hat{\hat{\mathcal{X}}} := \int_{0}^{\tau} dt \hat{\hat{X}}(t)= \sum_{ij}\sum_{n}X_{ij}(\delta_{\omega_j \to \omega_{i}}(\omega^{n-1} \to \omega^{n}))$: jump quantityの積算
+    \item $ A_{ij}(t) := \expval{\hat{A}_{ij}}_t = R_{ji} p_i^{\text{ss}}(t) + R_{ij} p_j^{\text{ss}}(t)$:平均activity
+    \item $\mathcal{A} := \int_{0}^{\tau} dt \, A(t) := \int dt \sum_{i \neq j} R_{ij} p_j(t)$: 系の積算activity
+\end{enumerate}
 
 \begin{align}
     \expval{\hat{1}} = \mathcal{A} := \int_{0}^{\tau} dt \, A(t) := \int dt \sum_{i \neq j} R_{ij} p_j(t).
@@ -715,9 +736,98 @@ Cram\'er-Raoの不等式は、正確な推定の限界を示すものである�
 
 \textbf{ex.}\\
 
+
+\section{物理量についての補足}
+\subsection{物理量の分類}
+ゆらぐ系の熱力学においては、基本的に以下の三種類の物理量が考えられる。\\
+\begin{itembox}[l]{\textbf{Def.state quantity/jump quantity/path quantity}}
+    state quantity $\hat{f}$は、状態 $j$に対して、値 $f_j$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{f}}_{\vb{p}} = \sum_{j} f_j p_j
+    \end{align}
+    で定義される。\\
+
+    jump quantity $\hat{g}$は、状態 $j$から状態 $k$に遷移するとき、値 $g_{j\to k}$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{g}}_{\vb{p},R} = \sum_{j\neq k} R_{kj} p_j g_{j\to k}
+    \end{align}
+    で定義される。\\
+
+    path quantity $\hat{\hat{F}}$は、経路$\Gamma$に対して、値 $F({\Gamma})$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\ev{\hat{\hat{F}}}}_{\Gamma} = \int \dd{\Gamma} P(\Gamma) F(\Gamma)
+    \end{align}
+    で定義される。
+\end{itembox}
+
+\subsection{物理量の関係}
+\subsubsection{state quantityとpath quantityの関係}
+時間に依存するstate quantity $\hat{f}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{f}}(t)$は、経路$\Gamma$に対して、値
 \begin{align}
-    \sum_{x'} W_{xx'} \frac{W_{xx'}P(x')-W_{x'x}P(x)}{W_{xx'}P(x')+W_{x'x}P(x)} P(x') = \sum_{x'} W_{xx'}  P(x') 
+    f(\Gamma,t) = f_{\Gamma(t)} = \sum_{m=0}^{n} f_{j_{m}}(t) \chi[t \in [t_{m},t_{m+1}]]
 \end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop.state quantityとpath quantityの関係}}
+    state quantity $\hat{f}(t)$と対応するpath quantity $\hat{\hat{f}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{f}(t)}_{\vb{p}(t)} = \ev{\ev{\hat{\hat{f}}(t)}_{\Gamma}}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+hoge\qed\\
+
+\subsubsection{jump quantityとpath quantityの関係}
+時間に依存するjump quantity $\hat{g}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{g}}(t)$は、経路$\Gamma$に対して、値
+\begin{align}
+    g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta(t-t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop.jump quantityとpath quantityの関係}}
+    jump quantity $\hat{g}(t)$と対応するpath quantity $\hat{\hat{g}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{g}(t)}_{\vb{p}(t),R(t)} = \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+離散のほうがやりやすいので、離散の場合を考える。右辺は以下のように書ける。
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} 
+    \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_m) 
+\end{align}
+一番最後の$\Sigma$について考える。和の$k$番目の項について、
+\begin{align}
+    (\text{第k項}) &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} g_{j_{m-1} \to j_{m}}(t_m) \\
+    &(j^{0}\text{から}j^{k-2}\text{まで計算して、}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k, \cdots, j_N} \prod_{n=k-1}^N T^{j^n j^{n-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m) \\
+    &(j^{k+1}\text{から}j^{N}\text{まで計算すると、規格化条件より}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k} T^{j^k j^{k-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m)
+\end{align}
+となる。これを連続極限に持っていくことで、
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j\neq k} p_{j} R_{kj} g_{j \to k}(t)\\
+    &= \ev{\hat{g}(t)}_{\vb{p}(t), R(t)}
+\end{align}
+となる。\qed
+
+また、path quantityの積分量
+\begin{align}
+    {\hat{\hat{G}}}= \int_{0}^{\tau} \dd{t} \hat{\hat{g}}(t)
+\end{align}
+は、pathに対して値
+\begin{align}
+    G(\Gamma) = \int_{0}^{\tau} \dd{t} g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{align}
+    \ev{\ev{\hat{\hat{G}}}}_{\Gamma} = \int \dd{t} \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma} = \int \dd{t} \ev{\hat{g}(t)}_{\vb{p}(t),R(t)}
+\end{align}
+
+
+
+
+
 
 
 \end{document}

@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  6 DEC 2024 23:55
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  12 DEC 2024 23:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -704,17 +704,22 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 11.09619pt on input line 68.
  [1
 
-] [2] (./sjp.aux)
+]
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 6.47278pt on input line 108.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 108.
+ [2] [3] (./sjp.aux)
 Package rerunfilecheck Info: File `sjp.out' has not changed.
-(rerunfilecheck)             Checksum: 2F00E83221D6DA5F5113B9F7360DFB4E;396.
+(rerunfilecheck)             Checksum: 32D45B4AC68ABF837D6F6C482392F678;617.
  ) 
 Here is how much of TeX's memory you used:
  22944 strings out of 476677
  428833 string characters out of 5808165
- 1856484 words of memory out of 5000000
+ 1859484 words of memory out of 5000000
  42991 multiletter control sequences out of 15000+600000
- 531647 words of font info for 122 fonts, out of 8000000 for 9000
+ 531865 words of font info for 124 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,16n,89p,467b,459s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,18n,89p,467b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on sjp.dvi (2 pages, 7696 bytes).
+Output written on sjp.dvi (3 pages, 14956 bytes).

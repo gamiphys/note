@@ -37,7 +37,7 @@
 
 \begin{document}
 
-\title{物理量(非平衡)}
+\title{物理量(状態量、遷移量、経路量)の関係}
 \author{大上由人}
 \date{\today}
 \maketitle
@@ -59,7 +59,7 @@
 
     path quantity $\hat{\hat{F}}$は、経路$\Gamma$に対して、値 $F({\Gamma})$をとる物理量である。また、この期待値は、
     \begin{align}
-        \ev{\hat{\hat{F}}}_{\Gamma} = \int \dd{\Gamma} P(\Gamma) F(\Gamma)
+        \ev{\ev{\hat{\hat{F}}}}_{\Gamma} = \int \dd{\Gamma} P(\Gamma) F(\Gamma)
     \end{align}
     で定義される。
 \end{itembox}
@@ -71,13 +71,62 @@
     f(\Gamma,t) = f_{\Gamma(t)} = \sum_{m=0}^{n} f_{j_{m}}(t) \chi[t \in [t_{m},t_{m+1}]]
 \end{align}
 をとる物理量である。このとき、以下が成り立つ。
-\begin{itembox}[l]{\textbf{Prop:state quantityとpath quantityの関係}}
+\begin{itembox}[l]{\textbf{Prop.state quantityとpath quantityの関係}}
     state quantity $\hat{f}(t)$と対応するpath quantity $\hat{\hat{f}}(t)$について、以下が成り立つ。
     \begin{align}
-        \ev{\hat{f}(t)}_{\vb{p}(t)} = \ev{\hat{\hat{f}}(t)}_{\Gamma}
+        \ev{\hat{f}(t)}_{\vb{p}(t)} = \ev{\ev{\hat{\hat{f}}(t)}_{\Gamma}}
     \end{align}
 \end{itembox}
 \textbf{Prf.}\\
+
+\subsection{jump quantityとpath quantityの関係}
+時間に依存するjump quantity $\hat{g}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{g}}(t)$は、経路$\Gamma$に対して、値
+\begin{align}
+    g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta(t-t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop.jump quantityとpath quantityの関係}}
+    jump quantity $\hat{g}(t)$と対応するpath quantity $\hat{\hat{g}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{g}(t)}_{\vb{p}(t),R(t)} = \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+離散のほうがやりやすいので、離散の場合を考える。右辺は以下のように書ける。
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} 
+    \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_m) 
+\end{align}
+一番最後の$\Sigma$について考える。和の$k$番目の項について、
+\begin{align}
+    (\text{第k項}) &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} g_{j_{m-1} \to j_{m}}(t_m) \\
+    &(j^{0}\text{から}j^{k-2}\text{まで計算して、}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k, \cdots, j_N} \prod_{n=k-1}^N T^{j^n j^{n-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m) \\
+    &(j^{k+1}\text{から}j^{N}\text{まで計算すると、規格化条件より}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k} T^{j^k j^{k-1}} p^{k-1}_{j^{k-1}} g_{j_{m-1} \to j_{m}}(t_m)
+\end{align}
+となる。これを連続極限に持っていくことで、
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j\neq k} p_{j} R_{kj} g_{j \to k}(t)\\
+    &= \ev{\hat{g}(t)}_{\vb{p}(t), R(t)}
+\end{align}
+となる。\qed
+
+また、path quantityの積分量
+\begin{align}
+    {\hat{\hat{G}}}= \int_{0}^{\tau} \dd{t} \hat{\hat{g}}(t)
+\end{align}
+は、pathに対して値
+\begin{align}
+    G(\Gamma) = \int_{0}^{\tau} \dd{t} g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{align}
+    \ev{\ev{\hat{\hat{G}}}}_{\Gamma} = \int \dd{t} \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma} = \int \dd{t} \ev{\hat{g}(t)}_{\vb{p}(t),R(t)}
+\end{align}
+
 
 
 

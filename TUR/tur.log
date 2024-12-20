@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  11 DEC 2024 23:01
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  13 DEC 2024 14:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,11 +624,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
 \Hy@SectionHShift=\skip63
-) (./tur.aux
-
-LaTeX Warning: Label `eq:2' multiply defined.
-
-)
+) (./tur.aux)
 \openout1 = `tur.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -701,15 +697,17 @@ LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 9.24683pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 49.
+(Font)              scaled to size 6.47278pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 49.
+(Font)              scaled to size 4.62341pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 49.
+(Font)              scaled to size 6.47278pt on input line 47.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 49.
+(Font)              scaled to size 4.62341pt on input line 47.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 50.
+(Font)              scaled to size 6.47278pt on input line 47.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 5.5481pt on input line 47.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
 (Font)              scaled to size 4.62341pt on input line 50.
 
@@ -728,8 +726,6 @@ LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <7> not available
 (Font)              Font shape `JY2/mc/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 6.47278pt on input line 86.
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 5.5481pt on input line 86.
 LaTeX Font Info:    Font shape `JT2/mc/m/it' in size <6> not available
 (Font)              Font shape `JT2/mc/m/n' tried instead on input line 86.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
@@ -739,24 +735,21 @@ LaTeX Font Info:    Font shape `JY2/mc/m/it' in size <6> not available
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 5.5481pt on input line 86.
  [2] [3] [4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (7.66498pt too wide) detected at line 419
+Overfull \hbox (7.66498pt too wide) detected at line 428
 []
  []
 
-[12] [13] [14] [15] [16] [17] [18] [19] [20] [21] (./tur.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
+[12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23] [24] (./tur.aux)
 Package rerunfilecheck Info: File `tur.out' has not changed.
-(rerunfilecheck)             Checksum: BE3F5472D1931152844E19456F5E0EF0;788.
+(rerunfilecheck)             Checksum: DC73141F07E6735D703C4E10E02CD9F1;1100.
  ) 
 Here is how much of TeX's memory you used:
- 23013 strings out of 476677
- 430735 string characters out of 5808165
+ 23015 strings out of 476677
+ 430752 string characters out of 5808165
  1867484 words of memory out of 5000000
- 43054 multiletter control sequences out of 15000+600000
+ 43056 multiletter control sequences out of 15000+600000
  533312 words of font info for 129 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,18n,89p,476b,497s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on tur.dvi (21 pages, 110456 bytes).
+Output written on tur.dvi (24 pages, 128344 bytes).

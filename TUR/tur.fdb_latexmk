@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1733925715 "tur.dvi" "tur.pdf" "tur" 1733925717 0
-  "tur.dvi" 1733925714 110456 0e14b318c40dbd14daeb2238dbfb20cb "latex"
+["dvipdf"] 1734068638 "tur.dvi" "tur.pdf" "tur" 1734068640 0
+  "tur.dvi" 1734068637 128344 793a4ef8d767060e30083ce1bdc7cd3f "latex"
   (generated)
   "tur.pdf"
   (rewritten before read)
-["latex"] 1733925711 "tur.tex" "tur.dvi" "tur" 1733925717 0
+["latex"] 1734068633 "tur.tex" "tur.dvi" "tur" 1734068640 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
@@ -194,9 +194,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "tur.aux" 1733925714 1961 9ff0e480d5c4e1388ce3749655299d71 "latex"
-  "tur.out" 1733925714 788 be3f5472d1931152844e19456f5e0ef0 "latex"
-  "tur.tex" 1733925710 40740 d99c5d6dffe01dfbb54e322a180952f6 ""
+  "tur.aux" 1734068637 2654 92a02785870b9c513c584ae82aa13588 "latex"
+  "tur.out" 1734068637 1100 dc73141f07e6735d703c4e10e02cd9f1 "latex"
+  "tur.tex" 1734068631 47189 f7216463ed9c123985a0bbef3ac8b3f4 ""
   (generated)
   "tur.aux"
   "tur.dvi"
