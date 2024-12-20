@@ -506,15 +506,15 @@ Cram\'er-Raoの不等式を用いる。すなわち、
 \end{align}
 となることを用いている。ここで、第一項について、
 \begin{align}
-    \pdv[2]{\theta}(1-\sum_{i(\neq j)}T_{ij}^\theta) &= -\pdv[2]{\theta}\sum_{i(\neq j)}T_{ij}e^{\theta Z_{ij}} = -\sum_{i(\neq j)}(Z_{ij})^2 T_{ij} 
+    \left.\pdv[2]{\theta}(1-\sum_{i(\neq j)}T_{ij}^\theta)\right|_{\theta = 0} &= \left.-\pdv[2]{\theta}\sum_{i(\neq j)}T_{ij}e^{\theta Z_{ij}}\right|_{\theta = 0} = -\sum_{i(\neq j)}(Z_{ij})^2 T_{ij} 
 \end{align}
 となる。また、第二項について、
 \begin{align}
-    \frac{1}{T_{jj}^n} \pdv{\theta} T_{jj}^{n,\theta} &= \frac{1}{T_{jj}} \pdv{\theta} (1-\sum_{i(\neq j)}T_{ij}^{n,\theta}) = -\frac{1}{T_{jj}} \sum_{i(\neq j)} Z_{ij} T_{ij}
+    \left.\frac{1}{T_{jj}^n} \pdv{\theta} T_{jj}^{n,\theta}\right|_{\theta = 0} &=\left. \frac{1}{T_{jj}} \pdv{\theta} (1-\sum_{i(\neq j)}T_{ij}^{n,\theta})\right|_{\theta = 0} = -\frac{1}{T_{jj}} \sum_{i(\neq j)} Z_{ij} T_{ij}
 \end{align}
 となるから、
 \begin{align}
-    T_{jj}\qty(\frac{1}{T_{jj}} \pdv{\theta} T_{jj}^{n,\theta})^2 = \frac{1}{T_{jj}} (\sum_{i(\neq j)} Z_{ij} T_{ij})^2 =T_{jj}(Z_{jj}^n)^2
+    \left. T_{jj}\qty(\frac{1}{T_{jj}} \pdv{\theta} T_{jj}^{n,\theta})^2\right|_{\theta = 0} = \frac{1}{T_{jj}} \qty(\sum_{i(\neq j)} Z_{ij} T_{ij})^2 =T_{jj}(Z_{jj}^n)^2
 \end{align}
 となる。したがって、    
 \begin{align}
@@ -823,8 +823,6 @@ hoge\qed\\
 \begin{align}
     \ev{\ev{\hat{\hat{G}}}}_{\Gamma} = \int \dd{t} \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma} = \int \dd{t} \ev{\hat{g}(t)}_{\vb{p}(t),R(t)}
 \end{align}
-
-
 
 
 
