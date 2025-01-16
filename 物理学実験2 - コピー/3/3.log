@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  4 DEC 2024 19:29
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  16 JAN 2025 12:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -764,19 +764,70 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 84.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 84.
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 89.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 89.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 89.
+LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
+(Font)              scaled to size 11.09619pt on input line 89.
+LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
+(Font)              scaled to size 9.24683pt on input line 90.
+File: image2.jpg Graphic file (type bmp)
+<image2.jpg>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 96.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 96.
+File: Bravais.jpg Graphic file (type bmp)
+<Bravais.jpg>
  [1
 
-] (./3.aux)
+]
+File: image.jpg Graphic file (type bmp)
+<image.jpg>
+ [2] [3]
+File: g.jpg Graphic file (type bmp)
+<g.jpg>
+ [4]
+File: u.png Graphic file (type bmp)
+<u.png>
+ [5]
+File: standard.png Graphic file (type bmp)
+<standard.png>
+ [6]
+File: mae.jpg Graphic file (type bmp)
+<mae.jpg>
+ [7]
+File: 001.jpg Graphic file (type bmp)
+<001.jpg>
+File: ato.jpg Graphic file (type bmp)
+<ato.jpg>
+ [8]
+File: 110.jpg Graphic file (type bmp)
+<110.jpg>
+File: 001_gren.jpg Graphic file (type bmp)
+<001_gren.jpg>
+ [9]
+File: 001_wulf.jpg Graphic file (type bmp)
+<001_wulf.jpg>
+ [10]
+Underfull \hbox (badness 1521) in paragraph at lines 305--306
+[]\JY2/mc/m/n/10 小橋 眞\OT1/cmr/m/n/10 , \JY2/mc/m/n/10 講義ノ ート\OT1/cmr/m/n/10 , []$\OT1/cmtt/m/n/10 https : / / www . material . nagoya-[]u . ac . jp / kobashi _ lab / img /
+ []
+
+[11] (./3.aux)
 Package rerunfilecheck Info: File `3.out' has not changed.
-(rerunfilecheck)             Checksum: 9E0AEC8E0767FC476485627B37E9CD44;399.
+(rerunfilecheck)             Checksum: 7C3C855B6CF54F1B9AFB69E63B61F178;733.
  ) 
 Here is how much of TeX's memory you used:
- 32891 strings out of 476677
- 773859 string characters out of 5808165
- 1848484 words of memory out of 5000000
- 52808 multiletter control sequences out of 15000+600000
- 524780 words of font info for 96 fonts, out of 8000000 for 9000
+ 32994 strings out of 476677
+ 775380 string characters out of 5808165
+ 1853484 words of memory out of 5000000
+ 52881 multiletter control sequences out of 15000+600000
+ 527127 words of font info for 108 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,10n,89p,697b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,12n,89p,697b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 3.dvi (2 pages, 3424 bytes).
+Output written on 3.dvi (12 pages, 26568 bytes).

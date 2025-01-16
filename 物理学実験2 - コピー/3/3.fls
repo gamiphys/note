@@ -1,4 +1,4 @@
-PWD c:/Users/gamiy/assignment/物理学実験/物理学実験2/3
+PWD c:/Users/gamiy/note/物理学実験2 - コピー/3
 INPUT c:/texlive/2023/texmf.cnf
 INPUT c:/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt
@@ -1097,6 +1097,66 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm
+INPUT ./image2.jpg
+INPUT ./image2.jpg
+INPUT image2.jpg
+INPUT extractbb -B cropbox -O image2.jpg
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
+INPUT ./Bravais.jpg
+INPUT ./Bravais.jpg
+INPUT Bravais.jpg
+INPUT extractbb -B cropbox -O Bravais.jpg
+INPUT ./image.jpg
+INPUT ./image.jpg
+INPUT image.jpg
+INPUT extractbb -B cropbox -O image.jpg
+INPUT ./g.jpg
+INPUT ./g.jpg
+INPUT g.jpg
+INPUT extractbb -B cropbox -O g.jpg
+INPUT ./u.png
+INPUT ./u.png
+INPUT u.png
+INPUT extractbb -B cropbox -O u.png
+INPUT ./standard.png
+INPUT ./standard.png
+INPUT standard.png
+INPUT extractbb -B cropbox -O standard.png
+INPUT ./mae.jpg
+INPUT ./mae.jpg
+INPUT mae.jpg
+INPUT extractbb -B cropbox -O mae.jpg
+INPUT ./001.jpg
+INPUT ./001.jpg
+INPUT 001.jpg
+INPUT extractbb -B cropbox -O 001.jpg
+INPUT ./ato.jpg
+INPUT ./ato.jpg
+INPUT ato.jpg
+INPUT extractbb -B cropbox -O ato.jpg
+INPUT ./110.jpg
+INPUT ./110.jpg
+INPUT 110.jpg
+INPUT extractbb -B cropbox -O 110.jpg
+INPUT ./001_gren.jpg
+INPUT ./001_gren.jpg
+INPUT 001_gren.jpg
+INPUT extractbb -B cropbox -O 001_gren.jpg
+INPUT ./001_wulf.jpg
+INPUT ./001_wulf.jpg
+INPUT 001_wulf.jpg
+INPUT extractbb -B cropbox -O 001_wulf.jpg
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT 3.aux
 INPUT ./3.out
 INPUT ./3.out

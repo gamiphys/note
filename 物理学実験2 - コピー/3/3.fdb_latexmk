@@ -1,13 +1,19 @@
 # Fdb version 4
-["dvipdf"] 1733308173 "3.dvi" "3.pdf" "3" 1733308174 0
-  "3.dvi" 1733308173 3424 3995eb186d2f118a5e6c550e7bb1528d "latex"
+["dvipdf"] 1736996907 "3.dvi" "3.pdf" "3" 1736996913 0
+  "3.dvi" 1736996907 26568 ff685d3766be0a7b73b9862631645a67 "latex"
   (generated)
   "3.pdf"
   (rewritten before read)
-["latex"] 1733308170 "3.tex" "3.dvi" "3" 1733308174 0
-  "3.aux" 1733308173 1281 79c774e49da723f7bc1a99265eb848a2 "latex"
-  "3.out" 1733308173 399 9e0aec8e0767fc476485627b37e9cd44 "latex"
-  "3.tex" 1733308169 2109 10090ecb3d7e9d46d64c908eba3e0fe3 ""
+["latex"] 1736996890 "3.tex" "3.dvi" "3" 1736996912 0
+  "001.jpg" 1736916986 481972 a049c8001f07a1914f7268d5e3686d5e ""
+  "001_gren.jpg" 1736934279 536208 491af91e4b84c3c0901c7f61939a8c05 ""
+  "001_wulf.jpg" 1736917347 112525 412f210ce1f7b16e45a3163c02a4a8f0 ""
+  "110.jpg" 1736916993 483429 f6fda8371c88d2ce0c4cfaa2775dbca0 ""
+  "3.aux" 1736996907 5507 d3b7efea1e93db12c5799fb5205ee8a1 "latex"
+  "3.out" 1736996907 733 7c3c855b6cf54f1b9afb69e63b61f178 "latex"
+  "3.tex" 1736996864 13124 33b346567d26822c958e3c6a1faa9aa0 ""
+  "Bravais.jpg" 1736932234 43251 0a4c917d23576c97c1b9d064776fab27 ""
+  "ato.jpg" 1736596718 399865 e50c8ce32515301f27656cc06a31af68 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm" 1681536317 1120 7f9f170e8aa57527ad6c49feafd45d54 ""
@@ -29,8 +35,11 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1681537339 1288 655e228510b4c2a1abe905c368440826 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1681537339 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1681537339 1292 21c1c5bfeaebccffdb478fd231a0997d ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm" 1681537339 1292 6b21b9c2c7bebb38aa2273f7ca0fb3af ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss10.tfm" 1681537339 1316 b636689f1933f24d1294acdf6041daaa ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm" 1681537339 1324 37b971caf729d7edd9cbb9f9b0ea76eb ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss17.tfm" 1681537339 1320 ed93d62c5f2c16343826001f03341dbc ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1681537339 768 1321e9409b4137d6fb428ac9dc956269 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -222,6 +231,12 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
+  "g.jpg" 1736934826 793347 5da9257fcee2eecb84bdfe31b7658fbd ""
+  "image.jpg" 1736934886 141201 d490e2788c53e3b551c83a6d844c2ad3 ""
+  "image2.jpg" 1736935097 137909 6615fd1c00422105355e862b0a5cc2c8 ""
+  "mae.jpg" 1736596726 483332 64a2623c6ee0bbe2541e127e1e66a8d1 ""
+  "standard.png" 1736996682 1002775 f02239310130fa0fc7b70d3a666b8333 ""
+  "u.png" 1736934807 696366 357ffde5562591061645e925b6c63f09 ""
   (generated)
   "3.aux"
   "3.dvi"

@@ -873,5 +873,108 @@ $x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L}$とすると、
 
 \section{上の計算の修正}
 
+以下では、次の式を導出する。
+\begin{align}
+    \frac{1}{X + i\delta} = \text{P.V.} \frac{1}{X} - i\pi\delta(X).
+\end{align}
+
+1. \textbf{分母の複素共役を掛ける}:
+\begin{align}
+    \frac{1}{X + i\delta} = \frac{X - i\delta}{(X + i\delta)(X - i\delta)} = \frac{X - i\delta}{X^2 + \delta^2}.
+\end{align}
+
+2. \textbf{実部と虚部への分解}:
+分母を分けて、次のように表現する。
+\begin{align}
+    \frac{1}{X + i\delta} = \frac{X}{X^2 + \delta^2} - i\frac{\delta}{X^2 + \delta^2}.
+\end{align}
+
+3. \textbf{主値積分の導入}:
+\(\delta \to 0^+\) の極限で、実部はコーシーの主値積分に対応する。
+\begin{align}
+    \text{P.V.} \frac{1}{X} = \lim_{\delta \to 0^+} \frac{X}{X^2 + \delta^2}.
+\end{align}
+
+4. \textbf{デルタ関数の虚部の確認}:
+\(\delta \to 0^+\) の極限で、次のデルタ関数の性質を利用する。
+\begin{align}
+    \delta(X) = \lim_{\delta \to 0^+} \frac{\delta}{\pi(X^2 + \delta^2)}.
+\end{align}
+したがって、虚部は以下のように書ける。
+\begin{align}
+    \frac{1}{X + i\delta} \to \text{P.V.} \frac{1}{X} - i\pi\delta(X).
+\end{align}
+
+これにより、導出が完了する。
+\section*{考察}
+装置を通過した後の光を求める。はじめに水平方向に偏光して
+\begin{align}
+    \begin{pmatrix}
+        E_0 \exp(i(\omega t - k_z z)) \\
+        0
+    \end{pmatrix}
+\end{align}
+これを\(\pi/4\)波長板に入射させると、出力は次式となる：
+\begin{align}
+    \begin{pmatrix}
+        E_0 \exp(i(\omega t - k_z z)) \sin \phi \\
+        E_0 \exp(i(\omega t - k_z z)) \cos \phi
+    \end{pmatrix}.
+\end{align}
+
+これを地軸に対して角度\(\phi\)だけ回転させた系において記述すると、
+\begin{align}
+    \begin{pmatrix}
+        E_x \\
+        E_y
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        \cos \phi & \sin \phi \\
+        -\sin \phi & \cos \phi
+    \end{pmatrix}
+    \begin{pmatrix}
+        E_0 \exp(i(\omega t - k_z z)) \sin \phi \\
+        E_0 \exp(i(\omega t - k_z z)) \cos \phi
+    \end{pmatrix}.
+\end{align}
+
+これを計算して得られる結果は、
+\begin{align}
+    \begin{pmatrix}
+        E_x \\
+        E_y
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        E_0 \exp(i(\omega t - k_z z)) \sin^2 \phi + E_0 \exp(i(\omega t - k_z z)) \cos^2 \phi \\
+        E_0 \exp(i(\omega t - k_z z)) (\cos \phi \sin \phi - \sin \phi \cos \phi)
+    \end{pmatrix}.
+\end{align}
+ここで、
+\begin{align}
+    E_x' &= E_0 \exp\left(i\left(\omega t - k_z z + \frac{\pi}{2}\right)\right) \sin \phi \cos \phi - E_0 \exp\left(i(\omega t - k_z z)\right) \cos^2 \phi \\
+    &= E_0 \exp(i(\omega t - k_z z)) \left(\sin \phi \cos \phi \cdot i - \cos^2 \phi\right), \\
+    E_y' &= E_0 \exp\left(i\left(\omega t - k_z z + \frac{\pi}{2}\right)\right) \cos^2 \phi + E_0 \exp\left(i(\omega t - k_z z)\right) \sin \phi \cos \phi \\
+    &= E_0 \exp(i(\omega t - k_z z)) \left(\cos^2 \phi \cdot i + \sin \phi \cos \phi\right).
+\end{align}
+
+この光の強度について、振幅の二乗は
+\begin{align}
+    |E_x'|^2 \cos^2 \theta + |E_y'|^2 \sin^2 \theta + \sin \delta \cos \delta (E_x' E_y'^* + E_y' E_x'^*),
+\end{align}
+ここで、
+\begin{align}
+    |E_x'|^2 &= 2 E_0^2 \cos^2 \phi \sin^2 \phi, \\
+    |E_y'|^2 &= E_0^2 (\sin^4 \phi + \cos^4 \phi), \\
+    E_x' E_y'^* + E_y' E_x'^* &= E_0^2 \sin \phi \cos \phi (\cos^2 \phi - \sin^2 \phi).
+\end{align}
+
+これらを代入して整理すると、
+\begin{align}
+    |E_x'|^2 \cos^2 \theta + |E_y'|^2 \sin^2 \theta + \sin \delta \cos \delta (E_x' E_y'^* + E_y' E_x'^*) \\
+    = 2 E_0^2 \cos^2 \phi \sin^2 \phi \cos^2 \theta + E_0^2 (\sin^4 \phi + \cos^4 \phi) \sin^2 \theta \\
+    \quad + E_0^2 \sin \phi \cos \phi (\cos^2 \phi - \sin^2 \phi) \sin \delta \cos \delta.
+\end{align}
+
+ここで「強度」のグラフを比較すれば、三角関数の周期性に従った変化が確認できる。
 
 \end{document}

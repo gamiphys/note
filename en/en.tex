@@ -1,0 +1,68 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+
+% カラー
+\usepackage{color}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{English diary}
+\author{Yuri OGAMI}
+\date{\today}
+\maketitle
+
+\subsection*{12/26}
+\subsubsection*{original}
+Today, I started to write this diary to improve my English skill.\\
+In the morning, I got exercised. I was so exhausted that I can't study after that.\\
+After exercising, I sent my books to the customer. It was my first time to do that.\\
+In the evening, I started to study physics, especially thermodynamics. However it was too difficult for me to fully understand it.
+So, I quit studying it right away.
+
+\subsubsection*{revised}
+Today, I started \textcolor{red}{writing} this diary to improve my English \textcolor{red}{skills}.\\
+In the morning, I \textcolor{red}{exercised}. I was so exhausted that I \textcolor{red}{couldn’t} study \textcolor{red}{afterward}.\\
+After exercising, I sent \textcolor{red}{some} books to \textcolor{red}{a} customer. It was my first time \textcolor{red}{doing} that.\\
+In the evening, I started \textcolor{red}{studying} physics, especially thermodynamics. However, it was too difficult for me to fully understand, \textcolor{red}{so I stopped studying it} right away.
+
+\subsubsection*{others}
+The road was so \textcolor{red}{slippery} that I almost fell down. The \textcolor{red}{icy} surface made the road dangerously \textcolor{red}{slippery}.\\
+If I don't want don't study physics tomorrow, I will make many gyoza.\\
+If I \textcolor{red}{don't feel like} studying physics tomorrow, I'll \textcolor{red}{make lots of} gyoza.
+
+\end{document}

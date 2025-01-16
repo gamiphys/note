@@ -1,14 +1,14 @@
 # Fdb version 4
-["dvipdf"] 1731853032 "LA.dvi" "LA.pdf" "LA" 1731853034 0
-  "LA.dvi" 1731853032 245336 e323558cc6931d53edf4ff86624b59a6 "latex"
+["dvipdf"] 1736400527 "LA.dvi" "LA.pdf" "LA" 1736400531 0
+  "LA.dvi" 1736400527 245336 72606f4bf581f6b8b0ac7dd6dd13e32a "latex"
   (generated)
   "LA.pdf"
   (rewritten before read)
-["latex"] 1731853030 "LA.tex" "LA.dvi" "LA" 1731853034 0
-  "LA.aux" 1731853032 3479 626f62da217a1fe7b746767a51395753 "latex"
-  "LA.out" 1731853032 800 889dd2b3ee8af0e40ccab4057c2d3fff "latex"
-  "LA.tex" 1731853026 81406 8a7061021dd27f7d26f5052a38e50d35 ""
-  "LA.toc" 1731853032 1984 05b94412928651c5f19d95f8798aebeb "latex"
+["latex"] 1736400521 "LA.tex" "LA.dvi" "LA" 1736400531 0
+  "LA.aux" 1736400527 3479 626f62da217a1fe7b746767a51395753 "latex"
+  "LA.out" 1736400527 800 889dd2b3ee8af0e40ccab4057c2d3fff "latex"
+  "LA.tex" 1736400520 81404 16f010815cd25dc12461cb67ffafd733 ""
+  "LA.toc" 1736400527 1984 05b94412928651c5f19d95f8798aebeb "latex"
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
