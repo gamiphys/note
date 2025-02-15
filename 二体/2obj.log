@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  18 JAN 2025 15:52
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  18 JAN 2025 16:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -688,51 +688,53 @@ LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 43.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 13.31541pt on input line 43.
+File: qq.jpg Graphic file (type bmp)
+<qq.jpg>
+LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
+(Font)              scaled to size 8.32214pt on input line 50.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 47.
+(Font)              scaled to size 8.32214pt on input line 50.
 LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 47.
+(Font)              scaled to size 6.47278pt on input line 55.
+LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
+(Font)              scaled to size 4.62341pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 47.
+(Font)              scaled to size 9.24683pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 47.
+(Font)              scaled to size 6.47278pt on input line 55.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 47.
+(Font)              scaled to size 4.62341pt on input line 55.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 11.09619pt on input line 49.
+(Font)              scaled to size 11.09619pt on input line 57.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 6.47278pt on input line 53.
+(Font)              scaled to size 6.47278pt on input line 61.
 LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 4.62341pt on input line 53.
+(Font)              scaled to size 4.62341pt on input line 61.
 [1
 
-]
+] [2]
 LaTeX Font Info:    Font shape `JT2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JT2/gt/m/n' tried instead on input line 106.
+(Font)              Font shape `JT2/gt/m/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `JT2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 106.
+(Font)              scaled to size 9.24683pt on input line 114.
 LaTeX Font Info:    Font shape `JY2/mc/bx/n' in size <10> not available
-(Font)              Font shape `JY2/gt/m/n' tried instead on input line 106.
+(Font)              Font shape `JY2/gt/m/n' tried instead on input line 114.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
-(Font)              scaled to size 9.24683pt on input line 106.
- [2] [3]
+(Font)              scaled to size 9.24683pt on input line 114.
+ [3]
 File: q.jpg Graphic file (type bmp)
 <q.jpg>
-LaTeX Font Info:    Font shape `JT2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 166.
-LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
-(Font)              scaled to size 8.32214pt on input line 166.
- [4] [5] (./2obj.aux)
+ [4] [5] [6] (./2obj.aux)
 Package rerunfilecheck Info: File `2obj.out' has not changed.
 (rerunfilecheck)             Checksum: B6B1F2BBF8A8B12C0B5A71D5A3E87817;496.
  ) 
 Here is how much of TeX's memory you used:
- 22962 strings out of 476677
- 429046 string characters out of 5808165
- 1871484 words of memory out of 5000000
- 43004 multiletter control sequences out of 15000+600000
+ 22968 strings out of 476677
+ 429136 string characters out of 5808165
+ 1873484 words of memory out of 5000000
+ 43009 multiletter control sequences out of 15000+600000
  532451 words of font info for 127 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
- 84i,13n,89p,468b,460s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,89p,468b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 2obj.dvi (5 pages, 23448 bytes).
+Output written on 2obj.dvi (6 pages, 24048 bytes).

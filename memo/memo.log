@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  17 NOV 2024 16:47
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  14 FEB 2025 23:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -755,38 +755,38 @@ LaTeX Font Info:    Font shape `JY2/mc/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 2178.
 LaTeX Font Info:    Font shape `JY2/gt/m/n' will be
 (Font)              scaled to size 8.32214pt on input line 2178.
- [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84]
-Overfull \hbox (1.08173pt too wide) detected at line 3469
+ [49] [50] [51] [52] [53] [54] [55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76] [77] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88]
+Overfull \hbox (1.08173pt too wide) detected at line 3625
 []
  []
 
-[85] [86] [87] [88] [89]
-Underfull \hbox (badness 10000) detected at line 3599
+[89] [90] [91] [92] [93]
+Underfull \hbox (badness 10000) detected at line 3755
 []$[]$[]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3603
+Underfull \hbox (badness 10000) detected at line 3759
 []$[]$[]
  []
 
-[90] [91] [92] [93] [94] [95] [96] [97] [98] [99] [100] [101] [102] [103]
+[94] [95] [96] [97] [98] [99] [100] [101] [102] [103] [104] [105] [106] [107]
 File: set.png Graphic file (type bmp)
 <set.png>
- [104]
+ [108]
 File: set2.png Graphic file (type bmp)
 <set2.png>
- [105] [106] [107] [108] (./memo.aux)
+ [109] [110] [111] [112] (./memo.aux)
 Package rerunfilecheck Info: File `memo.out' has not changed.
-(rerunfilecheck)             Checksum: 3A2F96F7CD903C9CDAED6393CAAE801C;4285.
+(rerunfilecheck)             Checksum: CCC2C7E646593AAEBDB7A2F335E62DD8;4392.
  ) 
 Here is how much of TeX's memory you used:
- 23386 strings out of 476677
- 438114 string characters out of 5808165
+ 23388 strings out of 476677
+ 438135 string characters out of 5808165
  1885484 words of memory out of 5000000
- 43404 multiletter control sequences out of 15000+600000
- 538252 words of font info for 150 fonts, out of 8000000 for 9000
+ 43405 multiletter control sequences out of 15000+600000
+ 538420 words of font info for 151 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,21n,89p,477b,884s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on memo.dvi (108 pages, 603680 bytes).
+Output written on memo.dvi (112 pages, 624652 bytes).

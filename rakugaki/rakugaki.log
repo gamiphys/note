@@ -1,4 +1,4 @@
-This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  4 JAN 2025 14:05
+This is e-upTeX, Version 3.141592653-p4.1.0-u1.29-230214-2.6 (utf8.uptex) (TeX Live 2023) (preloaded format=uplatex 2023.4.15)  10 FEB 2025 20:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -728,20 +728,20 @@ Overfull \hbox (30.1052pt too wide) detected at line 854
 []
  []
 
-[21] [22] [23] (./rakugaki.aux)
+[21] [22] [23] [24] [25] (./rakugaki.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `rakugaki.out' has not changed.
-(rerunfilecheck)             Checksum: 1CB8A7E5E910560528B0B8C3B9E12A68;2126.
+(rerunfilecheck)             Checksum: FBAA8D421F4FEB1BC69A5331EA7CA75C;2460.
  ) 
 Here is how much of TeX's memory you used:
- 22953 strings out of 476677
- 428996 string characters out of 5808165
+ 22954 strings out of 476677
+ 429008 string characters out of 5808165
  1869484 words of memory out of 5000000
- 42999 multiletter control sequences out of 15000+600000
+ 43000 multiletter control sequences out of 15000+600000
  532170 words of font info for 125 fonts, out of 8000000 for 9000
  934 hyphenation exceptions out of 8191
  84i,16n,89p,472b,468s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on rakugaki.dvi (23 pages, 107444 bytes).
+Output written on rakugaki.dvi (25 pages, 113416 bytes).

@@ -977,4 +977,50 @@ $x = T_{H} - T'_{H},\quad y = T'_{L} - T_{L}$とすると、
 
 ここで「強度」のグラフを比較すれば、三角関数の周期性に従った変化が確認できる。
 
+\section{Thermosdynamic force}
+どうやら熱力学的な力と呼ばれるものが2種類あるらしい。どちらもカレントとの積の和を取ることでエントロピー生成率を復元することができる。
+
+\subsection{パターン1}
+1つ目のパターンは、白石本の揺動散逸定理のところで出てきた、
+\begin{align}
+    F_{u,i} &= \beta_i - \beta_0\\
+    F_{\rho,i} &= \beta_i \mu_i - \beta_0 \mu_0
+\end{align}
+である。これに対応するカレントは、
+\begin{align}
+    J_{u,i} &= \pdv{E_i}{t} \\
+    J_{\rho} &= \pdv{N_i}{t}
+\end{align}
+である。これらの積を取ることで、
+\begin{align}
+    \dot{\sigma} = k_{\text{B}}\sum_{i} \beta_{i}J_{i}
+\end{align}
+となる。
+
+\subsection{パターン2}
+2つ目のパターンを考えるために、マスター方程式の右辺を変形しておく。
+\begin{align}
+    \pdv{t}P(x,t) &= \sum_{x'}W_{x,x'}P(x',t)\\
+    &= \sum_{x'(x)}W_{x,x'}P(x',t) + W_{x,x}P(x,t)\\
+    &= \sum_{x'(\neq x)}W_{x,x'}P(x',t) - \sum_{x'(\neq x)}W_{x',x}P(x,t)\\
+    &= \sum_{x'(\neq x)}(J^{+}_{xx'} - J^{-}_{xx'})\\
+    &= \sum_{x'}(J^{+}_{xx'} - J^{-}_{xx'})\\
+    &= \sum_{x'}J_{xx'}.
+\end{align}
+ここで、
+\begin{align}
+    J^{+}_{xx'} &= W_{x,x'}P(x',t)\\
+    J^{-}_{xx'} &= W_{x',x}P(x,t)
+\end{align}
+である。これを用いて、熱力学的な力を以下のように定義する。
+\begin{align}
+    F_{xx'} = \ln \frac{J^{+}_{xx'}}{J^{-}_{xx'}}
+\end{align}
+これに対応するカレントは、$J_{xx'} = J^{+}_{xx'} - J^{-}_{xx'}$である。これらの積の和を取ることで、
+\begin{align}
+    \dot{\sigma} =k_{\text{B}} \sum_{(x,x')} J_{xx'} F_{xx'}
+\end{align}
+となる。
+
+
 \end{document}

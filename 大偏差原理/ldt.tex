@@ -346,6 +346,54 @@ $A_n \in B$に対して、
 \end{align}
 が成り立つ。
 
+\section{大偏差原理と平衡統計力学}
+\subsection{記号/概略}
+\begin{enumerate}
+    \item $n$粒子系
+    \item $(\omega = \{\omega_1, \omega_2, \cdots, \omega_n\})$:ミクロ状態
+    \item $H_{n}(\omega)$:ミクロ状態$\omega$におけるハミルトニアン
+    \item $h_{n}(\omega) = \frac{H_{n}(\omega)}{n}$:ミクロ状態$\omega$におけるエネルギー密度
+    \item  $M_n$:マクロ状態($\omega$の関数)
+\end{enumerate}
+このとき、$\omega$が確率変数であり、これは事前確率分布$P(\omega)$に従うとする。また、物理的な要請から、基本的に事前測度は一様分布
+\begin{align}
+    P(\dd\omega) = \frac{\dd{\omega}}{|\Lambda_n|}
+\end{align}
+とする。\footnote{リュービルの定理により、ミクロ状態の体積は一定であることから。}
+また、$n$粒子系の確率的なふるまいは、外部条件(熱浴と接触させるなど)によって、決定される。\\
+
+以下では、マクロ状態を確率変数とする確率分布$P(M_n)$に対して、
+\begin{align}
+    P(M_n) &\sim e^{-nI(M_n)}
+\end{align}
+なる大偏差原理が成り立つと考える。そして、そのレート関数を$0$とするマクロ状態$M_{n}^{*}$が平衡状態に対応すると考える。
+
+\subsection{平均エネルギーに対する大偏差原理}
+$h_{n}$についての確率分布$P(h_{n})$について考える。このとき、
+\begin{align}
+    P(h_{n}\in \dd{u}) &= \int_{\omega \in \Lambda_n: h_{n}(\omega) \in \dd{u}} P(\dd{\omega})\\
+    &= \frac{1}{|\Lambda_n|} \int_{\omega \in \Lambda_n: h_{n}(\omega) \in \dd{u}} \dd{\omega}\\
+    &:= \frac{\Omega(h_{n}\in \dd{u})}{|\Lambda|^n}
+\end{align}
+となる。ここで、$\Omega(h_{n}\in \dd{u})$は、エネルギー密度が$\dd{u}$のミクロ状態の数である。これが。大偏差原理を満たすとすると、そのレート関数は、
+\begin{align}
+    I(u) &=  \lim_{n \to \infty} -\frac{1}{n} \ln P(h_{n}\in \dd{u})\\\
+    &= \lim_{n \to \infty} -\frac{1}{n} \ln \frac{\Omega(h_{n}\in \dd{u})}{|\Lambda|^n}\\
+    &=  \lim_{n \to \infty} -\frac{1}{n} \ln \Omega(h_{n}\in \dd{u}) + \ln |\Lambda|\\
+    &:= \ln |\Lambda| - s(u)
+\end{align}
+となる。ただし、
+\begin{align}
+    s(u) = \lim_{n \to \infty} \frac{1}{n} \ln \Omega(h_{n}\in \dd{u})
+\end{align}
+とした。この$s(u)$は、エントロピー密度と呼ばれる。
+したがって、エネルギー密度についての確率分布レート関数$I(u)$は、エントロピー密度$s(u)$の逆符号になる。
+また、
+\begin{align}
+    s(u) = \lim_{n \to \infty} \frac{1}{n} \ln P(h_{n}\in \dd{u})
+\end{align}
+と再定義
+
 
 
 

@@ -2273,7 +2273,7 @@ $f(x)$を$x_{\text{min}} < x < x_{\text{max}}$で定義された下に凸な関�
   が成り立つ。
 \end{itembox}
 \textbf{Prf.}\\
-前半の存在性については絵を書けばわかる。実際、微分可能な場合については接線を連続的に動かしていけば良い。また、微分可能な点があっても成り立つ。Gibbs自由エネルギーなどで試すと良い。\\Y
+前半の存在性については絵を書けばわかる。実際、微分可能な場合については接線を連続的に動かしていけば良い。また、微分可能な点があっても成り立つ。Gibbs自由エネルギーなどで試すと良い。\\
 Youngの不等式は簡単に示せるので示しておく。ルジャンドル変換の定義より、
 \begin{align}
   f(x) + f^*(\alpha) = \max_{y} \{f(x)+\alpha y - f(y)\} \geq\alpha x
@@ -2289,6 +2289,167 @@ Youngの不等式より、
   f(x) = \max_{\alpha} \{\alpha x - f^*(\alpha)\}
 \end{align}
 が成り立つ。この関係式は、ルジャンドル変換を二回施すと、元の関数に戻ることを示している。\\
+
+
+\subsubsection{ベクトル解析}
+ベクトル解析の公式を真正面から計算するのは面倒なので、微分形式を用いて計算する例を以下に示す。\\
+\textbf{grad}\\
+$grad$は、0-formの外微分によって得られる。
+\begin{align}
+  \dd{f} = \pdv{f}{x}\dd{x} + \pdv{f}{y}\dd{y} +\pdv{f}{z}\dd{z} \simeq \qty(\pdv{f}{x},\pdv{f}{y},\pdv{f}{z}) = \grad{f}
+\end{align}
+
+\textbf{rot}
+$rot$は、1-formの外微分によって得られる。
+\begin{align}
+  \dd{A} &= \dd({A_x\dd{x}}+A_y\dd{y}+A_z\dd{z} )\\
+  &= \qty(\pdv{A_x}{y}\dd{y}+\pdv{A_x}{z}\dd{z} ) \wedge \dd{x} + \qty(\pdv{A_y}{x}\dd{x}+\pdv{A_y}{z}\dd{z})\wedge \dd{y} + \qty(\pdv{A_z}{x}\dd{x}+\pdv{A_z}{y}\dd{y}) \wedge \dd{z}\\
+  &= \qty(\pdv{A_z}{y}-\pdv{A_y}{z})\dd{y}\wedge \dd{z} + \qty(\pdv{A_x}{z}-\pdv{A_z}{x})\dd{z}\wedge \dd{x} + \qty(\pdv{A_y}{x}-\pdv{A_x}{y})\dd{x}\wedge \dd{y}\\
+  &\simeq \qty(\pdv{A_z}{y}-\pdv{A_y}{z},\pdv{A_x}{z}-\pdv{A_z}{x},\pdv{A_y}{x}-\pdv{A_x}{y}) = \nabla \times {A}
+\end{align}
+
+\textbf{div}\\
+$div$は、2-formの外微分によって得られる。
+\begin{align}
+  \dd{A} &= \dd({A_x\dd{y}\wedge \dd{z} + A_y\dd{z}\wedge \dd{x} + A_z\dd{x}\wedge \dd{y}})\\
+  &= \qty(\pdv{A_x}{x}+\pdv{A_y}{y}+\pdv{A_z}{z})\dd{x}\wedge \dd{y}\wedge \dd{z}\\
+  &\simeq \pdv{A_x}{x}+\pdv{A_y}{y}+\pdv{A_z}{z} = \nabla \cdot {A}
+\end{align}
+
+以上の話から、容易に以下が示される。
+\begin{itembox}[l]{\textbf{Prop.}}
+  以下が成立する。
+  \begin{align}
+    \text{div}(\text{rot}A) &= 0\\
+    \text{rot}(\text{grad}f) &= 0
+  \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \text{div}(\text{rot}A) &\simeq \dd(\dd{A}) =0\\
+  \text{rot}(\text{grad}f) &\simeq \dd(\dd{f}) =0
+\end{align}
+が成り立つ。したがって、示された。\hfill\qedsymbol\\
+
+他にも様々な公式を示すことができる。
+\begin{align}
+  \text{div}(A \times B) &\simeq \dd (A \wedge B)\\
+  &= \dd A \wedge B - A \wedge \dd B\\
+  &\simeq \text{rot}A \cdot B - A \cdot \text{rot}B
+\end{align}
+などが成り立つ。
+
+\begin{itembox}[l]{\textbf{Def.ラプラシアン}}
+  ラプラシアンは、以下のように定義される。
+  \begin{align}
+    \Delta = -(\delta \dd + \dd \delta)
+  \end{align}
+  ただし、$\delta$は余微分
+  \begin{align}
+    \delta = (-1)^{n(p+1)+1} \star \dd \star
+  \end{align}
+  である。(p-form,n次元)
+\end{itembox}
+特に、今は三次元について考えているので、余微分は、
+\begin{align}
+  \delta  = (-1)^{3p+4} \star \dd \star = (-1)^{p} \star \dd \star
+\end{align}
+このとき、以下の公式を示すことができる。
+
+\begin{itembox}[l]{\textbf{Prop.}}
+  \begin{align}
+    \Delta = \nabla \cdot \qty(\nabla \vb{E}) - \nabla \times \qty(\nabla \times \vb{E})
+  \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \Delta E = (-\dd \star \dd \star + \star \dd \star \dd)\vb{E}
+\end{align}
+を計算する。第一項について、
+\begin{align}
+  E &= E_{x}\dd{x} + E_{y}\dd{y} + E_{z}\dd{z}\\
+  \star E &= E_{x}\dd{y}\wedge \dd{z} + E_{y}\dd{z}\wedge \dd{x} + E_{z}\dd{x}\wedge \dd{y}\\
+  \dd \star E &= \qty(\pdv{E_{x}}{x}+\pdv{E_{y}}{y}+\pdv{E_{z}}{z})\dd{x}\wedge \dd{y}\wedge \dd{z}\\
+  \star \dd \star E &= \qty(\pdv{E_{x}}{x} + \pdv{E_{y}}{y} + \pdv{E_{z}}{z})\\
+  \dd \star \dd \star E &= \dd \qty(\pdv{E_{x}}{x} + \pdv{E_{y}}{y} + \pdv{E_{z}}{z})\\
+  &\simeq \nabla \qty(\nabla \cdot \vb{E})
+\end{align}
+
+第二項について、
+\begin{align}
+  \dd E &= (\text{rot} E)_x \dd{y}\wedge \dd{z} + (\text{rot} E)_y \dd{z}\wedge \dd{x} + (\text{rot} E)_z \dd{x}\wedge \dd{y}\\
+  \star \dd E &= (\text{rot} E)_x \dd{x} + (\text{rot} E)_y \dd{y} + (\text{rot} E)_z \dd{z}\\
+  \dd \star \dd E &= \text{rot} \qty(\text{rot} E)
+\end{align}
+したがって、
+\begin{align}
+  \Delta E = \nabla \cdot \qty(\nabla \vb{E}) - \nabla \times \qty(\nabla \times \vb{E})
+\end{align}
+が成り立つ。したがって、示された。\hfill\qedsymbol\\
+
+\textbf{p-formの内積}
+p-formの内積を定義しておく。
+\begin{itembox}[l]{\textbf{Def. p-formの内積}}
+  p-formの$\vb{u} = \vb{x}_1 \wedge \cdots \wedge \vb{x}_p$と$\vb{v} = \vb{y}_1 \wedge \cdots \wedge \vb{y}_p$の内積は、
+  \begin{align}
+    (\vb{u},\vb{v}) = 
+    \begin{vmatrix}
+      (\vb{x}_1,\vb{y}_1) & \cdots & (\vb{x}_1,\vb{y}_p)\\
+      \vdots & \ddots & \vdots\\
+      (\vb{x}_p,\vb{y}_1) & \cdots & (\vb{x}_p,\vb{y}_p)
+    \end{vmatrix}
+  \end{align}
+  で定義される。
+\end{itembox}
+
+これを用いて、Hodge star作用素を定義する。
+\begin{itembox}[l]{\textbf{Def. Hodge star作用素}}
+  p-formのHodge star作用素は、
+  \begin{align}
+    \vb{u} \wedge \vb{v} = (\star \vb{u},\vb{v})\dd{x}_1\wedge \cdots \wedge \dd{x}_n
+  \end{align}
+  で定義される。ただし、$\vb{v}$は、任意の$(n-p)$-formである。
+\end{itembox}
+実際にこれを用いて、$\mathbb{R}^3$について考えてみる。
+\begin{align}
+  \dd{x} \wedge \vb{v} &= (\star \dd{x},\vb{v})\dd{x}\wedge \dd{y}\wedge \dd{z}
+\end{align}
+について、特に$\vb{v} = \dd{y} \wedge \dd{z}$について考えれば十分だから、
+\begin{align}
+  \dd{x} \wedge \dd{y} \wedge \dd{z} &= (\star \dd{x},\dd{y} \wedge \dd{z})\dd{x}\wedge \dd{y}\wedge \dd{z}
+\end{align}
+となり、内積の部分が1になってほしいので、
+\begin{align}
+  \star \dd{x} = \dd{y} \wedge \dd{z}
+\end{align}
+となる。また、
+\begin{align}
+  (\dd{x} \wedge \dd{y} ) \wedge \vb{v} &= (\star (\dd{x} \wedge \dd{y}),\vb{v})\dd{x}\wedge \dd{y}\wedge \dd{z}
+\end{align}
+について、特に、$\vb{v} = \dd{z}$について考えれば十分だから、
+\begin{align}
+  (\dd{x} \wedge \dd{y} ) \wedge \dd{z} &= (\star (\dd{x} \wedge \dd{y}),\dd{z})\dd{x}\wedge \dd{y}\wedge \dd{z}
+\end{align}
+となり、内積の部分が1になってほしいので、
+\begin{align}
+  \star (\dd{x} \wedge \dd{y}) = \dd{z}
+\end{align}
+となる。0-form,3-formについても同様に計算することで、
+\begin{align}
+  \star 1 = \dd{x}\wedge \dd{y}\wedge \dd{z}\\
+  \star( \dd{x} \wedge \dd{y} \wedge \dd{z}) = 1
+\end{align}
+も得られる。
+
+\textbf{電磁気学への応用}\\
+せっかくなので、Maxwell方程式を微分形式の言葉で書いてみる。まずは、3+1座標の立場で(すなわち、時間は単なるパラメータとみなして)書き直してみる。Maxwell方程式は、
+
+
+
+\subsection{参考にしたもの}
+\begin{itemize}
+  \item \url{https://www.eng.niigata-u.ac.jp/~nomoto/download/df.pdf}
+\end{itemize}
 
 \part{物理}
 \section{古典力学}

@@ -1000,6 +1000,13 @@ INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmss12.tfm
+INPUT ./qq.jpg
+INPUT ./qq.jpg
+INPUT qq.jpg
+INPUT extractbb -B cropbox -O qq.jpg
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm
 INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
@@ -1032,9 +1039,6 @@ INPUT ./q.jpg
 INPUT ./q.jpg
 INPUT q.jpg
 INPUT extractbb -B cropbox -O q.jpg
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-v.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm
-INPUT c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT 2obj.aux
 INPUT ./2obj.out
 INPUT ./2obj.out

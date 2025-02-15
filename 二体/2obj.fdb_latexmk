@@ -1,13 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1737183158 "2obj.dvi" "2obj.pdf" "2obj" 1737183160 0
-  "2obj.dvi" 1737183158 23448 284ec014c8b5a2e39a904e39adea8101 "latex"
+["dvipdf"] 1737184930 "2obj.dvi" "2obj.pdf" "2obj" 1737184931 0
+  "2obj.dvi" 1737184930 24048 f82fdcd2034d5ce5f08dc5dd781833e6 "latex"
   (generated)
   "2obj.pdf"
   (rewritten before read)
-["latex"] 1737183156 "2obj.tex" "2obj.dvi" "2obj" 1737183160 0
-  "2obj.aux" 1737183158 1520 e038ba8fd28db361627544c94f245c15 "latex"
-  "2obj.out" 1737183158 496 b6b1f2bbf8a8b12c0b5a71d5a3e87817 "latex"
-  "2obj.tex" 1737183155 9656 b3c8cbfae95aa3375e6fc04c92913e1a ""
+["latex"] 1737184927 "2obj.tex" "2obj.dvi" "2obj" 1737184931 0
+  "2obj.aux" 1737184930 1695 98b1656e7325dbeff0f1e0ec7a675c39 "latex"
+  "2obj.out" 1737184930 496 b6b1f2bbf8a8b12c0b5a71d5a3e87817 "latex"
+  "2obj.tex" 1737184923 9820 3a060036562b929b90cf38fe35bf40c8 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -195,6 +195,7 @@
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
   "q.jpg" 1737182919 125287 e0c92251426d6dd38109b834452395d2 ""
+  "qq.jpg" 1737184887 95474 d3cc0fba47de7fccf3a1dbbd96323d59 ""
   (generated)
   "2obj.aux"
   "2obj.dvi"
