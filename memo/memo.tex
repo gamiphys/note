@@ -2291,7 +2291,174 @@ Youngの不等式より、
 が成り立つ。この関係式は、ルジャンドル変換を二回施すと、元の関数に戻ることを示している。\\
 
 
-\subsubsection{ベクトル解析}
+\subsection{ベクトル解析}
+\subsubsection{準備}
+\textbf{Levi-Civita記号}\\
+\begin{itembox}[l]{\textbf{Def. Levi-Civita記号}}
+  Levi-Civita記号$\epsilon_{\mu_{1} \mu_{2} \cdots \mu_{n}}$は、以下で定義される。
+  \begin{align}
+    \epsilon_{\mu_{1} \mu_{2} \cdots \mu_{n}} = 
+    \text{sgn}(\mu_{1} \mu_{2} \cdots \mu_{n})
+  \end{align}
+\end{itembox}
+特に、三次元の場合は、スカラー三重席による定義も便利である。
+\begin{align}
+  \epsilon_{ijk} = \vb{e}_{i} \cdot (\vb{e}_{j} \times \vb{e}_{k}) = \det 
+  \begin{pmatrix}
+    \vb{e}_{1} ^\top\\
+    \vb{e}_{2} ^\top\\
+    \vb{e}_{3} ^\top
+  \end{pmatrix}
+\end{align}
+である。
+
+\begin{itembox}[l]{\textbf{Prop.Levi-Civita記号の積(3次元)}}
+  3次元のLevi-Civita記号について、以下が成り立つ。
+  \begin{align}
+    \epsilon_{ijk}\epsilon_{lmn} &= 
+    \begin{vmatrix}
+      \vb{e}_i^{\top} \\
+      \vb{e}_j^{\top} \\
+      \vb{e}_k^{\top}
+      \end{vmatrix}
+      \begin{vmatrix}
+      \vb{e}_l & \vb{e}_m & \vb{e}_n
+      \end{vmatrix} \notag \\
+      &=
+      \begin{vmatrix}
+      \delta_{il} & \delta_{im} & \delta_{in} \\
+      \delta_{jl} & \delta_{jm} & \delta_{jn} \\
+      \delta_{kj} & \delta_{km} & \delta_{kn}
+      \end{vmatrix} \notag \\
+      &= 
+        \delta_{il} \delta_{jm} \delta_{kn} 
+        + \delta_{im} \delta_{jn} \delta_{kl} 
+        + \delta_{in} \delta_{jl} \delta_{km} \\
+        &\quad- \delta_{il} \delta_{jn} \delta_{km} 
+        - \delta_{in} \delta_{jm} \delta_{kl} 
+        - \delta_{im} \delta_{jl} \delta_{kn}
+  \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \epsilon_{ijk} \epsilon_{lmn} 
+  &=
+  \left[ (\vb{e}_i \times \vb{e}_j) \cdot \vb{e}_k \right]
+  \left[ (\vb{e}_l \times \vb{e}_m) \cdot \vb{e}_n \right] \notag \\
+  &= 
+  \begin{vmatrix}
+  \vb{e}_i^{\top} \\
+  \vb{e}_j^{\top} \\
+  \vb{e}_k^{\top}
+  \end{vmatrix}
+  \begin{vmatrix}
+  \vb{e}_l & \vb{e}_m & \vb{e}_n
+  \end{vmatrix} \notag \\
+  &=
+  \begin{vmatrix}
+  \delta_{il} & \delta_{im} & \delta_{in} \\
+  \delta_{jl} & \delta_{jm} & \delta_{jn} \\
+  \delta_{kj} & \delta_{km} & \delta_{kn}
+  \end{vmatrix} \notag \\
+  &= 
+    \delta_{il} \delta_{jm} \delta_{kn} 
+    + \delta_{im} \delta_{jn} \delta_{kl} 
+    + \delta_{in} \delta_{jl} \delta_{km} \\
+    &\quad- \delta_{il} \delta_{jn} \delta_{km} 
+    - \delta_{in} \delta_{jm} \delta_{kl} 
+    - \delta_{im} \delta_{jl} \delta_{kn}
+  \end{align}
+  であるから、示された。\hfill\qedsymbol\\
+
+系として、以下の公式が手に入る。
+\begin{itembox}[l]{\textbf{Cor.}}
+  以下が成り立つ。
+  \begin{align}
+    \sum_{m} \epsilon_{mij}\epsilon_{mkl} &= \delta_{ik}\delta_{jl} - \delta_{il}\delta_{jk}\\
+    \sum_{m,n} \epsilon_{mni}\epsilon_{mnj} &= 2\delta_{ij} 
+  \end{align}
+
+\end{itembox}
+\textbf{Prf.}\\
+\begin{align}
+  \epsilon_{mij} \epsilon_{mkl} 
+  &=
+  \begin{vmatrix}
+  \delta_{mm} & \delta_{mk} & \delta_{ml} \\
+  \delta_{im} & \delta_{ik} & \delta_{il} \\
+  \delta_{jm} & \delta_{jk} & \delta_{jl}
+  \end{vmatrix} \notag \\
+  &= \sum_{m=1}^{3} \delta_{mm}
+  \begin{vmatrix}
+  \delta_{ik} & \delta_{il} \\
+  \delta_{jk} & \delta_{jl}
+  \end{vmatrix}
+  - \sum_{m=1}^{3} \delta_{im}
+  \begin{vmatrix}
+  \delta_{mk} & \delta_{ml} \\
+  \delta_{jk} & \delta_{jl}
+  \end{vmatrix}
+  + \sum_{m=1}^{3} \delta_{jm}
+  \begin{vmatrix}
+  \delta_{mk} & \delta_{ml} \\
+  \delta_{ik} & \delta_{il}
+  \end{vmatrix} \notag \\
+  &= 3
+  \begin{vmatrix}
+  \delta_{ik} & \delta_{il} \\
+  \delta_{jk} & \delta_{jl}
+  \end{vmatrix}
+  - 
+  \begin{vmatrix}
+  \delta_{ik} & \delta_{il} \\
+  \delta_{jk} & \delta_{jl}
+  \end{vmatrix}
+  +
+  \begin{vmatrix}
+  \delta_{jk} & \delta_{ml} \\
+  \delta_{ik} & \delta_{il}
+  \end{vmatrix} \notag \\
+  &=
+  \begin{vmatrix}
+  \delta_{ik} & \delta_{il} \\
+  \delta_{jk} & \delta_{jl}
+  \end{vmatrix} \notag \\
+  &= \delta_{ik} \delta_{jl} - \delta_{il} \delta_{jk}
+  \end{align}
+  
+  \begin{align}
+  \epsilon_{mni} \epsilon_{mnj} 
+  &=
+  \begin{vmatrix}
+  \delta_{mm} & \delta_{mn} & \delta_{mj} \\
+  \delta_{nm} & \delta_{nn} & \delta_{nl} \\
+  \delta_{im} & \delta_{in} & \delta_{ij}
+  \end{vmatrix} \notag \\
+  &= \sum_{m,n=1}^{3} \delta_{mm}
+  \begin{vmatrix}
+  \delta_{nn} & \delta_{nj} \\
+  \delta_{in} & \delta_{ij}
+  \end{vmatrix}
+  - \sum_{m,n=1}^{3} \delta_{nm}
+  \begin{vmatrix}
+  \delta_{mn} & \delta_{mj} \\
+  \delta_{in} & \delta_{ij}
+  \end{vmatrix}
+  + \sum_{m,n=1}^{3} \delta_{im}
+  \begin{vmatrix}
+  \delta_{mn} & \delta_{mj} \\
+  \delta_{nn} & \delta_{nj}
+  \end{vmatrix} \notag \\
+  &= \sum_{n=1}^{3} 3 (\delta_{nn} \delta_{ij} - \delta_{in} \delta_{nj}) 
+  - \sum_{n=1}^{3} (\delta_{nn} \delta_{ij} - \delta_{in} \delta_{nj})
+  + \sum_{n=1}^{3} (\delta_{in} \delta_{nj} - \delta_{nn} \delta_{ij}) \notag \\
+  &= \sum_{n=1}^{3} (\delta_{nn} \delta_{ij} - \delta_{in} \delta_{nj}) \notag \\
+  &= 3 \delta_{ij} - \delta_{ij} \notag \\
+  &= 2 \delta_{ij}
+  \end{align}
+  \hfill\qedsymbol\\
+
+\subsubsection{微分形式}
 ベクトル解析の公式を真正面から計算するのは面倒なので、微分形式を用いて計算する例を以下に示す。\\
 \textbf{grad}\\
 $grad$は、0-formの外微分によって得られる。
@@ -2441,14 +2608,110 @@ p-formの内積を定義しておく。
 \end{align}
 も得られる。
 
+上と同様の定義だが
+\begin{align}
+  (\star A)_{\nu_1 \nu_2 \dots \nu_\ell} 
+  = \frac{\sqrt{|\det g|}}{k!} \epsilon_{\nu_1 \nu_2 \dots \nu_\ell}{}^{\mu_1 \mu_2 \dots \mu_k}
+  g^{\mu_1 \rho_1} g^{\mu_2 \rho_2} \dots g^{\mu_k \rho_k} 
+  A_{\rho_1 \rho_2 \dots \rho_k}
+\end{align}
+としてもよい。(前野先生のpdf参照)
+
 \textbf{電磁気学への応用}\\
 せっかくなので、Maxwell方程式を微分形式の言葉で書いてみる。まずは、3+1座標の立場で(すなわち、時間は単なるパラメータとみなして)書き直してみる。Maxwell方程式は、
+\begin{align}
+  \begin{cases}
+    \text{div} \vb{D} = \rho\\
+    \text{div} \vb{B} = 0\\
+    \text{rot} \vb{E} + \pdv{\vb{B}}{t} = 0\\
+    \text{rot} \vb{H} - \pdv{\vb{D}}{t} = \vb{j}
+  \end{cases}
+\end{align}
+である。これを微分形式の言葉で書き直す。今、$\vb{E}$および$\vb{H}$は1-formとし、$\vb{D}$および$\vb{B}$は2-formとする。このとき、
+\begin{align}
+  \begin{cases}
+    \dd \vb{D} = \rho\\
+    \dd \vb{B} = 0\\
+    \dd \vb{E} + \pdv{\vb{B}}{t} = 0\\
+    \dd \vb{H} - \pdv{\vb{D}}{t} = \vb{j}
+  \end{cases}
+\end{align}
+が成り立つ。divやrotがすべてdに置き換わって少し気分が良い形となる。特に、静的な場合については、
+\begin{align}
+  \begin{cases}
+    \dd \vb{D} = \rho\\
+    \dd \vb{B} = 0\\
+    \dd \vb{E} = 0\\
+    \dd \vb{H} = \vb{j}
+  \end{cases}
+\end{align}
+となる。ここで、ベクトルポテンシャルを
+\begin{align}
+  \vb{B} = \dd{\vb{A}}
+\end{align}
+と定義すると、
+\begin{align}
+  \dd \vb{B} = \dd \dd{\vb{A}} = 0
+\end{align}
+が自明に成立する。また、ベクトルポテンシャルに$\dd{\Lambda}$だけの任意性があることもすぐ確かめられる。\\
 
+以上の議論を次はMinkowski空間に拡張し、時間を位置と対等に扱ってみる。ベクトルポテンシャルを以下のように拡張する。
+\begin{align}
+  \vb{A} = A_{t} \dd{t} + A_{x} \dd{x} + A_{y} \dd{y} + A_{z} \dd{z}
+\end{align}
+ただし、$A_t = -\phi$とする。このとき、
+\begin{align}
+  F &= \dd{A}\\
+    &= \qty(-\pdv{\phi}{x} - \pdv{A_x}{t})\dd{x}\wedge \dd{t} + \qty(-\pdv{\phi}{y} - \pdv{A_y}{t})\dd{y}\wedge \dd{t} + \qty(-\pdv{\phi}{z} - \pdv{A_z}{t})\dd{z}\wedge \dd{t}\\
+    &\quad + \qty(\pdv{A_z}{y} - \pdv{A_y}{z})\dd{y}\wedge \dd{z} + \qty(\pdv{A_x}{z} - \pdv{A_z}{x})\dd{z}\wedge \dd{x} + \qty(\pdv{A_y}{x} - \pdv{A_x}{y})\dd{x}\wedge \dd{y}\\
+    &\vb{E} = \nabla{\phi} - \pdv{\vb{A}}{t}\text{を用いて}\\
+    &= E_x \dd{x} \wedge \dd{t} + E_y \dd{y} \wedge \dd{t} + E_z \dd{z} \wedge \dd{t}\\
+    &\quad B_x \wedge \dd{y} \wedge \dd{z} + B_y \dd{z} \wedge \dd{x} + B_z \dd{x} \wedge \dd{y}
+\end{align}
+となる。また、
+\begin{align}
+  \dd F &= \dd(E_x \dd{x} \wedge \dd{t} + E_y \dd{y} \wedge \dd{t} + E_z \dd{z} \wedge \dd{t})\\
+  &\quad + \dd(B_x \wedge \dd{y} \wedge \dd{z} + B_y \dd{z} \wedge \dd{x} + B_z \dd{x} \wedge \dd{y})\\
+\end{align}
+は恒等的に0となる。これについて、$\dd{x} \wedge \dd{y} \wedge \dd{t}$の項は、
+\begin{align}
+  \qty(\pdv{E_y}{x} - \pdv{E_x}{y} + \pdv{B_z}{t})\dd{x} \wedge \dd{y} \wedge \dd{t} 
+\end{align}
+となる。したがって、$\text{rot} E + \pdv{B}{t} = 0$が成り立つ。\\
+また、$\dd{x} \wedge \dd{y} \wedge \dd{z}$の項は、
+\begin{align}
+  \qty(\pdv{B_x}{x} + \pdv{B_y}{y} + \pdv{B_z}{z})\dd{x} \wedge \dd{y} \wedge \dd{z}
+\end{align}
+となる。したがって、$\div{B} = 0$が成り立つ。\\
 
+さらに、$F$のHodge starを考えると、
+\begin{align}
+  \star F &= -B_x \dd{x} \wedge \dd{t} - B_y \dd{y} \wedge \dd{t} - B_z \dd{z} \wedge \dd{t} \\
+  &\quad + E_x \dd{y} \wedge \dd{z} + E_y \dd{z} \wedge \dd{x} + E_z \dd{x} \wedge \dd{y}
+\end{align}
+となる。これの外微分を計算すると、
+\begin{align}
+  \dd \star F &= \qty(\pdv{B_x}{y} - \pdv{B_y}{x} + \pdv{E_z}{t})\dd{x} \wedge \dd{y} \wedge \dd{t}\\
+  &\quad + \qty(\pdv{B_y}{z} - \pdv{B_z}{y} + \pdv{E_x}{t})\dd{y} \wedge \dd{z} \wedge \dd{t}\\
+  &\quad + \qty(\pdv{B_z}{x} - \pdv{B_x}{z} + \pdv{E_y}{t})\dd{z} \wedge \dd{x} \wedge \dd{t}\\
+  &\quad + \qty(\pdv{E_x}{x} + \pdv{E_y}{y} + \pdv{E_z}{z})\dd{x} \wedge \dd{y} \wedge \dd{z}
+\end{align}
+となる。したがって、
+\begin{align}
+  j = \frac{\rho}{\epsilon} \dd{x} \wedge \dd{y} \wedge \dd{z} -\mu j_x \dd{y} \wedge \dd{z} \wedge \dd{t} -\mu  j_y \dd{z} \wedge \dd{x} \wedge \dd{t} -\mu  j_z \dd{x} \wedge \dd{y} \wedge \dd{t}
+\end{align}
+とすれば、$\text{rot} H - \pdv{D}{t} = j$および$\div{D} = \rho$が成り立つ。
+
+以上より、Maxwell方程式は、
+\begin{align}
+  \dd{\star F} = j
+\end{align}
+と書くことができる。
 
 \subsection{参考にしたもの}
 \begin{itemize}
   \item \url{https://www.eng.niigata-u.ac.jp/~nomoto/download/df.pdf}
+  \item \url{http://irobutsu.a.la9.jp/kougi/DFC.pdf}
 \end{itemize}
 
 \part{物理}
