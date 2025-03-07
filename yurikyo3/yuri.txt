@@ -1,0 +1,45 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{title}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+\end{document}

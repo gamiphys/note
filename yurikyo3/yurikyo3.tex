@@ -1,0 +1,305 @@
+\documentclass[a4paper,11pt]{jsarticle}
+
+% 数式
+\usepackage{amsmath,amsfonts}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% 表
+\usepackage[utf8]{inputenc}
+\usepackage{diagbox} % 斜線付きセルを作成するために必要
+\usepackage{booktabs} % 表の罫線を美しくするために必要
+\usepackage{hhline} % 水平罫線を制御するために必要
+
+% 画像
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{ascmac}
+\usepackage{physics}
+\usepackage{float} % 追加
+
+% 図
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{tikz} %図を描く
+\usetikzlibrary{positioning, intersections, calc, arrows.meta,math} %tikzのlibrary
+
+% ハイパーリンク
+\usepackage[dvipdfm,
+  colorlinks=false,
+  bookmarks=true,
+  bookmarksnumbered=false,
+  pdfborder={0 0 0},
+  bookmarkstype=toc]{hyperref}
+
+% 式番号を章ごとにリセット
+\numberwithin{equation}{section}
+
+\begin{document}
+
+\title{TUR(ゆり京)}
+\author{大上由人}
+\date{\today}
+\maketitle
+
+非平衡統計力学の枠組みでは、ゆらぎの定理から、様々な不等式が導出される。しかし、ゆらぎの定理以外から得られる不等式も存在する。その一つが、TUR(Thermodynamic Uncertainty Relation)型の不等式である。
+"TUR型"と呼んでいるのは、今回紹介する不等式の他にも、似た導出が可能な不等式が存在するためである。以下のノートでは、通常のTUR及び、KURと呼ばれる不等式について紹介する。
+
+\section{TUR}
+\subsection{Main Claim}
+\textbf{記号}\footnote{jump quantity,path quantityとしての正確な記述は補足に回す。}
+\begin{itemize}
+    \item $\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$\\
+$\to (\text{jからiへのjumpが起こった回数})-(\text{iからjへのjumpが起こった回数})$(time-integrated empirical probability current)\\
+    \item $\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$
+$\to$示量変数の積算カレント(cumulative thermodynamic current)
+    \item $d_{ij}\to$添え字に対する反対称性$d_{ij} = -d_{ji}$を満たす物理量
+\end{itemize}
+
+\textbf{ex.熱流}\\
+このとき、積算熱流は、$X_i = E_i$とすることで、以下のように定義される:
+\begin{align}
+    \hat{\mathcal{J}}_{d} = \sum_{(i,j)} (E_i - E_j) \hat{\mathcal{J}}_{ij}
+\end{align}
+
+また、jump quantityとしては以下のように定義される\\
+\begin{align}
+    {J}_{ij}(t) &= R_{ij}p_j(t) - R_{ji}p_i(t)\\
+    \qty(\hat{J}_{d}(t))_{ij} &= d_{ij} {J}_{ij}(t)\\
+    J_{d}(t) &= \ev{(\hat{J}_{d}(t)_{ij})} = \sum_{(i,j)} d_{ij} {J}_{ij}(t)
+\end{align}
+
+また、以下では、$\ev{\cdot}$で時間積分された量の平均も、jump quantityの平均も表すこととする。ただし、後者は、
+\begin{align}
+    \ev{X} = \sum_{i,j} X_{ij} R_{ij}p_j(t)
+\end{align}
+である。\\
+
+このとき、以下の定理が成り立つことが知られている:
+
+\begin{itembox}[l]{\textbf{Thm.熱力学的不確定性関係}}
+    定常Markov過程が局所詳細釣り合い条件を満たすとき、以下の関係が成り立つことが知られている:
+    \begin{align}
+        \frac{\text{Var}(\hat{\mathcal{J}}_d)}{\ev{\hat{\mathcal{J}}_d^{\text{ss}}}^2} \sigma \geq 2
+    \end{align}
+    ただし、
+    \begin{align}
+        \text{Var}(\hat{\mathcal{J}}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
+    \end{align}
+    である。\footnote{期待値は経路に対してとっている。}
+\end{itembox}
+この不等式は、以下の3つの性質をまとめて表している。
+\begin{itemize}
+    \item カレントの分散を抑えるためには、相応のコスト(エントロピー生成)が必要である。
+    \item カレントの分散を抑えるためには、カレントの大きさを小さくする必要性がある。
+    \item カレントを大きくするためには、相応のコスト(エントロピー生成)が必要である。
+\end{itemize}
+
+
+\subsection{Cram\'er-Raoの不等式による証明}
+Cram\'er-Raoの不等式を用いて、熱力学的不確定性関係を証明する。まず、準備として、Fisher情報量を以下のように定義する。
+\begin{itembox}[l]{\textbf{Def:Fisher情報量}}
+    パラメータ$\theta$についての確率分布$P_{\theta}(x)$が与えられたとき、Fisher情報量$F(\theta)$は以下のように定義される:
+    \begin{align}
+        F(\theta) = -\ev{\pdv[2]{\theta} \log P_{\theta}(x)}_{\theta} =\ev{\qty(\pdv{\theta} \log P_{\theta}(x))^2}_{\theta}
+    \end{align}
+\end{itembox}
+
+$P_{\theta}(x)$をパラメータ$\theta$をもつ確率変数$x$の確率分布であるとする。また、引数$\theta$の関数$f(\theta)$が与えられていたとする。
+ここでの目的は、$x$を$g(x)$として測定したとき、$f(\theta)$を推定することである。ここで、$g(x)$が$f(\theta)$の不偏推定量であると仮定する。すなわち、
+\begin{align}
+    f(\theta) = \ev{g(x)} 
+\end{align}
+が成り立つとする。
+このとき、$g(x)$がどれほど正確な推定量なのかの限界を表すのがCram\'er-Raoの不等式である。\\
+\begin{itembox}[l]{\textbf{Thm.一般化Cram\'er-Raoの不等式}}
+    $g(x)$がパラメータ$f(\theta)$の不偏推定量であるとき、
+    \begin{align}
+        \text{Var}_{\theta}(g(x)) \geq \frac{(f'(\theta))^2}{F(\theta)}
+    \end{align}
+    が成り立つ。
+\end{itembox}
+\textbf{Prf.}
+\begin{align}
+    \text{Var}_{\theta}g(x)F(\theta) &= \qty(\int \dd{x} (g(x) - f(\theta))^2 P_{\theta}(x))\qty(\int \dd{x} \qty(\pdv{\theta} \log P_{\theta}(x))^2 P_{\theta}(x))\\
+    &\geq \qty(\int \dd{x} (g(x) - f(\theta)) \pdv{\theta} (\ln P_{\theta}(x)) P_{\theta}(x))^2 \quad \because \text{Cauchy-Schwarz の不等式}\\
+    &= \qty(\int \dd{x} g(x) \pdv{\theta} P_{\theta}(x) - \int \dd{x} f(\theta) \pdv{\theta} P_{\theta}(x))^2\\
+    &= \qty(\pdv{\theta} \int \dd{x} g(x) P_{\theta}(x) )^2\quad \because \text{第二項の積分は規格化条件より0}\\
+    &= \qty(\pdv{\theta} f(\theta))^2 \quad \because \text{不偏推定量の仮定より}\\
+\end{align}
+\qed
+
+また、Fisher情報量とKLダイバージェンスは以下のように関係している:\footnote{ここの計算は、Taylor展開などを用いればできる。手書きで補うかもしれない。}
+\begin{align}
+    D(P_{\theta + d\theta} \| P_{\theta})
+    &= \int dx \, \pdv{}{\theta'} \left.\left( P_{\theta'}(x) \ln \frac{P_{\theta'}(x)}{P_{\theta}(x)} \right)\right|_{\theta' = \theta} d\theta \notag \\
+    &\quad + \frac{1}{2} \int dx \, \frac{\partial^2}{\partial \theta'^2} \left.\left( P_{\theta'}(x) \ln \frac{P_{\theta'}(x)}{P_{\theta}(x)} \right)\right|_{\theta' = \theta} (d\theta)^2 + O(d\theta^3) \notag \\
+    &= \frac{1}{2} \int dx \, \Bigg[ 2 \frac{1}{P_{\theta}(x)} \left( \pdv{}{\theta'} P_{\theta'}(x) \bigg|_{\theta' = \theta} \right)^2 \notag \\
+    &\quad + P_{\theta}(x) \frac{\partial^2}{\partial \theta'^2} \ln P_{\theta'}(x) \bigg|_{\theta' = \theta} \Bigg] (d\theta)^2 + O(d\theta^3) \notag \\
+    &= \frac{1}{2} \int dx \, P_{\theta}(x) \left( \pdv{}{\theta'} \ln P_{\theta'}(x) \bigg|_{\theta' = \theta} \right)^2 (d\theta)^2 + O(d\theta^3)\\
+    &= \frac{1}{2} F(\theta) (d\theta)^2 + O(d\theta^3)
+\end{align}
+この表式を見ると、$\theta$を変化させたとき、KLダイバージェンスの意味での確率分布の距離がどれほど変化するかを表す量がFisher情報量であることがわかる。この文脈ででCram\'er-Raoの不等式を見ると、
+$\theta$の変化による確率分布間の距離が大きければ大きいほど、推定量の分散は小さくなるということがわかる。直感的には、確率分布同士が似ているよりも、はっきり異なるほうが推定がしやすい(見分けがつきやすい)
+ということである。具体例は後に見ることにする。\\
+
+\noindent
+\textbf{Prf(熱力学的不確定性関係)}\\
+パラメータ$\theta$つきの遷移レートを以下のように定義する。
+\begin{align}
+    R_{ij}^{\theta} &= R_{ij}e^{\theta Z_{ij}} \quad (i \neq j)\\
+    R_{jj}^{\theta} &= -\sum_{i (\neq j)} R_{ij}^{\theta}e^{\theta Z_{ij}}\\
+\end{align}
+ただし、
+\begin{align}
+    Z_{ij} = \frac{R_{ij}p_j^\text{ss} - R_{ji}p_i^\text{ss}}{R_{ij}p_j^\text{ss} + R_{ji}p_i^\text{ss}}
+\end{align}
+である。この遷移レートで特徴づけられるような経路の確率分布を$P_{\theta}(\Gamma)$とする。\\
+一般化Cram\'er-Raoの不等式
+\begin{align}
+    \text{Var}_{\theta}(g(x)) \geq \frac{(f'(\theta))^2}{F(\theta)}
+\end{align}
+において、
+$x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text{ss}}_{\theta} = \ev{\hat{\mathcal{J}}_{d}}^{\text{ss}}_{\theta}$としたとき
+の$\theta = 0$の場合を使う。すなわち、
+\begin{align}
+\eval{\left( \frac{\partial \langle {\hat{\mathcal{J}}_{d}} \rangle_\theta^{\text{ss}}}{\partial \theta} \right)^2}_{\theta = 0}
+\leq \mathrm{Var}_{0} (\hat{\mathcal{J}}_{d}) F(0) \label{eq:1}
+\end{align}
+を用いる。\\
+
+
+\textbf{Fisher情報量について}\\
+\begin{align}
+    F(0) &= - \int_0^\tau dt 
+    \left[
+        \sum_{i \neq j} R_{ij} p_j(t) 
+        \eval{\frac{\partial^2}{\partial \theta^2} \ln R_{ij}^\theta}_{\theta = 0}
+        + \sum_j p_j(t) 
+        \eval{\frac{\partial^2}{\partial \theta^2} \ln e^{R_{jj}^\theta}}_{\theta = 0}
+    \right] \nonumber \\
+    &= \int_0^\tau dt \sum_j p_j(t) 
+    \eval{\frac{\partial^2}{\partial \theta^2} 
+        \sum_{k (\neq j)} R_{kj} e^{\theta Z_{kj}}}_{\theta = 0} \\
+        &\quad \because \text{第一項は微分で消える。第二項について、}R_{jj} = -\sum_{k (\neq j)} R_{kj}  \\
+    &= \int_0^\tau dt \sum_{k \neq j} R_{kj} p_j(t) Z_{kj}^2 \quad \because \text{微分を実行} \label{eq:ff}\\
+    &= \int_0^\tau dt \, \ev{\hat{Z}^2} 
+\end{align}
+と計算できる。\footnote{最初の等号は後の方に書いてある。}
+
+また、
+\begin{align}
+    &\ev{\hat{Z}^2}^{\text{ss}}\\
+    =& \frac{1}{2} \sum_{i,j} (Z_{ij}^2 p_j^\text{ss} R_{ij} + Z_{ji}^2 p_i^\text{ss} R_{ji})\\
+    =& \frac{1}{2} \sum_{i,j} Z_{ij}^2(R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss})\\
+    =& \frac{1}{2} \sum_{i,j} \frac{(R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})^2}{R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}}\\
+    \leq& \frac{1}{2}\qty(\frac{1}{2} \sum_{i,j} (R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})\ln \frac{R_{ij} p_j^\text{ss}}{R_{ji} p_i^\text{ss}}) \quad \because \text{16章で示した不等式}\\
+    \leq& \frac{\dot{\sigma}}{2} 
+\end{align}
+が得られる。
+
+\textbf{$f$について}\\
+はじめの状態を、定常状態に取る。(定理の仮定より)このとき、$R_{ij} ^{\theta} = R_{ij}(1+\theta Z_{ij}) + O(\theta^2)$であることを用いて、
+\begin{align}
+    &\sum_{i}R_{ij}^{\theta} p_j^\text{ss} - R_{ji}^{\theta} p_i^\text{ss} \\
+    =& \sum_{i}R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss} + \theta (R_{ij} p_j^\text{ss} Z_{ij} - R_{ji} p_i^\text{ss} Z_{ji}) + O(\theta^2)\\
+    =& \sum_{i}R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss} + \theta Z_{ij}(R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}) + O(\theta^2)\\
+    =& \sum_{i}R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss} + \theta  (R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss}) + O(\theta^2)\\
+    =& O(\theta^2) \quad \because \text{定常分布}
+\end{align}
+となる。したがって、$\theta$系の定常状態は、$O(\theta)$までの近似で、$\theta = 0$の定常状態と一致する。このときの定常カレントは、
+\begin{align}
+   (\hat{J}_{ij})_\theta^{\text{ss}}:= R_{ij}^\theta p_j^\text{ss} - R_{ji}^\theta p_i^\text{ss} = O(\theta^2)
+\end{align}
+と書くことができる。したがって、
+\begin{align}
+    &\eval{\pdv{({{{J}}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} \\
+    =& \eval{\pdv{\theta} (R_{ij}^\theta p_j^\text{ss} - R_{ji}^\theta p_i^\text{ss})}_{\theta = 0} \\
+    =&  R_{ij} Z_{ij} p_j^\text{ss} - R_{ji} Z_{ji} p_i^\text{ss} \\
+    =&  Z_{ij} (R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}) \\
+    =&  R_{ij}p_j^\text{ss} - R_{ji}p_i^\text{ss} \\
+    =& {J}_{ij}^\text{ss}
+\end{align}
+となる。したがって、
+\begin{align}
+    \eval{\pdv{({{J}_{ij}})^{\text{ss}}_\theta}{\theta}}_{\theta = 0} = {J}_{ij}^{\text{ss}}
+\end{align}
+である。両辺$d_{ij}$をかけて和を取ることで、
+\begin{align}
+    \left.\sum_{(i,j)} \pdv{\theta} ({d_{ij}{J}_{ij}})^{\text{ss}}_\theta \right|_{\theta = 0} = \sum_{(i,j)} d_{ij} {J}_{ij}^{\text{ss}}
+\end{align}
+が成り立つ。すなわち、
+\begin{align}
+    \left.\pdv{\theta} \ev{\hat{{J}}_{d}}^{\text{ss}}_\theta\right|_{\theta = 0} = \ev{\hat{{J}}_{d}}^{\text{ss}}_{0}
+\end{align}
+が成り立つ。両辺時間について積分することにより、
+\begin{align}
+    \left.\pdv{\theta} \ev{\hat{{\mathcal{J}}_{d}}}^{\text{ss}}_\theta\right|_{\theta = 0} = \ev{\hat{{\mathcal{J}}_{d}}}^{\text{ss}}_{0}
+\end{align}
+が成り立つ。\footnote{jump quantityの期待値の時間積分は対応するpath quantityの期待値の積分に対応する。}
+
+
+以上の関係式を用いて、式(\ref{eq:1})を評価すると、
+\begin{align}
+    \qty(\ev{\hat{\mathcal{J}}_{d}}^{\text{ss}}_{0})^2\leq \eval{\left( \frac{\partial \langle {\hat{\mathcal{J}}_{d}} \rangle_\theta^{\text{ss}})^2}{\partial \theta} \right)^2}_{\theta = 0}
+    \leq \mathrm{Var}_{0} (\hat{\mathcal{J}}_{d}) \int_0^\tau dt \, \langle \hat{Z}^2 \rangle \leq \frac{{\sigma}}{2} \mathrm{Var}_0 (\hat{\mathcal{J}}_{d})
+\end{align}
+が得られる。したがって、
+\begin{align}
+    \frac{\mathrm{Var}(\hat{\mathcal{J}}_{d})}{\qty(\ev{\hat{\mathcal{J}}_{d}}^{\text{ss}})^2} \sigma \geq 2
+\end{align}
+が成り立つ。\qed\\
+
+\textbf{補足:$F(0)$の表式}\\
+経路にわたっての期待値を計算するのだが、一旦時間を離散化したほうがわかりやすいので、離散化してマルコフ連鎖として考える。このとき、経路$\Gamma$の実現確率は
+\begin{align}
+    P_\theta(\Gamma) = \prod_{n=1}^N T^\theta_{w^n w^{n-1}} p^0_{w^0}
+\end{align}
+と書かれる。このもとで、m-step目における確率分布は、
+\begin{align}
+    p^m_{w_m} = \sum_{w_0, \dots, w_{m-1}} \prod_{n=1}^m T^{w^n w^{n-1}} p^0_{w^0}
+\end{align}
+と書かれる。これを下に、Fisher情報量を計算する。
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \frac{\partial^2}{\partial \theta^2} \ln P_\theta(\Gamma) 
+    &= \sum_{w_0, \dots, w_N} \prod_{n=1}^N T^{w^n w^{n-1}} p^0_{w^0} 
+    \frac{\partial^2}{\partial \theta^2} 
+    \left(
+        \sum_{n=1}^N \ln T^\theta_{w^n w^{n-1}} + \ln p^0_{w^0}
+    \right) \\
+    &= \sum_{w_0, \dots, w_N} \prod_{n=1}^N T^{w^n w^{n-1}} p^0_{w^0} 
+    \frac{\partial^2}{\partial \theta^2} 
+    \left(
+        \sum_{n=1}^N \ln T^\theta_{w^n w^{n-1}}
+    \right) \\
+\end{align}
+一番最後の$\Sigma$について考える。和の$k$番目の項について、
+\begin{align}
+    (\text{第k項}) &= \sum_{w_0, \dots, w_N} \prod_{n=1}^N T^{w^n w^{n-1}} p^0_{w^0} \frac{\partial^2}{\partial \theta^2} \ln T^\theta_{w^k w^{k-1}} \\
+    &(w^{0}\text{から}w^{k-2}\text{まで計算して、}) \nonumber \\
+    &= \sum_{w_{k-1}, w_k,\cdots, w_N} \prod_{n=k-1}^N T^{w^n w^{n-1}} p^{k-1}_{w^{k-1}}\frac{\partial^2}{\partial \theta^2} \ln T^\theta_{w^k w^{k-1}} \\
+    &(w^{k+1}\text{から}w^{N}\text{まで計算すると、規格化条件より}) \nonumber \\
+    &= \sum_{w_{k-1}, w_k} T^{w^k w^{k-1}} p^{k-1}_{w^{k-1}}\frac{\partial^2}{\partial \theta^2} \ln T^\theta_{w^k w^{k-1}} 
+\end{align}
+となる。したがって、
+\begin{align}
+    F(\theta) = -\sum_{n=1}^N \sum_{w_{n-1}, w_n} T^{w^n w^{n-1}} p^{n-1}_{w^{n-1}} \pdv[2]{\theta} \ln T^\theta_{w^n w^{n-1}}
+\end{align}
+となる。これを連続極限に持っていくと、$w^n = w^{n-1}$の場合と$w^n \neq w^{n-1}$の場合に分けて、
+\begin{align}
+    F(\theta) = -\int \dd{t} \qty[\sum_{i \neq j} R_{ij} p_j(t) \pdv[2]{\theta} \ln R_{ij}^\theta + \sum_j p_j(t) \pdv[2]{\theta} \ln e^{R_{jj}^\theta}]
+\end{align}
+となる。ただし、第二項については、$T_{ii} = 1-\sum_{j(\neq i)} R_{ij}\Delta t =1 + R_{ii} \Delta t$であることを用いて、
+\begin{align}
+    (1+R_{ii}\Delta t )\ln (1+R_{ii}\Delta t) &= (1+R_{ii}\Delta t )\ln \exp(R_{ii}\Delta t) + O(\Delta t^2)\\
+    &= (1+R_{ii}\Delta t )R_{ii} \Delta t + O(\Delta t^2)\\
+    &= R_{ii} \Delta t + O(\Delta t^2)\\
+    &= \ln e^{R_{ii}\Delta t} + O(\Delta t^2)
+\end{align}
+となることを用いている。\\
+
+\section{KUR}
+
+
+
+\end{document}
