@@ -37,13 +37,18 @@
 
 \begin{document}
 
-\title{TUR(ゆり京)}
-\author{大上由人}
+\title{熱力学的不確定性関係(ゆり京)}
+\author{gami\footnote{Twitter :@gami\_physics}}
 \date{\today}
 \maketitle
 
-非平衡統計力学の枠組みでは、ゆらぎの定理から、様々な不等式が導出される。しかし、ゆらぎの定理以外から得られる不等式も存在する。その一つが、TUR(Thermodynamic Uncertainty Relation)型の不等式である。
-"TUR型"と呼んでいるのは、今回紹介する不等式の他にも、似た導出が可能な不等式が存在するためである。以下のノートでは、通常のTUR及び、KURと呼ばれる不等式について紹介する。
+非平衡統計力学の枠組みでは、ゆらぎの定理から、様々な不等式が導出される。例えば、熱力学第二法則は、IFT(積分型ゆらぎの定理)にJensenの不等式を適用することで導出される。
+
+しかし、ゆらぎの定理以外から得られる不等式も存在する。その一つが、熱力学的不確定性関係(Thermodynamic Uncertainty Relation,TUR)型の不等式である。
+\footnote{"TUR型"と呼んでいるのは、今回紹介する不等式の他にも、似た導出が可能な不等式が存在するためである。}
+TURは、カレントのゆらぎとエントロピー生成との間のトレードオフを示す不等式である。以下のノートでは、定常状態におけるTUR及び、KURと呼ばれる不等式について紹介する。
+
+
 
 \section{TUR}
 \subsection{準備}
@@ -51,7 +56,7 @@
 まず、経路に対して値を返す量(path quantity)の記号を定義する。
 \begin{itemize}
     \item $\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$
-$: (\text{jからiへの正味のジャンプ数})$\\
+$: \text{jからiへの正味のジャンプ数}$\\
     \item $\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$
 $:$示量変数の積算カレント
     \item $d_{ij}:$添え字に対する反対称性$d_{ij} = -d_{ji}$を満たす物理量
@@ -64,32 +69,33 @@ $:$示量変数の積算カレント
 \end{align}
 
 また、ジャンプに対して値を返す量(jump quantity)として、対応する記号を定義する。
-\begin{align}
-    {J}_{ij}(t) &= R_{ij}p_j(t) - R_{ji}p_i(t)\\
-    \qty(\hat{J}_{d}(t))_{ij} &= d_{ij} {J}_{ij}(t)\\
-    J_{d}(t) &= \ev{(\hat{J}_{d}(t)_{ij})} = \sum_{(i,j)} d_{ij} {J}_{ij}(t)
-\end{align}
+\begin{itemize}
+    \item ${J}_{ij}(t) = R_{ij}p_j(t) - R_{ji}p_i(t)$
+    \item $\qty(\hat{J}_{d}(t))_{ij} = d_{ij} {J}_{ij}(t)$
+    \item $J_{d}(t) = \ev{(\hat{J}_{d}(t)_{ij})} = \sum_{(i,j)} d_{ij} {J}_{ij}(t)$
+\end{itemize}
 
 以下では、$\ev{\cdot}$でpath quantityの平均も、jump quantityの平均も表すこととする。\\
 
-
-% \begin{itembox}[l]{\textbf{Thm.熱力学的不確定性関係}}
-%     定常Markov過程が局所詳細釣り合い条件を満たすとき、以下の関係が成り立つことが知られている:
-%     \begin{align}
-%         \frac{\text{Var}(\hat{\mathcal{J}}_d)}{\ev{\hat{\mathcal{J}}_d^{\text{ss}}}^2} \sigma \geq 2
-%     \end{align}
-%     ただし、
-%     \begin{align}
-%         \text{Var}(\hat{\mathcal{J}}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
-%     \end{align}
-%     である。\footnote{期待値は経路に対してとっている。}
-% \end{itembox}
-% この不等式は、以下の3つの性質をまとめて表している。
-% \begin{itemize}
-%     \item カレントの分散を抑えるためには、相応のコスト(エントロピー生成)が必要である。
-%     \item カレントの分散を抑えるためには、カレントの大きさを小さくする必要性がある。
-%     \item カレントを大きくするためには、相応のコスト(エントロピー生成)が必要である。
-% \end{itemize}
+\subsubsection{TUR}
+先に、今回の目標であるTURを紹介する。
+\begin{itembox}[l]{\textbf{Thm.熱力学的不確定性関係}}
+    定常Markov過程が局所詳細釣り合い条件を満たすとき、以下の関係が成り立つことが知られている:
+    \begin{align}
+        \frac{\text{Var}(\hat{\mathcal{J}}_d)}{\ev{\hat{\mathcal{J}}_d^{\text{ss}}}^2} \sigma \geq 2
+    \end{align}
+    ただし、
+    \begin{align}
+        \text{Var}(\hat{\mathcal{J}}_d) &= \ev{\qty(\hat{\mathcal{J}}_d -\ev{\hat{\mathcal{J}_d}})}^2
+    \end{align}
+    である。\footnote{期待値は経路に対してとっている。}
+\end{itembox}
+この不等式は、以下の3つの性質をまとめて表している。
+\begin{itemize}
+    \item カレントの分散を抑えるためには、相応のコスト(エントロピー生成)が必要である。
+    \item カレントの分散を抑えるためには、カレントの大きさを小さくする必要性がある。
+    \item カレントを大きくするためには、相応のコスト(エントロピー生成)が必要である。
+\end{itemize}
 
 \noindent
 \subsubsection{情報論的不等式}
@@ -159,14 +165,14 @@ Cram\'er-Raoの不等式を用いて、TURを導出する。\\
     \end{align}
     である。
 \end{itembox}
-この不等式は、以下の3つの性質をまとめて表している。
-\begin{itemize}
-    \item カレントの分散を抑えるためには、相応のコスト(エントロピー生成)が必要である。
-    \item カレントの分散を抑えるためには、カレントの大きさを小さくする必要性がある。
-    \item カレントを大きくするためには、相応のコスト(エントロピー生成)が必要である。
-\end{itemize}
+% この不等式は、以下の3つの性質をまとめて表している。
+% \begin{itemize}
+%     \item カレントの分散を抑えるためには、相応のコスト(エントロピー生成)が必要である。
+%     \item カレントの分散を抑えるためには、カレントの大きさを小さくする必要性がある。
+%     \item カレントを大きくするためには、相応のコスト(エントロピー生成)が必要である。
+% \end{itemize}
 
-\textbf{Prf.(TUR)}\\
+\textbf{Prf.}\\
 パラメータ$\theta$つきの遷移レートを以下のように定義する。
 \begin{align}
     R_{ij}^{\theta} &= R_{ij}e^{\theta Z_{ij}} \quad (i \neq j)\\
@@ -211,14 +217,18 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 
 また、
 \begin{align}
-    &\ev{\hat{Z}^2}^{\text{ss}}\\
-    =& \frac{1}{2} \sum_{i,j} (Z_{ij}^2 p_j^\text{ss} R_{ij} + Z_{ji}^2 p_i^\text{ss} R_{ji})\\
-    =& \frac{1}{2} \sum_{i,j} Z_{ij}^2(R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss})\\
-    =& \frac{1}{2} \sum_{i,j} \frac{(R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})^2}{R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}}\\
-    \leq& \frac{1}{2}\qty(\frac{1}{2} \sum_{i,j} (R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})\ln \frac{R_{ij} p_j^\text{ss}}{R_{ji} p_i^\text{ss}}) \\
-    \leq& \frac{\dot{\sigma}}{2} 
+    \ev{\hat{Z}^2}^{\text{ss}}&= \frac{1}{2} \sum_{i,j} (Z_{ij}^2 p_j^\text{ss} R_{ij} + Z_{ji}^2 p_i^\text{ss} R_{ji})\\
+    &= \frac{1}{2} \sum_{i,j} Z_{ij}^2(R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss})\\
+    &= \frac{1}{2} \sum_{i,j} \frac{(R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})^2}{R_{ij} p_j^\text{ss} + R_{ji} p_i^\text{ss}}\\
+    &\leq \frac{1}{2}\qty(\frac{1}{2} \sum_{i,j} (R_{ij} p_j^\text{ss} - R_{ji} p_i^\text{ss})\ln \frac{R_{ij} p_j^\text{ss}}{R_{ji} p_i^\text{ss}}) \\
+    &= \frac{1}{2} \sum_{i,j} R_{ij} p_j^\text{ss} \ln \frac{R_{ij} p_j^\text{ss}}{R_{ji} p_i^\text{ss}}\\
+    &= \frac{\dot{\sigma}}{2} 
 \end{align}
-が得られる。
+が得られる。ただし、不等号の部分については
+\begin{align}
+    (a-b)\ln \frac{a}{b} \geq  \frac{2(a - b)^2}{a + b}
+\end{align}
+を用いた。(補足に回す。)\\
 
 \textbf{$f$について}\\
 はじめの状態を、定常状態に取る。(定理の仮定より)このとき、$R_{ij} ^{\theta} = R_{ij}(1+\theta Z_{ij}) + O(\theta^2)$であることを用いて、
@@ -272,7 +282,200 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \end{align}
 が成り立つ。\qed\\
 
-\textbf{補足:$F(0)$の表式}\\
+\newpage
+\section{KUR}
+TUR型の別の不等式として、KUR(Kinetic Uncertainty Relation)がある。まず、記号を準備する。
+\begin{itembox}[l]{\textbf{Def.Activity}}
+    状態の組(i,j)に対するactivityは、
+    \begin{align}
+        \hat{A}_{ij} := \frac{1}{\tau} \sum_{n} \left( 
+    \delta_{w_j \to w_i}(w^{n-1} \to w^n) + \delta_{w_i \to w_j}(w^{n-1} \to w^n) 
+    \right)
+    \end{align}
+    で定義される。また、系全体のactivityは、
+    \begin{align}
+        \hat{A} := \sum_{(i,j)}  \hat{A}_{ij}
+    \end{align}
+    で定義される。
+\end{itembox}
+activityは、二つの状態間の遷移の活発さを表す量である。
+
+\textbf{記号}
+\begin{itemize}
+    \item $\hat{X}$: jump quantity(jumpに対して値を返すような物理量のこと、値$X_{ij}$を返す)
+    \item $\hat{\hat{X}} := \sum_{n} X_{ij}(\delta_{\omega_j \to \omega_{i}}(\omega^{n-1} \to \omega^{n})) \delta(t-t_n)$
+    : jump quantityに対応するpath quantity\\
+    このとき、 $\ev{\ev{\hat{\hat{X}}}}= \ev{\hat{X}}$が成立する。
+    \item $\hat{\hat{\mathcal{X}}} := \int_{0}^{\tau} dt \hat{\hat{X}}(t)= \sum_{ij}\sum_{n}X_{ij}(\delta_{\omega_j \to \omega_{i}}(\omega^{n-1} \to \omega^{n}))$: jump quantityの積算
+    \item $ A_{ij}(t) := \expval{\hat{A}_{ij}}_t = R_{ji} p_i^{\text{ss}}(t) + R_{ij} p_j^{\text{ss}}(t)$:平均activity
+    \item $\mathcal{A} := \int_{0}^{\tau} dt \, A(t) := \int dt \sum_{i \neq j} R_{ij} p_j(t)$: 系の積算activity
+\end{itemize}
+
+\begin{align}
+    \expval{\hat{1}} = \mathcal{A} := \int_{0}^{\tau} dt \, A(t) := \int dt \sum_{i \neq j} R_{ij} p_j(t).
+\end{align}
+
+\begin{itembox}[l]{\textbf{Thm.Kinetic uncertainty relation}}
+    jump quantity$X$に対して、$\hat{\mathcal{X}}$のゆらぎは以下のように抑えられる。
+    \begin{align}
+        \frac{\operatorname{Var} \hat{\mathcal{X}}}{\left(\tau X(\tau)\right)^2} \mathcal{A} \geq 1
+    \end{align}
+\end{itembox}
+要するに、ジャンプ回数が多ければ多いほど、ジャンプ量のゆらぎは小さくなるということである。\\
+
+\textbf{Prf.}\footnote{多分時間が足りないので当日は追わない。}\\
+$\theta-$遷移レートを以下のように定義する。
+\begin{align}
+    R_{ij}^{\theta} &= R_{ij}e^{\theta } \quad (i \neq j)\\
+    R_{jj}^{\theta} &= -\sum_{i (\neq j)} R_{ij}^{\theta}e^{\theta }\\
+\end{align}
+Cram\'er-Raoの不等式を用いる。すなわち、
+\begin{align}
+    \eval{\left( \frac{\partial \langle {\hat{\mathcal{X}}_{d}} \rangle_\theta}{\partial \theta} \right)^2}_{\theta = 0}
+    \leq \mathrm{Var}_{0} (\hat{\mathcal{X}}) F(0) \label{eq:2}
+    \end{align}
+    を用いる。
+
+\textbf{Fisher情報量について}\\
+\begin{align}
+    F(0) &= \int_{0}^{\tau} dt \sum_{i \neq j} R_{ij} p_j(t) = \mathcal{A} \quad \because (\ref{eq:ff})\text{で}Z=1\text{とした。}
+\end{align}
+
+\textbf{$\ev{\hat{\mathcal{X}}}_{\theta}$について}\\
+$\theta$系の時間発展は、
+\begin{align}
+    \pdv{p_i^{\theta}(t)}{t} &= \sum_{j} R_{ij}^{\theta}p_j^{\theta} (t)\\
+    &= e^{\theta} \sum_{j} R_{ij}p_j^{\theta} (t)
+\end{align}
+となる。この式から、
+\begin{align}
+    p_i^{\theta}(t) = p_i(e^{\theta}t)
+\end{align}
+となっていることがわかる。(タイムスケールの変換)。これを用いると、
+\begin{align}
+    \pdv{\ev{\hat{\mathcal{X}}}_{\theta}}{\theta} &= \pdv{\theta}\int_{0}^{\tau} \dd{t} \sum_{i \neq j} R_{ij}^{\theta} X_{ij}p_j^{\theta}(t)\\
+    &= \pdv{\theta}\int_{0}^{\tau} \dd{t} e^{\theta} \sum_{i \neq j} R_{ij} X_{ij}p_j(e^{\theta}t)\\
+    &= \pdv{\theta}\int_{0}^{e^{\theta}\tau} \dd{t} \sum_{i \neq j} R_{ij} X_{ij}p_j(t)\\
+    &\underset{\theta \to 0}{\longrightarrow} \tau \ev{\hat{X}(\tau)}
+\end{align}
+となる。\\
+以上の結果とCram\'er-Raoの不等式を用いると、
+\begin{align}
+    (\tau \ev{\hat{X}(\tau)})^2 \leq \text{Var}_0(\hat{\mathcal{X}}) \mathcal{A}
+\end{align}
+となる。これより、
+\begin{align}
+    \frac{\text{Var}(\hat{\mathcal{X}})}{\qty(\tau \ev{\hat{X}(\tau)})^2} \mathcal{A} \geq 1
+\end{align}
+が成り立つことがわかる。\qed
+
+\newpage
+\section{補足}
+\subsection{物理量の定義}
+\subsubsection{物理量の分類}
+ゆらぐ系の熱力学においては、基本的に以下の三種類の物理量が考えられる。\\
+\begin{itembox}[l]{\textbf{Def.state quantity/jump quantity/path quantity}}
+    state quantity $\hat{f}$は、状態 $j$に対して、値 $f_j$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{f}}_{\vb{p}} = \sum_{j} f_j p_j
+    \end{align}
+    で定義される。\\
+
+    jump quantity $\hat{g}$は、状態 $j$から状態 $k$に遷移するとき、値 $g_{j\to k}$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\hat{g}}_{\vb{p},R} = \sum_{j\neq k} R_{kj} p_j g_{j\to k}
+    \end{align}
+    で定義される。\\
+
+    path quantity $\hat{\hat{F}}$は、経路$\Gamma$に対して、値 $F({\Gamma})$をとる物理量である。また、この期待値は、
+    \begin{align}
+        \ev{\ev{\hat{\hat{F}}}}_{\Gamma} = \int \dd{\Gamma} P(\Gamma) F(\Gamma)
+    \end{align}
+    で定義される。
+\end{itembox}
+
+\subsubsection{物理量の関係}
+素朴には、各state/jump quantityを経路にわたって足し合わせることで、対応するpath quantityが定義できそうなものである。以下では、その素朴な定義が正しいことと、更にそれぞれの期待値が一致することを示す。\\
+
+\noindent
+\textbf{state quantityとpath quantityの関係}\\
+時間に依存するstate quantity $\hat{f}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{f}}(t)$は、経路$\Gamma$に対して、値
+\begin{align}
+    f(\Gamma,t) = f_{\Gamma(t)} = \sum_{m=0}^{n} f_{j_{m}}(t) \chi[t \in [t_{m},t_{m+1}]]
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop.state quantityとpath quantityの関係}}
+    state quantity $\hat{f}(t)$と対応するpath quantity $\hat{\hat{f}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{f}(t)}_{\vb{p}(t)} = \ev{\ev{\hat{\hat{f}}(t)}}_{\Gamma}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+今回は使わないので略。\qed\\
+
+\noindent
+\textbf{jump quantityとpath quantityの関係}\\
+時間に依存するjump quantity $\hat{g}(t)$について、対応するpath quantityを考えることができる。対応するpath quantity $\hat{\hat{g}}(t)$は、経路$\Gamma$に対して、値
+\begin{align}
+    g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta(t-t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{itembox}[l]{\textbf{Prop.jump quantityとpath quantityの関係}}
+    jump quantity $\hat{g}(t)$と対応するpath quantity $\hat{\hat{g}}(t)$について、以下が成り立つ。
+    \begin{align}
+        \ev{\hat{g}(t)}_{\vb{p}(t),R(t)} = \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma}
+    \end{align}
+\end{itembox}
+\textbf{Prf.}\\
+離散のほうがやりやすいので、離散の場合を考える。右辺は以下のように書ける。
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} 
+    \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_m) 
+\end{align}
+一番最後の$\Sigma$について考える。和の$k$番目の項について、
+\begin{align}
+    (\text{第k項}) &= \sum_{j_0, \dots, j_N} \prod_{n=1}^N T^{j^n j^{n-1}} p^0_{j^0} g_{j_{k-1} \to j_{k}}(t_k) \\
+    &(j^{0}\text{から}j^{k-2}\text{まで計算して、}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k, \cdots, j_N} \prod_{n=k-1}^N T^{j^n j^{n-1}} p^{k-1}_{j^{k-1}} g_{j_{k-1} \to j_{k}}(t_k) \\
+    &(j^{k+1}\text{から}j^{N}\text{まで計算すると、規格化条件より}) \nonumber \\
+    &= \sum_{j_{k-1}, j_k} T^{j^k j^{k-1}} p^{k-1}_{j^{k-1}} g_{j_{k-1} \to j_{k}}(t_k)
+\end{align}
+となる。これを連続極限に持っていくことで、
+\begin{align}
+    \int d\Gamma \, P(\Gamma) \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t) \delta_{t,t_m}
+    &= \sum_{j\neq k} p_{j} R_{kj} g_{j \to k}(t)\\
+    &= \ev{\hat{g}(t)}_{\vb{p}(t), R(t)}
+\end{align}
+となる。\qed
+
+また、path quantityの積分量
+\begin{align}
+    {\hat{\hat{G}}}= \int_{0}^{\tau} \dd{t} \hat{\hat{g}}(t)
+\end{align}
+は、pathに対して値
+\begin{align}
+    G(\Gamma) = \int_{0}^{\tau} \dd{t} g(\Gamma,t) = \sum_{m=1}^{n} g_{j_{m-1} \to j_{m}}(t_{m})
+\end{align}
+をとる物理量である。このとき、以下が成り立つ。
+\begin{align}
+    \ev{\ev{\hat{\hat{G}}}}_{\Gamma} = \int \dd{t} \ev{\ev{\hat{\hat{g}}(t)}}_{\Gamma} = \int \dd{t} \ev{\hat{g}(t)}_{\vb{p}(t),R(t)}
+\end{align}
+
+
+\subsection{TURの証明で用いた不等式の証明}
+TURの証明で用いた不等式を示す。$1/x$の凸性から、
+\begin{align}
+    \ln a - \ln b &= \int_b^a \frac{dx}{x} \\
+    &\geq (a - b) \frac{1}{\frac{a + b}{2}} \\
+    &= \frac{2(a - b)}{a + b}.
+\end{align}
+が言える。
+TODO: 積分の図を書く。
+
+
+
+\subsection{$F(0)$の表式}
 経路にわたっての期待値を計算するのだが、一旦時間を離散化したほうがわかりやすいので、離散化してマルコフ連鎖として考える。このとき、経路$\Gamma$の実現確率は
 \begin{align}
     P_\theta(\Gamma) = \prod_{n=1}^N T^\theta_{w^n w^{n-1}} p^0_{w^0}
@@ -320,8 +523,10 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \end{align}
 となることを用いている。\\
 
-\section{KUR}
-
-
+\begin{thebibliography}{99}
+    \bibitem{ref1} Naoto Shiraishi, 『An introduction to stochastic thermodynamics』, Springer, 2023
+    \bibitem{ref2} 齊藤圭司, 『ゆらぐ系の熱力学』, SGCライブラリ, 2022
+  \end{thebibliography}
+  
 
 \end{document}

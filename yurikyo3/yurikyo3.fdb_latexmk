@@ -1,11 +1,13 @@
 # Fdb version 4
-["dvipdf"] 1741332069 "yurikyo3.dvi" "yurikyo3.pdf" "yurikyo3" 1741332071 0
-  "yurikyo3.dvi" 1741332068 39732 8b5eb164b4dff854828abf04fb45ad3b "latex"
+["dvipdf"] 1741789585 "yurikyo3.dvi" "yurikyo3.pdf" "yurikyo3" 1741789586 0
+  "yurikyo3.dvi" 1741789585 70596 488e8554522e2e2b139048b3de4fc996 "latex"
   (generated)
   "yurikyo3.pdf"
   (rewritten before read)
-["latex"] 1741332064 "yurikyo3.tex" "yurikyo3.dvi" "yurikyo3" 1741332071 0
+["latex"] 1741789583 "yurikyo3.tex" "yurikyo3.dvi" "yurikyo3" 1741789586 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1681538073 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1681538073 1536 05df9db6aeccc4eea94fec15c9024f79 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1681538073 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1681536317 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1681536317 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -45,6 +47,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1681537339 1124 6c73e740cf17375f03eec0ee63599741 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1681537339 1116 933a60c408fc0a863a92debe84b2d294 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1681537339 1120 8b7d695260f3cff42e636090a8002094 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1681537339 1492 86331993fe614793f5e7e755835c31c5 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisg-v.tfm" 1681543120 536 5f2475e9deb198c23894800d3c5eed00 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/uptex-fonts/jis/upjisr-h.tfm" 1681543120 812 52bd92aa20c58a398601cda6dd62c8d1 ""
@@ -192,9 +195,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "yurikyo3.aux" 1741332068 1303 76fe5c5e7a29693f496f9880c3a2d768 "latex"
-  "yurikyo3.out" 1741332068 259 8d19c55864eff0ebf16f29c9596ebfb5 "latex"
-  "yurikyo3.tex" 1741332058 17648 24f2254c859c5bdc139c55b06b8eb000 ""
+  "yurikyo3.aux" 1741789585 2282 8608f83ca0f9d0b1e728449d1edf5aa0 "latex"
+  "yurikyo3.out" 1741789585 682 6bd536ac5ed1f4ac572d58f7b4b1acf8 "latex"
+  "yurikyo3.tex" 1741789582 27992 e790089ddd8a15b8e7c68210e8169406 ""
   (generated)
   "yurikyo3.aux"
   "yurikyo3.dvi"
