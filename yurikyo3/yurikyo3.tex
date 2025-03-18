@@ -55,18 +55,16 @@ TURは、カレントのゆらぎとエントロピー生成との間のトレ�
 \subsubsection{記号}
 まず、経路に対して値を返す量(path quantity)の記号を定義する。
 \begin{itemize}
-    \item $\hat{\mathcal{J}}_{ij} = \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$
-$: \text{jからiへの正味のジャンプ数}$\\
-    \item $\hat{\mathcal{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\mathcal{J}}_{ij}$
-$:$示量変数の積算カレント
+    \item  $ \hat{\hat{J}}_{ij} =\sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n)) \delta(t-t_n)$:$i \to j$なる確率流
+    \item $\hat{\hat{\mathcal{J}}}_{ij} = 
+    % \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$
+    \int_{0}^{\tau} dt \hat{\hat{J}}_{ij}(t)$:$i \to j$なるカレントの積算
+    \item $\hat{\hat{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\hat{J}}_{ij}$:$i \to j$の物理量のカレントの和
+    \item $\hat{\hat{\mathcal{J}}}_{d} = \sum_{(i,j)} d_{ij} \hat{\hat{\mathcal{J}}}_{ij}$
+:物理量のカレントの積算
     \item $d_{ij}:$添え字に対する反対称性$d_{ij} = -d_{ji}$を満たす物理量
 \end{itemize}
 
-\textbf{ex.熱流}\\
-このとき、積算熱流は、$X_i = E_i$とすることで、以下のように定義される:
-\begin{align}
-    \hat{\mathcal{J}}_{d} = \sum_{(i,j)} (E_i - E_j) \hat{\mathcal{J}}_{ij}
-\end{align}
 
 また、ジャンプに対して値を返す量(jump quantity)として、対応する記号を定義する。
 \begin{itemize}
@@ -75,7 +73,22 @@ $:$示量変数の積算カレント
     \item $J_{d}(t) = \ev{(\hat{J}_{d}(t)_{ij})} = \sum_{(i,j)} d_{ij} {J}_{ij}(t)$
 \end{itemize}
 
-以下では、$\ev{\cdot}$でpath quantityの平均も、jump quantityの平均も表すこととする。\\
+このとき、
+\begin{align}
+    J_{d} = \ev{\hat{J}_{d}} = \ev{\hat{\hat{J}}_{d}}
+\end{align}
+が言える。\footnote{補足に回す。}また、これを用いることで、
+\begin{align}
+    \ev{\hat{\hat{\mathcal{J}}}_{d} } = \int_{0}^{\tau} dt \ev{\hat{\hat{J}}_{d}} = \int_{0}^{\tau} dt J_{d}(t)
+\end{align}
+が成り立つ。
+各ジャンプを足し合わせて経路量を作っていると考えると、期待値が一致するのは自然である。\\
+
+\textbf{ex.熱流}\\
+このとき、積算熱流は、$d_{ij} = E_i - E_{j}$とすることで、以下のように定義される:
+\begin{align}
+    \hat{\mathcal{J}}_{d} = \sum_{(i,j)} (E_i - E_j) \hat{\mathcal{J}}_{ij}
+\end{align}
 
 \subsubsection{TUR}
 先に、今回の目標であるTURを紹介する。
@@ -268,7 +281,7 @@ $x = \Gamma,g(\Gamma) = \hat{\mathcal{J}}_{d}, f(\theta) = \ev{g(\Gamma)}^{\text
 \begin{align}
     \left.\pdv{\theta} \ev{\hat{{\mathcal{J}}_{d}}}^{\text{ss}}_\theta\right|_{\theta = 0} = \ev{\hat{{\mathcal{J}}_{d}}}^{\text{ss}}_{0}
 \end{align}
-が成り立つ。\footnote{jump quantityの期待値の時間積分は対応するpath quantityの期待値の積分に対応する。}
+が成り立つ。
 
 
 以上の関係式を用いて、式(\ref{eq:1})を評価すると、
