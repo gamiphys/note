@@ -43,6 +43,18 @@
 \maketitle
 
 非平衡統計力学の枠組みでは、ゆらぎの定理から、様々な不等式が導出される。例えば、熱力学第二法則は、IFT(積分型ゆらぎの定理)にJensenの不等式を適用することで導出される。
+\footnote{
+    Jensenの不等式により、
+    \begin{align}
+       1 = \ev{e^{-\sigma}} \geq e^{-\ev{\sigma}}
+    \end{align}
+    がいえるため、
+    \begin{align}
+        \ev{\sigma} \geq 0
+    \end{align}
+    が成り立つ。
+}
+
 
 しかし、ゆらぎの定理以外から得られる不等式も存在する。その一つが、熱力学的不確定性関係(Thermodynamic Uncertainty Relation,TUR)型の不等式である。
 \footnote{"TUR型"と呼んでいるのは、今回紹介する不等式の他にも、似た導出が可能な不等式が存在するためである。}
@@ -55,11 +67,11 @@ TURは、カレントのゆらぎとエントロピー生成との間のトレ�
 \subsubsection{記号}
 まず、経路に対して値を返す量(path quantity)の記号を定義する。
 \begin{itemize}
-    \item  $ \hat{\hat{J}}_{ij} =\sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n)) \delta(t-t_n)$:$i \to j$なる確率流
+    \item  $ \hat{\hat{J}}_{ij} =\sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n)) \delta(t-t_n)$:$j \to i$なる確率流
     \item $\hat{\hat{\mathcal{J}}}_{ij} = 
     % \sum_{n} (\delta_{\omega_j \to \omega_i}(\omega^{n-1}\to \omega^n) - \delta_{\omega_i \to \omega_j}(\omega^{n-1}\to \omega^n))$
-    \int_{0}^{\tau} dt \hat{\hat{J}}_{ij}(t)$:$i \to j$なるカレントの積算
-    \item $\hat{\hat{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\hat{J}}_{ij}$:$i \to j$の物理量のカレントの和
+    \int_{0}^{\tau} dt \hat{\hat{J}}_{ij}(t)$:$j \to i$なるカレントの積算
+    \item $\hat{\hat{J}}_{d} = \sum_{(i,j)} d_{ij} \hat{\hat{J}}_{ij}$:$j \to i$の物理量のカレントの和
     \item $\hat{\hat{\mathcal{J}}}_{d} = \sum_{(i,j)} d_{ij} \hat{\hat{\mathcal{J}}}_{ij}$
 :物理量のカレントの積算
     \item $d_{ij}:$添え字に対する反対称性$d_{ij} = -d_{ji}$を満たす物理量
@@ -535,6 +547,55 @@ TODO: 積分の図を書く。
     &= \ln e^{R_{ii}\Delta t} + O(\Delta t^2)
 \end{align}
 となることを用いている。\\
+
+まず、応答係数 $L_{k,\ell}$ は、キュムラント生成関数を使って以下のように書けることに注意しよう。
+\begin{align}
+L_{k,\ell} = \left. \pdv{}{\mathcal{F}_\ell} \pdv{}{\lambda_k} \mu \right|_{\bm{\lambda},\bm{\mathcal{F}}=0} \tag{4.252}
+\end{align}
+
+ここで、キュムラント生成関数の対称性（4.251）から、以下のような計算をすることができる。
+\begin{align}
+\left. \pdv{}{\mathcal{F}_\ell} \pdv{}{\lambda_k} \mu \right|_{\bm{\lambda},\bm{\mathcal{F}}=0}
+&= \left. \pdv{}{\lambda_k} \pdv{}{\mathcal{F}_\ell} \mu \right|_{\bm{\lambda},\bm{\mathcal{F}}=0} \nonumber \\
+&= - \left. \pdv{}{x_k} \left( -\pdv{}{x_\ell} + \pdv{}{\mathcal{F}_\ell} \right) \mu(\{x_k\};\{\mathcal{F}_k\}) \right|_{x,\bm{\mathcal{F}}=0} \tag{4.253}
+\end{align}
+
+ここで $x_k = -\lambda_k - \mathcal{F}_k$ である。同じ計算を $L_{\ell,k}$ に対してもすることができる。その結果、以下が結論される。
+\begin{align}
+L_{k,\ell} = L_{\ell,k} = \left. \frac{1}{2} \pdv[2]{}{\mathcal{F}_\ell}{\mathcal{F}_k} \mu \right|_{\bm{x},\bm{\mathcal{F}}=0}
+= \frac{1}{2T} \int_0^T dt \int_0^T dt' \, \langle J_k(t) J_\ell(t') \rangle_{\mathrm{eq}}
+\end{align}
+
+
+式(4.253)の導出を以下に示す。
+
+まず、変数変換
+\begin{align}
+x_k = -\lambda_k - \mathcal{F}_k
+\end{align}
+を導入する。このとき、キュムラント生成関数 $\mu$ は $\mu(\{x_k\}, \{\mathcal{F}_k\})$ の関数とみなすことができる。
+
+このとき、連鎖律（chain rule）により次のような関係式が成り立つ：
+\begin{align}
+\pdv{}{\lambda_k} = \pdv{x_k}{\lambda_k} \pdv{}{x_k} = -\pdv{}{x_k},
+\end{align}
+\begin{align}
+\pdv{}{\mathcal{F}_\ell} = \sum_j \pdv{x_j}{\mathcal{F}_\ell} \pdv{}{x_j} + \pdv{}{\mathcal{F}_\ell}
+= -\pdv{}{x_\ell} + \pdv{}{\mathcal{F}_\ell}.
+\end{align}
+
+よって、以下の変換が得られる：
+\begin{align}
+\pdv{}{\mathcal{F}_\ell} \pdv{}{\lambda_k} \mu
+= \left( -\pdv{}{x_\ell} + \pdv{}{\mathcal{F}_\ell} \right) \left( -\pdv{}{x_k} \mu \right)
+= -\pdv{}{x_k} \left( -\pdv{}{x_\ell} + \pdv{}{\mathcal{F}_\ell} \right) \mu.
+\end{align}
+
+したがって、式(4.253)は次のように得られる：
+\begin{align}
+\left. \pdv{}{\mathcal{F}_\ell} \pdv{}{\lambda_k} \mu \right|_{\bm{\lambda}, \bm{\mathcal{F}} = 0}
+= -\left. \pdv{}{x_k} \left( -\pdv{}{x_\ell} + \pdv{}{\mathcal{F}_\ell} \right) \mu(\{x_k\}; \{\mathcal{F}_k\}) \right|_{x, \mathcal{F} = 0}.
+\end{align}9
 
 \begin{thebibliography}{99}
     \bibitem{ref1} Naoto Shiraishi, 『An introduction to stochastic thermodynamics』, Springer, 2023

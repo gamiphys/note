@@ -1,10 +1,10 @@
 # Fdb version 4
-["dvipdf"] 1742274309 "yurikyo3.dvi" "yurikyo3.pdf" "yurikyo3" 1742274310 0
-  "yurikyo3.dvi" 1742274309 71840 7ad75d2cd10532db55eabf3055aed6df "latex"
+["dvipdf"] 1743300007 "yurikyo3.dvi" "yurikyo3.pdf" "yurikyo3" 1743300008 0
+  "yurikyo3.dvi" 1743300006 78456 43ff88bbfbcbaf4926ced348b1e342ab "latex"
   (generated)
   "yurikyo3.pdf"
   (rewritten before read)
-["latex"] 1742274307 "yurikyo3.tex" "yurikyo3.dvi" "yurikyo3" 1742274310 0
+["latex"] 1743300005 "yurikyo3.tex" "yurikyo3.dvi" "yurikyo3" 1743300008 0
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1681538599 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0600.tfm" 1681538073 1536 12e8c510d3e158fdd0e9a42e75118bd9 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/tcrm0800.tfm" 1681538073 1536 05df9db6aeccc4eea94fec15c9024f79 ""
@@ -195,9 +195,9 @@
   "c:/texlive/2023/texmf-dist/web2c/texmf.cnf" 1681536145 40967 d940221f8762fd5848760382d97d1226 ""
   "c:/texlive/2023/texmf-var/web2c/euptex/uplatex.fmt" 1681543661 7810578 2698dd065b95cf2414aad1134e95f638 ""
   "c:/texlive/2023/texmf.cnf" 1681543567 713 e69b156964470283e0530f5060668171 ""
-  "yurikyo3.aux" 1742274309 2282 8a43c894290a8f077bec9a1c18563f03 "latex"
-  "yurikyo3.out" 1742274309 682 6bd536ac5ed1f4ac572d58f7b4b1acf8 "latex"
-  "yurikyo3.tex" 1742274306 28626 09730f7dbbc4d1e8d66e09078522e961 ""
+  "yurikyo3.aux" 1743300006 2282 e0dced10a196d4b08fc2dd69d3598dc7 "latex"
+  "yurikyo3.out" 1743300006 682 6bd536ac5ed1f4ac572d58f7b4b1acf8 "latex"
+  "yurikyo3.tex" 1743300002 31410 2145b4de06fc4af71f2ceed0217bd98f ""
   (generated)
   "yurikyo3.aux"
   "yurikyo3.dvi"
